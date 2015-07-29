@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /noindex/
+Disallow: /common/
+Disallow: /public/
+Disallow: /
