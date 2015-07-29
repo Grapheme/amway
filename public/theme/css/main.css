@@ -12,25 +12,39 @@
   font-weight: normal;
   font-style: normal; }
 
-/* line 22, /Users/morad/Projects/amway/public/theme/css/main.scss */
+@font-face {
+  font-family: 'Vaccine-Regular';
+  src: url('../fonts/Vaccine-Regular.eot');
+  src: url('../fonts/Vaccine-Regular.eot?#iefix') format('embedded-opentype'), url('../fonts/Vaccine-Regular.ttf') format('truetype'), url('../fonts/Vaccine-Regular.svg#Vaccine-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'MuseoSansCyrl-300';
+  src: url('../fonts/MuseoSansCyrl-300.eot');
+  src: url('../fonts/MuseoSansCyrl-300.eot?#iefix') format('embedded-opentype'), url('../fonts/MuseoSansCyrl-300.ttf') format('truetype'), url('../fonts/MuseoSansCyrl-300.svg#MuseoSansCyrl-300') format('svg');
+  font-weight: normal;
+  font-style: normal; }
+
+/* line 40, /Users/morad/Projects/amway/public/theme/css/main.scss */
 header {
   width: 100%;
   height: 190px; }
-  /* line 26, /Users/morad/Projects/amway/public/theme/css/main.scss */
+  /* line 44, /Users/morad/Projects/amway/public/theme/css/main.scss */
   header .holder {
     max-width: 1160px;
     margin: 0 auto; }
-    /* line 29, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 47, /Users/morad/Projects/amway/public/theme/css/main.scss */
     header .holder .logo {
       float: left;
       display: block;
       margin-top: 26px;
       text-decoration: none;
       position: relative; }
-      /* line 35, /Users/morad/Projects/amway/public/theme/css/main.scss */
+      /* line 53, /Users/morad/Projects/amway/public/theme/css/main.scss */
       header .holder .logo img {
         display: block; }
-      /* line 38, /Users/morad/Projects/amway/public/theme/css/main.scss */
+      /* line 56, /Users/morad/Projects/amway/public/theme/css/main.scss */
       header .holder .logo .red {
         font-family: 'Vaccine-Bold';
         font-size: 18px;
@@ -43,12 +57,57 @@ header {
         left: 162px;
         transform: rotate(-20deg);
         width: 165px; }
-      /* line 51, /Users/morad/Projects/amway/public/theme/css/main.scss */
+      /* line 69, /Users/morad/Projects/amway/public/theme/css/main.scss */
       header .holder .logo .ast {
         font-family: 'Vaccine-Italic';
         color: #1f395a;
         font-size: 14px;
         position: absolute;
-        top: 0; }
+        top: 88px;
+        left: 167px;
+        letter-spacing: 0.05em;
+        transform: rotate(-21deg);
+        width: 200px; }
+  /* line 82, /Users/morad/Projects/amway/public/theme/css/main.scss */
+  header nav {
+    float: right;
+    font-family: 'Vaccine-Regular';
+    font-size: 16px;
+    margin-top: 82px;
+    margin-top: 85px;
+    margin-right: 0px; }
+    /* line 89, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    header nav ul {
+      padding: 0;
+      margin: 0; }
+      /* line 92, /Users/morad/Projects/amway/public/theme/css/main.scss */
+      header nav ul li {
+        display: inline-block;
+        margin: 0 20px; }
+        /* line 95, /Users/morad/Projects/amway/public/theme/css/main.scss */
+        header nav ul li a {
+          color: #19375f;
+          text-decoration: none; }
+        /* line 99, /Users/morad/Projects/amway/public/theme/css/main.scss */
+        header nav ul li.enter {
+          font-family: 'MuseoSansCyrl-300';
+          font-size: 14px;
+          background: #f3f4f6;
+          border-radius: 20px;
+          position: relative;
+          margin-right: 0;
+          top: -3px; }
+          /* line 107, /Users/morad/Projects/amway/public/theme/css/main.scss */
+          header nav ul li.enter .user-ico {
+            position: absolute;
+            top: 11px;
+            left: 15px; }
+          /* line 112, /Users/morad/Projects/amway/public/theme/css/main.scss */
+          header nav ul li.enter a {
+            display: block;
+            padding-bottom: 11px;
+            padding-top: 10px;
+            padding-right: 17px;
+            padding-left: 38px; }
 
 /*# sourceMappingURL=main.css.map */
