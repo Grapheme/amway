@@ -2,7 +2,7 @@
 
 return array(
 
-    'theme_path' => URL::to('/theme/build'),
+    'theme_path' => URL::to('/theme'),
     #'theme_path' => URL::to('/theme/' . Config::get('app.template') . '/dist'),
     #'mobile_theme_path' => URL::to('/theme/mobile/dist'),
 
