@@ -1,22 +1,22 @@
 <?php
 
-class UserTableSeeder extends Seeder{
+class UserTableSeeder extends Seeder {
 
-	public function run(){
-		
-		User::create(array(
-            'group_id'=>1,
-			'name'=>'Разработчик',
-			'surname'=>'',
-			'email'=>'developer@amway.ru',
-			'active'=>1,
-			'password'=>Hash::make('grapheme1234'),
-			'photo'=>'',
-			'thumbnail'=>'',
-			'temporary_code'=>'',
-			'code_life'=>0,
-			'remember_token' => 'Ycr4p62EPv3x3UWabeo3NpiSdJmI7hT3E460C5eTuiFKp1Vbjg6WL2M2bmPv',
-		));
+    public function run() {
+
+        User::create(array(
+            'group_id' => 1,
+            'name' => 'Разработчик',
+            'surname' => '',
+            'email' => 'developer@amway.ru',
+            'active' => 1,
+            'password' => Hash::make('grapheme1234'),
+            'photo' => '',
+            'thumbnail' => '',
+            'temporary_code' => '',
+            'code_life' => 0,
+            'remember_token' => 'Ycr4p62EPv3x3UWabeo3NpiSdJmI7hT3E460C5eTuiFKp1Vbjg6WL2M2bmPv',
+        ));
         DB::table('sessions')->insert(array(
             array(
                 'id' => '80b1264be73168dfa026345d79abc86a1d29660c',
@@ -25,30 +25,30 @@ class UserTableSeeder extends Seeder{
             )
         ));
 
-		User::create(array(
-            'group_id'=>2,
-			'name'=>'Администратор',
-			'surname'=>'',
-			'email'=>'admin@amway.ru',
-			'active'=>1,
-			'password'=>Hash::make('grapheme1234'),
-			'photo'=>'',
-			'thumbnail'=>'',
-			'temporary_code'=>'',
-			'code_life'=>0,
-		));
+        User::create(array(
+            'group_id' => 2,
+            'name' => 'Администратор',
+            'surname' => '',
+            'email' => 'admin@amway.ru',
+            'active' => 1,
+            'password' => Hash::make('grapheme1234'),
+            'photo' => '',
+            'thumbnail' => '',
+            'temporary_code' => '',
+            'code_life' => 0,
+        ));
 
-		User::create(array(
-			'group_id'=>3,
-			'name'=>'Модератор',
-			'surname'=>'',
-			'email'=>'moder@amway.ru',
-			'active'=>1,
-			'password'=>Hash::make('grapheme1234'),
-			'photo'=>'',
-			'thumbnail'=>'',
-			'temporary_code'=>'',
-			'code_life'=>0,
-		));
-	}
+        User::create(array(
+            'group_id' => 3,
+            'name' => 'Модератор',
+            'surname' => '',
+            'email' => 'moder@amway.ru',
+            'active' => 1,
+            'password' => Hash::make('grapheme1234'),
+            'photo' => '',
+            'thumbnail' => '',
+            'temporary_code' => '',
+            'code_life' => 0,
+        ));
+    }
 }
