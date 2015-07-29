@@ -1,0 +1,12 @@
+header {
+  width: 100%;
+  height: 190px;
+  background: red;
+  .logo {
+    float: left;
+    display: block;
+    img {
+      display: block;
+    }
+  }
+}
