@@ -70,6 +70,56 @@
 	content: "\64";
 }
 
+@font-face {
+    font-family: 'Glyphter';
+    src: url('../fonts/Glyphter.eot');
+    src: url('../fonts/Glyphter.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Glyphter.woff') format('woff'),
+         url('../fonts/Glyphter.ttf') format('truetype'),
+         url('../fonts/Glyphter.svg#Glyphter') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+[class*='icon2-']:before{
+	display: inline-block;
+   font-family: 'Glyphter';
+   font-style: normal;
+   font-weight: normal;
+   line-height: 1;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale
+}
+.icon2-star:before{content:'\0041';}
+
+.rating {
+  margin-top: 10px;
+  text-align: center;
+  .icon2-star {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 45px;
+    color: #ffa700;
+  }
+  .count {
+    display: inline-block;
+    vertical-align: middle;
+    font-family: 'Vaccine-Bold';
+    font-size: 24px;
+    color: #173154;
+    position: relative;
+    top: -5px;
+  }
+  .legend {
+    display: inline-block;
+    vertical-align: middle;
+    font-family: 'MuseoSansCyrl-300';
+    font-size: 14px;
+    color: #173152;
+    position: relative;
+    top: -7px;
+    left: 10px;
+  }
+}
 
 header {
   width: 100%;
@@ -171,6 +221,16 @@ section {
     vertical-align: middle;
     content: '';
   }
+  &.color-red {
+    background-color: #ed1217;
+    a.btn {
+      color: #ed1217;
+      &:hover {
+        background-color: #2d9f1e;
+        color: white;
+      }
+    }
+  }
   &.color-green {
     background-color: #299f39;
     a.btn {
@@ -180,6 +240,16 @@ section {
   &.color-blue {
     .cover {
       background: rgba(#194885, 0.7);
+    }
+  }
+  &.color-yellow {
+    .cover {
+      background: rgba(#ffa800, 0.7);
+    }
+  }
+  &.color-purple {
+    .cover {
+      background: rgba(#7d34af, 0.7);
     }
   }
   .holder {
@@ -244,7 +314,7 @@ section {
   }
 }
 
-h1 {
+h2 {
   font-family: 'Vaccine-Bold';
   font-weight: normal;
   font-size: 44px;
@@ -274,5 +344,354 @@ a.btn {
   &:hover {
     background-color: #e4261e;
     color: white !important;
+  }
+}
+
+.competitors {
+  .holder {
+    max-width: 1162px;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    .unit {
+      display: inline-block;
+      text-align: center;
+      margin: 0 18px;
+      &:first-of-type {
+        margin-left: 0;
+      }
+      &:last-of-type {
+        margin-right: 0;
+        .icon2-star {
+          color: #138cdf !important;
+        }
+      }
+      &:nth-of-type(2) {
+        .icon2-star {
+          color: #35cc26 !important;
+        }
+      }
+      &:nth-of-type(3) {
+        .icon2-star {
+          color: #6f26a5 !important;
+        }
+      }
+      &:nth-of-type(4) {
+        .icon2-star {
+          color: #ea1924 !important;
+        }
+      }
+      .img {
+        border-radius: 300px;
+        img {
+          display: block;
+          width: 200px;
+          height: 200px;
+          border-radius: 300px;
+        }
+      }
+      .name {
+        font-family: 'Vaccine-Bold';
+        font-size: 16px;
+        color: #173152;
+        line-height: 24px;
+        letter-spacing: 0.05em;
+        text-align: center;
+        text-transform: uppercase;
+        margin-top: 28px;
+      }
+      .location {
+        font-family: 'MuseoSansCyrl-300';        
+        font-size: 14px;
+        color: #1b3559;
+        text-align: center;
+        margin-top: 8px;
+      }
+      .rating {
+        margin-top: 10px;
+        text-align: center;
+        .icon2-star {
+          display: inline-block;
+          vertical-align: middle;
+          font-size: 45px;
+          color: #ffa700;
+        }
+        .count {
+          display: inline-block;
+          vertical-align: middle;
+          font-family: 'Vaccine-Bold';
+          font-size: 24px;
+          color: #173154;
+          position: relative;
+          top: -5px;
+        }
+        .legend {
+          display: inline-block;
+          vertical-align: middle;
+          font-family: 'MuseoSansCyrl-300';
+          font-size: 14px;
+          color: #173152;
+          position: relative;
+          top: -7px;
+          left: 10px;
+        }
+      }
+      .vote {
+        font-family: 'Vaccine-Regular';
+        font-size: 13px;
+        color: #ea1924;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        text-decoration: none;
+        border: 1px solid #ea1924;
+        padding: 10px 11px;
+        padding-top: 12px;
+        margin-top: 7px;
+        display: inline-block;
+        border-radius: 8px;
+        &:hover{
+          background: #ea1924;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+h3 {
+  font-family: 'Vaccine-Regular';
+  font-size: 24px;
+  letter-spacing: 0.1em;
+  color: #163055;
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 62px;
+  text-transform: uppercase;
+}
+
+.main-news {
+  h3 {
+    margin-bottom: 80px; //!! убрать
+  }
+  .holder {
+    max-width: 1162px;
+    margin: 0 auto;
+    margin-bottom: 105px;
+    .unit {
+      width: 360px;
+      display: inline-block;
+      margin: 0 18px;
+      vertical-align: top;
+      &:first-of-type {
+        margin-left: 0;
+      }
+      &:last-of-type {
+        margin-right: 0;
+      }
+      a.wrapper {
+        text-decoration: none;
+      }
+      .title {
+        font-family: 'Vaccine-Regular';
+        font-size: 18px;
+        color: #1c3659;
+        text-align: center;
+      }
+      .date {
+        font-family: 'MuseoSansCyrl-300';
+        font-size: 14px;
+        color: #1c3659;
+        text-align: center;
+      }
+      .frame {
+        position: relative;
+        z-index: 100;
+        top: 0;
+        border: 1px solid #d0d6e3;
+        background: white;
+      }
+      &.video {
+        //text-align: center;
+        .frame {
+          position: relative;
+          text-align: center;
+          &:before {
+            display: block;
+            background: url('../img/deco-best-video.png');
+            position: absolute;
+            content: '';
+            width: 223px;
+            height: 116px;
+            margin-top: -5px;
+            margin-left: -6px;
+          }
+        }
+        .play {
+          position: absolute;
+          color: white;
+          text-decoration: none;
+          font-size: 104px;
+          left: 50%;
+          margin-left: -52px;
+          margin-top: 68px;
+        }
+        .name {
+          font-family: 'Vaccine-Bold';
+          font-size: 16px;
+          color: #173152;
+          line-height: 24px;
+          letter-spacing: 0.05em;
+          text-align: center;
+          text-transform: uppercase;
+          margin-top: 10px;
+        }
+        .location {
+          font-family: 'MuseoSansCyrl-300';
+          font-size: 14px;
+          color: #1b3559;
+          text-align: center;
+          margin-top: 8px;
+        }
+        .rating {
+          margin-bottom: -10px;
+          margin-top: 5px;
+          .icon2-star {
+            color: #752aa8;
+          }
+        }
+      }
+      &.map {
+        .visual {
+          width: 360px;
+        }
+        .title {
+          text-align: left;
+          padding-left: 14px;
+          padding-top: 0px;
+          min-height: 48px;
+          padding-bottom: 2px;
+          line-height: 21px;
+        }
+      }
+      &.photo {
+        position: relative;
+        .all {
+          margin-top: 30px;
+        }
+        .title {
+          margin-top: 18px;
+        }
+        .date {
+          margin-top: 27px;
+          margin-bottom: 18px;
+        }
+        .visual {
+          width: 360px;
+          height: 240px;
+          display: block;
+        }
+        .frame {
+          position: relative;
+          z-index: 100;
+          top: 0;
+          border: 1px solid #d0d6e3;
+          background: white;
+          left: 0;
+          &.second {
+            //right: -5px;
+            top: 4px;
+            left: 3px;
+            position: absolute;
+          }
+          &.third {
+            //right: -11px;
+            top: 9px;
+            left: 8px;
+            position: absolute;
+          }
+        }
+      }
+      .all {
+        font-family: 'MuseoSansCyrl-300';
+        font-size: 12px;
+        color: #173153;
+        text-decoration: none;
+        text-transform: uppercase;
+        margin-top: 21px;
+        margin-left: 4px;
+        display: inline-block;
+        letter-spacing: 0.1em;
+        &:hover {
+          color: #ea1e17;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  width: 100%;
+  background: #1c4a83;
+  height: 200px;
+  .holder {
+    margin: 0 auto;
+    width: 1160px;
+    .left {
+      float: left;
+      margin-top: 81px;
+      &>* {
+        display: inline-block;
+        vertical-align: top;
+      }
+      .copy {
+        color: white;
+        font-size: 14px;
+        font-family: 'MuseoSansCyrl-300';
+        margin-left: 45px;
+        margin-top: 5px;
+      }
+      .mail {
+        color: white;
+        font-size: 16px;
+        font-family: 'MuseoSansCyrl-300';
+        text-decoration: none;
+        border-bottom: 1px solid rgba(white, 0.5);
+        margin-left: 35px;
+        margin-top: 4px;
+      }
+    }
+    .right {
+      float: right;
+      .dev {
+        color: white;
+        font-size: 16px;
+        font-family: 'MuseoSansCyrl-300';
+        text-decoration: none;
+        border-bottom: 1px solid rgba(white, 0.5);
+        margin-top: 84px;
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.popup-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(#194885, 0.5);
+  display: none;
+  .popup {
+    width: 50%;
+    margin: 0 auto;
+    background: white;
+    display: none;
+    &.active {
+      display: block;
+    }
+  }
+  &.active {
+    display: block;
   }
 }
