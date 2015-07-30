@@ -19,8 +19,8 @@
             </a>
         @endif
         <nav>
-            {{ Menu::placement('main_menu') }}
             <ul>
+                {{ Menu::placement('main_menu') }}
                 <li class="enter">
                     <img src="img/ico-user.png" class="user-ico" alt="">
                     <a href="" class="btn-popup" data-href="enter">Вход для участников</a>
