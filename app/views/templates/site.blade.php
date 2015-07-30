@@ -26,7 +26,9 @@
         @section('footer')
             @include(Helper::layout('footer'))
         @show
-
+        @section('popups')
+            @include(Helper::layout('popups'))
+        @show
         @include(Helper::layout('scripts'))
 
         @section('overlays')
