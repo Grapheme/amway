@@ -17,7 +17,7 @@
     <section class="color-green">
         <div class="cover"></div>
         <div class="holder">
-            <a href="" class="btn">Принять участие в конкурсе</a>
+            <a href="" class="btn-popup btn" data-href="enter">Принять участие в конкурсе</a>
             {{ $page->block('second_section') }}
             <p>До окончания регистрации в конкурсе осталось 27 дней.</p>
         </div>
@@ -60,7 +60,7 @@
     <section class="color-red">
         <div class="cover"></div>
         <div class="holder">
-            <a href="" class="btn">Принять участие в конкурсе</a>
+            <a href="" class="btn-popup btn" data-href="enter">Принять участие в конкурсе</a>
             {{ $page->block('six_section') }}
             <p>
                 До окончания регистрации в конкурсе осталось 27 дней.
