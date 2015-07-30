@@ -6,7 +6,11 @@
 <footer>
     <div class="holder">
         <div class="left">
-            <a href="#" class="logo"><img src="{{ asset(Config::get('site.theme_path')) }}/img/logo2.png" alt=""></a>
+            @if (Request::is('/'))
+            <div class="logo"><img src="{{ asset(Config::get('site.theme_path')) }}/img/logo2.png" alt=""></div>
+            @else
+            <a href="{{ URL::route('mainpage') }}" class="logo"><img src="{{ asset(Config::get('site.theme_path')) }}/img/logo2.png" alt=""></a>
+            @endif
             <div class="copy">
                 © 2015, Amway, A-Gen, 2015<? if (date('Y') > 2015) { echo '-' . date('Y'); } ?><br>
                 Все права защищены.
