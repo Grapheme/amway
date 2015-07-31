@@ -85,7 +85,20 @@ function sendForm(form){
   });
 }
 
+function parseHash(){
+  var hash = window.location.hash;
+  if (hash != '' && hash.charAt(0)=='#') {
+    hash = hash.split("#")[1];
+    if (hash.split('=').length > 1) {
+      var key = hash.split('=')[0];
+      var val = hash.split('=')[1];
+      if (key=='popup') showPopup(val);
+    }
+  }
+}
+
 $(function() {
+  parseHash();
   renderVoting();
   
   $('.competitors a.vote').click(function(e){

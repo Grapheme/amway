@@ -1,0 +1,51 @@
+footer {
+  width: 100%;
+  background: #1c4a83;
+  height: 200px;
+  .holder {
+    margin: 0 auto;
+    width: 1160px;
+    .left {
+      float: left;
+      margin-top: 81px;
+      &>* {
+        display: inline-block;
+        vertical-align: top;
+      }
+      .copy {
+        color: white;
+        font-size: 14px;
+        font-family: 'MuseoSansCyrl-300';
+        margin-left: 45px;
+        margin-top: 5px;
+      }
+      .mail {
+        color: white;
+        font-size: 16px;
+        font-family: 'MuseoSansCyrl-300';
+        text-decoration: none;
+        border-bottom: 1px solid rgba(white, 0.5);
+        margin-left: 35px;
+        margin-top: 4px;
+      }
+    }
+    .right {
+      float: right;
+      .dev {
+        color: white;
+        font-size: 16px;
+        font-family: 'MuseoSansCyrl-300';
+        text-decoration: none;
+        border-bottom: 1px solid rgba(white, 0.5);
+        margin-top: 84px;
+        display: inline-block;
+      }
+    }
+  }
+}
+
+body.profile {
+  footer {
+    margin-top: -200px;
+  }
+}

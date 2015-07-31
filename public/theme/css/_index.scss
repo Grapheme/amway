@@ -1,0 +1,293 @@
+section {
+  width: 100%;
+  position: relative;
+  text-align: center;
+  height: 300px;
+  background-image: url('../img/bg-agen.png');
+  background-repeat: no-repeat;
+  background-position: 40% 50%;
+  &:before {
+    display: inline-block;
+    width: 0;
+    height: 100%;
+    vertical-align: middle;
+    content: '';
+  }
+  &.color-red {
+    background-color: #ed1217;
+    a.btn {
+      color: #ed1217;
+      &:hover {
+        background-color: #2d9f1e;
+        color: white;
+      }
+    }
+  }
+  &.color-green {
+    background-color: #299f39;
+    a.btn {
+      color: #197a26;
+    }
+  }
+  &.color-blue {
+    .cover {
+      background: rgba(#194885, 0.7);
+    }
+  }
+  &.color-yellow {
+    .cover {
+      background: rgba(#ffa800, 0.7);
+    }
+  }
+  &.color-purple {
+    .cover {
+      background: rgba(#7d34af, 0.7);
+    }
+  }
+  .holder {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding-top: 1px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 82px;
+    .play {
+      text-decoration: none;
+      color: white;
+      font-size: 100px;
+      margin-top: 40px;
+      display: inline-block;
+      &:hover {
+        color: #e42228;
+      }
+    }
+    .down {
+      text-decoration: none;
+      color: white;
+      display: inline-block;
+      bottom: -130px;
+      font-size: 60px;
+      position: absolute;
+      margin-left: -20px;
+      &:hover {
+        color: #e42228;
+      }
+    }
+    h1 {
+      max-width: 962px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: -20px;
+      line-height: 61px;
+    }
+    p {
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  &.long {
+    height: 710px;
+    background-size: cover;
+    background-position: center center;
+    .holder {
+      margin-left: 0;
+    }
+    p {
+      font-size: 24px;
+    }
+  }
+  .cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+  }
+}
+
+.main-news {
+  h3 {
+    margin-bottom: 80px; //!! убрать
+  }
+  .holder {
+    max-width: 1162px;
+    margin: 0 auto;
+    margin-bottom: 105px;
+    .unit {
+      width: 360px;
+      display: inline-block;
+      margin: 0 18px;
+      vertical-align: top;
+      &:first-of-type {
+        margin-left: 0;
+      }
+      &:last-of-type {
+        margin-right: 0;
+      }
+      a.wrapper {
+        text-decoration: none;
+      }
+      .title {
+        font-family: 'Vaccine-Regular';
+        font-size: 18px;
+        color: #1c3659;
+        text-align: center;
+      }
+      .date {
+        font-family: 'MuseoSansCyrl-300';
+        font-size: 14px;
+        color: #1c3659;
+        text-align: center;
+      }
+      .frame {
+        position: relative;
+        z-index: 100;
+        top: 0;
+        border: 1px solid #d0d6e3;
+        background: white;
+      }
+      &.video {
+        //text-align: center;
+        .wrapper {
+          &:hover {
+            .name {
+              color: #ea1e17;
+            }
+            .play {
+              color: #ea1e17;
+            }
+          }
+        }
+        .frame {
+          position: relative;
+          text-align: center;
+          &:before {
+            display: block;
+            background: url('../img/deco-best-video.png');
+            position: absolute;
+            content: '';
+            width: 223px;
+            height: 116px;
+            margin-top: -5px;
+            margin-left: -6px;
+          }
+        }
+        .play {
+          position: absolute;
+          color: white;
+          text-decoration: none;
+          font-size: 104px;
+          left: 50%;
+          margin-left: -52px;
+          margin-top: 68px;
+        }
+        .name {
+          font-family: 'Vaccine-Bold';
+          font-size: 16px;
+          color: #173152;
+          line-height: 24px;
+          letter-spacing: 0.05em;
+          text-align: center;
+          text-transform: uppercase;
+          margin-top: 10px;
+        }
+        .location {
+          font-family: 'MuseoSansCyrl-300';
+          font-size: 14px;
+          color: #1b3559;
+          text-align: center;
+          margin-top: 8px;
+        }
+        .rating {
+          margin-bottom: -10px;
+          margin-top: 5px;
+          .icon2-star {
+            color: #752aa8;
+          }
+        }
+      }
+      &.map {
+        .visual {
+          width: 360px;
+        }
+        .title {
+          text-align: left;
+          padding-left: 14px;
+          padding-top: 0px;
+          min-height: 48px;
+          padding-bottom: 2px;
+          line-height: 21px;
+        }
+        &:hover {
+          .frame {
+            .title {
+              color: #ea1e17;
+            }
+          }
+        }
+      }
+      &.photo {
+        position: relative;
+        .all {
+          margin-top: 30px;
+        }
+        .title {
+          margin-top: 18px;
+        }
+        .date {
+          margin-top: 27px;
+          margin-bottom: 18px;
+        }
+        .visual {
+          width: 360px;
+          height: 240px;
+          display: block;
+        }
+        .frame {
+          position: relative;
+          z-index: 100;
+          top: 0;
+          border: 1px solid #d0d6e3;
+          background: white;
+          left: 0;
+          &.second {
+            //right: -5px;
+            top: 4px;
+            left: 3px;
+            position: absolute;
+          }
+          &.third {
+            //right: -11px;
+            top: 9px;
+            left: 8px;
+            position: absolute;
+          }
+        }
+        .wrapper {
+          &:hover {
+            .frame {
+              .title {
+                color: #ea1e17;
+              }
+            }
+          }
+        }
+      }
+      .all {
+        font-family: 'MuseoSansCyrl-300';
+        font-size: 12px;
+        color: #173153;
+        text-decoration: none;
+        text-transform: uppercase;
+        margin-top: 21px;
+        margin-left: 4px;
+        display: inline-block;
+        letter-spacing: 0.1em;
+        &:hover {
+          color: #ea1e17;
+        }
+      }
+    }
+  }
+}
