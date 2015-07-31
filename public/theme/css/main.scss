@@ -179,6 +179,9 @@ header {
         a {
           color: #19375f;
           text-decoration: none;
+          &:hover {
+            color: #e61926;
+          }
         }
         &.enter {
           font-family: 'MuseoSansCyrl-300';
@@ -192,6 +195,7 @@ header {
             position: absolute;
             top: 11px;
             left: 15px;
+            pointer-events: none;
           }
           a {
             display: block;
@@ -199,6 +203,9 @@ header {
             padding-top: 10px;
             padding-right: 17px;
             padding-left: 38px;
+            &:hover {
+              color: #e61926;
+            }
           }
         }
       }
@@ -511,6 +518,16 @@ h3 {
       }
       &.video {
         //text-align: center;
+        .wrapper {
+          &:hover {
+            .name {
+              color: #ea1e17;
+            }
+            .play {
+              color: #ea1e17;
+            }
+          }
+        }
         .frame {
           position: relative;
           text-align: center;
@@ -571,6 +588,13 @@ h3 {
           padding-bottom: 2px;
           line-height: 21px;
         }
+        &:hover {
+          .frame {
+            .title {
+              color: #ea1e17;
+            }
+          }
+        }
       }
       &.photo {
         position: relative;
@@ -607,6 +631,15 @@ h3 {
             top: 9px;
             left: 8px;
             position: absolute;
+          }
+        }
+        .wrapper {
+          &:hover {
+            .frame {
+              .title {
+                color: #ea1e17;
+              }
+            }
           }
         }
       }
@@ -808,6 +841,10 @@ footer {
       border-radius: 40px;
       background: white;
       text-transform: uppercase;
+      &:hover {
+        background: #e71927;
+        color: white;
+      }
     }
     &#reg {
       form {
@@ -877,6 +914,10 @@ footer {
             vertical-align: middle;
             width: 42px;
             text-align: center;
+            &:hover {
+              color: #e71927;
+              fill: #e71927;
+            }
           }
         }
         button {
