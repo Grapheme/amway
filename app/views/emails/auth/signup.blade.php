@@ -6,7 +6,7 @@
 <body>
 <div>
     <p>
-        Добро пожаловать в {{ link_to('','Amway') }}.
+        Добро пожаловать в {{ link_to('','Amway') }}.<br>
         @if(!$verified_email)
             Активируйте свой аккаунт, перейдя
             по {{ link_to('activation?u='.$account->id.'&c='.$account->temporary_code,'ссылке') }}.

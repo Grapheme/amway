@@ -70,10 +70,8 @@ class RegisterController extends BaseController {
                             $message->to(Input::get('email'))->subject('Amway - регистрация');
                         });
                         self::createULogin($account->id, $post);
-                        if($post['verified_email']):
-                            Auth::loginUsingId($account->id, TRUE);
-                            $json_request['redirect'] = URL::to(AuthAccount::getGroupStartUrl());
-                        endif;
+                        Auth::loginUsingId($account->id, TRUE);
+                        $json_request['redirect'] = URL::to(AuthAccount::getGroupStartUrl());
                         $json_request['responseText'] = Lang::get('interface.SIGNUP.success');
                         $json_request['status'] = TRUE;
                     endif;
@@ -91,8 +89,7 @@ class RegisterController extends BaseController {
 
     public function activation($temporary_key = '') {
 
-        if ($account = User::whereIn('active', array(1,
-            2))->where('temporary_code', $temporary_key)->where('code_life', '>=', time())->first()
+        if ($account = User::where('active', 0)->where('temporary_code', $temporary_key)->where('code_life', '>=', time())->first()
         ):
             $account->code_life = 0;
             $account->temporary_code = '';
@@ -136,7 +133,7 @@ class RegisterController extends BaseController {
     private function createULogin($user_id, $post){
 
         $ulogin= new Ulogin();
-        if (!is_null($post)):
+        if (!is_null($post) && !isset($post['network']) && !empty($post['network'])):
             $ulogin->user_id = $user_id;
             $ulogin->network = $post['network'];
             $ulogin->identity = $post['identity'];

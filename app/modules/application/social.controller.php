@@ -40,7 +40,7 @@ class SocialController extends BaseController {
         if ($check = Ulogin::where('identity', '=', $_user['identity'])->first()):
             Auth::loginUsingId($check->user_id, true);
             return Redirect::to(AuthAccount::getGroupStartUrl());
-        elseif (isset($_user['email']) && User::where('email', $_user['email'])->exists()):
+        elseif(isset($_user['email']) && User::where('email', $_user['email'])->exists()):
             $userID = User::where('email', $_user['email'])->pluck('id');
             self::createULogin($userID, $_user);
             Auth::loginUsingId($userID, TRUE);
