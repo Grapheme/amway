@@ -6,6 +6,13 @@ section {
   background-image: url('../img/bg-agen.png');
   background-repeat: no-repeat;
   background-position: 40% 50%;
+  p {
+    font-family: 'MuseoSansCyrl-300';
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    line-height: 33px;
+  }
   &:before {
     display: inline-block;
     width: 0;

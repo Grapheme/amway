@@ -1,0 +1,59 @@
+body.profile {
+  main {
+    background: #f3f4f6;
+    .holder {
+      width: 1160px;
+      margin: 0 auto;
+      margin-top: 76px;
+      margin-bottom: 98px;
+      @extend .cf;
+      .photo {
+        float: left;
+        width: 200px;
+        img {
+          width: 200px;
+          border-radius: 300px;
+        }
+        a {
+          
+        }
+      }
+      .info {
+        float: right;
+        width: 860px;
+        
+        p {
+          font-family: 'MuseoSansCyrl-300';
+          font-size: 16px;
+          color: #173153;  
+          line-height: 19px;
+        }
+        .row {
+          @extend .cf;
+          .name {
+            margin: 0;
+            float: left;
+          }
+          .edit {
+            margin-top: 10px;
+            margin-left: 56px;
+          }
+          .exit {
+            float: right;
+            margin-top: -6px;
+          }
+          .rating {
+            margin-top: 30px;
+            text-align: left;
+            .icon2-star {
+              color: #eb0807;
+            }
+          }
+          .add-video {
+            margin-top: 36px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -3,14 +3,52 @@
 @import 'footer';
 @import 'popups';
 @import 'index';
+@import 'profile';
 
 html, body { height: 100%; }
+
+.cf {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.btn-white {
+  background: white;
+  text-decoration: none;
+  border: none;
+  padding: 12px 30px;
+  padding-bottom: 11px;
+  border-radius: 30px;
+}
+
+body {
+  main {
+    a {
+      font-size: 14px;
+      font-family: 'MuseoSansCyrl-300';
+      color: #153053;
+      border-bottom: 1px solid #dce0e5;
+      text-decoration: none;
+      display: inline-block;
+      //margin-top: 6px;
+      //margin-bottom: 50px;
+      &:hover {
+        color: #e71e1d;
+        border-color: rgba(231, 30, 29, 0.5);
+      }
+    }
+  }
+}
 
 body.profile {
   main {
     min-height: 100%;
     box-sizing: border-box; -moz-box-sizing: border-box;
     padding-bottom: 200px;
+    padding-top: 190px;
   }
 }
 
@@ -39,7 +77,7 @@ body.profile {
     font-size: 14px;
     color: #173152;
     position: relative;
-    top: -7px;
+    top: -5px;
     left: 10px;
   }
 }
@@ -50,14 +88,6 @@ h2 {
   font-size: 44px;
   color: white;
   text-align: center;
-}
-
-p {
-  font-family: 'MuseoSansCyrl-300';
-  color: white;
-  font-size: 20px;
-  text-align: center;
-  line-height: 33px;
 }
 
 a.btn {
@@ -74,6 +104,27 @@ a.btn {
   &:hover {
     background-color: #e4261e;
     color: white !important;
+  }
+}
+
+.btn-big-red {
+  display: inline-block;
+  font-family: 'Vaccine-Bold';
+  font-size: 18px;
+  padding-left: 34px;
+  padding-right: 34px;
+  height: 58px;
+  text-align: center;
+  color: #e71927;
+  border: 2px solid #e71927;
+  border-radius: 40px;
+  background: white;
+  text-transform: uppercase;
+  line-height: 330%;
+  &:hover {
+    background: #e71927;
+    color: white;
+    border-color: #e71927;
   }
 }
 
@@ -161,7 +212,7 @@ a.btn {
           font-size: 14px;
           color: #173152;
           position: relative;
-          top: -7px;
+          top: -6px;
           left: 10px;
         }
       }

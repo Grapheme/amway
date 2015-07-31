@@ -17,8 +17,9 @@ function jsTils(num, expressions) {
 }
 
 function renderVoting(){
-  $('.competitors .unit').each(function(index, value){
-    var $rating = $(this).find('.rating');
+  
+  $('.rating').each(function(index, value){
+    var $rating = $(this);
     var $count = $rating.find('.count');
     var $legend = $rating.find('.legend');
     var expressions = ['голос', 'голоса', 'голосов'];
@@ -26,6 +27,7 @@ function renderVoting(){
     var num = $count.text();
     $legend.text(jsTils(num, expressions));
   });
+  
 }
 
 function votePlus($vote_btn){
