@@ -57,3 +57,19 @@ body.profile {
     }
   }
 }
+
+.videoupload {
+  display: none;
+}
+
+.upload-video {
+  label {
+    position: absolute;
+    width: 250px;
+    //margin-top: -62px;
+    visibility: hidden;
+    height: 62px;
+    display: block;
+    width: 256px;
+  }
+}

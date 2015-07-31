@@ -800,6 +800,19 @@ body.profile main {
       body.profile main .holder .info .row .add-video {
         margin-top: 36px; }
 
+/* line 61, /Users/morad/Projects/amway/public/theme/css/_profile.scss */
+.videoupload {
+  display: none; }
+
+/* line 66, /Users/morad/Projects/amway/public/theme/css/_profile.scss */
+.upload-video label {
+  position: absolute;
+  width: 250px;
+  visibility: hidden;
+  height: 62px;
+  display: block;
+  width: 256px; }
+
 /* line 8, /Users/morad/Projects/amway/public/theme/css/main.scss */
 html, body {
   height: 100%; }
@@ -1028,5 +1041,33 @@ h3 {
   margin-top: 60px;
   margin-bottom: 62px;
   text-transform: uppercase; }
+
+/* line 252, /Users/morad/Projects/amway/public/theme/css/main.scss */
+.progress {
+  height: 20px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  width: 500px; }
+  /* line 261, /Users/morad/Projects/amway/public/theme/css/main.scss */
+  .progress .progress-bar {
+    float: left;
+    width: 0;
+    height: 100%;
+    font-size: 12px;
+    line-height: 20px;
+    color: #fff;
+    text-align: center;
+    background-color: #e71927;
+    -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+    -webkit-transition: width .6s ease;
+    -o-transition: width .6s ease;
+    transition: width .6s ease;
+    font-family: 'MuseoSansCyrl-300';
+    font-size: 14px; }
 
 /*# sourceMappingURL=main.css.map */

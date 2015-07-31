@@ -75,9 +75,14 @@ function sendForm(form){
     success: function(data){
       console.log(data);
       if (data.status == true) {
-        alert('Нет финального состояние формы');
+        if (data.redirect == false) {
+          alert('Нет финального состояние формы');
+        } else {
+          location.href = data.redirect;
+        }
       } else {
-        alert('status==', data.status);
+        $form.prepend('<label class="error">'+data.responseText+'</label>');
+        //alert('status==', data.status);
       }
     },
     error: function(data){
@@ -102,6 +107,11 @@ function parseHash(){
 $(function() {
   parseHash();
   renderVoting();
+  
+  $('.add-video').click(function(e){
+    e.preventDefault();
+    $('.videoupload').click();
+  });
   
   $('.competitors a.vote').click(function(e){
     e.preventDefault();
@@ -178,6 +188,40 @@ $(function() {
       sendForm(form);
     }
   })
+  
   $('#reg form input[name="phone"]').mask("+7(999) 999-9999");
+  
+  $('.videoupload').fileupload({
+    dataType: 'json',
+    done: function (e, data) {
+      alert('Готово!'); 
+      location.href='';
+    },
+    fail: function (e, data) {
+      alert('Ошибка');
+      console.log(e, data);
+    },
+    progressall: function (e, data) {
+      var progress = parseInt(data.loaded / data.total * 100, 10);
+      console.log(progress);
+      $('.add-video').closest('.row').next('.row').find('.progress-bar').css(
+          'width',
+          progress + '%'
+      ).text(progress + '%');
+    },
+    add: function(e, data) {
+      var uploadErrors = [];
+      console.log(e, data)
+      if(data.originalFiles[0]['size'] && data.originalFiles[0]['size'] > 50000000) {
+        uploadErrors.push('Фаил слишком большой! Максимум 50мб.');
+      }
+      if(uploadErrors.length > 0) {
+        alert(uploadErrors.join("\n"));
+      } else {
+        $('.add-video').closest('.row').slideUp().next('.row').slideDown();
+        data.submit();
+      }
+    },
+  });
   
 });
