@@ -63,8 +63,42 @@
             <div class="legend"></div>
         </div>
       </div>
+      
+      <div class="row video">
+        <div class="video-holder">
+          <a href="#" class="video-preview" style="background-image:url('http://lorempixel.com/660/500/people/?1');">
+            <div class="play">
+                <span class="icon-play"></span>
+            </div>
+          </a>
+          <div class="about">
+            Добавлено 12 августа 2015.
+          </div>
+        </div>
+      </div>
+      
+      <div class="row video loading">
+        <div class="video-holder">
+          <div class="video-preview" style="background-image:url('img/video-loading.png');">
+          </div>
+        </div>
+      </div>
+      
       <div class="row">
-        <a href="#" class="btn-big-red add-video">Добавить видео</a>
+          <a href="#" class="btn-big-red add-video">Заменить видео</a>
+          <input class="videoupload" type="file" name="video" data-url="server/php/" accept="video/*, video/x-flv, video/mp4, application/x-mpegURL, video/MP2T, video/3gpp, video/quicktime, video/x-msvideo, video/x-ms-wmv">
+          <div class="note">
+            <p>
+            Если вы недовольны своим видео, вы всегда можете заменить его на новое. Желаем вам победы!
+            </p>
+          </div>
+      </div>
+      <div class="row" style="display:none;">
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width:0%">
+            0%
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -90,6 +124,9 @@
 </footer>
       <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
       <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+      <script src="js/vendor/jquery.ui.widget.js"></script>
+      <script src="js/vendor/jquery.iframe-transport.js"></script>
+      <script src="js/vendor/jquery.fileupload.js"></script>
       <script src="//cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.min.js"></script>
       <script src="js/messages_ru.js"></script>
       <script src="//cdn.jsdelivr.net/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
