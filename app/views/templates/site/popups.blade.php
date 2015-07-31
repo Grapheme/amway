@@ -15,17 +15,19 @@
 
         <div class="header">Войти</div>
         <center>
-            <a href="" class="fb">Войти с Facebook</a>
-            <br>
-            <a href="" class="vk">Войти с Vkontakte</a>
+            <div id="uLogin_aef33ddd" data-uloginid="aef33ddd" data-ulogin="mobilebuttons=0;display=buttons;fields=first_name,last_name,email,city,photo,photo_big;redirect_uri={{ URL::route('signin.ulogin') }}">
+                <a href="javascript:void(0);" data-uloginbutton="facebook" class="fb">Войти с Facebook</a>
+                <br>
+                <a href="javascript:void(0);" data-uloginbutton="vkontakte" class="vk">Войти с Vkontakte</a>
+            </div>
         </center>
         <hr>
         <div class="note">или с помощью эл.почты</div>
-        <form action="">
-            <input type="email" name="email" placeholder="Эл. почта">
-            <input type="password" name="password" placeholder="Пароль">
-            <button type="submit">Войти</button>
-        </form>
+        {{ Form::open(array('route'=>'signin')) }}
+            {{ Form::email('email',NULL,array('placeholder'=>'Эл. почта')) }}
+            {{ Form::password('password',NULL,array('placeholder'=>'Пароль')) }}
+            {{ Form::button('Войти',array('type'=>'submit')) }}
+        {{ Form::close() }}
         <hr>
         <center>
             <a href="" data-href="reg" class="btn-popup">У меня ещё нет регистрации</a>
@@ -41,30 +43,38 @@
         </a>
 
         <div class="header">Регистрация</div>
-        <form action="">
+        {{ Form::open(array('route'=>'signup-participant')) }}
+            {{ Form::hidden('token', Session::get('token')) }}
+            {{ Form::hidden('identity', Session::get('identity')) }}
+            {{ Form::hidden('profile', Session::get('profile')) }}
+            {{ Form::hidden('uid', Session::get('uid')) }}
+            {{ Form::hidden('photo_big', Session::get('photo_big')) }}
+            {{ Form::hidden('photo', Session::get('photo')) }}
+            {{ Form::hidden('network', Session::get('network')) }}
+            {{ Form::hidden('verified_email', Session::get('verified_email')) }}
             <label>
                 <span class="label">Ваше имя и фамилия</span>
-                <input type="text" name="name">
+                {{ Form::text('name', Session::get('first_name').' '.Session::get('last_name')) }}
             </label>
             <label>
                 <span class="label">Ваш город</span>
-                <input type="text" name="location">
+                {{ Form::text('location', Session::get('city')) }}
             </label>
             <label>
                 <span class="label">Укажите ваш возраст</span>
-                <input type="text" name="age">
+                {{ Form::text('age') }}
             </label>
             <label>
                 <span class="label">Электронная почта</span>
-                <input type="email" name="email">
+                {{ Form::email('email', Session::get('email')) }}
             </label>
             <label>
                 <span class="label">Телефон</span>
-                <input type="phone" name="phone">
+                {{ Form::text('phone') }}
             </label>
             <label>
                 <span class="label">Профиль в соцсети</span>
-                <input type="text" name="social">
+                {{ Form::text('social[]', Session::get('profile')) }}
                 <a href="" class="social-plus">
                     <?='<?xml version = "1.0" encoding = "utf-8"?>' ?>
                     {{ '<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">' }}
@@ -74,23 +84,22 @@
                     </svg>
                 </a>
             </label>
-
             <div class="note">
                 Если вы хотите добавить несколько соцсетей, нажмите плюс.
             </div>
             <label class="small">
-                <input type="checkbox" name="agree1">
+                {{ Form::checkbox('agree1') }}
                 <span class="label">Я согласен на обработку предоставленных мною персональных данных, в соответствии с законодательством РФ.</span>
             </label>
             <label class="small">
-                <input type="checkbox" name="agree2">
+                {{ Form::checkbox('agree2') }}
                 <span class="label">Я ознакомлен с правилами участия в проекте A-gen.</span>
             </label>
             <hr>
             <center>
-                <button type="submit">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+                {{ Form::button('ЗАРЕГИСТРИРОВАТЬСЯ',array('type'=>'submit')) }}
             </center>
-        </form>
+        {{ Form::close() }}
         <hr>
         <center>
             <a href="" data-href="enter" class="btn-popup">У меня уже есть регистрация</a>

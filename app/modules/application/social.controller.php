@@ -9,26 +9,33 @@ class SocialController extends BaseController {
 
     /****************************************************************************/
     public static function returnRoutes() {
+        $class = __CLASS__;
         Route::post('social-signin', ['as' => 'signin.ulogin', 'uses' => $class . '@postUlogin']);
     }
 
-    public static function returnShortCodes() {}
+    public static function returnShortCodes() {
+    }
 
-    public static function returnActions() {}
+    public static function returnActions() {
+    }
 
-    public static function returnInfo() {}
+    public static function returnInfo() {
+    }
 
-    public static function returnMenu() {}
+    public static function returnMenu() {
+    }
 
     /****************************************************************************/
-    public function __construct() {}
+    public function __construct() {
+    }
+
     /****************************************************************************/
     public function postUlogin() {
 
         $_user = json_decode(file_get_contents('http://ulogin.ru/token.php?token=' . Input::get('token') . '&host=' . $_SERVER['HTTP_HOST']), true);
         $validate = Validator::make([], []);
         if (isset($_user['error'])):
-            return Redirect::to('/#auth');
+            return Redirect::to('/#popup=enter');
         endif;
         if ($check = Ulogin::where('identity', '=', $_user['identity'])->first()):
             Auth::loginUsingId($check->user_id, true);
@@ -43,23 +50,21 @@ class SocialController extends BaseController {
                 'email' => 'required|unique:ulogin|unique:users');
             $validate = Validator::make($_user, $rules);
             if ($validate->passes()):
-                $password = Str::random(12);
-                $user = new User;
-                $user->group_id = Group::where('name', 'blogger')->pluck('id');
-                $user->name = $_user['first_name'] . ' ' . $_user['last_name'];
-                $user->surname = '';
-                $user->email = isset($_user['email']) ? $_user['email'] : '';
-                $user->active = TRUE;
-                $user->first_login = TRUE;
-                $user->password = Hash::make($password);
-                $user->photo = '';
-                $user->thumbnail = '';
-                $user->save();
-                self::createULogin($user->id, $_user);
-                Auth::login($user, TRUE);
-                return Redirect::to(AuthAccount::getGroupStartUrl());
+                return Redirect::to('/#popup=reg')
+                    ->with('token', Input::get('token'))
+                    ->with('email', $_user['email'])
+                    ->with('identity', $_user['identity'])
+                    ->with('profile', $_user['profile'])
+                    ->with('first_name', $_user['first_name'])
+                    ->with('last_name', $_user['last_name'])
+                    ->with('city', $_user['city'])
+                    ->with('uid', $_user['uid'])
+                    ->with('photo_big', $_user['photo_big'])
+                    ->with('photo', $_user['photo'])
+                    ->with('network', $_user['network'])
+                    ->with('verified_email', $_user['verified_email']);
             else:
-                return Redirect::to('/#auth')->with('message', trans('larulogin.error'));
+                return Redirect::to('/#popup=enter');
             endif;
         endif;
     }

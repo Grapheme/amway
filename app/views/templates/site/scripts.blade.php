@@ -10,4 +10,5 @@
 <script src="{{ Config::get('site.theme_path') }}/js/messages_ru.js"></script>
 <script src="//cdn.jsdelivr.net/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
 
+<script src="//ulogin.ru/js/ulogin.js"></script>
 {{ HTML::script(Config::get('site.theme_path').'/js/main.js') }}

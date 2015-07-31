@@ -23,7 +23,13 @@
                 {{ Menu::placement('main_menu') }}
                 <li class="enter">
                     <img src="{{ asset(Config::get('site.theme_path')) }}/img/ico-user.png" class="user-ico" alt="">
+                    @if(Auth::guest())
                     <a href="" class="btn-popup" data-href="enter">Вход для участников</a>
+                    @elseif(Route::currentRouteName() == 'dashboard')
+                    <a href="{{ URL::route('logout') }}">Выйти</a>
+                    @else
+                    <a href="{{ URL::to(AuthAccount::getGroupStartUrl()) }}">Личный кабинет</a>
+                    @endif
                 </li>
             </ul>
         </nav>
