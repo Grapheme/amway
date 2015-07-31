@@ -65,7 +65,7 @@ class AuthAccount {
      */
 	public static function isUserLoggined(){
 		
-		if(self::getGroupID() == 3):
+		if(self::getGroupID() == 4):
 			return TRUE;
 		else:
 			return FALSE;

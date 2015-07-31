@@ -11,11 +11,9 @@ class RegisterController extends BaseController {
 
     public static function returnRoutes($prefix = null) {
         $class = __CLASS__;
-        Route::group(array('before' => 'guest.register', 'prefix' => ''), function () use ($class) {
+        Route::group(array('before' => 'guest', 'prefix' => ''), function () use ($class) {
             Route::post('registration', array('before' => 'csrf', 'as' => 'signup-participant',
                 'uses' => $class . '@signup'));
-        });
-        Route::group(array('before' => 'guest.auth', 'prefix' => ''), function () use ($class) {
             Route::get('registration/activation/{activate_code}', array('as' => 'signup-activation',
                 'uses' => $class . '@activation'));
         });
@@ -102,6 +100,7 @@ class RegisterController extends BaseController {
             return Redirect::to('/')->with('message.status', 'error')->with('message.text', 'Код активации не действителен.');
         endif;
     }
+
     /**************************************************************************/
     private function getRegisterAccount($post = NULL) {
 
@@ -116,7 +115,7 @@ class RegisterController extends BaseController {
             $user->location = $post['location'];
             $user->age = $post['age'];
             $user->phone = $post['phone'];
-            $user->social = !empty($post['social']) ? json_encode($post['social'])  : json_encode(array());
+            $user->social = !empty($post['social']) ? json_encode($post['social']) : json_encode(array());
 
             $user->password = $post['password'];
             $user->photo = '';
@@ -130,10 +129,11 @@ class RegisterController extends BaseController {
         return FALSE;
     }
 
-    private function createULogin($user_id, $post){
+    private function createULogin($user_id, $post) {
 
-        $ulogin= new Ulogin();
-        if (!is_null($post) && !isset($post['network']) && !empty($post['network'])):
+        $ulogin = new Ulogin();
+
+        if (!is_null($post) && isset($post['network']) && !empty($post['network'])):
             $ulogin->user_id = $user_id;
             $ulogin->network = $post['network'];
             $ulogin->identity = $post['identity'];

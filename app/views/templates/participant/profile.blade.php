@@ -3,9 +3,6 @@
  * TEMPLATE_IS_NOT_SETTABLE
  */
 ?>
-<?php
-    $profile = Accounts::where('id', Auth::user()->id)->with('ulogin','likes')->first();
-?>
 @extends(Helper::layout())
 @section('style')
 @stop
@@ -24,14 +21,14 @@
                 <div class="row">
                     <h3 class="name">{{ $profile->name }}</h3>
                     <a href="{{ URL::route('profile-edit') }}" class="edit">Редактировать профиль</a>
-                    {{--<a href="" class="exit btn-white">Выйти</a>--}}
+                    <a href="" class="exit btn-white">Выйти</a>
                 </div>
                 <div class="row">
-                    <p class="location">{{ $profile->location }}</p>
-                    <p class="age">{{ $profile->age }} {{ Lang::choice('год|года|лет', (int)$profile->age ) }}</p>
+                    <p class="location">Ростов-на-Дону</p>
+                    <p class="age">29 лет</p>
                     <div class="rating">
                         <span class="icon2-star"></span>
-                        <div class="count">{{ $profile->likes->count() }}</div>
+                        <div class="count">34</div>
                         <div class="legend"></div>
                     </div>
                 </div>
