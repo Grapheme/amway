@@ -28,6 +28,7 @@
       right: 12px;
       top: 12px;
       fill: #1d3658;
+      z-index: 200;
       &:hover {
         fill: #e71e1d;
       }
@@ -149,6 +150,7 @@
           margin-top: 24px;
           &.small {
             margin: 0;
+            position: relative;
             .label {
               width: 480px;
               font-size: 14px;

@@ -104,9 +104,55 @@ function parseHash(){
   }
 }
 
+function readFile(input, callback) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      callback(e.target.result)
+        //$('#blah').attr('src', e.target.result);
+    }
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+function cropImage(data){
+  $('#photo-edit .holder > img').attr('src',data);
+  showPopup('photo-edit');
+  $('#photo-edit .holder > img').cropper('destroy');
+  $('#photo-edit .holder > img').cropper({
+    aspectRatio: 1 / 1,
+    mouseWheelZoom: false,
+    minCropBoxWidth: 200,
+    minCropBoxHeight: 200
+  });
+}
+
 $(function() {
   parseHash();
   renderVoting();
+  
+  $('.photoupload').change(function(){
+    readFile(this, function(data){
+      console.log(data);
+      cropImage(data);
+    });
+  });
+  
+  $('.photo-edit-final').click(function(e){
+    e.preventDefault();
+    console.log($('#photo-edit .holder > img').cropper('getCroppedCanvas'));
+    var data = $('#photo-edit .holder > img').cropper('getCroppedCanvas').toDataURL();
+    $('body.profile .photo img').attr('src', data);
+    $('form.edit-profile input[name="photo"]').val(data);
+    closePopups();
+  });
+  
+  $('a.edit-photo').click(function(e){
+    e.preventDefault();
+    $('input.photoupload').click();
+  })
   
   $('.add-video').click(function(e){
     e.preventDefault();
@@ -188,8 +234,34 @@ $(function() {
       sendForm(form);
     }
   })
+  $('form.edit-profile').validate({
+    rules: {
+      email: {
+        required: true,
+        email: true
+      },
+      name: {
+        required: true
+      },
+      location: {
+        required: true
+      },
+      age: {
+        required: true
+      },
+      phone: {
+        required: true
+      },
+    },
+    //minlength: 6
+    submitHandler: function(form) {
+      form.submit();
+      $(form).find('button[type="submit"]').attr('disabled', true);
+      //sendForm(form);
+    }
+  })
   
-  $('#reg form input[name="phone"]').mask("+7(999) 999-9999");
+  $('#reg form input[name="phone"], form.edit-profile input[name="phone"]').mask("+7(999) 999-9999");
   
   $('.videoupload').fileupload({
     dataType: 'json',

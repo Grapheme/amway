@@ -107,6 +107,10 @@ a.btn {
   }
 }
 
+button.btn-big-red {
+  line-height: 100%;
+}
+
 .btn-big-red {
   display: inline-block;
   font-family: 'Vaccine-Bold';
@@ -121,6 +125,7 @@ a.btn {
   background: white;
   text-transform: uppercase;
   line-height: 330%;
+  text-decoration: none;
   &:hover {
     background: #e71927;
     color: white;
