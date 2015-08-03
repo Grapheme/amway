@@ -16,4 +16,14 @@ class Accounts extends User {
 
         return $this->hasOne('Ulogin','user_id','id');
     }
+
+    public function ulogins(){
+
+        return $this->hasMany('Ulogin','user_id','id');
+    }
+
+    public function likes(){
+
+        return $this->hasMany('ParticipantLikes','participant_id','id');
+    }
 }

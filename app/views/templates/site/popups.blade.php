@@ -51,7 +51,7 @@
             {{ Form::hidden('photo_big', Session::get('photo_big')) }}
             {{ Form::hidden('photo', Session::get('photo')) }}
             {{ Form::hidden('network', Session::get('network')) }}
-            {{ Form::hidden('verified_email', Session::get('verified_email')) }}
+            {{ Form::hidden('verified_email', Session::has('verified_email') ? Session::get('verified_email') : 0) }}
             <label>
                 <span class="label">Ваше имя и фамилия</span>
                 {{ Form::text('name', Session::get('first_name').' '.Session::get('last_name')) }}
@@ -88,11 +88,11 @@
                 Если вы хотите добавить несколько соцсетей, нажмите плюс.
             </div>
             <label class="small">
-                {{ Form::checkbox('agree1') }}
+                {{ Form::checkbox('agree1', 1, TRUE) }}
                 <span class="label">Я согласен на обработку предоставленных мною персональных данных, в соответствии с законодательством РФ.</span>
             </label>
             <label class="small">
-                {{ Form::checkbox('agree2') }}
+                {{ Form::checkbox('agree2', 1, TRUE) }}
                 <span class="label">Я ознакомлен с правилами участия в проекте A-gen.</span>
             </label>
             <hr>

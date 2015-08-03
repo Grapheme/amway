@@ -2,6 +2,8 @@
 
 return array(
 
+    'date_over_action' => '2015-08-24',
+
     'theme_path' => URL::to('/theme'),
     #'theme_path' => URL::to('/theme/' . Config::get('app.template') . '/dist'),
     #'mobile_theme_path' => URL::to('/theme/mobile/dist'),
@@ -19,6 +21,8 @@ return array(
     'uploads_thumb_dir' => public_path('uploads/thumbs'),
     'uploads_photo_public_dir' => '/uploads',
     'uploads_thumb_public_dir' => '/uploads/thumbs',
+
+    'uploads_video_dir' => 'uploads/video',
 
     'galleries_photo_dir'        => public_path('uploads/galleries'),
     'galleries_photo_public_dir' => '/uploads/galleries',

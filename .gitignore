@@ -28,6 +28,7 @@ _ide_helper.php
 /app/storage/*.dat
 
 /public/uploads/files/*
+/public/uploads/video/*
 /public/uploads/galleries/*
 /public/uploads/galleries/thumbs/*
 /public/uploads/thumbnail/*

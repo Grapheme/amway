@@ -5,7 +5,7 @@ class BaseController extends Controller {
 	var $breadcrumb = array();
 
 	public function __construct(){
-
+        date_default_timezone_set(Config::get('app.timezone'));
 	}
 
 	protected function setupLayout(){
