@@ -17,7 +17,7 @@ return array(
 
 	'debug' => TRUE,
 	'url' => '#',
-	'timezone' => 'UTC',
+	'timezone' => 'Europe/Moscow',
 
     'locales' => array(
         'ru' => 'Русский',
