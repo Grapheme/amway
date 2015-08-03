@@ -186,6 +186,11 @@ $(function() {
     addSocial($(this));
   });
   
+  $('.spoiler').click(function(e){
+    e.preventDefault();
+    $(this).nextAll('.spoiler-body').eq(0).slideToggle();
+  })
+  
   $('#enter form').validate({
     rules: {
       email: {
@@ -252,6 +257,15 @@ $(function() {
       phone: {
         required: true
       },
+      password: {
+        minlength: 6,
+        required: true
+      },
+      password_again: {
+        minlength: 6,
+        required: true,
+        equalTo: "#password"
+      }
     },
     //minlength: 6
     submitHandler: function(form) {
