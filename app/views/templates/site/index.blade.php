@@ -86,41 +86,60 @@
     <div class="main-news">
         {{ $page->block('seven_section') }}
         <div class="holder">
+            @if($news = News::where('publication' ,1)->orderBy('published_at','DESC')->with('meta.photo')->take(3)->get())
+            <?php
+                $tmp_news = $news;
+                $news = array(
+                    'first' => isset($tmp_news[0]) ? $tmp_news[0] : NULL,
+                    'second' => isset($tmp_news[1]) ? $tmp_news[1] : NULL,
+                    'third' => isset($tmp_news[2]) ? $tmp_news[2] : NULL
+                );
+            ?>
             <div class="unit photo">
-                <a href="#" class="wrapper">
+                <a href="javascript:void(0);" class="wrapper">
+                    @if($news['third'])
                     <div class="frame third">
-                        <img src="{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-6.jpg" class="visual" alt="">
-
+                        @if(!empty($news['third']['meta']['photo']) && File::exists(Config::get('site.galleries_photo_dir').'/'.$news['third']['meta']['photo']['name']))
+                        <img src="{{ asset(Config::get('site.galleries_photo_public_dir').'/'.$news['third']['meta']['photo']['name']) }}" class="visual" alt="{{ $news['third']['meta']['title'] }}">
+                        @endif
                         <div class="title">
-                            Фоторепортаж из Воронежа
+                            {{ $news['third']['meta']['title'] }}
                         </div>
                         <div class="date">
-                            3 августа 2015
+                            {{ (new myDateTime())->setDateString($news['third']['published_at'])->custom_format('d M Y') }}
                         </div>
                     </div>
+                    @endif
+                    @if($news['second'])
                     <div class="frame second">
-                        <img src="{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-5.jpg" class="visual" alt="">
-
+                        @if(!empty($news['second']['meta']['photo']) && File::exists(Config::get('site.galleries_photo_dir').'/'.$news['second']['meta']['photo']['name']))
+                            <img src="{{ asset(Config::get('site.galleries_photo_public_dir').'/'.$news['second']['meta']['photo']['name']) }}" class="visual" alt="{{ $news['second']['meta']['title'] }}">
+                        @endif
                         <div class="title">
-                            Фоторепортаж из Воронежа
+                            {{ $news['second']['meta']['title'] }}
                         </div>
                         <div class="date">
-                            3 августа 2015
+                            {{ (new myDateTime())->setDateString($news['second']['published_at'])->custom_format('d M Y') }}
                         </div>
                     </div>
+                    @endif
+                    @if($news['first'])
                     <div class="frame">
-                        <img src="{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-4.jpg" class="visual" alt="">
-
+                        @if(!empty($news['first']['meta']['photo']) && File::exists(Config::get('site.galleries_photo_dir').'/'.$news['first']['meta']['photo']['name']))
+                        <img src="{{ asset(Config::get('site.galleries_photo_public_dir').'/'.$news['first']['meta']['photo']['name']) }}" class="visual" alt="{{ $news['first']['meta']['title'] }}">
+                        @endif
                         <div class="title">
-                            Фоторепортаж из Воронежа
+                            {{ $news['first']['meta']['title'] }}
                         </div>
                         <div class="date">
-                            3 августа 2015
+                            {{ (new myDateTime())->setDateString($news['first']['published_at'])->custom_format('d M Y') }}
                         </div>
                     </div>
+                    @endif
                 </a>
-                <a href="a" class="all">Посмотреть все репортажи</a>
+                <a href="{{ pageurl('news') }}" class="all">Посмотреть все репортажи</a>
             </div>
+            @endif
             <div class="unit map">
                 <a href="#" class="wrapper">
                     <div class="frame">
@@ -131,7 +150,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="a" class="all">БУДЬ ПЕРВЫМ В СВОЕМ ГОРОДЕ</a>
+                <a href="javascript:void(0);" class="all">БУДЬ ПЕРВЫМ В СВОЕМ ГОРОДЕ</a>
             </div>
             @if($week_video = Accounts::where('group_id' ,4)->where('load_video', 1)->where('video', '!=', '')->where('top_week_video', 1)->with('likes')->first())
             <div class="unit video best">
