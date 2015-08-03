@@ -43,6 +43,7 @@
                             {{ Form::model($user,array('route'=>array('moderator.participants.save',$user->id),'method'=>'post')) }}
                             {{ Form::checkbox('in_main_page') }} Показывать на главной <br>
                             {{ Form::checkbox('top_week_video') }} Лучшее видео недели <br>
+                            {{ Form::checkbox('top_video') }} Лучшее видео <br>
                             {{ Form::checkbox('winner') }} Победитель <br>
                             {{ Form::button('Сохранить',array('class'=>'white-btn actions__btn','type'=>'submit')) }}
                             {{ Form::close() }}

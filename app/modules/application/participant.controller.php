@@ -15,11 +15,7 @@ class ParticipantController extends BaseController {
 
         Route::group(array('before' => 'user.auth', 'prefix' => 'participant'), function () use ($class) {
             Route::get('profile', array('as' => 'profile.edit', 'uses' => $class . '@profileEdit'));
-
-            Route::post('profile/avatar/upload', array('before' => 'csrf', 'as' => 'profile.avatar.upload',
-                'uses' => $class . '@profileAvatarUpdate'));
-            Route::delete('profile/avatar/delete', array('before' => 'csrf', 'as' => 'profile.avatar.delete',
-                'uses' => $class . '@profileAvatarDelete'));
+            Route::post('profile', array('as' => 'profile.save', 'uses' => $class . '@profileSave'));
 
             Route::post('profile/video/upload', array('as' => 'profile.video.upload',
                 'uses' => $class . '@profileVideoUpdate'));
@@ -72,47 +68,59 @@ class ParticipantController extends BaseController {
         return View::make(Helper::acclayout('profile'), $page_data);
     }
 
-    public function profileAvatarUpdate() {
+    public function profileSave(){
 
-        $json_request = array('status' => FALSE, 'responseText' => '', 'image' => '', 'redirect' => FALSE);
-        if (Request::ajax()):
-            if ($uploaded = AdminUploadsController::createImageInBase64String('photo')):
-                $user = Auth::user();
-                $user->photo = @$uploaded['main'];
-                $user->thumbnail = @$uploaded['thumb'];
-                $user->save();
-                $user->touch();
-                $json_request['image'] = asset($user->photo);
+        $json_request = array('status' => FALSE, 'responseText' => '', 'redirect' => FALSE);
+        $validator = Validator::make(Input::all(), Accounts::$update_rules);
+        if (Auth::user()->email != Input::get('email') && User::where('email', Input::get('email'))->exists()):
+            $json_request['responseText'] = Lang::get('interface.DEFAULT.email_exist');
+            return Response::json($json_request, 200);
+        endif;
+        if ($validator->passes()):
+            if (self::accountUpdate(Input::all())):
+                $json_request['responseText'] = Lang::get('interface.DEFAULT.success_save');
                 $json_request['status'] = TRUE;
             else:
                 $json_request['responseText'] = Lang::get('interface.DEFAULT.fail');
             endif;
         else:
-            return Redirect::back();
+            $json_request['responseText'] = $validator->messages()->all();
         endif;
-        return Response::json($json_request, 200);
-    }
-
-    public function profileAvatarDelete() {
-
-        $json_request = array('status' => FALSE, 'responseText' => '', 'redirect' => FALSE);
         if (Request::ajax()):
-            $user = Auth::user();
-            if (File::exists(public_path($user->photo))):
-                File::delete(public_path($user->photo));
-            endif;
-            if (File::exists(public_path($user->thumbnail))):
-                File::delete(public_path($user->thumbnail));
-            endif;
-            $user->photo = '';
-            $user->thumbnail = '';
-            $user->save();
-            $user->touch();
-            $json_request['status'] = TRUE;
+            return Response::json($json_request, 200);
         else:
             return Redirect::back();
         endif;
-        return Response::json($json_request, 200);
+    }
+
+    private function accountUpdate($post) {
+
+        try {
+            $user = Auth::user();
+
+            if ($uploaded = AdminUploadsController::createImageInBase64String('photo')):
+                if(!empty($user->photo) && File::exists(Config::get('site.uploads_photo_dir').'/'. $user->photo)):
+                    File::delete(Config::get('site.uploads_photo_dir').'/'. $user->photo);
+                endif;
+                if(!empty($user->photo) && File::exists(Config::get('site.uploads_thumb_dir').'/'. $user->thumbnail)):
+                    File::delete(Config::get('site.uploads_thumb_dir').'/'. $user->thumbnail);
+                endif;
+                $user->photo = @$uploaded['main'];
+                $user->thumbnail = @$uploaded['thumb'];
+            endif;
+            $user->name = $post['name'];
+            $user->email = $post['email'];
+            $user->surname = '';
+            $user->location = $post['location'];
+            $user->phone = $post['phone'];
+            $user->age = $post['age'];
+            $user->way = $post['way'];
+            $user->save();
+            $user->touch();
+        } catch (Exception $e) {
+            return FALSE;
+        }
+        return TRUE;
     }
 
     public function profileVideoUpdate() {

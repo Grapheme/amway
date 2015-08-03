@@ -16,8 +16,8 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
     <link rel="stylesheet" href="css/normalize.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/cropper/0.9.3/cropper.min.css">
-    <link rel="stylesheet" href="css/main.css">
+
+    <link rel="stylesheet" href="css/main.css"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/cropper/0.9.3/cropper.min.css">
 
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
@@ -45,116 +45,105 @@
 </header>
 
 <main>
-  <div class="holder">
-    <div class="photo">
-      <img src="http://lorempixel.com/200/200/people/?1" alt="" class="ava">
-      <br>
-      <br>
-      <center>
-        <a href="#" class="edit-photo">Изменить фотографию</a>
-      </center>
-      <input class="photoupload" type="file" name="photo" data-url="server/php/" accept="image/*">
-    </div>
-    <div class="info">
-      <div class="row">
-        <a href="" class="exit btn-white">Выйти</a>
-      </div>
-      <div class="row">
-        <form action="" class="edit-profile" novalidate="novalidate">
-            <label>
-                <span class="label">Ваше имя и фамилия</span>
-                <input type="text" name="name">
-            </label>
-            <label>
-                <span class="label">Ваш город</span>
-                <input type="text" name="location">
-            </label>
-            <label>
-                <span class="label">Укажите ваш возраст</span>
-                <input type="text" name="age">
-            </label>
-            <label>
-                <span class="label">Электронная почта</span>
-                <input type="email" name="email">
-            </label>
-            <label>
-              <span class="label">Телефон</span>
-              <input type="phone" name="phone">
-            </label>
-            
-            <label>
-              <span class="label">Почему я должен принять участие в гала-концерте?</span>
-              <textarea name="why"></textarea>
-            </label>
-            <input type="hidden" name="photo">
-            <a href="#" class="spoiler">Сменить пароль</a>
+    <div class="holder">
+        <div class="photo">
+            <img src="http://lorempixel.com/200/200/people/?1" alt="" class="ava">
             <br>
             <br>
-            <div class="spoiler-body">
-              <label>
-                <span class="label">Новый пароль</span>
-                <input type="password" name="password">
-              </label>
-              <label>
-                <span class="label">Новый пароль ещё раз</span>
-                <input type="password" name="password_again">
-              </label>
+            <center>
+                <a href="#" class="edit-photo">Изменить фотографию</a>
+            </center>
+            <input class="photoupload" type="file" name="photo" data-url="server/php/" accept="image/*">
+        </div>
+        <div class="info">
+            <div class="row">
+                <a href="" class="exit btn-white">Выйти</a>
             </div>
-            <br>
-            <br>
-            <button type="submit" class="btn-big-red">Сохранить данные</button>
-          </form>
-      </div>
+            <div class="row">
+                <form action="" class="edit-profile" novalidate="novalidate">
+                    <label>
+                        <span class="label">Ваше имя и фамилия</span>
+                        <input type="text" name="name">
+                    </label>
+                    <label>
+                        <span class="label">Ваш город</span>
+                        <input type="text" name="location">
+                    </label>
+                    <label>
+                        <span class="label">Укажите ваш возраст</span>
+                        <input type="text" name="age">
+                    </label>
+                    <label>
+                        <span class="label">Электронная почта</span>
+                        <input type="email" name="email">
+                    </label>
+                    <label>
+                        <span class="label">Телефон</span>
+                        <input type="phone" name="phone">
+                    </label>
+
+                    <label>
+                        <span class="label">Почему я должен принять участие в гала-концерте?</span>
+                        <textarea name="why"></textarea>
+                    </label>
+                    <input type="hidden" name="photo">
+                    <br>
+                    <br>
+                    <button type="submit" class="btn-big-red">Сохранить данные</button>
+                </form>
+            </div>
+        </div>
     </div>
-  </div>
 </main>
 <footer>
-  <div class="holder">
-    <div class="left">
-        <a href="#" class="logo"><img src="img/logo2.png" alt=""></a>
+    <div class="holder">
+        <div class="left">
+            <a href="#" class="logo"><img src="img/logo2.png" alt=""></a>
 
-        <div class="copy">
-            © 2015, Amway, A-Gen, 2015 <br>
-            Все права защищены.
+            <div class="copy">
+                © 2015, Amway, A-Gen, 2015 <br>
+                Все права защищены.
+            </div>
+            <a class="mail" href="mailto:info@agen-project.ru">info@agen-project.ru</a>
         </div>
-        <a class="mail" href="mailto:info@agen-project.ru">info@agen-project.ru</a>
+        <div class="right">
+            <a href="http://myxa-digital.com/" class="dev">
+                MYXA digital
+            </a>
+        </div>
     </div>
-    <div class="right">
-        <a href="http://myxa-digital.com/" class="dev">
-            MYXA digital
-        </a>
-    </div>
-  </div>
 </footer>
 <div class="popup-wrapper">
-  <div class="popup" id="photo-edit">
-    <a href="" class="close">
-      <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
-      <path d="M18.984 6.422l-5.578 5.578 5.578 5.578-1.406 1.406-5.578-5.578-5.578 5.578-1.406-1.406 5.578-5.578-5.578-5.578 1.406-1.406 5.578 5.578 5.578-5.578z"></path>
-      </svg>
-    </a>
-    <div class="holder">
-      <img src="" alt="">      
+    <div class="popup" id="photo-edit">
+        <a href="" class="close">
+            <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24"
+                 height="24" viewBox="0 0 24 24">
+                <path d="M18.984 6.422l-5.578 5.578 5.578 5.578-1.406 1.406-5.578-5.578-5.578 5.578-1.406-1.406 5.578-5.578-5.578-5.578 1.406-1.406 5.578 5.578 5.578-5.578z"></path>
+            </svg>
+        </a>
+
+        <div class="holder">
+            <img src="" alt="">
+        </div>
+        <br>
+        <center>
+            <a href="" class="btn-big-red photo-edit-final">Готово</a>
+        </center>
+        <br>
     </div>
-    <br>
-    <center>
-      <a href="" class="btn-big-red photo-edit-final">Готово</a>      
-    </center>
-    <br>
-  </div>
 </div>
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-      <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
-      <script src="js/vendor/jquery.ui.widget.js"></script>
-      <script src="js/vendor/jquery.iframe-transport.js"></script>
-      <script src="js/vendor/jquery.fileupload.js"></script>
-      <script src="//cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.min.js"></script>
-      <script src="js/messages_ru.js"></script>
-      <script src="//cdn.jsdelivr.net/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/cropper/0.9.3/cropper.min.js"></script>
-      
-        
-      <script src="js/main.js"></script>
-    </body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+<script src="js/vendor/jquery.ui.widget.js"></script>
+<script src="js/vendor/jquery.iframe-transport.js"></script>
+<script src="js/vendor/jquery.fileupload.js"></script>
+<script src="//cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.min.js"></script>
+<script src="js/messages_ru.js"></script>
+<script src="//cdn.jsdelivr.net/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/cropper/0.9.3/cropper.min.js"></script>
+
+
+<script src="js/main.js"></script>
+</body>
 </html>

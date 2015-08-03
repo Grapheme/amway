@@ -3,50 +3,73 @@
  * TEMPLATE_IS_NOT_SETTABLE
  */
 ?>
+<?php
+$profile = Accounts::where('id', Auth::user()->id)->with('ulogin', 'likes')->first();
+?>
 @extends(Helper::layout())
 @section('style')
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/cropper/0.9.3/cropper.min.css">
 @stop
 @section('page_class') profile @stop
 @section('content')
     <main>
         <div class="holder">
             <div class="photo">
-            @if(!empty($profile->ulogin) && !empty($profile->ulogin->photo_big))
-                <img src="{{ $profile->ulogin->photo_big }}" alt="{{ $profile->name }}" class="{{ $profile->name }}">
-            @elseif(!empty($profile->photo) && File::exists(Config::get('site.galleries_photo_public_dir').'/'.$profile->photo))
-                <img src="{{ asset(Config::get('site.galleries_photo_public_dir').'/'.$profile->photo) }}" alt="{{ $profile->name }}" class="{{ $profile->name }}">
+            @if(!empty($profile->photo) && File::exists(public_path($profile->photo)))
+                <img src="{{ asset($profile->photo) }}"
+                     alt="{{ $profile->name }}" class="{{ $profile->name }}">
+            @elseif(!empty($profile->ulogin) && !empty($profile->ulogin->photo_big))
+                <img src="{{ $profile->ulogin->photo_big }}" alt="{{ $profile->name }}"
+                     class="{{ $profile->name }}">
             @endif
+                <br>
+                <br>
+                <center>
+                    <a href="#" class="edit-photo">Изменить фотографию</a>
+                </center>
+                <input class="photoupload" type="file" name="photo" data-url="server/php/" accept="image/*">
             </div>
             <div class="info">
                 <div class="row">
-                    <h3 class="name">{{ $profile->name }}</h3>
-                    <a href="{{ URL::route('profile.edit') }}" class="edit">Редактировать профиль</a>
-                    <a href="" class="exit btn-white">Выйти</a>
+                    <a href="{{ URL::route('logout') }}" class="exit btn-white">Выйти</a>
                 </div>
                 <div class="row">
-                    <p class="location">Ростов-на-Дону</p>
-                    <p class="age">29 лет</p>
-                    <div class="rating">
-                        <span class="icon2-star"></span>
-                        <div class="count">34</div>
-                        <div class="legend"></div>
-                    </div>
-                </div>
+                    {{ Form::model($profile,array('route'=>'profile.save','class'=>'edit-profile','novalidate'=>'novalidate','files'=>TRUE)) }}
+                    <label>
+                        <span class="label">Ваше имя и фамилия</span>
+                        {{ Form::text('name') }}
+                    </label>
+                    <label>
+                        <span class="label">Ваш город</span>
+                        {{ Form::text('location') }}
+                    </label>
+                    <label>
+                        <span class="label">Укажите ваш возраст</span>
+                        {{ Form::text('age') }}
+                    </label>
+                    <label>
+                        <span class="label">Электронная почта</span>
+                        {{ Form::email('email') }}
+                    </label>
+                    <label>
+                        <span class="label">Телефон</span>
+                        {{ Form::text('phone') }}
+                    </label>
 
-                <div class="row">
-                    <a href="#" class="btn-big-red add-video">Добавить видео</a>
-                    <input class="videoupload" type="file" name="video" data-url="server/php/" accept="video/*, video/x-flv, video/mp4, application/x-mpegURL, video/MP2T, video/3gpp, video/quicktime, video/x-msvideo, video/x-ms-wmv">
-                </div>
-                <div class="row" style="display:none;">
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width:0%">
-                            0%
-                        </div>
-                    </div>
+                    <label>
+                        <span class="label">Почему я должен принять участие в гала-концерте?</span>
+                        {{ Form::textarea('way') }}
+                    </label>
+                    {{ Form::hidden('photo') }}
+                    <br>
+                    <br>
+                    {{ Form::button('Сохранить данные',array('type'=>'submit','class'=>'btn-big-red')) }}
+                    {{ Form::close() }}
                 </div>
             </div>
         </div>
     </main>
 @stop
 @section('scripts')
+
 @stop

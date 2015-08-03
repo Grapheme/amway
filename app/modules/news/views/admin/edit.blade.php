@@ -27,14 +27,8 @@
             <div class="well">
 
                 <header>{{ $form_title }}</header>
-
                 <div class="clearfix">
-
-                    <?
-                    $news_types = Dictionary::whereSlugValues('news_type');
-                    ?>
-
-                    <fieldset class="col col-sm-12 col-md-12 col-lg-{{ $news_types->count() ? '4' : '7' }}">
+                    <fieldset class="col col-sm-12 col-md-12 col-lg-7">
 
                         <section class="">
                             <label class="label">
@@ -50,21 +44,6 @@
                         </section>
 
                     </fieldset>
-
-                    @if ($news_types->count())
-                    <span></span>
-                    <fieldset class="col col-sm-12 col-md-6 col-lg-3">
-
-                        <section class="">
-                            <label class="label">Тип новости</label>
-                            <label class="input select input-select2">
-                                {{ Form::select('type_id', array('Выберите...')+$news_types->lists('name', 'id')) }}
-                            </label>
-                        </section>
-
-                    </fieldset>
-                    @endif
-
                     <span></span>
                     <fieldset class="col col-sm-12 col-md-6 col-lg-2">
 

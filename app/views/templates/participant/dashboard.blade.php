@@ -14,19 +14,19 @@ $profile = Accounts::where('id', Auth::user()->id)->with('ulogin', 'likes')->fir
     <main>
         <div class="holder">
             <div class="photo">
-                @if(!empty($profile->ulogin) && !empty($profile->ulogin->photo_big))
-                    <img src="{{ $profile->ulogin->photo_big }}" alt="{{ $profile->name }}"
-                         class="{{ $profile->name }}">
-                @elseif(!empty($profile->photo) && File::exists(Config::get('site.galleries_photo_public_dir').'/'.$profile->photo))
-                    <img src="{{ asset(Config::get('site.galleries_photo_public_dir').'/'.$profile->photo) }}"
-                         alt="{{ $profile->name }}" class="{{ $profile->name }}">
-                @endif
+            @if(!empty($profile->photo) && File::exists(public_path($profile->photo)))
+                <img src="{{ asset($profile->photo) }}"
+                     alt="{{ $profile->name }}" class="{{ $profile->name }}">
+            @elseif(!empty($profile->ulogin) && !empty($profile->ulogin->photo_big))
+                <img src="{{ $profile->ulogin->photo_big }}" alt="{{ $profile->name }}"
+                     class="{{ $profile->name }}">
+            @endif
             </div>
             <div class="info">
                 <div class="row">
                     <h3 class="name">{{ $profile->name }}</h3>
                     <a href="{{ URL::route('profile.edit') }}" class="edit">Редактировать профиль</a>
-                    {{--<a href="" class="exit btn-white">Выйти</a>--}}
+                    <a href="{{ URL::route('logout') }}" class="exit btn-white">Выйти</a>
                 </div>
                 <div class="row">
                     <p class="location">{{ $profile->location }}</p>
