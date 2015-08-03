@@ -13,4 +13,5 @@
 <script src="//cdn.jsdelivr.net/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
 
 <script src="//ulogin.ru/js/ulogin.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/cropper/0.9.3/cropper.min.js"></script>
 {{ HTML::script(Config::get('site.theme_path').'/js/main.js') }}

@@ -12,18 +12,23 @@ class Accounts extends User {
         'agree2' => 'required',
     );
 
-    public function ulogin(){
+    public static $update_rules = array(
+        'name' => 'required', 'email' => 'required|email', 'location' => 'required', 'age' => 'required',
+        'phone' => 'required'
+    );
 
-        return $this->hasOne('Ulogin','user_id','id');
+    public function ulogin() {
+
+        return $this->hasOne('Ulogin', 'user_id', 'id');
     }
 
-    public function ulogins(){
+    public function ulogins() {
 
-        return $this->hasMany('Ulogin','user_id','id');
+        return $this->hasMany('Ulogin', 'user_id', 'id');
     }
 
-    public function likes(){
+    public function likes() {
 
-        return $this->hasMany('ParticipantLikes','participant_id','id');
+        return $this->hasMany('ParticipantLikes', 'participant_id', 'id');
     }
 }

@@ -18,9 +18,9 @@ return array(
     'uploads_public_dir' => '/uploads/files',
 
     'uploads_photo_dir' => public_path('uploads'),
-    'uploads_thumb_dir' => public_path('uploads/thumbs'),
+    'uploads_thumb_dir' => public_path('uploads/thumbnail'),
     'uploads_photo_public_dir' => '/uploads',
-    'uploads_thumb_public_dir' => '/uploads/thumbs',
+    'uploads_thumb_public_dir' => '/uploads/thumbnail',
 
     'uploads_video_dir' => 'uploads/video',
 

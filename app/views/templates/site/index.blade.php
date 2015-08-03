@@ -43,12 +43,12 @@
             @foreach(Accounts::where('group_id',4)->where('in_main_page', 1)->with('ulogin', 'likes')->get() as $user)
                 <div class="unit">
                     <div class="img">
-                    @if(!empty($user->ulogin) && !empty($user->ulogin->photo_big))
+                    @if(!empty($user->photo) && File::exists(public_path($user->photo)))
+                        <img src="{{ asset($user->photo) }}"
+                             alt="{{ $user->name }}" class="{{ $user->name }}">
+                    @elseif(!empty($user->ulogin) && !empty($user->ulogin->photo_big))
                         <img src="{{ $user->ulogin->photo_big }}" alt="{{ $user->name }}"
                              class="{{ $user->name }}">
-                    @elseif(!empty($profile->photo) && File::exists(Config::get('site.galleries_photo_public_dir').'/'.$user->photo))
-                        <img src="{{ asset(Config::get('site.galleries_photo_public_dir').'/'.$user->photo) }}"
-                             alt="{{ $user->name }}" class="{{ $user->name }}">
                     @endif
                     </div>
                     <div class="name">

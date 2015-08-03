@@ -19,6 +19,8 @@ class AddUsersFields extends Migration {
 			$table->boolean('in_main_page')->after('video')->nullable()->unsigned()->default(0);
 			$table->boolean('winner')->after('in_main_page')->nullable()->unsigned()->default(0);
 			$table->boolean('top_week_video')->after('winner')->nullable()->unsigned()->default(0);
+			$table->boolean('top_video')->after('top_week_video')->nullable()->unsigned()->default(0);
+			$table->text('way')->nullable();
 		});
 	}
 
@@ -35,6 +37,8 @@ class AddUsersFields extends Migration {
 			$table->dropColumn('in_main_page');
 			$table->dropColumn('winner');
 			$table->dropColumn('top_week_video');
+			$table->dropColumn('top_video');
+			$table->dropColumn('way');
 		});
 	}
 }

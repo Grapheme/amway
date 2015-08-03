@@ -54,9 +54,13 @@ class ModeratorController extends BaseController {
     public function participantsSave($user_id) {
 
         if ($user = User::where('id', $user_id)->first()):
+            if (Input::has('top_week_video')):
+                Accounts::update(array('top_week_video' => 0));
+            endif;
             $user->in_main_page = Input::has('in_main_page') ? 1 : 0;
             $user->winner = Input::has('winner') ? 1 : 0;
             $user->top_week_video = Input::has('top_week_video') ? 1 : 0;
+            $user->top_video = Input::has('top_video') ? 1 : 0;
             $user->save();
         endif;
         return Redirect::back();
