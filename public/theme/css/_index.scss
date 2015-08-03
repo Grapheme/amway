@@ -51,6 +51,11 @@ section {
       background: rgba(#7d34af, 0.7);
     }
   }
+  &.color-purple-dark {
+    .cover {
+      background: rgba(#7729ac, 1);
+    }
+  }
   .holder {
     max-width: 1160px;
     margin: 0 auto;
@@ -58,7 +63,7 @@ section {
     position: relative;
     display: inline-block;
     vertical-align: middle;
-    margin-left: 82px;
+    //margin-left: 82px;
     .play {
       text-decoration: none;
       color: white;
@@ -103,6 +108,14 @@ section {
     }
     p {
       font-size: 24px;
+    }
+  }
+  &.mid {
+    height: 384px;
+    .cover {
+      background-image: url('../img/deco-brush.png');
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
     }
   }
   .cover {
