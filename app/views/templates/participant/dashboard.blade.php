@@ -23,7 +23,7 @@
             <div class="info">
                 <div class="row">
                     <h3 class="name">{{ $profile->name }}</h3>
-                    <a href="{{ URL::route('profile-edit') }}" class="edit">Редактировать профиль</a>
+                    <a href="{{ URL::route('profile.edit') }}" class="edit">Редактировать профиль</a>
                     {{--<a href="" class="exit btn-white">Выйти</a>--}}
                 </div>
                 <div class="row">
@@ -38,7 +38,7 @@
 
                 <div class="row">
                     <a href="#" class="btn-big-red add-video">Добавить видео</a>
-                    <input class="videoupload" type="file" name="video" data-url="server/php/" accept="video/*, video/x-flv, video/mp4, application/x-mpegURL, video/MP2T, video/3gpp, video/quicktime, video/x-msvideo, video/x-ms-wmv">
+                    <input class="videoupload" type="file" name="video" data-url="{{ URL::route('profile.video.upload') }}" accept="video/*, video/x-flv, video/mp4, application/x-mpegURL, video/MP2T, video/3gpp, video/quicktime, video/x-msvideo, video/x-ms-wmv">
                 </div>
                 <div class="row" style="display:none;">
                     <div class="progress">

@@ -20,6 +20,8 @@ return array(
     'uploads_photo_public_dir' => '/uploads',
     'uploads_thumb_public_dir' => '/uploads/thumbs',
 
+    'uploads_video_dir' => 'uploads/video',
+
     'galleries_photo_dir'        => public_path('uploads/galleries'),
     'galleries_photo_public_dir' => '/uploads/galleries',
     'galleries_thumb_dir'        => public_path('uploads/galleries/thumbs'),

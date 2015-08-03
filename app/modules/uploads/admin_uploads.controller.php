@@ -362,6 +362,70 @@ class AdminUploadsController extends BaseController {
         $json_request['status'] = TRUE;
         return Response::json($json_request,200);
     }
+
+    public static function getUploadedImageManipulationFile($input = 'file'){
+
+        if(Input::hasFile($input)):
+            $fileName = time()."_".Auth::user()->id."_".rand(1000, 1999).'.'.Input::file($input)->getClientOriginalExtension();
+            if(!File::exists(public_path(Config::get('site.uploads_thumb_user_dir')))):
+                File::makeDirectory(public_path(Config::get('site.uploads_thumb_user_dir')),0777,TRUE);
+            endif;
+            ImageManipulation::make(Input::file($input)->getRealPath())->resize(110,110)->save(public_path(Config::get('site.uploads_thumb_user_dir')).'/thumb_'.$fileName);
+            ImageManipulation::make(Input::file($input)->getRealPath())->resize(157,157)->save(public_path(Config::get('site.uploads_image_user_dir')).'/'.$fileName);
+            return array('main'=>Config::get('site.uploads_image_user_dir').'/'.$fileName,'thumb'=>Config::get('site.uploads_thumb_user_dir').'/thumb_'.$fileName);
+        endif;
+        return FALSE;
+    }
+
+    public static function getUploadedImageFile($input = 'file'){
+
+        if (Input::hasFile($input)):
+            $fileName = time() . "_" . rand(10000000, 19999999) . '.' . Input::file($input)->getClientOriginalExtension();
+            Input::file($input)->move(Config::get('site.galleries_photo_dir'), $fileName);
+            $photo = Photo::create(array('name' => $fileName, 'gallery_id' => 0));
+            return $photo->id;
+        endif;
+        return FALSE;
+    }
+
+    public static function deleteUploadedImageFile ($image_id){
+
+        if ($image_id):
+            $photo = Photo::where('id',$image_id)->first();
+            if (File::exists(Config::get('site.galleries_photo_dir').'/'.$photo->name)):
+                File::delete(Config::get('site.galleries_photo_dir').'/'.$photo->name);
+            endif;
+            $photo->delete();
+            return TRUE;
+        else:
+            return FALSE;
+        endif;
+    }
+
+    public static function getUploadedFile($input = 'file', $path = NULL){
+        if (Input::hasFile($input)):
+            if(is_null($path)):
+                $path = Config::get('site.uploads_user_dir').'/';
+            endif;
+            $fileName = time()."_".Auth::user()->id."_".rand(1000, 1999).'.'.Input::file($input)->getClientOriginalExtension();
+            Input::file($input)->move(public_path($path), $fileName);
+            return $path.$fileName;
+        endif;
+        return FALSE;
+    }
+
+    public static function createImageInBase64String($input = 'file'){
+
+        $base62string = Input::get($input);
+        if(!empty($base62string)):
+            #list($type, $base62string) = explode(';', $base62string);
+            #list(, $base62string)      = explode(',', $base62string);
+            #$base62string = base64_decode($base62string);
+            $fileName = time()."_".Auth::user()->id."_".rand(1000, 1999).'.png';
+            ImageManipulation::make($base62string)->resize(110,110)->save(public_path(Config::get('site.uploads_thumb_user_dir')).'/thumb_'.$fileName);
+            ImageManipulation::make($base62string)->resize(157,157)->save(public_path(Config::get('site.uploads_image_user_dir')).'/'.$fileName);
+            return array('main'=>Config::get('site.uploads_image_user_dir').'/'.$fileName,'thumb'=>Config::get('site.uploads_thumb_user_dir').'/thumb_'.$fileName);
+        endif;
+        return FALSE;
+    }
 }
-
-

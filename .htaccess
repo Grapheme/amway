@@ -22,7 +22,10 @@ Options -Indexes
 
 </IfModule>
 
-php_value upload_max_filesize 10M
+php_value upload_max_filesize 80M
+php_value post_max_size 80M
+php_value max_execution_time 500
+php_value max_input_time 500
 
 ##
 ## Disable Apache server authorisation for subdirectory

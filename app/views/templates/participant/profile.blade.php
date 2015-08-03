@@ -20,7 +20,7 @@
             <div class="info">
                 <div class="row">
                     <h3 class="name">{{ $profile->name }}</h3>
-                    <a href="{{ URL::route('profile-edit') }}" class="edit">Редактировать профиль</a>
+                    <a href="{{ URL::route('profile.edit') }}" class="edit">Редактировать профиль</a>
                     <a href="" class="exit btn-white">Выйти</a>
                 </div>
                 <div class="row">

@@ -12,6 +12,7 @@ class AddUsersFields extends Migration {
 			$table->string('phone', 20)->after('age')->nullable();
 			$table->text('social')->after('phone')->nullable();
 			$table->boolean('load_video')->after('social')->nullable();
+			$table->string('local_video',100)->after('load_video')->nullable();
 			$table->text('video')->after('load_video')->nullable();
 		});
 	}
@@ -23,6 +24,7 @@ class AddUsersFields extends Migration {
 			$table->dropColumn('phone');
 			$table->dropColumn('social');
 			$table->dropColumn('load_video');
+			$table->dropColumn('local_video');
 			$table->dropColumn('video');
 		});
 	}
