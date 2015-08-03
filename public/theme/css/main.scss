@@ -309,3 +309,88 @@ h3 {
   max-width: 1162px;
   margin: 0 auto;
 }
+
+.col-2 {
+  -moz-column-count: 2;
+  -moz-column-gap: 40px;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 40px;
+  column-count: 2;
+  column-gap: 40px;
+  max-width: 960px;
+  margin: 0 auto;
+  font-family: 'MuseoSansCyrl-300';
+  font-size: 18px;
+  color: #143053;
+  line-height: 28px;
+  margin-bottom: 62px;
+  p{
+    margin-top: 0px;
+    margin-bottom: 28px;
+  }
+}
+
+.row {
+  &.grey {
+    background: #e7eaed;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    .center-text {
+      width: 840px;
+      margin: 0 auto;
+      text-align: center;
+      
+      font-family: 'MuseoSansCyrl-300';
+      font-size: 20px;
+      color: #143053;
+      line-height: 28px;
+      a {
+        font-size: inherit;
+        color: #ea1924;
+      }
+    }
+    .note {
+      a {
+        color: red;
+      }
+    }
+  }
+}
+
+.units-3 {
+  width: 1040px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  .unit {
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    margin: 0 66px;
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+    img {
+      margin-bottom: 28px;
+    }
+    .italic {
+      font-family: 'Vaccine-Italic';
+      font-size: 24px;
+      color: #173152;
+    }
+    .title {
+      color: #173154;
+      font-family: 'Vaccine-Bold';
+      font-size: 20px;
+    }
+    p {
+      display: inline-block;
+      width: 240px;
+      font-family: 'MuseoSansCyrl-300';
+      font-size: 18px;
+      line-height: 22px;
+    }
+  }
+}
