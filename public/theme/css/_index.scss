@@ -112,6 +112,7 @@ section {
   }
   &.mid {
     height: 384px;
+    background-image: none;
     .cover {
       background-image: url('../img/deco-brush.png');
       background-repeat: no-repeat;
@@ -126,7 +127,12 @@ section {
   }
 }
 
-.main-news {
+.news-grid {
+  &.grey {
+    background: #e2e6ee;
+    padding-top: 1px;
+    padding-bottom: 1px;
+  }
   h3 {
     margin-bottom: 80px; //!! убрать
   }
@@ -179,19 +185,23 @@ section {
             }
           }
         }
+        &.best {
+          .frame {
+            &:before {
+              display: block;
+              background: url('../img/deco-best-video.png');
+              position: absolute;
+              content: '';
+              width: 223px;
+              height: 116px;
+              margin-top: -5px;
+              margin-left: -6px;
+            }
+          }
+        }
         .frame {
           position: relative;
           text-align: center;
-          &:before {
-            display: block;
-            background: url('../img/deco-best-video.png');
-            position: absolute;
-            content: '';
-            width: 223px;
-            height: 116px;
-            margin-top: -5px;
-            margin-left: -6px;
-          }
         }
         .play {
           position: absolute;
@@ -224,6 +234,37 @@ section {
           margin-top: 5px;
           .icon2-star {
             color: #752aa8;
+          }
+        }
+
+        &:nth-of-type(6n+1) {
+          .icon2-star {
+            color: #ffa700 !important;
+          }
+        }
+        &:nth-of-type(6n+2) {
+          .icon2-star {
+            color: #138cdf !important;
+          }
+        }
+        &:nth-of-type(6n+3) {
+          .icon2-star {
+            color: #35cc26 !important;
+          }
+        }
+        &:nth-of-type(6n+4) {
+          .icon2-star {
+            color: #6f26a5 !important;
+          }
+        }
+        &:nth-of-type(6n+5) {
+          .icon2-star {
+            color: #ea1924 !important;
+          }
+        }
+        &:nth-of-type(6n+6) {
+          .icon2-star {
+            color: #35cc26 !important
           }
         }
       }
