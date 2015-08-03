@@ -26,6 +26,7 @@ class ParticipantController extends BaseController {
         });
         Route::post('video/youtube', array('as' => 'profile.video.youtube',
             'uses' => $class . '@setYoutubeVideo'));
+        Route::post('participant/{user_id}/set-like', array('as' => 'participant.public.set.like', 'uses' => $class . '@setLike'));
     }
 
     public static function returnShortCodes() {
@@ -151,4 +152,29 @@ class ParticipantController extends BaseController {
         endif;
         App::abort(404);
     }
+    /****************************************************************************/
+    public function setLike($user_id){
+
+        $json_request = array('status' => FALSE, 'count' => 0);
+        if (Request::ajax()):
+            if ($user = Accounts::where('group_id', 4)->first()):
+                self::incrementLikePost($user);
+                $json_request['status'] = TRUE;
+                $json_request['count'] = ParticipantLikes::where('participant_id', $user_id)->count();
+            endif;
+        else:
+            return Redirect::back();
+        endif;
+        return Response::json($json_request, 200);
+    }
+
+    private function incrementLikePost($user) {
+
+        if (ParticipantLikes::where('participant_id', $user->id)->where('user_id', Auth::user()->id)->exists() === FALSE):
+            ParticipantLikes::create(array('participant_id' => $user->id, 'user_id' => Auth::user()->id));
+            return TRUE;
+        endif;
+        return FALSE;
+    }
+    /****************************************************************************/
 }

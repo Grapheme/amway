@@ -2,6 +2,8 @@
 
 return array(
 
+    'date_over_action' => '2015-08-24',
+
     'theme_path' => URL::to('/theme'),
     #'theme_path' => URL::to('/theme/' . Config::get('app.template') . '/dist'),
     #'mobile_theme_path' => URL::to('/theme/mobile/dist'),

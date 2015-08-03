@@ -65,7 +65,6 @@ Route::filter('user.auth', function(){
 		return Redirect::to('/');
 	endif;
 });
-
 /*
 |--------------------------------------------------------------------------
 | Permission Filter

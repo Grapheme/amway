@@ -17,13 +17,21 @@ class ApplicationController extends BaseController {
             'name' => self::$name,
             'group' => self::$group,
             'title' => 'Эй Джен',
-            'visible' => FALSE,
+            'visible' => TRUE,
         );
     }
 
     public static function returnMenu() {
 
-        return NULL;
+        $menu[] = array(
+            'title' => 'Участники',
+            'link' => 'participants',
+            'class' => 'fa-users',
+            'system' => 1,
+            'menu_child' => NULL,
+            'permit' => 'view'
+        );
+        return $menu;
     }
 
     public static function returnActions() {
