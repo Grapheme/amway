@@ -24,6 +24,8 @@ class ParticipantController extends BaseController {
             Route::post('profile/video/upload', array('as' => 'profile.video.upload',
                 'uses' => $class . '@profileVideoUpdate'));
         });
+        Route::post('video/youtube', array('as' => 'profile.video.youtube',
+            'uses' => $class . '@setYoutubeVideo'));
     }
 
     public static function returnShortCodes() {
@@ -118,7 +120,13 @@ class ParticipantController extends BaseController {
         if (Input::hasFile('video')):
             $path = Config::get('site.uploads_video_dir') . '/';
             if ($uploaded_file_path = AdminUploadsController::getUploadedFile('video', $path)):
+                if (Auth::user()->load_video && File::exists(public_path(Auth::user()->local_video))):
+                    File::delete(public_path(Auth::user()->local_video));
+                endif;
                 Auth::user()->load_video = 1;
+                Auth::user()->local_video = $uploaded_file_path;
+                Auth::user()->local_video_date = Carbon::now();
+                Auth::user()->video = '';
                 Auth::user()->save();
                 $file_info = array('user_id' => Auth::user()->id, 'file_path' => public_path($uploaded_file_path),
                     'end' => "\n\r");
@@ -128,5 +136,19 @@ class ParticipantController extends BaseController {
             endif;
         endif;
         return Response::json($json_request, 200);
+    }
+
+    public function setYoutubeVideo() {
+
+        $validator = Validator::make(Input::all(), array('user_id' => 'required|integer', 'video' => 'required'));
+        if ($validator->passes()):
+            if ($user = User::where('id', Input::get('user_id'))->where('load_video', 1)->first()):
+                $user->video = Input::get('video');
+                $user->save();
+                $user->touch();
+                return Response::make('', 200);
+            endif;
+        endif;
+        App::abort(404);
     }
 }

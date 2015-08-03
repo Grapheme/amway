@@ -144,11 +144,13 @@ class myDateTime {
             $list = explode("-",$this->date_string);
             $list[2] = (int)$list[2];
             $field = implode("-",$list);
-            $nmonth = $this->short_months[$list[1]];
+            $short_month = $this->short_months[$list[1]];
+            $month = $this->months[$list[1]];
             $pattern = "/(\d+)(-)(\w+)(-)(\d+) (\d+)(:)(\d+)(:)(\d+)/i";
-            $replacement = "\$5 $nmonth \$1";
+            $replacement = "\$5 $month \$1";
             switch ($format):
-                case 'M d, Y': $replacement = "$nmonth \$5, \$1"; break;
+                case 'M d, Y': $replacement = "$short_month \$5, \$1"; break;
+                case 'd M Y': $replacement = "\$5 $month \$1"; break;
                 default :
                     return '';
             endswitch;

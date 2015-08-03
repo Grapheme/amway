@@ -13,7 +13,8 @@ class AddUsersFields extends Migration {
 			$table->text('social')->after('phone')->nullable();
 			$table->boolean('load_video')->after('social')->nullable();
 			$table->string('local_video',100)->after('load_video')->nullable();
-			$table->text('video')->after('load_video')->nullable();
+			$table->timestamp('local_video_date')->after('local_video')->nullable();
+			$table->text('video')->after('local_video_date')->nullable();
 		});
 	}
 
