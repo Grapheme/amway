@@ -154,14 +154,18 @@ button.btn-big-red {
       display: inline-block;
       text-align: center;
       margin: 0 18px;
+      &:nth-of-type(5n+1) {
+        margin-left: 0; 
+      }
       &:nth-of-type(6n+1) {
-        margin-left: 0;
         .icon2-star {
           color: #ffa700 !important;
         }
       }
-      &:nth-of-type(6n+2) {
+      &:nth-of-type(5n+5) {
         margin-right: 0;
+      }
+      &:nth-of-type(6n+5) {
         .icon2-star {
           color: #138cdf !important;
         }
@@ -176,7 +180,7 @@ button.btn-big-red {
           color: #6f26a5 !important;
         }
       }
-      &:nth-of-type(6n+5) {
+      &:nth-of-type(6n+2) {
         .icon2-star {
           color: #ea1924 !important;
         }
