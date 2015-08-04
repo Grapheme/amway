@@ -8,6 +8,10 @@
 
 html, body { height: 100%; }
 
+body {
+  min-width: 1162px;
+}
+
 .cf {
   &:after {
     content: "";
