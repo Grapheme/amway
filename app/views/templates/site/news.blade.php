@@ -35,6 +35,7 @@
         </div>
         @endif
         @if($top_video = Accounts::where('group_id' ,4)->where('load_video', 1)->where('video', '!=', '')->where('top_video', 1)->with('likes')->get())
+            {{ Helper::ta($top_video); }}
         <div class="news-grid grey">
             <h3>ЛУЧШИЕ ВИДЕО</h3>
             <div class="holder">
