@@ -129,9 +129,22 @@ function cropImage(data){
   });
 }
 
+function playVideoIframe($btn){
+  var $section = $btn.closest('section');
+  var $iframe = $section.find('iframe');
+  
+  var src = $iframe.attr('data-src');
+  $iframe.attr('src', src).addClass('active');
+}
+
 $(function() {
   parseHash();
   renderVoting();
+  
+  $('section.video .play').click(function(e){
+    e.preventDefault();
+    playVideoIframe($(this));
+  });
   
   $('.photoupload').change(function(){
     readFile(this, function(data){
