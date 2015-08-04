@@ -25,7 +25,7 @@ endif;
         <iframe data-src="https://player.vimeo.com/video/6382511?autoplay=1&loop=1&color=ffffff&title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         <div class="cover"></div>
         <div class="holder">
-            {{ $page->block('first_section') }}
+          {{ $page->block('first_section') }}
         </div>
     </section>
     @if(Auth::guest())
