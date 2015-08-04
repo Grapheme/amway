@@ -21,7 +21,8 @@ endif;
 @section('style')
 @stop
 @section('content')
-    <section class="long color-blue" style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-1.jpg')"  >
+    <section class="long color-blue video" style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-1.jpg')"  >
+        <iframe data-src="https://player.vimeo.com/video/6382511?autoplay=1&loop=1&color=ffffff&title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         <div class="cover"></div>
         <div class="holder">
             {{ $page->block('first_section') }}
