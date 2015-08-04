@@ -4,6 +4,13 @@
 * AVAILABLE_ONLY_IN_ADVANCED_MODE
 */
 ?>
+<?php
+$created = new Carbon(Config::get('site.date_over_action'));
+$now = Carbon::now();
+$difference = ($created->diff($now)->days < 1)
+        ? 'Сегодня заканчивается регистраця в конкурсе.'
+        : 'До окончания регистрации в конкурсе осталось '.$created->diffInDays($now).' '.Lang::choice('день|дня|дней', $created->diffInDays($now)).'.';
+?>
 @extends(Helper::layout())
 @section('style')
 @stop
@@ -14,13 +21,6 @@
             {{ $page->block('first_section') }}
         </div>
     </section>
-    <?php
-    $created = new Carbon(Config::get('site.date_over_action'));
-    $now = Carbon::now();
-    $difference = ($created->diff($now)->days < 1)
-            ? 'Сегодня заканчивается регистраця в конкурсе.'
-            : 'До окончания регистрации в конкурсе осталось '.$created->diffInDays($now).' '.Lang::choice('день|дня|дней', $created->diffInDays($now)).'.';
-    ?>
     @if(Auth::guest())
     <section class="color-green">
         <div class="cover"></div>
