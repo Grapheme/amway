@@ -41,29 +41,7 @@ $difference = ($created->diff($now)->days < 1)
         <div class="holder">
             {{ $page->block('four_section') }}
             @foreach(Accounts::where('group_id',4)->where('in_main_page', 1)->with('ulogin', 'likes')->get() as $user)
-                <div class="unit">
-                    <div class="img">
-                    @if(!empty($user->photo) && File::exists(public_path($user->photo)))
-                        <img src="{{ asset($user->photo) }}"
-                             alt="{{ $user->name }}" class="{{ $user->name }}">
-                    @elseif(!empty($user->ulogin) && !empty($user->ulogin->photo_big))
-                        <img src="{{ $user->ulogin->photo_big }}" alt="{{ $user->name }}"
-                             class="{{ $user->name }}">
-                    @endif
-                    </div>
-                    <div class="name">
-                        {{ $user->name }}
-                    </div>
-                    <div class="location">
-                        {{ $user->location }}
-                    </div>
-                    <div class="rating">
-                        <span class="icon2-star"></span>
-                        <div class="count">{{ count($user->likes) }}</div>
-                        <div class="legend">{{ Lang::choice('голос|голоса|голосов', (int)count($user->likes) ) }}</div>
-                    </div>
-                    <a href="{{ URL::route('participant.public.set.like',$user->id) }}" class="vote">Проголосовать</a>
-                </div>
+                @include(Helper::layout('blocks.user'), compact('user'))
             @endforeach
         </div>
     </div>
@@ -96,47 +74,7 @@ $difference = ($created->diff($now)->days < 1)
                 );
             ?>
             <div class="unit photo">
-                <a href="javascript:void(0);" class="wrapper">
-                    @if($news['third'])
-                    <div class="frame third">
-                        @if(!empty($news['third']['meta']['photo']) && File::exists(Config::get('site.galleries_photo_dir').'/'.$news['third']['meta']['photo']['name']))
-                        <img src="{{ asset(Config::get('site.galleries_photo_public_dir').'/'.$news['third']['meta']['photo']['name']) }}" class="visual" alt="{{ $news['third']['meta']['title'] }}">
-                        @endif
-                        <div class="title">
-                            {{ $news['third']['meta']['title'] }}
-                        </div>
-                        <div class="date">
-                            {{ (new myDateTime())->setDateString($news['third']['published_at'])->custom_format('d M Y') }}
-                        </div>
-                    </div>
-                    @endif
-                    @if($news['second'])
-                    <div class="frame second">
-                        @if(!empty($news['second']['meta']['photo']) && File::exists(Config::get('site.galleries_photo_dir').'/'.$news['second']['meta']['photo']['name']))
-                            <img src="{{ asset(Config::get('site.galleries_photo_public_dir').'/'.$news['second']['meta']['photo']['name']) }}" class="visual" alt="{{ $news['second']['meta']['title'] }}">
-                        @endif
-                        <div class="title">
-                            {{ $news['second']['meta']['title'] }}
-                        </div>
-                        <div class="date">
-                            {{ (new myDateTime())->setDateString($news['second']['published_at'])->custom_format('d M Y') }}
-                        </div>
-                    </div>
-                    @endif
-                    @if($news['first'])
-                    <div class="frame">
-                        @if(!empty($news['first']['meta']['photo']) && File::exists(Config::get('site.galleries_photo_dir').'/'.$news['first']['meta']['photo']['name']))
-                        <img src="{{ asset(Config::get('site.galleries_photo_public_dir').'/'.$news['first']['meta']['photo']['name']) }}" class="visual" alt="{{ $news['first']['meta']['title'] }}">
-                        @endif
-                        <div class="title">
-                            {{ $news['first']['meta']['title'] }}
-                        </div>
-                        <div class="date">
-                            {{ (new myDateTime())->setDateString($news['first']['published_at'])->custom_format('d M Y') }}
-                        </div>
-                    </div>
-                    @endif
-                </a>
+                @include(Helper::layout('blocks.news'),compact('news'))
                 <a href="{{ pageurl('news') }}" class="all">Посмотреть все репортажи</a>
             </div>
             @endif
@@ -152,24 +90,9 @@ $difference = ($created->diff($now)->days < 1)
                 </a>
                 <a href="javascript:void(0);" class="all">БУДЬ ПЕРВЫМ В СВОЕМ ГОРОДЕ</a>
             </div>
-            @if($week_video = Accounts::where('group_id' ,4)->where('load_video', 1)->where('video', '!=', '')->where('top_week_video', 1)->with('likes')->first())
+            @if($video = Accounts::where('group_id' ,4)->where('load_video', 1)->where('video', '!=', '')->where('top_week_video', 1)->with('likes')->first())
             <div class="unit video best">
-                <a href="#" class="wrapper">
-                    <div class="frame">
-                        <div class="play">
-                            <span class="icon-play"></span>
-                        </div>
-                        {{ $week_video->video }}
-{{--                        <img src="{{ asset(Config::get('site.theme_path')) }}/img/tmp-video.jpg" alt="">--}}
-                        <div class="name">{{ $week_video->name }}</div>
-                        <div class="location">{{ $week_video->location }}</div>
-                        <div class="rating">
-                            <span class="icon2-star"></span>
-                            <div class="count">{{ count($week_video->likes) }}</div>
-                            <div class="legend">{{ Lang::choice('голос|голоса|голосов', (int)count($week_video->likes) ) }}</div>
-                        </div>
-                    </div>
-                </a>
+                @include(Helper::layout('blocks.video'), compact('video'))
                 <a href="javascript:void(0);" class="all">Посмотреть другие видео</a>
             </div>
             @endif

@@ -29,29 +29,7 @@ $participants = Accounts::where('group_id', 4)->with('ulogin', 'likes')->get();
         <div class="competitors">
             <div class="holder">
                 @foreach($participants as $user)
-                <div class="unit">
-                    <div class="img">
-                    @if(!empty($user->photo) && File::exists(public_path($user->photo)))
-                        <img src="{{ asset($user->photo) }}"
-                             alt="{{ $user->name }}" class="{{ $user->name }}">
-                    @elseif(!empty($user->ulogin) && !empty($user->ulogin->photo_big))
-                        <img src="{{ $user->ulogin->photo_big }}" alt="{{ $user->name }}"
-                             class="{{ $user->name }}">
-                    @endif
-                    </div>
-                    <div class="name">
-                        {{ $user->name }}
-                    </div>
-                    <div class="location">
-                        {{ $user->location }}
-                    </div>
-                    <div class="rating">
-                        <span class="icon2-star"></span>
-                        <div class="count">{{ count($user->likes) }}</div>
-                        <div class="legend">{{ Lang::choice('голос|голоса|голосов', (int)count($user->likes) ) }}</div>
-                    </div>
-                    <a href="{{ URL::route('participant.public.set.like', $user->id) }}" class="vote">Проголосовать</a>
-                </div>
+                    @include(Helper::layout('blocks.user'), compact('user'))
                 @endforeach
             </div>
         </div>
