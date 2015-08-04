@@ -4,7 +4,7 @@
 		<section>
 			<label class="label">E-mail</label>
 			<label class="input"> <i class="icon-append fa fa-envelope-o"></i>
-				<input type="email" name="login">
+				<input type="email" name="email">
 				<b class="tooltip tooltip-top-right"><i class="fa fa-envelope-o txt-color-teal"></i> Введите Email адрес</b>
 			</label>
 		</section>
