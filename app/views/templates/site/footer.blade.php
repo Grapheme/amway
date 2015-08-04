@@ -18,7 +18,7 @@
             <a class="mail" href="mailto:info@agen-project.ru">info@agen-project.ru</a>
         </div>
         <div class="right">
-            <a href="http://myxa-digital.com/" class="dev">MYXA digital</a>
+            <a href="http://myxa-digital.com/" class="dev">MYXA Digital</a>
         </div>
     </div>
 </footer>
