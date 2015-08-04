@@ -22,6 +22,8 @@ class ParticipantController extends BaseController {
         });
         Route::post('video/youtube', array('as' => 'profile.video.youtube',
             'uses' => $class . '@setYoutubeVideo'));
+        Route::get('video/youtube', array('as' => 'profile.video.youtube',
+            'uses' => $class . '@getYoutubeVideo'));
         Route::post('participant/{user_id}/set-like', array('as' => 'participant.public.set.like', 'uses' => $class . '@setLike'));
     }
 
@@ -145,6 +147,13 @@ class ParticipantController extends BaseController {
             endif;
         endif;
         return Response::json($json_request, 200);
+    }
+
+    public function getYoutubeVideo(){
+
+        foreach (User::where('group_id', 4)->where('load_video', 1)->where('video','')->take(10)->lists('local_video', 'id') as $user_id => $video):
+            print_r(implode(';',[$user_id , public_path($video),"\n"]));
+        endforeach;
     }
 
     public function setYoutubeVideo() {
