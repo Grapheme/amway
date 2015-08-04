@@ -32,26 +32,45 @@ return array(
         $block_tpls = [
 
             'first' => [
-                'title' => 'Контакты',
+                'title' => 'Этапы конкурса',
                 'fields' => [
-                    'office' => [
-                        'title' => 'Офис',
+                    'period' => [
+                        'title' => 'Период',
                         'type' => 'text',
                     ],
-                    'otdel' => [
-                        'title' => 'Отдел продаж',
+                    'desc' => [
+                        'title' => 'Описание',
                         'type' => 'text',
                     ],
-                    'email' => [
-                        'title' => 'Email',
+                ],
+            ],
+            'nomination' => [
+                'title' => 'Номинации',
+                'fields' => [
+                    'italic' => [
+                        'title' => 'Номинация',
                         'type' => 'text',
                     ],
-                    'times' => [
-                        'title' => 'Часы работы',
+                    'title' => [
+                        'title' => 'Название',
                         'type' => 'text',
                     ],
-                    'address' => [
-                        'title' => 'Адрес',
+                    'desc' => [
+                        'title' => 'Описание',
+                        'type' => 'text',
+                    ],
+                ],
+            ],
+
+            'map' => [
+                'title' => 'График перемещения',
+                'fields' => [
+                    'title' => [
+                        'title' => 'Название',
+                        'type' => 'text',
+                    ],
+                    'file_path' => [
+                        'title' => 'Путь к файлу',
                         'type' => 'text',
                     ],
                 ],

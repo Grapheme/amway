@@ -54,7 +54,7 @@
             {{ Form::hidden('verified_email', Session::has('verified_email') ? Session::get('verified_email') : 0) }}
             <label>
                 <span class="label">Ваше имя и фамилия</span>
-                {{ Form::text('name', Session::get('first_name').' '.Session::get('last_name')) }}
+                {{ Form::text('name', trim(Session::get('first_name').' '.Session::get('last_name'))) }}
             </label>
             <label>
                 <span class="label">Ваш город</span>
