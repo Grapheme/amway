@@ -293,8 +293,8 @@ $(function() {
   $('.videoupload').fileupload({
     dataType: 'json',
     done: function (e, data) {
-      alert('Готово!'); 
-      location.href='';
+      //alert('Готово!'); 
+      location.href=location.href;
     },
     fail: function (e, data) {
       alert('Ошибка');
@@ -321,6 +321,13 @@ $(function() {
         data.submit();
       }
     },
+  });
+  
+  $('.bxslider').bxSlider({
+    pagerCustom: '#bx-pager',
+    infiniteLoop: false,
+    hideControlOnEnd: true,
+    
   });
   
 });
