@@ -83,7 +83,7 @@
             <p>{{ $difference }}</p>
         </div>
     </section>
-    <div class="main-news">
+    <div class="news-grid">
         {{ $page->block('seven_section') }}
         <div class="holder">
             @if($news = News::where('publication' ,1)->orderBy('published_at','DESC')->with('meta.photo')->take(3)->get())
