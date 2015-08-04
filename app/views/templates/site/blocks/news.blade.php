@@ -1,41 +1,22 @@
-<a href="javascript:void(0);" class="wrapper">
-    @if(isset($news['third']))
+@if($news)
+    <a href="#" class="wrapper">
         <div class="frame third">
-            @if(!empty($news['third']['meta']['photo']) && File::exists(Config::get('site.galleries_photo_dir').'/'.$news['third']['meta']['photo']['name']))
-                <img src="{{ asset(Config::get('site.galleries_photo_public_dir').'/'.$news['third']['meta']['photo']['name']) }}" class="visual" alt="{{ $news['third']['meta']['title'] }}">
-            @endif
-            <div class="title">
-                {{ $news['third']['meta']['title'] }}
-            </div>
-            <div class="date">
-                {{ (new myDateTime())->setDateString($news['third']['published_at'])->custom_format('d M Y') }}
-            </div>
+            <img src="{{  asset(Config::get('site.theme_path')) }}/img/tmp-visual-6.jpg" class="visual" alt="">
+            <div class="title">Фоторепортаж из Воронежа</div>
+            <div class="date">3 августа 2015</div>
         </div>
-    @endif
-    @if(isset($news['second']))
         <div class="frame second">
-            @if(!empty($news['second']['meta']['photo']) && File::exists(Config::get('site.galleries_photo_dir').'/'.$news['second']['meta']['photo']['name']))
-                <img src="{{ asset(Config::get('site.galleries_photo_public_dir').'/'.$news['second']['meta']['photo']['name']) }}" class="visual" alt="{{ $news['second']['meta']['title'] }}">
-            @endif
-            <div class="title">
-                {{ $news['second']['meta']['title'] }}
-            </div>
-            <div class="date">
-                {{ (new myDateTime())->setDateString($news['second']['published_at'])->custom_format('d M Y') }}
-            </div>
+            <img src="{{  asset(Config::get('site.theme_path')) }}/img/tmp-visual-5.jpg" class="visual" alt="">
+            <div class="title">Фоторепортаж из Воронежа</div>
+            <div class="date">3 августа 2015</div>
         </div>
-    @endif
-    @if(isset($news['first']))
         <div class="frame">
-            @if(!empty($news['first']['meta']['photo']) && File::exists(Config::get('site.galleries_photo_dir').'/'.$news['first']['meta']['photo']['name']))
-                <img src="{{ asset(Config::get('site.galleries_photo_public_dir').'/'.$news['first']['meta']['photo']['name']) }}" class="visual" alt="{{ $news['first']['meta']['title'] }}">
-            @endif
-            <div class="title">
-                {{ $news['first']['meta']['title'] }}
-            </div>
-            <div class="date">
-                {{ (new myDateTime())->setDateString($news['first']['published_at'])->custom_format('d M Y') }}
-            </div>
+        @if(!empty($news['meta']['photo']) && File::exists(Config::get('site.galleries_photo_dir').'/'.$news['meta']['photo']['name']))
+            <img src="{{ asset(Config::get('site.galleries_photo_public_dir').'/'.$news['meta']['photo']['name']) }}"
+                 class="visual" alt="{{ $news['meta']['title'] }}">
+        @endif
+            <div class="title">{{ $news['meta']['title'] }}</div>
+            <div class="date">{{ (new myDateTime())->setDateString($news['published_at'])->custom_format('d M Y') }}</div>
         </div>
-    @endif
-</a>
+    </a>
+@endif

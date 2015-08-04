@@ -64,15 +64,7 @@ $difference = ($created->diff($now)->days < 1)
     <div class="news-grid">
         {{ $page->block('seven_section') }}
         <div class="holder">
-            @if($news = News::where('publication' ,1)->orderBy('published_at','DESC')->with('meta.photo')->take(3)->get())
-            <?php
-                $tmp_news = $news;
-                $news = array(
-                    'first' => isset($tmp_news[0]) ? $tmp_news[0] : NULL,
-                    'second' => isset($tmp_news[1]) ? $tmp_news[1] : NULL,
-                    'third' => isset($tmp_news[2]) ? $tmp_news[2] : NULL
-                );
-            ?>
+            @if($news = News::where('publication' ,1)->orderBy('published_at','DESC')->with('meta.photo')->first())
             <div class="unit photo">
                 @include(Helper::layout('blocks.news'),compact('news'))
                 <a href="{{ pageurl('news') }}" class="all">Посмотреть все репортажи</a>

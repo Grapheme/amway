@@ -24,10 +24,7 @@
         @if($news_list->count())
             <h3>ФОТОРЕПОРТАЖИ</h3>
             <div class="holder">
-            @foreach($news_list as $single_news)
-                <?php
-                    $news['first'] = $single_news;
-                ?>
+            @foreach($news_list as $news)
                 <div class="unit photo">
                     @include(Helper::layout('blocks.news'), compact('news'))
                 </div>
