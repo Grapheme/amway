@@ -14,23 +14,23 @@
             {{ $page->block('first_section') }}
         </div>
     </section>
+    <?php
+    $created = new Carbon(Config::get('site.date_over_action'));
+    $now = Carbon::now();
+    $difference = ($created->diff($now)->days < 1)
+            ? 'Сегодня заканчивается регистраця в конкурсе.'
+            : 'До окончания регистрации в конкурсе осталось '.$created->diffInDays($now).' '.Lang::choice('день|дня|дней', $created->diffInDays($now)).'.';
+    ?>
+    @if(Auth::guest())
     <section class="color-green">
         <div class="cover"></div>
         <div class="holder">
-            @if(Auth::guest())
             <a href="" class="btn-popup btn" data-href="enter">Принять участие в конкурсе</a>
-            @endif
             {{ $page->block('second_section') }}
-            <?php
-            $created = new Carbon(Config::get('site.date_over_action'));
-            $now = Carbon::now();
-            $difference = ($created->diff($now)->days < 1)
-                    ? 'Сегодня заканчивается регистраця в конкурсе.'
-                    : 'До окончания регистрации в конкурсе осталось '.$created->diffInDays($now).' '.Lang::choice('день|дня|дней', $created->diffInDays($now)).'.';
-            ?>
             <p>{{ $difference }}</p>
         </div>
     </section>
+    @endif
     <section class="long color-yellow" style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-2.jpg')">
         <div class="cover"></div>
         <div class="holder">
@@ -73,16 +73,16 @@
             {{ $page->block('five_section') }}
         </div>
     </section>
+    @if(Auth::guest())
     <section class="color-red">
         <div class="cover"></div>
         <div class="holder">
-            @if(Auth::guest())
             <a href="" class="btn-popup btn" data-href="enter">Принять участие в конкурсе</a>
-            @endif
             {{ $page->block('six_section') }}
             <p>{{ $difference }}</p>
         </div>
     </section>
+    @endif
     <div class="news-grid">
         {{ $page->block('seven_section') }}
         <div class="holder">
