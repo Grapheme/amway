@@ -19,8 +19,9 @@
             <h3>ГРАФИК ПЕРЕМЕЩЕНИЯ МОБИЛЬНОЙ КОМАНДЫ</h3>
             <img src="{{ asset(Config::get('site.theme_path')) }}/img/map.jpg" style="width:100%;" alt="">
         </div>
-        @if($news_list = News::where('publication' ,1)->orderBy('published_at','DESC')->with('meta.photo')->get())
+    @if($news_list = News::where('publication' ,1)->orderBy('published_at','DESC')->with('meta.photo')->get())
         <div class="news-grid">
+        @if($news_list->count())
             <h3>ФОТОРЕПОРТАЖИ</h3>
             <div class="holder">
             @foreach($news_list as $single_news)
@@ -32,11 +33,12 @@
                 </div>
             @endforeach
             </div>
-        </div>
         @endif
-        @if($top_video = Accounts::where('group_id' ,4)->where('load_video', 1)->where('video', '!=', '')->where('top_video', 1)->with('likes')->get())
-            {{ Helper::ta($top_video); }}
+        </div>
+    @endif
+    @if($top_video = Accounts::where('group_id' ,4)->where('load_video', 1)->where('video', '!=', '')->where('top_video', 1)->with('likes')->get())
         <div class="news-grid grey">
+        @if($top_video->count())
             <h3>ЛУЧШИЕ ВИДЕО</h3>
             <div class="holder">
                 @foreach($top_video as $video)
@@ -45,8 +47,9 @@
                 </div>
                 @endforeach
             </div>
-        </div>
         @endif
+        </div>
+    @endif
     </main>
 @stop
 @section('scripts')
