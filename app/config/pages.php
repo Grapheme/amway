@@ -61,6 +61,20 @@ return array(
                     ],
                 ],
             ],
+
+            'map' => [
+                'title' => 'График перемещения',
+                'fields' => [
+                    'title' => [
+                        'title' => 'Название',
+                        'type' => 'text',
+                    ],
+                    'file_path' => [
+                        'title' => 'Путь к файлу',
+                        'type' => 'text',
+                    ],
+                ],
+            ],
         ];
 
         return $block_tpls;
