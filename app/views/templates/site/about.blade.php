@@ -69,7 +69,7 @@ endif;
                 </div>
                 <br>
                 <div class="note">
-                    <a href="#">Полные условия проведения конкурса.</a> (pdf, 234 кб)
+                    {{ $page->block('conditions') }}
                 </div>
                 <br>
                 <br>
@@ -102,12 +102,12 @@ endif;
                     <div class="unit">
                         <img src="{{ asset(Config::get('site.theme_path')) }}/img/award-{{ $i }}.png" alt="">
                         <div class="italic">
-                            {{ @$steps["nom_$i"]['italic'] }}
+                            {{ @$nominations["nom_$i"]['italic'] }}
                         </div>
                         <div class="title">
-                            {{ @$steps["nom_$i"]['title'] }}
+                            {{ @$nominations["nom_$i"]['title'] }}
                         </div>
-                        <p>{{ @$steps["nom_$i"]['desc'] }}</p>
+                        <p>{{ @$nominations["nom_$i"]['desc'] }}</p>
                     </div>
                 @endfor
                 </div>
