@@ -35,6 +35,12 @@ if (isset($page->blocks['nom_3']['meta']['content']) && !empty($page->blocks['no
     $nominations['nom_3'] = json_decode($page->blocks['nom_3']['meta']['content'], TRUE);
 endif;
 ?>
+<?php
+$map = array();
+if (isset($page->blocks['map']['meta']['content']) && !empty($page->blocks['map']['meta']['content'])):
+    $map = json_decode($page->blocks['map']['meta']['content'], TRUE);
+endif;
+?>
 @extends(Helper::layout())
 @section('style')
 @stop
@@ -77,8 +83,8 @@ endif;
             </div>
         </div>
         <div class="holder">
-            <h3>ГОРОДА УЧАСТНИКИ</h3>
-            <img src="{{ asset(Config::get('site.theme_path')) }}/img/map.jpg" style="width:100%;" alt="">
+            <h3>{{ @$map['title'] }}</h3>
+            <img src="{{ asset(@$map['file_path']) }}" style="width:100%;" alt="">
         </div>
         <div class="holder">
             <h3>Этапы конкурса</h3>

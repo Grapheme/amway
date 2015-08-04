@@ -11,6 +11,12 @@ $difference = ($created->diff($now)->days < 1)
         ? 'Сегодня заканчивается регистраця в конкурсе.'
         : 'До окончания регистрации в конкурсе осталось '.$created->diffInDays($now).' '.Lang::choice('день|дня|дней', $created->diffInDays($now)).'.';
 ?>
+<?php
+$map = array();
+if (isset($page->blocks['map']['meta']['content']) && !empty($page->blocks['map']['meta']['content'])):
+    $map = json_decode($page->blocks['map']['meta']['content'], TRUE);
+endif;
+?>
 @extends(Helper::layout())
 @section('style')
 @stop
@@ -73,10 +79,9 @@ $difference = ($created->diff($now)->days < 1)
             <div class="unit map">
                 <a href="#" class="wrapper">
                     <div class="frame">
-                        <img src="{{ asset(Config::get('site.theme_path')) }}/img/map.png" class="visual" alt="">
-
+                        <img src="{{ asset(@$map['file_path']) }}" class="visual" alt="{{ @$map['title'] }}">
                         <div class="title">
-                            График перемещение мобильной команды
+                            {{ @$map['title'] }}
                         </div>
                     </div>
                 </a>
