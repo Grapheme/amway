@@ -44,6 +44,23 @@ return array(
                     ],
                 ],
             ],
+            'nomination' => [
+                'title' => 'Номинации',
+                'fields' => [
+                    'italic' => [
+                        'title' => 'Номинация',
+                        'type' => 'text',
+                    ],
+                    'title' => [
+                        'title' => 'Название',
+                        'type' => 'text',
+                    ],
+                    'desc' => [
+                        'title' => 'Описание',
+                        'type' => 'text',
+                    ],
+                ],
+            ],
         ];
 
         return $block_tpls;

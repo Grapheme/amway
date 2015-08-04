@@ -11,6 +11,30 @@ $difference = ($created->diff($now)->days < 1)
         ? 'Сегодня заканчивается регистраця в конкурсе.'
         : 'До окончания регистрации в конкурсе осталось '.$created->diffInDays($now).' '.Lang::choice('день|дня|дней', $created->diffInDays($now)).'.';
 ?>
+<?php
+$steps = array();
+if (isset($page->blocks['etap_1']['meta']['content']) && !empty($page->blocks['etap_1']['meta']['content'])):
+    $steps['etap_1'] = json_decode($page->blocks['etap_1']['meta']['content'], TRUE);
+endif;
+if (isset($page->blocks['etap_2']['meta']['content']) && !empty($page->blocks['etap_2']['meta']['content'])):
+    $steps['etap_2'] = json_decode($page->blocks['etap_2']['meta']['content'], TRUE);
+endif;
+if (isset($page->blocks['etap_3']['meta']['content']) && !empty($page->blocks['etap_3']['meta']['content'])):
+    $steps['etap_3'] = json_decode($page->blocks['etap_3']['meta']['content'], TRUE);
+endif;
+?>
+<?php
+$nominations = array();
+if (isset($page->blocks['nom_1']['meta']['content']) && !empty($page->blocks['nom_1']['meta']['content'])):
+    $nominations['nom_1'] = json_decode($page->blocks['nom_1']['meta']['content'], TRUE);
+endif;
+if (isset($page->blocks['nom_2']['meta']['content']) && !empty($page->blocks['nom_2']['meta']['content'])):
+    $nominations['nom_2'] = json_decode($page->blocks['nom_2']['meta']['content'], TRUE);
+endif;
+if (isset($page->blocks['nom_3']['meta']['content']) && !empty($page->blocks['nom_3']['meta']['content'])):
+    $nominations['nom_3'] = json_decode($page->blocks['nom_3']['meta']['content'], TRUE);
+endif;
+?>
 @extends(Helper::layout())
 @section('style')
 @stop
@@ -58,85 +82,34 @@ $difference = ($created->diff($now)->days < 1)
         </div>
         <div class="holder">
             <h3>Этапы конкурса</h3>
-
             <div class="units-3">
+                @for($i = 1; $i <= 3; $i++)
                 <div class="unit">
-                    <img src="{{ asset(Config::get('site.theme_path')) }}/img/stage-1.png" alt="">
-
+                    <img src="{{ asset(Config::get('site.theme_path')) }}/img/stage-{{ $i }}.png" alt="">
                     <div class="title">
-                        8 августа — 31 августа
+                        {{ @$steps["etap_$i"]['period'] }}
                     </div>
-                    <p>Регистрация участников конкурса</p>
+                    <p>{{ @$steps["etap_$i"]['desc'] }}</p>
                 </div>
-                <div class="unit">
-                    <img src="{{ asset(Config::get('site.theme_path')) }}/img/stage-2.png" alt="">
-
-                    <div class="title">
-                        1 сентября — 18 октября
-                    </div>
-                    <p>
-                        Формирование команд
-                        и&nbsp;подготовка к шоу
-                    </p>
-                </div>
-                <div class="unit">
-                    <img src="{{ asset(Config::get('site.theme_path')) }}/img/stage-3.png" alt="">
-
-                    <div class="title">
-                        24 октября
-                    </div>
-                    <p>
-                        Гала-концерт
-                        на большой сцене
-                    </p>
-                </div>
+                @endfor
             </div>
         </div>
         <div class="row grey">
             <div class="holder">
                 <h3>Номинации</h3>
-
                 <div class="units-3">
+                @for($i = 1; $i <= 3; $i++)
                     <div class="unit">
-                        <img src="{{ asset(Config::get('site.theme_path')) }}/img/award-1.png" alt="">
-
+                        <img src="{{ asset(Config::get('site.theme_path')) }}/img/award-{{ $i }}.png" alt="">
                         <div class="italic">
-                            Artistry
+                            {{ @$steps["nom_$i"]['italic'] }}
                         </div>
                         <div class="title">
-                            КРАСОТА СНАРЖИ
+                            {{ @$steps["nom_$i"]['title'] }}
                         </div>
-                        <p>
-                            Вручается за активное участие в конкурсе
-                        </p>
+                        <p>{{ @$steps["nom_$i"]['desc'] }}</p>
                     </div>
-                    <div class="unit">
-                        <img src="{{ asset(Config::get('site.theme_path')) }}/img/award-2.png" alt="">
-
-                        <div class="italic">
-                            Nutrilite
-                        </div>
-                        <div class="title">
-                            КРАСОТА ВНУТРИ
-                        </div>
-                        <p>
-                            Вручается за активное участие в конкурсе
-                        </p>
-                    </div>
-                    <div class="unit">
-                        <img src="{{ asset(Config::get('site.theme_path')) }}/img/award-3.png" alt="">
-
-                        <div class="italic">
-                            Artistry&Nutrilite
-                        </div>
-                        <div class="title">
-                            КРАСОТА СНАРУЖИ<br>
-                            И ВНУТРИ
-                        </div>
-                        <p>
-                            Вручается за активное участие в конкурсе
-                        </p>
-                    </div>
+                @endfor
                 </div>
             </div>
         </div>
