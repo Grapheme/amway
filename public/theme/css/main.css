@@ -982,7 +982,8 @@ body.profile main {
 
 /* line 3, /Users/morad/Projects/amway/public/theme/css/_participants.scss */
 body.participants .competitors .unit {
-  margin-bottom: 80px; }
+  margin-bottom: 80px;
+  margin: 0 15px; }
 
 /* line 9, /Users/morad/Projects/amway/public/theme/css/main.scss */
 html, body {
