@@ -198,9 +198,33 @@ function playVideoIframe($btn){
   $iframe.attr('src', src).addClass('active');
 }
 
+function arrIsEmpty(arr){
+  if(arr && arr.length ==0){
+    return undefined
+  } else {
+    return arr
+  }
+}
+
+function slider($slides){
+  var $slide = $slides.find('.slide');
+  var $active = arrIsEmpty($slide.filter('.active')) || $slide.eq(0).addClass('active');
+  
+  setTimeout(function(){
+    $slide.removeClass('active');
+    var $next = arrIsEmpty($active.next()) || $slide.eq(0);
+    $next.addClass('active');
+    slider($slides);
+  }, 5000);
+}
+
 $(function() {
   parseHash();
   renderVoting();
+  
+  $('section .slides').each(function(){
+    slider($(this));
+  });
   
   $('section.video .play, .video-holder a.video-preview').click(function(e){
     e.preventDefault();

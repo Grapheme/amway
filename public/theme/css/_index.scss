@@ -16,6 +16,31 @@ section {
   background-image: url('../img/bg-agen.png');
   background-repeat: no-repeat;
   background-position: 40% 50%;
+  .slides {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      opacity: 0;
+      -webkit-transition: all 500ms ease-in-out;
+         -moz-transition: all 500ms ease-in-out;
+          -ms-transition: all 500ms ease-in-out;
+           -o-transition: all 500ms ease-in-out;
+              transition: all 500ms ease-in-out;
+      transform: translateY(30px);
+      &.active {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+    }
+  }
   p {
     font-family: 'MuseoSansCyrl-300';
     color: white;
