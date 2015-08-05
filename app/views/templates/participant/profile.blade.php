@@ -57,7 +57,7 @@ $profile = Accounts::where('id', Auth::user()->id)->with('ulogin', 'likes')->fir
                     </label>
 
                     <label>
-                        <span class="label">Почему я должен принять участие в гала-концерте?</span>
+                        <span class="label">Почему именно я должен принять участие в шоу-финале?</span>
                         {{ Form::textarea('way') }}
                     </label>
                     {{ Form::hidden('photo') }}
