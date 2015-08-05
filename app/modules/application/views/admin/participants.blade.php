@@ -36,7 +36,7 @@
                             <img src="{{ asset('/uploads/users/award-'.rand(1, 3).'.png') }}" alt="{{ $user->name }}"
                                  class="{{ $user->name }}">
                         @endif
-                            <div style="margin-top: 15px">
+                            <div style="margin-top: 50px">
                         @if($user->load_video && $user->video == '')
                             <p>Видео загружается на Youtube</p>
                         @elseif(!$user->load_video)
