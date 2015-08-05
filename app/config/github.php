@@ -8,7 +8,7 @@ return array(
     'remote'            => 'origin',
     'branch'            => 'master',
     'repository_name'   => 'amway',
-    'repository_id'     => 24047268,
+    'repository_id'     => 39883505,
     'user_group'        => 'www-data',
     'user_name'         => 'www-data',
     'set_log'           => TRUE,
