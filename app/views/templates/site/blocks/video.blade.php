@@ -1,4 +1,4 @@
-<a href="javascript:void(0);" data-video="{{ $video->video }}" class="wrapper">
+<a href="javascript:void(0);" data-href="video" data-name="ДУДНАКОВА ЕЛЕНА" data-location="Краснодар" data-user-id=5 data-vote-count="34" data-vote-url="http://amway.dev.grapheme.ru/participant/5/set-like" data-src="{{ $video->video }}" class="wrapper btn-popup">
     <div class="frame">
         <div class="play">
             <span class="icon-play"></span>

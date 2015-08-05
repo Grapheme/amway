@@ -38,7 +38,8 @@ function votePlus($vote_btn){
   renderVoting();
 }
 
-function showPopup(id){
+function showPopup(id, video_info){
+  video_info = video_info || undefined;
   var dh = $(document).height();
   var st = $(document).scrollTop();
   $('.popup-wrapper').height(dh);
@@ -48,11 +49,24 @@ function showPopup(id){
     top: st
   });
   $('.popup#'+id).addClass('active');
+  if (id == 'video') {
+    $('.popup#'+id).find('iframe').attr('src', video_info.src);
+    var _href = $('.popup#'+id).find('.social .vk').attr('href');
+    $('.popup#'+id).find('.social .vk').attr('href', _href+video_info.src);
+    var _href = $('.popup#'+id).find('.social .fb').attr('href');
+    $('.popup#'+id).find('.social .fb').attr('href', _href+video_info.src);
+    $('.popup#'+id).find('.name').text(video_info.name);
+    $('.popup#'+id).find('.city').text(video_info.location);
+    $('.popup#'+id).find('.rating .count').text(video_info.vote_count);
+    $('.popup#'+id).find('.vote').attr('href', video_info.vote_url);
+  }
+  renderVoting();
 }
 
 function closePopups(){
   $('.popup-wrapper').removeClass('active');
   $('.popup').removeClass('active');
+  $('.popup#video iframe').attr('src', '');
 }
 
 function addSocial($btn){
@@ -181,7 +195,15 @@ $(function() {
   $('a.btn-popup').click(function(e){
     e.preventDefault();
     var id = $(this).attr('data-href');
-    showPopup(id);
+    var video_info = undefined;
+    if (id == 'video') video_info = {
+      src: $(this).attr('data-src'),
+      name: $(this).attr('data-name'),
+      location: $(this).attr('data-location'),
+      vote_count: $(this).attr('data-vote-count'),
+      vote_url: $(this).attr('data-vote-url'),
+    };
+    showPopup(id, video_info);
   });
   
   $('.popup-wrapper .popup .close').click(function(e){
