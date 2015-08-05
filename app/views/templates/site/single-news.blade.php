@@ -15,7 +15,7 @@
                 <div class="note">
                     {{ (new myDateTime())->setDateString($news->published_at)->custom_format('d M Y') }}
                 </div>
-                @if($news->meta->gallery->photos->count())
+                @if(isset($news->meta->gallery->photos) && count($news->meta->gallery->photos))
                     <div class="gallery">
                         <ul class="bxslider">
                             @foreach($news->meta->gallery->photos as $photo)
