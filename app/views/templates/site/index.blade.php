@@ -16,7 +16,7 @@ $created = new Carbon(Config::get('site.date_final_action'));
 $now = Carbon::now();
 $difference_final = ($created->diff($now)->days < 1)
         ? 'Сегодня шоу-финал.'
-        : 'До шоу-финала остался '.$created->diffInDays($now).' '.Lang::choice('день|дня|дней', $created->diffInDays($now)).'. Зарегистрируйся на сайте и покажи свой талант всем!'
+        : 'До шоу-финала остается '.$created->diffInDays($now).' '.Lang::choice('день|дня|дней', $created->diffInDays($now)).'. Зарегистрируйся на сайте и покажи свой талант всем!'
 ?>
 <?php
 $map = array();
