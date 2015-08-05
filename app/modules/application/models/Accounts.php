@@ -1,6 +1,6 @@
 <?php
 
-class Accounts extends User {
+class Accounts extends \User {
 
     public static $rules = array(
         'name' => 'required',
