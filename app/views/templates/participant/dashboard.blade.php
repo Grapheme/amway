@@ -57,7 +57,7 @@ $profile = Accounts::where('id', Auth::user()->id)->with('ulogin', 'likes')->fir
                     @if(Auth::user()->video != '')
                         <div class="row video">
                             <div class="video-holder">
-                                <a href="#" data-video="{{ Auth::user()->video }}" class="video-preview" style="background-image:url('http://lorempixel.com/660/500/people/?1');">
+                                <a href="#" data-video="{{{ Auth::user()->video }}}" class="video-preview" style="background-image:url('http://lorempixel.com/660/500/people/?1');">
                                     <div class="play">
                                         <span class="icon-play"></span>
                                     </div>

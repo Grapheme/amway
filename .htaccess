@@ -31,5 +31,5 @@ php_value max_input_time 500
 ## Disable Apache server authorisation for subdirectory
 ## http://www.shkodenko.kiev.ua/index.php?lang_id=1&content_id=223
 ##
-#Satisfy Any
-#Allow from all
+Satisfy Any
+Allow from all
