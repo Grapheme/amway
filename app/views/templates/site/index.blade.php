@@ -47,7 +47,7 @@ endif;
     <div class="competitors">
         <div class="holder">
             {{ $page->block('four_section') }}
-            @foreach(Accounts::where('group_id',4)->where('in_main_page', 1)->with('ulogin', 'likes')->take(6)->get() as $user)
+            @foreach(Accounts::where('group_id',4)->where('in_main_page', 1)->with('ulogin', 'likes')->take(5)->get() as $user)
                 @include(Helper::layout('blocks.user'), compact('user'))
             @endforeach
         </div>
