@@ -8,6 +8,9 @@
 <script src="{{ Config::get('site.theme_path') }}/js/vendor/jquery.ui.widget.js"></script>
 <script src="{{ Config::get('site.theme_path') }}/js/vendor/jquery.iframe-transport.js"></script>
 <script src="{{ Config::get('site.theme_path') }}/js/vendor/jquery.fileupload.js"></script>
+
+<script src="{{ Config::get('site.theme_path') }}/js/vendor/swfobject-2.2.min.js"></script>
+<script src="{{ Config::get('site.theme_path') }}/js/vendor/evercookie.js"></script>
 <script src="//cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.min.js"></script>
 <script src="{{ Config::get('site.theme_path') }}/js/messages_ru.js"></script>
 <script src="//cdn.jsdelivr.net/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>

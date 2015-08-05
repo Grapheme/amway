@@ -130,7 +130,7 @@ function cropImage(data){
 }
 
 function playVideoIframe($btn){
-  var $section = $btn.closest('section');
+  var $section = $btn.closest('section, .video-holder');
   var $iframe = $section.find('iframe');
   
   var src = $iframe.attr('data-src');
@@ -141,7 +141,7 @@ $(function() {
   parseHash();
   renderVoting();
   
-  $('section.video .play').click(function(e){
+  $('section.video .play, .video-holder a.video-preview').click(function(e){
     e.preventDefault();
     playVideoIframe($(this));
   });
