@@ -12,7 +12,8 @@ body.profile {
         width: 200px;
         img {
           width: 200px;
-          border-radius: 300px;
+          -webkit-border-radius: 300px;
+                  border-radius: 300px;
         }
         a {
           
@@ -145,14 +146,17 @@ body.profile {
       position: relative;
     }
     input, textarea {
-      border-radius: 10px;
+      -webkit-border-radius: 10px;
+              border-radius: 10px;
       border: none;
       font-family: 'MuseoSansCyrl-300';
       font-size: 18px;
       color: #173152;
       width: 360px;
       padding: 0px 26px;
-      box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+         -moz-box-sizing: border-box;
+              box-sizing: border-box;
       height: 57px;
       margin-bottom: 20px;
       background: white;
