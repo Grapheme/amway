@@ -1,5 +1,5 @@
 @if($news)
-    <a href="#" class="wrapper">
+    <a href="{{ URL::route('news_full', $news->id.'-'.BaseController::stringTranslite($news->meta->title)) }}" class="wrapper">
         <div class="frame third">
             <img src="{{  asset(Config::get('site.theme_path')) }}/img/tmp-visual-6.jpg" class="visual" alt="">
             <div class="title">Фоторепортаж из Воронежа</div>

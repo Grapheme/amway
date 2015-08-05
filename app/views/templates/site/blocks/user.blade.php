@@ -12,7 +12,7 @@
         @endif
     </div>
     <div class="name">
-        {{ $text = preg_replace('/\s/i','<br>',$user->name); }}
+        {{ preg_replace('/\s/i', '<br>', trim($user->name)) }}
     </div>
     <div class="location">
         {{ $user->location }}
