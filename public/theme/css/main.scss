@@ -204,7 +204,7 @@ button.btn-big-red {
         img {
           display: block;
           width: 200px;
-          height: 200px;
+          max-height: 200px;
           border-radius: 300px;
         }
       }
