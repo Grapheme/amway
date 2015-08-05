@@ -345,6 +345,25 @@ h3 {
     margin-top: 0px;
     margin-bottom: 28px;
   }
+  div {
+    -webkit-column-break-inside: avoid;
+          page-break-inside: avoid;
+               break-inside: avoid;
+    font-size: 16px;
+    line-height: 22px;
+    a {
+      font-size: 14px;
+      font-family: 'MuseoSansCyrl-300';
+      color: red;
+      border-bottom: 1px solid #dce0e5;
+      text-decoration: none;
+      display: inline-block;
+      line-height: 120%;
+    }
+    .img-holder {
+      min-height: 66px;
+    }
+  }
 }
 
 .row {
@@ -352,26 +371,26 @@ h3 {
     background: #e7eaed;
     padding-top: 1px;
     padding-bottom: 1px;
-    .center-text {
-      width: 840px;
-      margin: 0 auto;
-      text-align: center;
-      
-      font-family: 'MuseoSansCyrl-300';
-      font-size: 20px;
-      color: #143053;
-      line-height: 28px;
-      a {
-        font-size: inherit;
-        color: #ea1924;
-        display: inline-block;
-        line-height: 120%;
-      }
+  }
+  .center-text {
+    width: 840px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: -20px;
+    font-family: 'MuseoSansCyrl-300';
+    font-size: 20px;
+    color: #143053;
+    line-height: 28px;
+    a {
+      font-size: inherit;
+      color: #ea1924;
+      display: inline-block;
+      line-height: 120%;
     }
-    .note {
-      a {
-        color: red;
-      }
+  }
+  .note {
+    a {
+      color: red;
     }
   }
 }
