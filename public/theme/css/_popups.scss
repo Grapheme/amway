@@ -5,7 +5,7 @@
   bottom: 0;
   width: 100%;
   height: 100%;
-  background: rgba(#194885, 0.5);
+  background: rgba(#194885, 0.8);
   display: none;
   z-index: 2000;
   .popup {
@@ -14,7 +14,7 @@
     background: white;
     display: none;
     position: relative;
-    margin-top: 75px;
+    margin-top: 25px;
     .header {
       font-family: 'Vaccine-Bold';
       font-size: 34px;
@@ -268,5 +268,106 @@
   }
   &.active {
     display: block;
+  }
+  #video {
+    background: none;
+    iframe {
+      margin-bottom: 50px;
+    }
+    .social {
+      display: inline-block;
+      .label {
+        font-family: 'MuseoSansCyrl-300';
+        font-size: 16px;
+        color: white;
+        width: 70px;
+        text-align: right;
+        display: inline-block;
+        margin-right: 12px;
+      }
+      .vk, .fb {
+        color: inherit;
+        background: inherit;
+        width: auto;
+        padding: 0;
+        margin: 0;
+        width: 50px;
+        height: 50px;
+        vertical-align: top;
+        background: rgba(white, .1);
+        color: white;
+        border-radius: 50px;
+        font-size: 0px;
+        line-height: 100%;
+        margin-top: -6px;
+        &:before, &:after {
+          display: none;
+        }
+        &:before {
+          display: inline-block;
+          vertical-align: middle;
+          margin-left: 0px;
+          content: '';
+          width: 0;
+          height: 100%;
+        }
+        svg {
+          fill: white;
+          max-height: 16px;
+          vertical-align: middle;
+        }
+        &:hover {
+          background: rgba(white, 1);
+          color: #143055;
+          svg {
+            fill: #143055;
+          }
+        }
+      }
+    }
+    .col {
+      display: inline-block;
+      vertical-align: top;
+      margin-right: 30px;
+      margin-bottom: 20px;
+      .name {
+        font-family: 'Vaccine-Regular';
+        font-size: 22px;
+        color: white;
+      }
+      .city {
+        font-family: 'MuseoSansCyrl-300';
+        font-size: 16px;
+        color: white;
+      }
+      .rating {
+        margin-top: 0px;
+      }
+      .rating * {
+        color: white !important;
+        fill: white !important;
+      }
+      .vote {
+        font-family: 'Vaccine-Regular';
+        font-size: 13px;
+        color: #ea1924;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        text-decoration: none;
+        padding: 10px 16px;
+        padding-top: 12px;
+        margin-top: 7px;
+        display: inline-block;
+        -webkit-border-radius: 8px;
+        border-radius: 50px;
+        background: white;
+        color: #143055;
+        margin-top: 4px;
+        &:hover {
+          background: #ea1924;
+          color: white;
+        }
+      }
+    }
   }
 }

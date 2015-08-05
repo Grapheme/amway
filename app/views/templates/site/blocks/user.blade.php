@@ -27,6 +27,6 @@
         <div class="legend">{{ Lang::choice('голос|голоса|голосов', (int)count($user->likes) ) }}</div>
     </div>
     @if(Auth::guest() || Auth::user()->group_id > 3)
-    <a href="{{ URL::route('participant.public.set.like', $user->id) }}" class="vote">Проголосовать</a>
+    <a data-user-id="{{ $user->id }}" href="{{ URL::route('participant.public.set.like', $user->id) }}" class="vote">Проголосовать</a>
     @endif
 </div>
