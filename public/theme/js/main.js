@@ -293,8 +293,11 @@ $(function() {
   $('.videoupload').fileupload({
     dataType: 'json',
     done: function (e, data) {
-      //alert('Готово!'); 
+      //alert('Готово!');
       location.href=location.href;
+      setTimeout(function(){
+        window.location.href='';
+      }, 500)
     },
     fail: function (e, data) {
       alert('Ошибка');
