@@ -36,6 +36,7 @@
                             <img src="{{ asset('/uploads/users/award-'.rand(1, 3).'.png') }}" alt="{{ $user->name }}"
                                  class="{{ $user->name }}">
                         @endif
+                            <div style="margin-top: 15px">
                         @if($user->load_video && $user->video == '')
                             <p>Видео загружается на Youtube</p>
                         @elseif(!$user->load_video)
@@ -43,6 +44,7 @@
                         @elseif($user->load_video && $user->video != '')
                             <p><a data-content="{{{ '<iframe width="560" height="315" src="'.$user->video.'" frameborder="0" allowfullscreen></iframe>' }}}" data-html="true" data-original-title="Загруженное видео" data-placement="right" rel="popover" class="btn btn-link" href="javascript:void(0);">Смотреть видео</a></p>
                         @endif
+                            </div>
                         </td>
                         <td>
                             <p>
