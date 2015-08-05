@@ -60,7 +60,7 @@ if (isset($page->seos) && is_object($page->seos) && isset($page->seos[Config::ge
 <title>@yield('title')</title>
 <meta name="description" content="@yield('description')">
 <meta name="keywords" content="@yield('keywords')">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
 
 {{ HTML::style(Config::get('site.theme_path').'/css/normalize.min.css') }}
 {{ HTML::style(Config::get('site.theme_path').'/css/main.css') }}

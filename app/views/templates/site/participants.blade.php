@@ -25,6 +25,9 @@ $participants = Accounts::where('group_id', 4)->with('ulogin', 'likes')->get();
         <div class="note">
             ВСЕГО {{ $participants->count() }} {{ Lang::choice('УЧАСТНИК|УЧАСТНИКА|УЧАСТНИКОВ', $participants->count()) }}
         </div>
+        <br>
+        <br>
+        <br>
         @if($participants->count())
         <div class="competitors">
             <div class="holder">
