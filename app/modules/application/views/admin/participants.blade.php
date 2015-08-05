@@ -16,36 +16,64 @@
                 <thead>
                 <tr>
                     <th class="col-lg-1 text-center">ID</th>
-                    <th class="col-lg-9 text-center" style="white-space:nowrap;">Данные пользователя</th>
-                    <th class="col-lg-9 text-center" style="white-space:nowrap;">Видео</th>
-                    <th class="col-lg-1 text-center"></th>
+                    <th class="col-lg-1 text-center">Фото и видео</th>
+                    <th class="col-lg-10 text-center" style="white-space:nowrap;">Данные пользователя</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($users as $user)
-                    <tr class="vertical-middle<? if($user->active == 0){ echo ' warning'; } ?>">
-                        <td class="text-center">{{ $user->id }}</td>
+                @foreach($users as $index => $user)
+                    <tr class="vertical-middle">
+                        <?php $sub_index = Input::has('page') ? (int)Input::get('page')-1 : 0;?>
+                        <td>{{ ($index+1)+($sub_index*20) }}</td>
                         <td>
-                            {{ $user->name }}
-                            <br/>
-                            <i class="fa fa-envelope-o"></i> {{ HTML::mailto($user->email, $user->email) }}
+                        @if(!empty($user->photo) && File::exists(public_path($user->photo)))
+                            <img src="{{ asset($user->photo) }}"
+                                 alt="{{ $user->name }}" class="{{ $user->name }}">
+                        @elseif(!empty($user->ulogin) && !empty($user->ulogin->photo_big))
+                            <img src="{{ $user->ulogin->photo_big }}" alt="{{ $user->name }}"
+                                 class="{{ $user->name }}">
+                        @else
+                            <img src="{{ asset('/uploads/users/award-'.rand(1, 3).'.png') }}" alt="{{ $user->name }}"
+                                 class="{{ $user->name }}">
+                        @endif
+                            <div style="margin-top: 50px">
+                        @if($user->load_video && $user->video == '')
+                            <p>Видео загружается на Youtube</p>
+                        @elseif(!$user->load_video)
+                            <p>Видео не загружено</p>
+                        @elseif($user->load_video && $user->video != '')
+                            <p><a data-content="{{{ '<iframe width="560" height="315" src="'.$user->video.'" frameborder="0" allowfullscreen></iframe>' }}}" data-html="true" data-original-title="Загруженное видео" data-placement="right" rel="popover" class="btn btn-link" href="javascript:void(0);">Смотреть видео</a></p>
+                        @endif
+                            </div>
                         </td>
                         <td>
-                            @if($user->load_video && $user->video == '')
-                                <p>Видео загружается на Youtube</p>
-                            @elseif(!$user->load_video)
-                                <p>Видео не загружено</p>
-                            @elseif($user->load_video && $user->video != '')
-                                <a data-content="{{{ $user->video }}}" data-html="true" data-original-title="Загруженное видео" data-placement="bottom" rel="popover" class="btn btn-default" href="javascript:void(0);"><i class="fa fa-arrow-down"></i> Смотреть видео</a>
-                            @endif
-                        </td>
-                        <td class="text-center" style="white-space:nowrap;">
+                            <p>
+                                <strong>{{ $user->name }}</strong><br/>
+                                {{ $user->age }} {{ Lang::choice('год|года|лет', (int)$user->age ) }}. {{ $user->location }}<br/>
+                                {{ $user->created_at->format('d.m.Y H:i:s') }} #{{ $user->id }}<br/>
+                                <i class="fa fa-envelope-o"></i> {{ HTML::mailto($user->email, $user->email) }}<br/>
+                                <i class="fa fa-fw fa-mobile-phone"></i>{{ $user->phone }}
+                                @if(!empty($user->social))
+                                    @foreach(json_decode($user->social) as $social)
+                                        @if(!empty($social))
+                                        <br/><i class="fa fa-fw fa-angle-double-right "></i>
+                                <a href="{{ $social }}" target="_blank">{{ str_limit(trim($social), $limit = 25, $end = ' ...') }}</a>
+                                        @endif
+                                    @endforeach
+                                @endif
+                            </p>
+
+                            <hr style="margin-bottom: 5px; margin-top: 5px;">
+                            <a href="{{ URL::route('moderator.participants.status', array($user->id, 1)) }}" class="btn btn-success btn-xs js-confirm">Одобрить</a>
+                            <a href="{{ URL::route('moderator.participants.status', array($user->id, 3)) }}" class="btn btn-warning btn-xs js-confirm">Отложить</a>
+                            <a href="{{ URL::route('moderator.participants.status', array($user->id, 2)) }}" class="btn btn-danger btn-xs js-confirm">Отклонить</a>
+                            <hr style="margin-bottom: 5px; margin-top: 5px;">
                             {{ Form::model($user,array('route'=>array('moderator.participants.save',$user->id),'method'=>'post')) }}
                             {{ Form::checkbox('in_main_page') }} Показывать на главной <br>
                             {{ Form::checkbox('top_week_video') }} Лучшее видео недели <br>
                             {{ Form::checkbox('top_video') }} Лучшее видео <br>
                             {{ Form::checkbox('winner') }} Победитель <br>
-                            {{ Form::button('Сохранить',array('class'=>'white-btn actions__btn','type'=>'submit')) }}
+                            {{ Form::button('Сохранить',array('class'=>'btn btn-success btn-sm','type'=>'submit')) }}
                             {{ Form::close() }}
                         </td>
                     </tr>
