@@ -58,7 +58,7 @@ class ModeratorController extends BaseController {
         endif;
         $counts = (array)$counts;
         $filter_status = Input::get('filter_status') ?: '0';
-        $users = Accounts::where('group_id', 4)->orderBy('created_at','DESC')->where('status', $filter_status)->paginate(20);
+        $users = Accounts::where('group_id', 4)->orderBy('created_at','DESC')->where('status', $filter_status)->with('ulogin')->paginate(20);
         return View::make($this->module['tpl'] . 'participants', compact('users', 'filter_status', 'counts'));
     }
 

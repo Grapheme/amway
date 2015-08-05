@@ -64,9 +64,9 @@
                             </p>
 
                             <hr style="margin-bottom: 5px; margin-top: 5px;">
-                            <a href="{{ URL::route('moderator.participants.status', array($user->id, 1)) }}" class="btn btn-success btn-xs js-confirm">Одобрен</a>
-                            <a href="{{ URL::route('moderator.participants.status', array($user->id, 2)) }}" class="btn btn-warning btn-xs js-confirm">Отклонен</a>
-                            <a href="{{ URL::route('moderator.participants.status', array($user->id, 3)) }}" class="btn btn-danger btn-xs js-confirm">Отложен</a>
+                            <a href="{{ URL::route('moderator.participants.status', array($user->id, 1)) }}" class="btn btn-success btn-xs js-confirm">Одобрит</a>
+                            <a href="{{ URL::route('moderator.participants.status', array($user->id, 3)) }}" class="btn btn-warning btn-xs js-confirm">Отложить</a>
+                            <a href="{{ URL::route('moderator.participants.status', array($user->id, 2)) }}" class="btn btn-danger btn-xs js-confirm">Отклонить</a>
                             <hr style="margin-bottom: 5px; margin-top: 5px;">
                             {{ Form::model($user,array('route'=>array('moderator.participants.save',$user->id),'method'=>'post')) }}
                             {{ Form::checkbox('in_main_page') }} Показывать на главной <br>
