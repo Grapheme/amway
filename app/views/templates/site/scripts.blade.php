@@ -18,4 +18,5 @@
 <script src="//ulogin.ru/js/ulogin.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/cropper/0.9.3/cropper.min.js"></script>
 <script src="//cdn.jsdelivr.net/bxslider/4.2.5/jquery.bxslider.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/js-cookie/2.0.3/js.cookie.min.js"></script>
 {{ HTML::script(Config::get('site.theme_path').'/js/main.js') }}

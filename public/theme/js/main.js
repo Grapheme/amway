@@ -30,11 +30,57 @@ function renderVoting(){
   
 }
 
+function getVotes(){
+  var raw_vote_list = Cookies.get('votes_list') || '[]';
+  var vote_list = JSON && JSON.parse(raw_vote_list) || $.parseJSON(raw_vote_list);
+  return vote_list;
+}
+
+function addVote(id){
+  vote_list = getVotes();
+  vote_list.push(id);
+  vote_list = $.unique(vote_list);
+  json_vote_list = JSON && JSON.stringify(vote_list) || $.toJSON(vote_list);
+  Cookies.set('votes_list', json_vote_list);
+}
+
+function removeVote(id){
+  vote_list = getVotes();
+  var index = vote_list.indexOf(id);
+  vote_list.splice(index, 1);
+  json_vote_list = JSON && JSON.stringify(vote_list) || $.toJSON(vote_list);
+  Cookies.set('votes_list', json_vote_list);
+}
+
 function votePlus($vote_btn){
   var $unit = $vote_btn.closest('.unit');
   var $count = $unit.find('.rating .count');
-  $count.text(parseInt($count.text())+1);
+  var _count = $count.text();
+  var user_id = $vote_btn.attr('data-user-id');
   
+  $count.text(parseInt(_count)+1);
+  $vote_btn.addClass('disabled');
+  
+  addVote(user_id);
+  $.ajax({
+    method: 'POST',
+    url: $vote_btn.attr('href'),
+    success: function(data) {
+      if (data.status == true) {
+        $count.text(data.count);
+      } else {
+        $count.text(_count);
+        $vote_btn.removeClass('disabled');
+        removeVote(user_id);
+      }
+    },
+    error: function(data){
+      console.log(data);
+      $count.text(_count);
+      $vote_btn.removeClass('disabled');
+      removeVote(user_id);
+    }
+  })
   renderVoting();
 }
 
@@ -67,6 +113,7 @@ function closePopups(){
   $('.popup-wrapper').removeClass('active');
   $('.popup').removeClass('active');
   $('.popup#video iframe').attr('src', '');
+  $('.popup#video .vote').removeClass('disabled');
 }
 
 function addSocial($btn){
