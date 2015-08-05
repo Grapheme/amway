@@ -21,7 +21,7 @@
           
           <div class="socials">
             <a href="https://vk.com/agenproject" target="_blank" class="vk">
-                <?xml version="1.0" encoding="utf-8"?>
+                <?='<?xml version="1.0" encoding="utf-8"?>'?>
                 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                    viewBox="231.4 13.5 18.4 24" enable-background="new 231.4 13.5 18.4 24" xml:space="preserve">
@@ -34,7 +34,7 @@
                 </svg>
               </a>
               <a target="_blank" href="https://www.facebook.com/agenproject" class="fb">
-                <?xml version="1.0" encoding="utf-8"?>
+                <?='<?xml version="1.0" encoding="utf-8"?>'?>
                 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                    viewBox="-149.4 12.9 13 24" enable-background="new -149.4 12.9 13 24" xml:space="preserve">
