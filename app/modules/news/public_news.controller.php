@@ -13,8 +13,6 @@ class PublicNewsController extends BaseController {
     ## Routing rules of module
     public static function returnRoutes($prefix = null) {
 
-        return FALSE;
-
         $class = __CLASS__;
         ## УРЛЫ С ЯЗЫКОВЫМИ ПРЕФИКСАМИ ДОЛЖНЫ ИДТИ ПЕРЕД ОБЫЧНЫМИ!
         ## Если в конфиге прописано несколько языковых версий...
@@ -33,7 +31,7 @@ class PublicNewsController extends BaseController {
         ## Это позволяет нам делать редирект на урл с префиксом только для этих роутов, не затрагивая, например, /admin и /login
         Route::group(array('before' => ''), function() {
             Route::get('/news/{url}', array('as' => 'news_full', 'uses' => __CLASS__.'@showFullNews'));
-            Route::get('/news/',      array('as' => 'news',      'uses' => __CLASS__.'@showNews'));
+            #Route::get('/news/',      array('as' => 'news',      'uses' => __CLASS__.'@showNews'));
         });
     }
 
@@ -257,13 +255,12 @@ class PublicNewsController extends BaseController {
         if(!Allow::module($this->module['group']))
             App::abort(404);
 
-        if (!@$url)
+        if (!@$url):
             $url = Input::get('url');
-
+        else:
+            $url = (int) $url;
+        endif;
         $news = $this->news->where('publication', 1);
-
-        #dd($url);
-
         ## News by ID
         if (is_numeric($url)) {
 
@@ -272,9 +269,6 @@ class PublicNewsController extends BaseController {
             $news = $news
                 ->with('meta.seo', 'meta.photo', 'meta.gallery.photos')
                 ->first();
-
-            #Helper::tad($news);
-
             if (@is_object($news)) {
 
                 if (@is_object($news->meta) && @is_object($news->meta->seo)) {
@@ -331,7 +325,7 @@ class PublicNewsController extends BaseController {
 
         }
 
-        #Helper::tad($news);
+        #Helper::tad($news->template);
 
         if (!@is_object($news) || !@is_object($news->meta))
             App::abort(404);
