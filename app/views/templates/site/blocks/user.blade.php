@@ -13,6 +13,10 @@
     </div>
     <div class="name">
         {{ preg_replace('/\s/i', '<br>', trim($user->name)) }}
+        <?php $names = explode(' ', $user->name);?>
+        @if(count($names) == 1)
+            <br />
+        @endif
     </div>
     <div class="location">
         {{ $user->location }}
