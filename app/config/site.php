@@ -2,7 +2,7 @@
 
 return array(
 
-    'date_over_action' => '2015-08-24',
+    'date_over_action' => '2015-09-15',
 
     'theme_path' => URL::to('/theme'),
     #'theme_path' => URL::to('/theme/' . Config::get('app.template') . '/dist'),
@@ -30,7 +30,7 @@ return array(
     'galleries_thumb_public_dir' => '/uploads/galleries/thumbs',
 
     'galleries_photo_size'       => -800, # 800 => 800x600 || 600x800 ; -800 => 800x1000 || 1000x800
-    'galleries_thumb_size'       => -200, # 200 => 200x150 || 150x200 ; -200 => 200x300 || 300x200
+    'galleries_thumb_size'       => -75, # 200 => 200x150 || 150x200 ; -200 => 200x300 || 300x200
 
     'galleries_cache_dir'        => public_path('uploads/galleries/cache'),
     'galleries_cache_public_dir' => '/uploads/galleries/cache',

@@ -31,15 +31,6 @@ class ApplicationController extends BaseController {
             'menu_child' => NULL,
             'permit' => 'view'
         );
-
-        $menu[] = array(
-            'title' => 'Участники',
-            'link' => 'participants',
-            'class' => 'fa-users',
-            'system' => 1,
-            'menu_child' => NULL,
-            'permit' => 'view'
-        );
         return $menu;
     }
 

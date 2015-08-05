@@ -1,0 +1,1 @@
+@include(Helper::layout('single-news'))
