@@ -34,10 +34,9 @@ section {
           -ms-transition: all 500ms ease-in-out;
            -o-transition: all 500ms ease-in-out;
               transition: all 500ms ease-in-out;
-      transform: translateY(30px);
+      //transform: translateY(30px);
       &.active {
         opacity: 1;
-        transform: translateY(0px);
       }
     }
   }
