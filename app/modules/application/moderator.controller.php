@@ -16,6 +16,8 @@ class ModeratorController extends BaseController {
                 Route::post('participant/{user_id}/save', array('before' => 'csrf',
                     'as' => 'moderator.participants.save', 'uses' => $class . '@participantsSave'));
             });
+            Route::get('participants/{user_id}/status/{status_number}', array('as' => 'moderator.participants.status',
+                'uses' => $class . '@participantsSetStatus'));
         endif;
     }
 
@@ -47,8 +49,17 @@ class ModeratorController extends BaseController {
 
     public function participantsList() {
 
-        $users = Accounts::where('group_id', 4)->paginate(20);
-        return View::make($this->module['tpl'] . 'participants', compact('users'));
+        if ($counts_all = (new User())->select(DB::raw('status, COUNT(*) AS count'))->where('group_id', 4)->groupBy('status')->get()):
+            $temp = $counts = array();
+            foreach ($counts_all as $count):
+                $temp[$count->status] = $count->count;
+            endforeach;
+            $counts = $temp;
+        endif;
+        $counts = (array)$counts;
+        $filter_status = Input::get('filter_status') ?: '0';
+        $users = Accounts::where('group_id', 4)->where('status', $filter_status)->paginate(20);
+        return View::make($this->module['tpl'] . 'participants', compact('users', 'filter_status', 'counts'));
     }
 
     public function participantsSave($user_id) {
@@ -67,5 +78,14 @@ class ModeratorController extends BaseController {
 
     }
 
+    public function participantsSetStatus($user_id, $status) {
+
+        if ($user = User::where('id', $user_id)->first()):
+            $user->status = (int)$status;
+            $user->save();
+        endif;
+        return Redirect::back();
+
+    }
     /****************************************************************************/
 }
