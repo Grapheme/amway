@@ -12,6 +12,13 @@ $difference = ($created->diff($now)->days < 1)
         : 'До окончания регистрации в конкурсе осталось '.$created->diffInDays($now).' '.Lang::choice('день|дня|дней', $created->diffInDays($now)).'.';
 ?>
 <?php
+$created = new Carbon(Config::get('site.date_final_action'));
+$now = Carbon::now();
+$difference_final = ($created->diff($now)->days < 1)
+        ? 'Сегодня заканчивается регистраця в конкурсе.'
+        : 'До гала-концерта остался '.$created->diffInDays($now).' '.Lang::choice('день|дня|дней', $created->diffInDays($now)).'. Зарегистрируйся на сайте и покажи свой талант всем!'
+?>
+<?php
 $map = array();
 if (isset($page->blocks['map']['meta']['content']) && !empty($page->blocks['map']['meta']['content'])):
     $map = json_decode($page->blocks['map']['meta']['content'], TRUE);
@@ -56,6 +63,7 @@ endif;
         <div class="cover"></div>
         <div class="holder">
             {{ $page->block('five_section') }}
+            <p>{{ $difference_final }}</p>
         </div>
     </section>
     @if(Auth::guest())
