@@ -1,4 +1,4 @@
-<a href="javascript:void(0);" class="wrapper">
+<a href="javascript:void(0);" data-video="{{ $video->video }}" class="wrapper">
     <div class="frame">
         <div class="play">
             <span class="icon-play"></span>
