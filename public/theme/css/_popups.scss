@@ -55,7 +55,8 @@
       height: 56px;
       display: inline-block;
       line-height: 380%;
-      border-radius: 10px;
+      -webkit-border-radius: 10px;
+              border-radius: 10px;
       position: relative;
       margin-bottom: 17px;
       &:hover {
@@ -84,7 +85,8 @@
       height: 56px;
       display: inline-block;
       line-height: 380%;
-      border-radius: 10px;
+      -webkit-border-radius: 10px;
+              border-radius: 10px;
       position: relative;
       &:hover {
         background: #6c91bc;
@@ -131,7 +133,8 @@
       text-align: center;
       color: #e71927;
       border: 2px solid #e71927;
-      border-radius: 40px;
+      -webkit-border-radius: 40px;
+              border-radius: 40px;
       background: white;
       text-transform: uppercase;
       &:hover {
@@ -175,12 +178,15 @@
             width: 572px;
             padding: 0px 26px;
             display: inline-block;
-            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+               -moz-box-sizing: border-box;
+                    box-sizing: border-box;
             vertical-align: top;
             font-size: 18px;
             color: #173152;
             background: #edeff2;
-            border-radius: 10px;
+            -webkit-border-radius: 10px;
+                    border-radius: 10px;
             height: 57px;
             border: none;
             vertical-align: middle;
@@ -233,14 +239,17 @@
         input {
           display: block;
           background: #edeff2;
-          border-radius: 10px;
+          -webkit-border-radius: 10px;
+                  border-radius: 10px;
           border: none;
           font-family: 'MuseoSansCyrl-300';
           font-size: 18px;
           color: #173152;
           width: 360px;
           padding: 0px 26px;
-          box-sizing: border-box;
+          -webkit-box-sizing: border-box;
+             -moz-box-sizing: border-box;
+                  box-sizing: border-box;
           height: 57px;
           margin-bottom: 20px;
           &.error {
