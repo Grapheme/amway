@@ -3,8 +3,9 @@
         <div class="play">
             <span class="icon-play"></span>
         </div>
-        {{-- $video->video --}}
-        <img src="{{ asset(Config::get('site.theme_path')) }}/img/tmp-video.jpg" alt="">
+        @if(!empty($video->video_thumb)))
+        <img src="{{ $video->video_thumb }}" alt="">
+        @endif
         <div class="name">{{ $video->name }}</div>
         <div class="location">{{ $video->location }}</div>
         <div class="rating">

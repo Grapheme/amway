@@ -91,7 +91,7 @@ class ParticipantController extends BaseController {
         if (Request::ajax()):
             return Response::json($json_request, 200);
         else:
-            return Redirect::back();
+            return Redirect::route('dashboard');
         endif;
     }
 
@@ -162,10 +162,11 @@ class ParticipantController extends BaseController {
 
     public function setYoutubeVideo() {
 
-        $validator = Validator::make(Input::all(), array('user_id' => 'required|integer', 'video' => 'required'));
+        $validator = Validator::make(Input::all(), array('user_id' => 'required|integer', 'video' => 'required', 'photo'=>'required'));
         if ($validator->passes()):
             if ($user = User::where('id', Input::get('user_id'))->where('load_video', 1)->first()):
                 $user->video = Input::get('video');
+                $user->video_thumb = Input::get('photo');
                 $user->save();
                 $user->touch();
                 return Response::make('', 200);
