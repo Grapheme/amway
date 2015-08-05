@@ -109,7 +109,12 @@ class ParticipantController extends BaseController {
                 $user->photo = @$uploaded['main'];
                 $user->thumbnail = @$uploaded['thumb'];
             endif;
-            $user->name = $post['name'];
+            $names = explode(' ', $user->name);
+            if(count($names) > 2):
+                $user->name = @$names[0].' '.@$names[1];
+            else:
+                $user->name = $post['name'];
+            endif;
             $user->email = $post['email'];
             $user->surname = '';
             $user->location = $post['location'];
