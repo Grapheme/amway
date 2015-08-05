@@ -58,7 +58,7 @@ $profile = Accounts::where('id', Auth::user()->id)->with('ulogin', 'likes')->fir
                         <div class="row video">
                             <div class="video-holder">
                                 <iframe width="660" height="440" data-src="{{{ Auth::user()->video }}}?rel=0&amp;autoplay=1;controls=1&amp;showinfo=0" src="" frameborder="0" allowfullscreen></iframe>
-                                <a href="#" class="video-preview" style="background-image:url('http://lorempixel.com/660/500/people/?1');">
+                                <a href="#" class="video-preview" @if(!empty(Auth::user()->video_thumb))) style="background-image:url('{{  Auth::user()->video_thumb }}');" @endif>
                                     <div class="play">
                                         <span class="icon-play"></span>
                                     </div>
