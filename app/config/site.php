@@ -41,7 +41,7 @@ return array(
 
 
     'seo' => [
-        'default_title'       => 'Эй Джен',
+        'default_title'       => 'Поколение А',
         'default_description' => '',
         'default_keywords'    => '',
     ],

@@ -31,6 +31,28 @@ return array(
 
         $block_tpls = [
 
+            'organizers' => [
+                'title' => 'Организаторы',
+                'fields' => [
+                    'title' => [
+                        'title' => 'Название',
+                        'type' => 'text',
+                    ],
+                    'file_path' => [
+                        'title' => 'Путь к логотипу',
+                        'type' => 'text',
+                    ],
+                    'description' => [
+                        'title' => 'Описание',
+                        'type' => 'textarea',
+                    ],
+                    'url_path' => [
+                        'title' => 'Ссылка на сайт',
+                        'type' => 'text',
+                    ],
+                ],
+            ],
+
             'first' => [
                 'title' => 'Этапы конкурса',
                 'fields' => [
