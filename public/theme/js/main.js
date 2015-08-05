@@ -236,7 +236,7 @@ $(function() {
   $('.competitors a.vote').click(function(e){
     e.preventDefault();
     
-    votePlus($(this));
+    if (!$(this).is('.disabled')) votePlus($(this));
   });
   
   $('a.btn-popup').click(function(e){

@@ -274,7 +274,7 @@ button.btn-big-red {
         display: inline-block;
         -webkit-border-radius: 8px;
                 border-radius: 8px;
-        &:hover{
+        &:hover, &.disabled{
           background: #ea1924;
           color: white;
         }
