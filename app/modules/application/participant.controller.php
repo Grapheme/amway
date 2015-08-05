@@ -99,7 +99,6 @@ class ParticipantController extends BaseController {
 
         try {
             $user = Auth::user();
-
             if ($uploaded = AdminUploadsController::createImageInBase64String('photo')):
                 if(!empty($user->photo) && File::exists(Config::get('site.uploads_photo_dir').'/'. $user->photo)):
                     File::delete(Config::get('site.uploads_photo_dir').'/'. $user->photo);

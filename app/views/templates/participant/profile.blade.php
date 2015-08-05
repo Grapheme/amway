@@ -60,7 +60,7 @@ $profile = Accounts::where('id', Auth::user()->id)->with('ulogin', 'likes')->fir
                         <span class="label">Почему именно я должен принять участие в шоу-финале?</span>
                         {{ Form::textarea('way') }}
                     </label>
-                    {{ Form::hidden('photo') }}
+                    {{ Form::hidden('photo','') }}
                     <br>
                     <br>
                     {{ Form::button('Сохранить данные',array('type'=>'submit','class'=>'btn-big-red')) }}
