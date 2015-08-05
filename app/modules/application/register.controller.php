@@ -58,7 +58,7 @@ class RegisterController extends BaseController {
             $validator = Validator::make(Input::all(), Accounts::$rules);
             if ($validator->passes()):
                 if (User::where('email', Input::get('email'))->exists() == FALSE):
-                    $password = Str::random(12);
+                    $password = Str::random(4);
                     $post = Input::all();
                     $post['password'] = Hash::make($password);
                     if ($account = self::getRegisterAccount($post)):
