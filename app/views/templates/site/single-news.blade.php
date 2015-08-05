@@ -5,7 +5,6 @@
 ?>
 @extends(Helper::layout())
 @section('style')
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/bxslider/4.2.5/jquery.bxslider.css">
 @stop
 @section('content')
     <main>
@@ -46,5 +45,4 @@
     </main>
 @stop
 @section('scripts')
-    <script src="//cdn.jsdelivr.net/bxslider/4.2.5/jquery.bxslider.min.js"></script>
 @stop
