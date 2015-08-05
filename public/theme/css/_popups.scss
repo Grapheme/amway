@@ -190,7 +190,7 @@
             height: 57px;
             border: none;
             vertical-align: middle;
-            &[name="social"] {
+            &[name="social[]"] {
               width: 525px;
             }
             &[type="checkbox"] {

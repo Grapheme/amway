@@ -3,7 +3,7 @@
         <div class="play">
             <span class="icon-play"></span>
         </div>
-        @if(!empty($video->video_thumb)))
+        @if(!empty($video->video_thumb))
         <img src="{{ $video->video_thumb }}" alt="">
         @endif
         <div class="name">{{ $video->name }}</div>

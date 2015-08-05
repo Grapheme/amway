@@ -119,7 +119,10 @@ function closePopups(){
 function addSocial($btn){
   var $this = $btn.closest('label');
   var $clone = $this.clone();
+  
   $this.after($clone);
+  
+  $clone.find('input').val('');
   $this.find('.social-plus').remove();
 }
 

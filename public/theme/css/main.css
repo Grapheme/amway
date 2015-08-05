@@ -223,8 +223,54 @@ footer {
         border-bottom: 1px solid rgba(255, 255, 255, 0.5);
         margin-top: 50px;
         display: inline-block; }
+      /* line 44, /Users/morad/Projects/amway/public/theme/css/_footer.scss */
+      footer .holder .right .socials {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 200px; }
+        /* line 48, /Users/morad/Projects/amway/public/theme/css/_footer.scss */
+        footer .holder .right .socials .vk, footer .holder .right .socials .fb {
+          color: inherit;
+          background: inherit;
+          width: auto;
+          padding: 0;
+          margin: 0;
+          width: 50px;
+          height: 50px;
+          vertical-align: top;
+          background: rgba(255, 255, 255, 0.1);
+          color: white;
+          border-radius: 50px;
+          font-size: 0px;
+          line-height: 100%;
+          margin-top: -6px;
+          display: inline-block;
+          margin: 0 5px; }
+          /* line 65, /Users/morad/Projects/amway/public/theme/css/_footer.scss */
+          footer .holder .right .socials .vk:before, footer .holder .right .socials .vk:after, footer .holder .right .socials .fb:before, footer .holder .right .socials .fb:after {
+            display: none; }
+          /* line 68, /Users/morad/Projects/amway/public/theme/css/_footer.scss */
+          footer .holder .right .socials .vk:before, footer .holder .right .socials .fb:before {
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 0px;
+            content: '';
+            width: 0;
+            height: 100%; }
+          /* line 76, /Users/morad/Projects/amway/public/theme/css/_footer.scss */
+          footer .holder .right .socials .vk svg, footer .holder .right .socials .fb svg {
+            fill: white;
+            max-height: 16px;
+            vertical-align: middle; }
+          /* line 81, /Users/morad/Projects/amway/public/theme/css/_footer.scss */
+          footer .holder .right .socials .vk:hover, footer .holder .right .socials .fb:hover {
+            background: white;
+            color: #143055; }
+            /* line 84, /Users/morad/Projects/amway/public/theme/css/_footer.scss */
+            footer .holder .right .socials .vk:hover svg, footer .holder .right .socials .fb:hover svg {
+              fill: #143055; }
 
-/* line 49, /Users/morad/Projects/amway/public/theme/css/_footer.scss */
+/* line 95, /Users/morad/Projects/amway/public/theme/css/_footer.scss */
 body.profile footer, body.sticky footer {
   margin-top: -120px; }
 
@@ -424,7 +470,7 @@ body.profile footer, body.sticky footer {
           border: none;
           vertical-align: middle; }
           /* line 193, /Users/morad/Projects/amway/public/theme/css/_popups.scss */
-          .popup-wrapper .popup#reg form label input[name="social"] {
+          .popup-wrapper .popup#reg form label input[name="social[]"] {
             width: 525px; }
           /* line 196, /Users/morad/Projects/amway/public/theme/css/_popups.scss */
           .popup-wrapper .popup#reg form label input[type="checkbox"] {
@@ -1594,17 +1640,18 @@ h3 {
       width: 52px;
       height: 52px;
       border: none;
-      background-position: top; }
-      /* line 495, /Users/morad/Projects/amway/public/theme/css/main.scss */
+      background-position: top;
+      margin-top: -62px; }
+      /* line 496, /Users/morad/Projects/amway/public/theme/css/main.scss */
       .gallery .bx-wrapper .bx-controls-direction a:hover {
         background-position: bottom; }
-      /* line 501, /Users/morad/Projects/amway/public/theme/css/main.scss */
+      /* line 502, /Users/morad/Projects/amway/public/theme/css/main.scss */
       .gallery .bx-wrapper .bx-controls-direction a.bx-prev {
         -webkit-transform: scaleX(-1);
         -ms-transform: scaleX(-1);
         -o-transform: scaleX(-1);
         transform: scaleX(-1); }
-  /* line 510, /Users/morad/Projects/amway/public/theme/css/main.scss */
+  /* line 511, /Users/morad/Projects/amway/public/theme/css/main.scss */
   .gallery .desc {
     position: absolute;
     bottom: 0;
