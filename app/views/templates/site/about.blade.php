@@ -55,6 +55,24 @@ if (isset($page['blocks']['map'])):
     endif;
 endif;
 ?>
+<?php
+$organizers = array();
+if (isset($page['blocks']['amway'])):
+    if (isset($page['blocks']['amway']['meta']['content']) && !empty($page['blocks']['amway']['meta']['content'])):
+        $organizers['amway'] = json_decode($page['blocks']['amway']['meta']['content'], TRUE);
+    endif;
+endif;
+if (isset($page['blocks']['artistry'])):
+    if (isset($page['blocks']['artistry']['meta']['content']) && !empty($page['blocks']['artistry']['meta']['content'])):
+        $organizers['artistry'] = json_decode($page['blocks']['artistry']['meta']['content'], TRUE);
+    endif;
+endif;
+if (isset($page['blocks']['nutrilite'])):
+    if (isset($page['blocks']['nutrilite']['meta']['content']) && !empty($page['blocks']['nutrilite']['meta']['content'])):
+        $organizers['nutrilite'] = json_decode($page['blocks']['nutrilite']['meta']['content'], TRUE);
+    endif;
+endif;
+?>
 @extends(Helper::layout())
 @section('style')
 @stop
@@ -150,65 +168,35 @@ endif;
                 <h3>Организатор конкурса</h3>
 
                 <div class="center-text">
-                    <img src="{{ asset(Config::get('site.theme_path')) }}/img/logo3.png" alt="">
-
-                    <p>
-                        Организацией конкурса является компания Amway, приоритетом которой всегда являлась внешняя и
-                        внутренняя красота ее клиентов.
-                    </p>
-
-                    <p>
-                        Компания занимается производством и продажей средств личной гигиены, бытовой химии,
-                        косметических средств, биологически активных добавок к пище и др.
-                    </p>
+                    <img src="{{ asset(@$organizers['amway']['file_path']) }}" alt="">
+                    <p>{{ @$organizers['amway']['description'] }}</p>
                 </div>
                 <br>
-
                 <div class="note">
-                    <a href="#" target="_blank">Официальный сайт компании Amway</a>
+                    <a href="{{ @$organizers['amway']['url_path'] }}" target="_blank">Официальный сайт компании Amway</a>
                 </div>
-                <br>
-                <br>
-                <br>
+                <br><br><br>
             </div>
-            <br>
-            <br>
-            <br>
-
+            <br><br><br>
             <div class="col-2">
                 <div>
                     <center>
                         <div class="img-holder">
-                            <img src="{{ asset(Config::get('site.theme_path')) }}/img/nutrilite.png" alt="">
+                            <img src="{{ @$organizers['artistry']['file_path'] }}" alt="">
                         </div>
-                        <br>
-                        <br>
-
-                        <p>
-                            ARTISTRY&nbsp;&mdash; бренд &#8470;&nbsp;2 по&nbsp;объему продаж в&nbsp;категории косметики
-                            по&nbsp;уходу за&nbsp;кожей
-                        <nobr>премиум-класса</nobr>
-                        в&nbsp;России в&nbsp;2012 году. ARTISTRY постоянно расширяет границы красоты. Мы&nbsp;черпаем
-                        вдохновение из&nbsp;природы и&nbsp;постоянно подбираем новые растительные ингредиенты для своей
-                        продукции.
-                        </p>
-                        <a href="#">Узнать больше</a>
+                        <br><br>
+                        <p>{{ @$organizers['artistry']['description'] }}</p>
+                        <a href="{{ @$organizers['artistry']['url_path'] }}">Узнать больше</a>
                     </center>
                 </div>
                 <div>
                     <center>
                         <div class="img-holder">
-                            <img src="{{ asset(Config::get('site.theme_path')) }}/img/artistry.png" alt="">
+                            <img src="{{ @$organizers['nutrilite']['file_path'] }}" alt="">
                         </div>
-                        <br>
-                        <br>
-
-                        <p>
-                            NUTRILITE&trade;&nbsp;&mdash; это единственный в&nbsp;мире бренд витаминов и&nbsp;минералов,
-                            который выращивает, собирает и&nbsp;обрабатывает растения для своих продуктов на&nbsp;собственных
-                            сертифицированных фермах органического земледелия.
-                        </p>
-                        <a href="#">Узнать больше</a>
+                        <br><br>
+                        <p>{{ @$organizers['nutrilite']['description'] }}</p>
+                        <a href="{{ @$organizers['nutrilite']['url_path'] }}">Узнать больше</a>
                     </center>
                 </div>
             </div>
