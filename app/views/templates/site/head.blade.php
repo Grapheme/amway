@@ -62,6 +62,7 @@ if (isset($page->seos) && is_object($page->seos) && isset($page->seos[Config::ge
 <meta name="keywords" content="@yield('keywords')">
 <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/bxslider/4.2.5/jquery.bxslider.css">
 {{ HTML::style(Config::get('site.theme_path').'/css/normalize.min.css') }}
 {{ HTML::style(Config::get('site.theme_path').'/css/main.css') }}
 
