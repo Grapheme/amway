@@ -58,8 +58,12 @@ class ModeratorController extends BaseController {
         endif;
         $counts = (array)$counts;
         $filter_status = Input::get('filter_status') ?: '0';
+        $groups[0] = 'Выберте группу';
+        foreach(ParticipantGroup::lists('title','id') as $index => $title):
+            $groups[$index] = $title;
+        endforeach;
         $users = Accounts::where('group_id', 4)->orderBy('created_at','DESC')->where('status', $filter_status)->with('ulogin')->paginate(20);
-        return View::make($this->module['tpl'] . 'participants', compact('users', 'filter_status', 'counts'));
+        return View::make($this->module['tpl'] . 'participants', compact('users', 'filter_status', 'counts', 'groups'));
     }
 
     public function participantsSave($user_id) {
@@ -72,6 +76,8 @@ class ModeratorController extends BaseController {
             $user->winner = Input::has('winner') ? 1 : 0;
             $user->top_week_video = Input::has('top_week_video') ? 1 : 0;
             $user->top_video = Input::has('top_video') ? 1 : 0;
+            $user->top_video = Input::has('top_video') ? 1 : 0;
+            $user->participant_group_id = Input::get('participant_group_id');
             $user->save();
         endif;
         return Redirect::back();
