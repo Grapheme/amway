@@ -117,6 +117,7 @@ function showPopup(id, video_info){
     if (isVoted(video_info.user_id)){
       $('.popup#'+id).find('.vote').addClass('disabled');
     }
+    $('.popup#'+id).find('.vote').attr('data-user-id', video_info.user_id);
     $('.popup#'+id).find('.vote').attr('href', video_info.vote_url);
   }
   renderVoting();
