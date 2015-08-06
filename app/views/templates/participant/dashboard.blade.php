@@ -35,7 +35,7 @@ $profile = Accounts::where('id', Auth::user()->id)->with('ulogin', 'likes')->fir
 
                     <div class="rating">
                         <span class="icon2-star"></span>
-                        <div class="count">{{ $profile->likes->count() }}</div>
+                        <div class="count">{{ $profile->likes->count() + $profile->guest_likes }}</div>
                         <div class="legend"></div>
                     </div>
                 </div>

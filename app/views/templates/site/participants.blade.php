@@ -6,6 +6,17 @@
 ?>
 <?php
 $participants = Accounts::where('group_id', 4)->with('ulogin', 'likes')->paginate(25);
+foreach($participants as $index => $participant):
+    $participants[$index]['like_disabled'] = FALSE;
+endforeach;
+if (isset($_COOKIE['votes_list'])):
+    $users_ids = json_decode($_COOKIE['votes_list']);
+    foreach($participants as $index => $participant):
+        if (in_array($participant->id, $users_ids)):
+            $participants[$index]['like_disabled'] = TRUE;
+        endif;
+    endforeach;
+endif;
 ?>
 @extends(Helper::layout())
 @section('style')

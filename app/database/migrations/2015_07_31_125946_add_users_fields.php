@@ -24,6 +24,7 @@ class AddUsersFields extends Migration {
 			$table->boolean('top_video')->after('top_week_video')->nullable()->unsigned()->default(0);
 			$table->boolean('top_video')->after('video_thumb')->nullable()->unsigned()->default(0);
 			$table->text('way')->nullable();
+			$table->integer('guest_likes')->default(0)->unsigned()->nullable();
 		});
 	}
 

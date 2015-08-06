@@ -151,7 +151,9 @@
                 </div>
             </div>
             <div class="col">
+            @if(Auth::guest() || Auth::user()->group_id > 3)
                 <a href="" class="vote">Проголосовать</a>
+            @endif
             </div>
             <div class="social">
                 <div class="label">
