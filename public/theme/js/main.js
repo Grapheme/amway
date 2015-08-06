@@ -52,6 +52,15 @@ function removeVote(id){
   Cookies.set('votes_list', json_vote_list);
 }
 
+function isInArray(value, array) {
+  return array.indexOf(value) > -1;
+}
+
+function isVoted(id) {
+  vote_list = getVotes();
+  return isInArray(id, vote_list);
+}
+
 function votePlus($vote_btn){
   var $unit = $vote_btn.closest('.unit');
   var $count = $unit.find('.rating .count');
@@ -104,6 +113,7 @@ function showPopup(id, video_info){
     $('.popup#'+id).find('.name').text(video_info.name);
     $('.popup#'+id).find('.city').text(video_info.location);
     $('.popup#'+id).find('.rating .count').text(video_info.vote_count);
+    //if (isVoted)
     $('.popup#'+id).find('.vote').attr('href', video_info.vote_url);
   }
   renderVoting();
