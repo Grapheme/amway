@@ -325,6 +325,11 @@
         }
       }
     }
+    .unit {
+      display: inline-block;
+      position: relative;
+      top: -20px;
+    }
     .col {
       display: inline-block;
       vertical-align: top;
