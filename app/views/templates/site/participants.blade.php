@@ -5,7 +5,7 @@
 */
 ?>
 <?php
-$participants = Accounts::where('group_id', 4)->with('ulogin', 'likes')->paginate(5);
+$participants = Accounts::where('group_id', 4)->with('ulogin', 'likes')->paginate(25);
 ?>
 @extends(Helper::layout())
 @section('style')
