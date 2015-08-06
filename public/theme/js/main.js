@@ -113,7 +113,10 @@ function showPopup(id, video_info){
     $('.popup#'+id).find('.name').text(video_info.name);
     $('.popup#'+id).find('.city').text(video_info.location);
     $('.popup#'+id).find('.rating .count').text(video_info.vote_count);
-    //if (isVoted)
+    $('.popup#'+id).find('.vote').removeClass('disabled');
+    if (isVoted(video_info.user_id)){
+      $('.popup#'+id).find('.vote').addClass('disabled');
+    }
     $('.popup#'+id).find('.vote').attr('href', video_info.vote_url);
   }
   renderVoting();
@@ -286,6 +289,7 @@ $(function() {
       location: $(this).attr('data-location'),
       vote_count: $(this).attr('data-vote-count'),
       vote_url: $(this).attr('data-vote-url'),
+      user_id: $(this).attr('data-user-id'),
     };
     showPopup(id, video_info);
   });
