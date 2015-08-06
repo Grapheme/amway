@@ -24,6 +24,20 @@ if (isset($page->blocks['map']['meta']['content']) && !empty($page->blocks['map'
     $map = json_decode($page->blocks['map']['meta']['content'], TRUE);
 endif;
 ?>
+<?php
+$participants = Accounts::where('group_id',4)->where('in_main_page', 1)->with('ulogin', 'likes')->take(5)->get();
+foreach($participants as $index => $participant):
+    $participants[$index]['like_disabled'] = FALSE;
+endforeach;
+if (isset($_COOKIE['votes_list'])):
+    $users_ids = json_decode($_COOKIE['votes_list']);
+    foreach($participants as $index => $participant):
+        if (in_array($participant->id, $users_ids)):
+            $participants[$index]['like_disabled'] = TRUE;
+        endif;
+    endforeach;
+endif;
+?>
 @extends(Helper::layout())
 @section('style')
 @stop
@@ -59,7 +73,7 @@ endif;
     <div class="competitors">
         <div class="holder">
             {{ $page->block('four_section') }}
-            @foreach(Accounts::where('group_id',4)->where('in_main_page', 1)->with('ulogin', 'likes')->take(5)->get() as $user)
+            @foreach($participants as $user)
                 @include(Helper::layout('blocks.user'), compact('user'))
             @endforeach
         </div>
