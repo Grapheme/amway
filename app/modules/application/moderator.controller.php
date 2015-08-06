@@ -58,7 +58,7 @@ class ModeratorController extends BaseController {
         endif;
         $counts = (array)$counts;
         $filter_status = Input::get('filter_status') ?: '0';
-        $groups[0] = 'Выберте группу';
+        $groups[0] = 'Без группу';
         foreach(ParticipantGroup::lists('title','id') as $index => $title):
             $groups[$index] = $title;
         endforeach;
