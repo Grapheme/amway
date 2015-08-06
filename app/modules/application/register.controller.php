@@ -17,6 +17,10 @@ class RegisterController extends BaseController {
             Route::get('registration/activation/{activate_code}', array('as' => 'signup-activation',
                 'uses' => $class . '@activation'));
         });
+        Route::group(array('before' => '', 'prefix' => 'api'), function () use ($class) {
+            Route::post('registration', array('as' => 'api.signup.participant',
+                'uses' => $class . '@apiSignup'));
+        });
     }
 
     public static function returnShortCodes() {
@@ -47,6 +51,58 @@ class RegisterController extends BaseController {
             'entity_name' => self::$entity_name,
         );
         View::share('module', $this->module);
+    }
+
+    /****************************************************************************/
+    public function apiSignup() {
+
+        $json_request = array('status' => FALSE, 'responseText' => '');
+        $validator = Validator::make(Input::all(), Accounts::$api_rules);
+        if ($validator->passes()):
+            $token = Input::get('token');
+            if ($token != md5(Input::get('email') . Config::get('app.key'))):
+                $json_request['responseText'] = 'Неверный токен.';
+                return Response::json($json_request, 200);
+            endif;
+            if (User::where('email', Input::get('email'))->exists() == FALSE):
+                $password = Str::random(4);
+                $vk_id = Input::get('vk_id');
+                $inst_id = Input::get('inst_id');
+                $social = array(
+                    'https:://vk.com/' . is_numeric($vk_id) ? 'id' . $vk_id : $vk_id,
+                    'https://instagram.com/' . $inst_id
+                );
+
+                $user = new User;
+                $user->group_id = 4;
+                $user->active = 1;
+                $user->load_video = 1;
+                $user->name = Input::get('name');
+                $user->email = Input::get('email');
+                $user->phone = Input::get('phone');
+                $user->social = json_encode($social);
+                $user->way = Input::get('way');
+                $user->password = Hash::make($password);
+                $user->photo = '';
+                $user->thumbnail = '';
+                $user->temporary_code = Str::random(24);
+                $user->code_life = myDateTime::getFutureDays(5);
+                $user->save();
+
+                Mail::send('emails.auth.signup', array('account' => $user, 'password' => $password,
+                    'verified_email' => FALSE), function ($message) {
+                    $message->from(Config::get('mail.from.address'), Config::get('mail.from.name'));
+                    $message->to(Input::get('email'))->subject('Amway - регистрация');
+                });
+                $json_request['responseText'] = Lang::get('interface.SIGNUP.success');
+                $json_request['status'] = TRUE;
+            else:
+                $json_request['responseText'] = Lang::get('interface.SIGNUP.email_exist');
+            endif;
+        else:
+            $json_request['responseText'] = Lang::get('interface.SIGNUP.fail');
+        endif;
+        return Response::json($json_request, 200);
     }
 
     /****************************************************************************/
