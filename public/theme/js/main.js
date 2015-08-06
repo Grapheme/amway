@@ -273,7 +273,7 @@ $(function() {
     $('.videoupload').click();
   });
   
-  $('.competitors a.vote').click(function(e){
+  $('a.vote').click(function(e){
     e.preventDefault();
     
     if (!$(this).is('.disabled')) votePlus($(this));
