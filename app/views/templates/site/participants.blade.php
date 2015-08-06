@@ -5,7 +5,7 @@
 */
 ?>
 <?php
-$participants = Accounts::where('group_id', 4)->with('ulogin', 'likes')->paginate(15);
+$participants = Accounts::where('group_id', 4)->with('ulogin', 'likes')->paginate(5);
 ?>
 @extends(Helper::layout())
 @section('style')
@@ -23,7 +23,7 @@ $participants = Accounts::where('group_id', 4)->with('ulogin', 'likes')->paginat
     <div class="holder">
         <h3>УЧАСТНИКИ КОНКУРСА</h3>
         <div class="note">
-            ВСЕГО {{ $participants->count() }} {{ Lang::choice('УЧАСТНИК|УЧАСТНИКА|УЧАСТНИКОВ', $participants->count()) }}
+            ВСЕГО {{ Accounts::where('group_id', 4)->count() }} {{ Lang::choice('УЧАСТНИК|УЧАСТНИКА|УЧАСТНИКОВ', Accounts::where('group_id', 4)->count()) }}
         </div>
         <br>
         <br>
