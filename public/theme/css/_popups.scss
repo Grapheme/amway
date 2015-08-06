@@ -368,6 +368,10 @@
         background: white;
         color: #143055;
         margin-top: 4px;
+        &.disabled {
+          background: #ea1924;
+          color: white;
+        }
         &:hover {
           background: #ea1924;
           color: white;

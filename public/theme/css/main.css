@@ -644,6 +644,10 @@ body.profile footer, body.sticky footer {
         color: #143055;
         margin-top: 4px; }
         /* line 371, /Users/morad/Projects/amway/public/theme/css/_popups.scss */
+        .popup-wrapper #video .col .vote.disabled {
+          background: #ea1924;
+          color: white; }
+        /* line 375, /Users/morad/Projects/amway/public/theme/css/_popups.scss */
         .popup-wrapper #video .col .vote:hover {
           background: #ea1924;
           color: white; }
