@@ -52,6 +52,15 @@ function removeVote(id){
   Cookies.set('votes_list', json_vote_list);
 }
 
+function isInArray(value, array) {
+  return array.indexOf(value) > -1;
+}
+
+function isVoted(id) {
+  vote_list = getVotes();
+  return isInArray(id, vote_list);
+}
+
 function votePlus($vote_btn){
   var $unit = $vote_btn.closest('.unit');
   var $count = $unit.find('.rating .count');
@@ -104,6 +113,11 @@ function showPopup(id, video_info){
     $('.popup#'+id).find('.name').text(video_info.name);
     $('.popup#'+id).find('.city').text(video_info.location);
     $('.popup#'+id).find('.rating .count').text(video_info.vote_count);
+    $('.popup#'+id).find('.vote').removeClass('disabled');
+    if (isVoted(video_info.user_id)){
+      $('.popup#'+id).find('.vote').addClass('disabled');
+    }
+    $('.popup#'+id).find('.vote').attr('data-user-id', video_info.user_id);
     $('.popup#'+id).find('.vote').attr('href', video_info.vote_url);
   }
   renderVoting();
@@ -260,7 +274,7 @@ $(function() {
     $('.videoupload').click();
   });
   
-  $('.competitors a.vote').click(function(e){
+  $('a.vote').click(function(e){
     e.preventDefault();
     
     if (!$(this).is('.disabled')) votePlus($(this));
@@ -276,6 +290,7 @@ $(function() {
       location: $(this).attr('data-location'),
       vote_count: $(this).attr('data-vote-count'),
       vote_url: $(this).attr('data-vote-url'),
+      user_id: $(this).attr('data-user-id'),
     };
     showPopup(id, video_info);
   });

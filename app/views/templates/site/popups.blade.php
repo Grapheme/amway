@@ -142,18 +142,18 @@
 
                 </div>
             </div>
-            <div class="col">
-                <div class="rating">
-                    <span class="icon2-star"></span>
+            <div class="unit">
+              <div class="col">
+                  <div class="rating">
+                      <span class="icon2-star"></span>
 
-                    <div class="count"></div>
-                    <div class="legend"></div>
-                </div>
-            </div>
-            <div class="col">
-            @if(Auth::guest() || Auth::user()->group_id > 3)
-                <a href="" class="vote">Проголосовать</a>
-            @endif
+                      <div class="count"></div>
+                      <div class="legend"></div>
+                  </div>
+              </div>
+              <div class="col">
+                  <a href="" class="vote">Проголосовать</a>
+              </div>
             </div>
             <div class="social">
                 <div class="label">
