@@ -26,7 +26,7 @@
         <div class="note">или с помощью эл.почты</div>
         {{ Form::open(array('route'=>'signin')) }}
         {{ Form::email('email',NULL,array('placeholder'=>'Эл. почта')) }}
-        {{ Form::password('password',NULL,array('placeholder'=>'Пароль')) }}
+        {{ Form::password('password', array('placeholder'=>'Пароль')) }}
         {{ Form::button('Войти',array('type'=>'submit')) }}
         {{ Form::close() }}
         <hr>

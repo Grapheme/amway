@@ -26,6 +26,14 @@ class ApplicationController extends BaseController {
         $menu[] = array(
             'title' => 'Участники',
             'link' => 'participants',
+            'class' => 'fa-user',
+            'system' => 1,
+            'menu_child' => NULL,
+            'permit' => 'view'
+        );
+        $menu[] = array(
+            'title' => 'Группы',
+            'link' => 'participant-groups',
             'class' => 'fa-users',
             'system' => 1,
             'menu_child' => NULL,

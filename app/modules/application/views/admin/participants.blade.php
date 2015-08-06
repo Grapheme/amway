@@ -73,7 +73,9 @@
                             {{ Form::checkbox('top_week_video') }} Лучшее видео недели <br>
                             {{ Form::checkbox('top_video') }} Лучшее видео <br>
                             {{ Form::checkbox('winner') }} Победитель <br>
-                            {{ Form::button('Сохранить',array('class'=>'btn btn-success btn-sm','type'=>'submit')) }}
+
+                            {{ Form::select('participant_group_id', $groups) }}<br>
+                            {{ Form::button('Сохранить',array('class'=>'btn btn-success btn-sm','type'=>'submit','style'=>'margin-top:10px;')) }}
                             {{ Form::close() }}
                         </td>
                     </tr>
