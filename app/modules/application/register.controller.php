@@ -73,7 +73,7 @@ class RegisterController extends BaseController {
                 $user->active = 1;
                 $user->load_video = 1;
                 $user->name = Input::get('name');
-                $user->yan_name = Input::get('yan_name');
+                $user->yad_name = Input::get('yad_name');
                 $user->email = Input::get('email');
                 $user->phone = Input::get('phone');
                 $user->social = json_encode($social);
@@ -164,7 +164,7 @@ class RegisterController extends BaseController {
             $user->email = $post['email'];
             $user->active = $post['verified_email'] == 1 ? 1 : 0;
 
-            $user->yan_name = '';
+            $user->yad_name = '';
             $user->location = $post['location'];
             $user->age = $post['age'];
             $user->phone = $post['phone'];
