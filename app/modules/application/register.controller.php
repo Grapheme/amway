@@ -65,7 +65,7 @@ class RegisterController extends BaseController {
                 return Response::json($json_request, 200);
             endif;
             if (User::where('email', Input::get('email'))->exists() == FALSE):
-                $password = Str::random(4);
+                $password = rand(1111, 9999);
                 $vk_id = Input::get('vk_id');
                 $inst_id = Input::get('inst_id');
                 $social = array(
@@ -114,7 +114,7 @@ class RegisterController extends BaseController {
             $validator = Validator::make(Input::all(), Accounts::$rules);
             if ($validator->passes()):
                 if (User::where('email', Input::get('email'))->exists() == FALSE):
-                    $password = Str::random(4);
+                    $password = rand(1111, 9999);
                     $post = Input::all();
                     $post['password'] = Hash::make($password);
                     if ($account = self::getRegisterAccount($post)):
