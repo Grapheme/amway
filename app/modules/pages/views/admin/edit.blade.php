@@ -83,6 +83,8 @@ $element->settings = json_decode($element->settings, 1);
                                 {{ Form::text('sysname') }}
                             </label>
                         </section>
+                    @else
+                        {{ Form::hidden('sysname') }}
                     @endif
 
                 </div>
