@@ -33,9 +33,9 @@ $profile = Accounts::where('id', Auth::user()->id)->with('ulogin', 'likes')->fir
                 </div>
                 <div class="row">
                     <p class="location">{{ $profile->location }}</p>
-
+                    @if($profile->age > 0)
                     <p class="age">{{ $profile->age }} {{ Lang::choice('год|года|лет', (int)$profile->age ) }}</p>
-
+                    @endif
                     <div class="rating">
                         <span class="icon2-star"></span>
                         <div class="count">{{ $profile->likes->count() + $profile->guest_likes }}</div>
