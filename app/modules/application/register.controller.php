@@ -73,13 +73,14 @@ class RegisterController extends BaseController {
                 $user->active = 1;
                 $user->load_video = 1;
                 $user->name = Input::get('name');
+                $user->yan_name = Input::get('yan_name');
                 $user->email = Input::get('email');
                 $user->phone = Input::get('phone');
                 $user->social = json_encode($social);
                 $user->way = Input::get('way');
                 $user->password = Hash::make($password);
-                $user->photo = '';
-                $user->thumbnail = '';
+                $user->photo = Input::get('photo');
+                $user->thumbnail = Input::get('photo');
                 $user->temporary_code = Str::random(24);
                 $user->code_life = myDateTime::getFutureDays(5);
                 $user->save();
@@ -163,6 +164,7 @@ class RegisterController extends BaseController {
             $user->email = $post['email'];
             $user->active = $post['verified_email'] == 1 ? 1 : 0;
 
+            $user->yan_name = '';
             $user->location = $post['location'];
             $user->age = $post['age'];
             $user->phone = $post['phone'];

@@ -9,7 +9,8 @@ class AddUsersFields extends Migration {
 		Schema::table('users', function(Blueprint $table){
 			$table->integer('participant_group_id')->nullable()->unsigned()->default(0);
 			$table->tinyInteger('status')->nullable()->unsigned()->default(0);
-			$table->string('location', 100)->after('active')->nullable();
+			$table->string('yan_name', 100)->after('status')->nullable();
+			$table->string('location', 100)->after('yan_name')->nullable();
 			$table->string('age', 20)->after('location')->nullable();
 			$table->string('phone', 20)->after('age')->nullable();
 			$table->text('social')->after('phone')->nullable();
