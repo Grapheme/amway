@@ -74,6 +74,10 @@
             {{ Form::text('phone') }}
         </label>
         <label>
+            <span class="label">Профиль в Вконтакте</span>
+            {{ Form::text('social[]') }}
+        </label>
+        <label>
             <span class="label">Профиль в соцсети</span>
             {{ Form::text('social[]', Session::get('profile')) }}
             <a href="" class="social-plus">
