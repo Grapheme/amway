@@ -65,28 +65,26 @@ class RegisterController extends BaseController {
                 return Response::json($json_request, 200);
             endif;
             if (User::where('email', Input::get('email'))->exists() == FALSE):
-                $password = Str::random(4);
-                $vk_id = Input::get('vk_id');
-                $inst_id = Input::get('inst_id');
-                $social = array(
-                    'https:://vk.com/' . is_numeric($vk_id) ? 'id' . $vk_id : $vk_id,
-                    'https://instagram.com/' . $inst_id
-                );
+                $password = rand(1111, 9999);
+                $social = array(Input::get('vk_id'), Input::get('inst_id'));
 
                 $user = new User;
                 $user->group_id = 4;
                 $user->active = 1;
                 $user->load_video = 1;
+                $user->local_video_date = Carbon::now();
                 $user->name = Input::get('name');
+                $user->yad_name = Input::get('yad_name');
                 $user->email = Input::get('email');
                 $user->phone = Input::get('phone');
                 $user->social = json_encode($social);
                 $user->way = Input::get('way');
                 $user->password = Hash::make($password);
-                $user->photo = '';
-                $user->thumbnail = '';
+                $user->photo = Input::get('photo');
+                $user->thumbnail = Input::get('photo');
                 $user->temporary_code = Str::random(24);
                 $user->code_life = myDateTime::getFutureDays(5);
+                $user->video = '';
                 $user->save();
 
                 Mail::send('emails.auth.signup', array('account' => $user, 'password' => $password,
@@ -114,7 +112,7 @@ class RegisterController extends BaseController {
             $validator = Validator::make(Input::all(), Accounts::$rules);
             if ($validator->passes()):
                 if (User::where('email', Input::get('email'))->exists() == FALSE):
-                    $password = Str::random(4);
+                    $password = rand(1111, 9999);
                     $post = Input::all();
                     $post['password'] = Hash::make($password);
                     if ($account = self::getRegisterAccount($post)):
@@ -168,10 +166,12 @@ class RegisterController extends BaseController {
             $user->email = $post['email'];
             $user->active = $post['verified_email'] == 1 ? 1 : 0;
 
+            $user->yad_name = '';
             $user->location = $post['location'];
             $user->age = $post['age'];
             $user->phone = $post['phone'];
             $user->social = !empty($post['social']) ? json_encode($post['social']) : json_encode(array());
+            $user->video = '';
 
             $user->password = $post['password'];
             $user->photo = '';
