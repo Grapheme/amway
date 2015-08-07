@@ -43,7 +43,7 @@ endif;
 @stop
 @section('content')
     <section class="long color-blue video">
-        <iframe data-src="https://player.vimeo.com/video/6382511?autoplay=1&loop=1&color=ffffff&title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <iframe data-src="https://player.vimeo.com/video/135698166?autoplay=1&loop=1&color=ffffff&title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         <div class="slides">
           <div class="slide" style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-1.jpg')"></div>
           <div class="slide" style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-2.jpg')"></div>
