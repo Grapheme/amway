@@ -27,12 +27,6 @@
 <body>
 <table style="border-collapse: collapse; width: 590px; margin: 0 auto; border: 0; background-color:#fff;">
     <tbody>
-    <tr width="590" style="background-color:#f6f6f6;" height="46px">
-        <td colspan="3" height="46px" align="center" color="#717171">
-            <p style="color:#717171; font-family: sans-serif, Arial, Gadget;">&nbsp;</p>
-        </td>
-    </tr>
-
     <tr height="226" width="590">
         <td height="226">
 

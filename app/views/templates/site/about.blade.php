@@ -148,8 +148,11 @@ endif;
                 <div class="units-3">
                     @for($i = 1; $i <= 3; $i++)
                         <div class="unit">
+                        <? if ($i == 3) : ?>
+                            <img src="http://amway.dev.grapheme.ru/theme/img/logo.png" alt="">
+                        <? else : ?>
                             <img src="{{ asset(Config::get('site.theme_path')) }}/img/award-{{ $i }}.png" alt="">
-
+                        <? endif; ?>
                             <div class="italic">
                                 {{ @$nominations["nom_$i"]['italic'] }}
                             </div>
@@ -186,7 +189,7 @@ endif;
                         </div>
                         <br><br>
                         <p>{{ @$organizers['artistry']['description'] }}</p>
-                        <a href="{{ @$organizers['artistry']['url_path'] }}">Узнать больше</a>
+                        <a target="_blank" href="{{ @$organizers['artistry']['url_path'] }}">Узнать больше</a>
                     </center>
                 </div>
                 <div>
@@ -196,7 +199,7 @@ endif;
                         </div>
                         <br><br>
                         <p>{{ @$organizers['nutrilite']['description'] }}</p>
-                        <a href="{{ @$organizers['nutrilite']['url_path'] }}">Узнать больше</a>
+                        <a target="_blank" href="{{ @$organizers['nutrilite']['url_path'] }}">Узнать больше</a>
                     </center>
                 </div>
             </div>

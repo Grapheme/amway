@@ -74,7 +74,15 @@
             {{ Form::text('phone') }}
         </label>
         <label>
-            <span class="label">Профиль в соцсети</span>
+            <span class="label">Профиль в Вконтакте</span>
+            {{ Form::text('social[]') }}
+        </label>
+        <label>
+            <span class="label">Профиль в Instagram</span>
+            {{ Form::text('social[]') }}
+        </label>
+        <label>
+            <span class="label">Профиль в другой социальной сети</span>
             {{ Form::text('social[]', Session::get('profile')) }}
             <a href="" class="social-plus">
                 <?='<?xml version = "1.0" encoding = "utf-8"?>' ?>
@@ -95,7 +103,7 @@
         </label>
         <label class="small">
             {{ Form::checkbox('agree2', 1, TRUE) }}
-            <span class="label">Я ознакомлен с правилами участия в проекте A-gen.</span>
+            <span class="label">Я ознакомлен с <a target="_blank" href="http://amway.dev.grapheme.ru/uploads/files/1438961762_1476558.pdf">правилами проведения конкурса</a> A-GEN.</span>
         </label>
         <hr>
         <center>
