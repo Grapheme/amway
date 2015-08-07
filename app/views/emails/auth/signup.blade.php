@@ -28,9 +28,9 @@
 <table style="border-collapse: collapse; width: 590px; margin: 0 auto; border: 0; background-color:#fff;">
     <tbody>
     <tr width="590" style="background-color:#f6f6f6;" height="46px">
-        <td colspan="3" height="46px" align="center" color="#717171"><p
-                    style="color:#717171; font-family: sans-serif, Arial, Gadget;">Не видите изображения? <a
-                        style="color:#717171;" href="#">Нажмите сюда</a></p></td>
+        <td colspan="3" height="46px" align="center" color="#717171">
+            <p style="color:#717171; font-family: sans-serif, Arial, Gadget;">&nbsp;</p>
+        </td>
     </tr>
 
     <tr height="226" width="590">
@@ -48,20 +48,20 @@
                             <tr>
                                 <td height="40">
                                     <a href="http://agen-project.ru/about"
-                                       style="text-decoration: none; color: #19375f; font-size: 18px; margin-bottom: 20px; font-family: sans-serif, Arial, Gadget;">О
+                                       style="text-decoration: none; color: #19375f; font-size: 16px; margin-bottom: 18px; font-family: sans-serif, Arial, Gadget;">О
                                         проекте</a>
                                 </td>
                             </tr>
                             <tr>
                                 <td height="40">
                                     <a href="http://agen-project.ru/participants"
-                                       style="text-decoration: none; color: #19375f; font-size: 18px; margin-bottom: 20px; font-family: sans-serif, Arial, Gadget;">Участники</a>
+                                       style="text-decoration: none; color: #19375f; font-size: 16px; margin-bottom: 18px; font-family: sans-serif, Arial, Gadget;">Участники</a>
                                 </td>
                             </tr>
                             <tr>
                                 <td height="40">
                                     <a href="http://agen-project.ru/news"
-                                       style="text-decoration: none; color: #19375f; font-size: 18px; margin-bottom: 20px; font-family: sans-serif, Arial, Gadget;">Новости</a>
+                                       style="text-decoration: none; color: #19375f; font-size: 16px; margin-bottom: 18px; font-family: sans-serif, Arial, Gadget;">Новости</a>
                                 </td>
                             </tr>
                             </tbody>
@@ -82,18 +82,18 @@
         <td colspan="3" height="25" align="center">&nbsp;</td>
     </tr>
     <tr>
-        <td align="center" style="padding: 0 35px;"><p style="color: #19375f; margin-bottom: 30px; margin-top: 0; font-size: 18px; font-family: sans-serif, Arial, Gadget;">Вы успешно прошли регистрацию<br>
-                <strong>на <a href="http://agen-project.ru">сайте конкурса</a> «A-GEN (ПОКОЛЕНИЕ А)».</strong></p></td>
+        <td align="center" style="padding: 0 35px;"><p style="color: #19375f; margin-bottom: 30px; margin-top: 0; font-size: 16px; font-family: sans-serif, Arial, Gadget;">Вы успешно прошли регистрацию<br>
+                на <a style="color: #e61926;" href="http://agen-project.ru">сайте конкурса</a> «A-GEN (ПОКОЛЕНИЕ А)».</p></td>
     </tr>
     @if(!$verified_email)
     <tr>
         <td align="center" style="padding: 0 35px;"><p
-                    style="color: #19375f; margin-bottom: 0px; margin-top: 0; font-size: 18px; font-family: sans-serif, Arial, Gadget;">
+                    style="color: #19375f; margin-bottom: 30px; margin-top: 0; font-size: 16px; font-family: sans-serif, Arial, Gadget;">
                 Для завершения регистрации пройдите<br>по <a style="color: #e61926;" href="http://agen-project.ru/activation?u={{  $account->id }}'&c={{ $account->temporary_code }}">ссылке</a>.</p></td>
     </tr>
     @endif
     <tr>
-        <td align="center" style="padding: 0 35px;"><p style="color: #19375f; margin-bottom: 0px; margin-top: 0; font-size: 18px; font-family: sans-serif, Arial, Gadget;">Для входа используйте следующие данные:<br> Логин: {{ $account->email }}<br> Пароль: {{ $password }}</p></td>
+        <td align="center" style="padding: 0 35px;"><p style="color: #19375f; margin-bottom: 0px; margin-top: 0; font-size: 16px; font-family: sans-serif, Arial, Gadget;">Для входа используйте следующие данные:<br> Логин: {{ $account->email }}<br> Пароль: {{ $password }}</p></td>
     </tr>
     <tr width="590" height="60">
         <td colspan="3" height="60">&nbsp;</td>
@@ -108,7 +108,7 @@
 
             <p>
                 <a style="color: #fff; margin-bottom: 10px; margin-top: 0; font-size: 15px; font-family: sans-serif, Arial, Gadget;"
-                   href="mailto:nfo@agen-project.ru">nfo@agen-project.ru</a>
+                   href="mailto:info@agen-project.ru">info@agen-project.ru</a>
             </p>
 
             <p style="color: #fff; font-size: 15px; font-family: sans-serif, Arial, Gadget; margin: 15px 0;">© 2015,
