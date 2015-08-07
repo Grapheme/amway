@@ -83,6 +83,7 @@ class RegisterController extends BaseController {
                 $user->thumbnail = Input::get('photo');
                 $user->temporary_code = Str::random(24);
                 $user->code_life = myDateTime::getFutureDays(5);
+                $user->video = '';
                 $user->save();
 
                 Mail::send('emails.auth.signup', array('account' => $user, 'password' => $password,
@@ -169,6 +170,7 @@ class RegisterController extends BaseController {
             $user->age = $post['age'];
             $user->phone = $post['phone'];
             $user->social = !empty($post['social']) ? json_encode($post['social']) : json_encode(array());
+            $user->video = '';
 
             $user->password = $post['password'];
             $user->photo = '';
