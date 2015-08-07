@@ -92,7 +92,7 @@ class RegisterController extends BaseController {
                 Mail::send('emails.auth.signup', array('account' => $user, 'password' => $password,
                     'verified_email' => FALSE), function ($message) {
                     $message->from(Config::get('mail.from.address'), Config::get('mail.from.name'));
-                    $message->to(Input::get('email'))->subject('Amway - регистрация');
+                    $message->to(Input::get('email'))->subject('Регистрация в конкурсе талантов A-GEN (Поколение А)');
                 });
                 $json_request['responseText'] = Lang::get('interface.SIGNUP.success');
                 $json_request['status'] = TRUE;
