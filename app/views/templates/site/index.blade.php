@@ -105,7 +105,7 @@ endif;
             </div>
             @endif
             <div class="unit map">
-                <a href="#" class="wrapper">
+                <a href="{{ pageurl('news') }}" class="wrapper">
                     <div class="frame">
                         <img src="{{ asset(@$map['file_path']) }}" class="visual" alt="{{ @$map['title'] }}">
                         <div class="title">
