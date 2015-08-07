@@ -95,7 +95,7 @@
         </label>
         <label class="small">
             {{ Form::checkbox('agree2', 1, TRUE) }}
-            <span class="label">Я ознакомлен с правилами участия в проекте A-gen.</span>
+            <span class="label">Я ознакомлен с <a target="_blank" href="http://amway.dev.grapheme.ru/uploads/files/1438961762_1476558.pdf">правилами участия</a> в проекте A-gen.</span>
         </label>
         <hr>
         <center>
