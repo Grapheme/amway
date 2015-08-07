@@ -390,7 +390,7 @@ $element->settings = json_decode($element->settings, 1);
         });
     </script>
 
-    {{ HTML::script('private/js/modules/standard.js') }}
+{{--    {{ HTML::script('private/js/modules/standard.js') }}--}}
 
     {{ HTML::script('private/js/vendor/redactor.min.js') }}
     {{ HTML::script('private/js/system/redactor-config.js') }}

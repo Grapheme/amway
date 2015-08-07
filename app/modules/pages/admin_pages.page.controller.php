@@ -277,14 +277,16 @@ class AdminPagesPageController extends BaseController {
         $input['start_page'] = @$input['start_page'] ? 1 : NULL;
 
         $input['slug'] = @$input['slug'] ? $input['slug'] : ($input['start_page'] ? '' : $input['name']);
-        $input['slug'] = Helper::translit($input['slug']);
+        $input['slug'] = $this->getPageSlug($input['slug']);
+
+        $input['parametrized'] = is_int(strpos($input['slug'], '{')) ? 1 : 0;
 
         $input['sysname'] = @$input['sysname'] ? $input['sysname'] : ($input['start_page'] ? '' : $input['name']);
         $input['sysname'] = Helper::translit($input['sysname']);
 
         #Helper::tad($input);
 
-        $json_request = array('status' => FALSE, 'responseText' => '', 'responseErrorText' => '', 'redirect' => FALSE);
+        $json_request = array('status' => FALSE, 'responseText' => '', 'responseErrorText' => '', 'redirect' => FALSE, 'pageSlug' => $input['slug']);
         $validator = Validator::make($input, $this->essence->rules());
         if ($validator->passes()) {
 
@@ -1220,6 +1222,42 @@ class AdminPagesPageController extends BaseController {
         }
 
         return $result;
+    }
+
+    /**
+     * @param $input
+     *
+     * @return bool|mixed|string
+     */
+    public function getPageSlug($s) {
+
+        $space = '-';
+        $s = (string)$s; // преобразуем в строковое значение
+        $s = strip_tags($s); // убираем HTML-теги
+        $s = str_replace(["\n", "\r"], " ", $s); // убираем перевод каретки
+        $s = preg_replace('/ +/', ' ', $s); // удаляем повторяющие пробелы
+        $s = trim($s); // убираем пробелы в начале и конце строки
+        ## Переводим строку в нижний регистр (иногда надо задать локаль)
+        $s = function_exists('mb_strtolower') ? mb_strtolower($s) : strtolower($s);
+        $s = strtr($s, array(
+            'а' => 'a', 'б' => 'b', 'в' => 'v', 'г' => 'g', 'д' => 'd', 'е' => 'e', 'ё' => 'e', 'ж' => 'j', 'з' => 'z',
+            'и' => 'i', 'й' => 'y', 'к' => 'k', 'л' => 'l', 'м' => 'm', 'н' => 'n', 'о' => 'o', 'п' => 'p', 'р' => 'r',
+            'с' => 's', 'т' => 't', 'у' => 'u', 'ф' => 'f', 'х' => 'h', 'ц' => 'c', 'ч' => 'ch', 'ш' => 'sh', 'щ' => 'sch',
+            'ы' => 'y', 'э' => 'e', 'ю' => 'yu', 'я' => 'ya', 'ъ' => '', 'ь' => '',
+
+            'А' => 'A', 'Б' => 'B', 'В' => 'V', 'Г' => 'G', 'Д' => 'D', 'Е' => 'E', 'Ё' => 'E', 'Ж' => 'J', 'З' => 'Z',
+            'И' => 'I', 'Й' => 'Y', 'К' => 'K', 'Л' => 'L', 'М' => 'M', 'Н' => 'N', 'О' => 'O', 'П' => 'P', 'Р' => 'R',
+            'С' => 'S', 'Т' => 'T', 'У' => 'U', 'Ф' => 'F', 'Х' => 'H', 'Ц' => 'C', 'Ч' => 'CH', 'Ш' => 'SH', 'Щ' => 'SCH',
+            'Ы' => 'Y', 'Э' => 'E', 'Ю' => 'YU', 'Я' => 'YA', 'Ъ' => '', 'Ь' => '',
+        ));
+        $s = preg_replace("~[^0-9A-Za-z-_/{} ]~i", "", $s); // очищаем строку от недопустимых символов
+        $s = str_replace(" ", $space, $s); // заменяем пробелы знаком минус
+
+        $s = trim($s, ' /'); ## удаляем с начала косую черту
+
+        return $s; // возвращаем результат
+
+        #return Helper::translit($input['slug']);
     }
 
 }

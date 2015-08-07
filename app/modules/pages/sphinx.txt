@@ -1,0 +1,7 @@
+    sql_query     = \
+        SELECT p.id AS id, 0 AS source_id, p.name, group_concat(pbm.id ORDER BY pb.order) AS pages_ids, group_concat(pbm.content ORDER BY pb.order) AS blocks_content FROM pages AS p \
+        LEFT JOIN pages_blocks AS pb ON pb.page_id = p.id \
+        LEFT JOIN pages_blocks_meta AS pbm ON pbm.block_id = pb.id \
+        GROUP BY p.id
+
+	sql_attr_uint		= source_id
