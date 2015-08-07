@@ -22,7 +22,7 @@ $profile = Accounts::where('id', Auth::user()->id)->with('ulogin', 'likes')->fir
                 <img src="{{ $profile->ulogin->photo_big }}" alt="{{ $profile->name }}"
                      class="{{ $profile->name }}">
             @else
-                <img src="{{ asset('/uploads/users/award-'.rand(1, 3).'.png') }}" alt="{{ $user->name }}"
+                <img src="{{ asset('/uploads/users/award-'.rand(1, 3).'.png') }}" alt="{{ $profile->name }}"
                      class="{{ $profile->name }}">
             @endif
                 <br>
