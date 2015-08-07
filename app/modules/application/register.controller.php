@@ -121,7 +121,7 @@ class RegisterController extends BaseController {
                         Mail::send('emails.auth.signup', array('account' => $account, 'password' => $password,
                             'verified_email' => $post['verified_email']), function ($message) {
                             $message->from(Config::get('mail.from.address'), Config::get('mail.from.name'));
-                            $message->to(Input::get('email'))->subject('Amway - регистрация');
+                            $message->to(Input::get('email'))->subject('Регистрация в конкурсе талантов A-GEN (Поколение А)');
                         });
                         self::createULogin($account->id, $post);
                         Auth::loginUsingId($account->id, TRUE);
