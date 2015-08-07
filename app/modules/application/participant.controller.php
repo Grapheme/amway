@@ -157,7 +157,7 @@ class ParticipantController extends BaseController {
     public function getYoutubeVideo() {
 
         foreach (User::where('group_id', 4)->where('load_video', 1)->where('video', '')->take(10)->get() as $user):
-            print_r(implode(';', [$user->id, public_path($user->video),$user->yad_name, "\n"]));
+            print_r(implode(';', [$user->id, public_path($user->local_video),$user->yad_name, "\n"]));
         endforeach;
     }
 
