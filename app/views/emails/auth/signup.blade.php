@@ -61,7 +61,7 @@
                             <tr>
                                 <td height="40">
                                     <a href="http://agen-project.ru/news"
-                                       style="text-decoration: none; color: #19375f; font-size: 18px; margin-bottom: 20px; font-family: sans-serif, Arial, Gadget;">Новость</a>
+                                       style="text-decoration: none; color: #19375f; font-size: 18px; margin-bottom: 20px; font-family: sans-serif, Arial, Gadget;">Новости</a>
                                 </td>
                             </tr>
                             </tbody>
@@ -82,10 +82,8 @@
         <td colspan="3" height="25" align="center">&nbsp;</td>
     </tr>
     <tr>
-        <td align="center" style="padding: 0 35px;"><p
-                    style="color: #19375f; margin-bottom: 30px; margin-top: 0; font-size: 18px; font-family: sans-serif, Arial, Gadget;">
-                Вы успешно прошли регистрацию<br>
-                <strong>на сайте конкурса «A-GEN (ПОКОЛЕНИЕ А)».</strong></p></td>
+        <td align="center" style="padding: 0 35px;"><p style="color: #19375f; margin-bottom: 30px; margin-top: 0; font-size: 18px; font-family: sans-serif, Arial, Gadget;">Вы успешно прошли регистрацию<br>
+                <strong>на <a href="http://agen-project.ru">сайте конкурса</a> «A-GEN (ПОКОЛЕНИЕ А)».</strong></p></td>
     </tr>
     @if(!$verified_email)
     <tr>
@@ -95,13 +93,7 @@
     </tr>
     @endif
     <tr>
-        <td align="center" style="padding: 0 35px;">
-            <p>
-                Для входа используйте:<br>
-                Логин: {{ $account->email }}<br>
-                Пароль: {{ $password }}
-            </p>
-        </td>
+        <td align="center" style="padding: 0 35px;"><p style="color: #19375f; margin-bottom: 0px; margin-top: 0; font-size: 18px; font-family: sans-serif, Arial, Gadget;">Для входа используйте следующие данные:<br> Логин: {{ $account->email }}<br> Пароль: {{ $password }}</p></td>
     </tr>
     <tr width="590" height="60">
         <td colspan="3" height="60">&nbsp;</td>
