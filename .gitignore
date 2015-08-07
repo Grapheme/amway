@@ -18,7 +18,7 @@ composer.lock
 _ide_helper.php
 
 /app/config/database.php
-/app/lang/*/*.php
+#/app/lang/*/*.php
 
 /app/storage/cache/*
 /app/storage/logs/*
