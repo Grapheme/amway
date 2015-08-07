@@ -66,13 +66,7 @@ class RegisterController extends BaseController {
             endif;
             if (User::where('email', Input::get('email'))->exists() == FALSE):
                 $password = rand(1111, 9999);
-                $vk_id = Input::get('vk_id');
-                $inst_id = Input::get('inst_id');
-                $vk_id = is_integer($vk_id) ? 'id' . $vk_id : $vk_id;
-                $social = array(
-                    'https:://vk.com/' . $vk_id,
-                    'https://instagram.com/' . $inst_id
-                );
+                $social = array(Input::get('vk_id'), Input::get('inst_id'));
 
                 $user = new User;
                 $user->group_id = 4;
