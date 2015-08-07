@@ -105,7 +105,7 @@ endif;
             </div>
             @endif
             <div class="unit map">
-                <a href="#" class="wrapper">
+                <a href="{{ pageurl('news') }}" class="wrapper">
                     <div class="frame">
                         <img src="{{ asset(@$map['file_path']) }}" class="visual" alt="{{ @$map['title'] }}">
                         <div class="title">
@@ -113,12 +113,12 @@ endif;
                         </div>
                     </div>
                 </a>
-                <a href="javascript:void(0);" class="all">БУДЬ ПЕРВЫМ В СВОЕМ ГОРОДЕ</a>
+                <a href="{{ pageurl('news') }}" class="all">БУДЬ ПЕРВЫМ В СВОЕМ ГОРОДЕ</a>
             </div>
             @if($video = Accounts::where('group_id' ,4)->where('load_video', 1)->where('video', '!=', '')->where('top_week_video', 1)->with('likes')->first())
             <div class="unit video best">
                 @include(Helper::layout('blocks.video'), compact('video'))
-                <a href="javascript:void(0);" class="all">Посмотреть другие видео</a>
+                <a href="{{ pageurl('news') }}" class="all">Посмотреть другие видео</a>
             </div>
             @endif
         </div>
