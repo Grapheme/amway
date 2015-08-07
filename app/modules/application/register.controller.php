@@ -72,6 +72,7 @@ class RegisterController extends BaseController {
                 $user->group_id = 4;
                 $user->active = 1;
                 $user->load_video = 1;
+                $user->local_video_date = Carbon::now();
                 $user->name = Input::get('name');
                 $user->yad_name = Input::get('yad_name');
                 $user->email = Input::get('email');
