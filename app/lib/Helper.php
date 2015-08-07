@@ -121,7 +121,7 @@ class Helper {
         return $full;
     }
 
-    public static function rdate($param = "j M Y", $time = 0, $lower = true) {
+    public static function rdate($param = "j M Y", $time = 0, $lower = true, $im = false) {
         if (!is_int($time) && !is_numeric($time)) {
             $time = strtotime($time);
         }
@@ -660,10 +660,15 @@ HTML;
                 $return = Form::hidden($name, $value, $others_array);
                 break;
             case 'textline':
-                if (!$value)
-                    $return = Form::text($name, NULL, $others_array);
-                else
-                    $return = isset($array['view_text']) ? $array['view_text'] : $value;
+                if (!$value) {
+                    if (@$array['default']) {
+                        $return = $array['default'] . Form::hidden($name, $value);
+                    } else {
+                        $return = Form::text($name, null, $others_array);
+                    }
+                } else {
+                    $return = (isset($array['view_text']) ? $array['view_text'] : $value) . Form::hidden($name, $value);
+                }
                 break;
             case 'custom':
                 $return = @$array['content'];
@@ -1379,10 +1384,20 @@ HTML;
         else
             return true;
     }
+
+
 }
 
 if (!function_exists('is_collection')) {
     function is_collection($obj) {
         return isset($obj) && is_object($obj) && $obj->count();
+    }
+}
+
+if (!function_exists('is_json')) {
+    function is_json($string) {
+        $temp = json_decode($string, true);
+        #dd($temp);
+        return (json_last_error() == JSON_ERROR_NONE) ? $temp : false;
     }
 }
