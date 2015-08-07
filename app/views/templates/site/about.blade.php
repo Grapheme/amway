@@ -146,7 +146,7 @@ endif;
                 <h3>Номинации</h3>
 
                 <div class="units-3">
-                    @for($i = 1; $i <= 3; $i++)
+                    @for($i = 3; $i >= 1; $i--)
                         <div class="unit">
                             <img src="{{ asset(Config::get('site.theme_path')) }}/img/award-{{ $i }}.png" alt="">
 
