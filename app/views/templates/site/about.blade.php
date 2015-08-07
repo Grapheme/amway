@@ -189,7 +189,7 @@ endif;
                         </div>
                         <br><br>
                         <p>{{ @$organizers['artistry']['description'] }}</p>
-                        <a href="{{ @$organizers['artistry']['url_path'] }}">Узнать больше</a>
+                        <a target="_blank" href="{{ @$organizers['artistry']['url_path'] }}">Узнать больше</a>
                     </center>
                 </div>
                 <div>
@@ -199,7 +199,7 @@ endif;
                         </div>
                         <br><br>
                         <p>{{ @$organizers['nutrilite']['description'] }}</p>
-                        <a href="{{ @$organizers['nutrilite']['url_path'] }}">Узнать больше</a>
+                        <a target="_blank" href="{{ @$organizers['nutrilite']['url_path'] }}">Узнать больше</a>
                     </center>
                 </div>
             </div>
