@@ -68,8 +68,9 @@ class RegisterController extends BaseController {
                 $password = rand(1111, 9999);
                 $vk_id = Input::get('vk_id');
                 $inst_id = Input::get('inst_id');
+                $vk_id = is_numeric($vk_id) ? 'id' . $vk_id : $vk_id;
                 $social = array(
-                    'https:://vk.com/' . is_numeric($vk_id) ? 'id' . $vk_id : $vk_id,
+                    'https:://vk.com/' . $vk_id,
                     'https://instagram.com/' . $inst_id
                 );
 
