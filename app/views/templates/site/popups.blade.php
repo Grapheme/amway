@@ -82,7 +82,7 @@
             {{ Form::text('social[]') }}
         </label>
         <label>
-            <span class="label">Профиль в другой соцсети</span>
+            <span class="label">Профиль в другой социальной сети</span>
             {{ Form::text('social[]', Session::get('profile')) }}
             <a href="" class="social-plus">
                 <?='<?xml version = "1.0" encoding = "utf-8"?>' ?>
