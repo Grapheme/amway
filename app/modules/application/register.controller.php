@@ -23,38 +23,22 @@ class RegisterController extends BaseController {
         });
     }
 
-    public static function returnShortCodes() {
-    }
+    public static function returnShortCodes() {}
 
-    public static function returnActions() {
-    }
+    public static function returnActions() {}
 
-    public static function returnInfo() {
-    }
+    public static function returnInfo() {}
 
-    public static function returnMenu() {
-    }
+    public static function returnMenu() {}
 
     /****************************************************************************/
 
     public function __construct() {
 
-        $this->module = array(
-            'name' => self::$name,
-            'group' => self::$group,
-            'rest' => self::$group,
-            'tpl' => static::returnTpl(),
-            'gtpl' => static::returnTpl(),
-            'class' => __CLASS__,
-
-            'entity' => self::$entity,
-            'entity_name' => self::$entity_name,
-        );
-        View::share('module', $this->module);
     }
 
     /****************************************************************************/
-    public function apiSignup() {
+    public function apiSignup_() {
 
         $json_request = array('status' => FALSE, 'responseText' => '');
         $validator = Validator::make(Input::all(), Accounts::$api_rules);
@@ -87,6 +71,12 @@ class RegisterController extends BaseController {
                 $user->code_life = myDateTime::getFutureDays(5);
                 $user->video = '';
                 $user->save();
+
+                Mail::send('emails.auth.signup', array('account' => $user, 'password' => $password,
+                    'verified_email' => FALSE), function ($message) {
+                    $message->from(Config::get('mail.from.address'), Config::get('mail.from.name'));
+                    $message->to(Input::get('email'))->subject('Регистрация в конкурсе талантов A-GEN (Поколение А)');
+                });
 
                 Mail::send('emails.auth.signup', array('account' => $user, 'password' => $password,
                     'verified_email' => FALSE), function ($message) {

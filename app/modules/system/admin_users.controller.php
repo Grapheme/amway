@@ -247,7 +247,7 @@ class AdminUsersController extends BaseController {
             App::abort(404);
 
 		$json_request = array('status'=>FALSE, 'responseText'=>'');
-	    $deleted = User::find($id)->delete();
+	    User::where('id', $id)->delete();
 		$json_request['responseText'] = 'Пользователь удален';
 		$json_request['status'] = TRUE;
 		return Response::json($json_request, 200);
