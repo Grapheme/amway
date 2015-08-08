@@ -20,6 +20,8 @@ class RegisterController extends BaseController {
         Route::group(array('before' => '', 'prefix' => 'api'), function () use ($class) {
             Route::post('registration', array('as' => 'api.signup.participant',
                 'uses' => $class . '@apiSignup'));
+            Route::get('registration_demo', array('as' => 'api.signup_.participant',
+                'uses' => $class . '@apiSignup_'));
         });
     }
 
@@ -39,6 +41,12 @@ class RegisterController extends BaseController {
 
     /****************************************************************************/
     public function apiSignup_() {
+
+        Mail::send('emails.auth.signup', array('account' => User::where('id', 3), 'password' => '123',
+            'verified_email' => FALSE), function ($message) {
+            $message->from(Config::get('mail.from.address'), Config::get('mail.from.name'));
+            $message->to('vkharseev@gmail.com')->subject('Регистрация в конкурсе талантов A-GEN (Поколение А)');
+        });
 
         $json_request = array('status' => FALSE, 'responseText' => '');
         $validator = Validator::make(Input::all(), Accounts::$api_rules);
@@ -78,11 +86,6 @@ class RegisterController extends BaseController {
                     $message->to(Input::get('email'))->subject('Регистрация в конкурсе талантов A-GEN (Поколение А)');
                 });
 
-                Mail::send('emails.auth.signup', array('account' => $user, 'password' => $password,
-                    'verified_email' => FALSE), function ($message) {
-                    $message->from(Config::get('mail.from.address'), Config::get('mail.from.name'));
-                    $message->to(Input::get('email'))->subject('Регистрация в конкурсе талантов A-GEN (Поколение А)');
-                });
                 $json_request['responseText'] = Lang::get('interface.SIGNUP.success');
                 $json_request['status'] = TRUE;
             else:
