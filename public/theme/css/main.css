@@ -105,12 +105,14 @@ header {
         line-height: 16px;
         letter-spacing: 0.05em;
         position: absolute;
-        top: 8px;
+        top: 40px;
+        left: 80px;
+        /*top: 8px;
         left: 78px;
         -webkit-transform: rotate(-20deg);
         -ms-transform: rotate(-20deg);
         -o-transform: rotate(-20deg);
-        transform: rotate(-20deg);
+        transform: rotate(-20deg);*/
         width: 165px; }
       /* line 37, /Users/morad/Projects/amway/public/theme/css/_header.scss */
       header .holder .logo .ast {
