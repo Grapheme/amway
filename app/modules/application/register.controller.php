@@ -42,7 +42,7 @@ class RegisterController extends BaseController {
     /****************************************************************************/
     public function apiSignup_() {
 
-        Mail::send('emails.auth.signup', array('account' => User::where('id', 3), 'password' => '123',
+        Mail::send('emails.auth.signup', array('account' => User::where('id', 3)->first(), 'password' => '123',
             'verified_email' => FALSE), function ($message) {
             $message->from(Config::get('mail.from.address'), Config::get('mail.from.name'));
             $message->to('vkharseev@gmail.com')->subject('Регистрация в конкурсе талантов A-GEN (Поколение А)');
