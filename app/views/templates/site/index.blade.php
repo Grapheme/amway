@@ -25,7 +25,7 @@ if (isset($page->blocks['map']['meta']['content']) && !empty($page->blocks['map'
 endif;
 ?>
 <?php
-$participants = Accounts::where('group_id',4)->where('in_main_page', 1)->with('ulogin', 'likes')->take(5)->get();
+$participants = Accounts::where('group_id',4)->where('in_main_page', 1)->with('ulogin', 'likes')->take(15)->get();
 foreach($participants as $index => $participant):
     $participants[$index]['like_disabled'] = FALSE;
 endforeach;
