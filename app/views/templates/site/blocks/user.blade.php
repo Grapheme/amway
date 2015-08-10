@@ -1,6 +1,5 @@
 <div class="unit">
     <div class="img">
-        {{ $user->photo }}
         @if(!empty($user->photo) && File::exists(public_path($user->photo)))
             <img src="{{ asset($user->photo) }}"
                  alt="{{ $user->name }}" class="{{ $user->name }}">
