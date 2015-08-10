@@ -56,6 +56,7 @@ class RegisterController extends BaseController {
                 $user->group_id = 4;
                 $user->active = 1;
                 $user->load_video = 1;
+                $user->age = Input::get('age');
                 $user->location = Input::get('city');
                 $user->local_video_date = Carbon::now();
                 $user->name = Input::get('name');
