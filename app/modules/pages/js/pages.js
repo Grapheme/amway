@@ -65,8 +65,13 @@ function runFormValidation() {
                 options.success = function (response, status, xhr, jqForm) {
                     $(form).find('.btn-form-submit').elementDisabled(false);
                     if (response.status) {
+                        //console.log(response);
+
                         if (response.redirect !== false) {
                             BASIC.RedirectTO(response.redirect);
+                        }
+                        if (response.pageSlug != '') {
+                            $('[name=slug]').val(response.pageSlug);
                         }
                         showMessage.constructor(response.responseText, '');
                         showMessage.smallSuccess();
@@ -74,6 +79,29 @@ function runFormValidation() {
                         showMessage.constructor(response.responseText, response.responseErrorText);
                         showMessage.smallError();
                     }
+
+                    //alert(typeof response.form_values);
+                    //alert(response.form_values.length);
+
+                    //console.log(response);
+                    //console.log(response.form_values);
+                    //console.log(typeof response.form_values);
+
+                    if(typeof response.form_values == 'object') {
+                        //$(response.form_values).each(function(i) {
+                        //alert(i + ' > ' + data[i] + " | ");
+                        $.each(response.form_values, function(i, val) {
+                            $(i).val(val).text(val);
+                        });
+                        //});
+                    }
+
+                    //alert(typeof(onsuccess_function));
+                    //alert(onsuccess_function);
+                    if (typeof onsuccess_function == 'function') {
+                        setTimeout(onsuccess_function(response), 100);
+                    }
+
                 }
             $(form).ajaxSubmit(options);
         }

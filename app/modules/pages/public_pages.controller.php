@@ -87,6 +87,31 @@ class PublicPagesController extends BaseController {
         }
         #*/
 
+        ## Будем генерим отдельные роуты для "параметризированных" страниц: у которых в slug есть параметр(ы) (например: {city}/hello)
+        ## Как будем искать страницы - в кеше или в БД?
+        if (Config::get('pages.not_cached')) {
+
+            ## Кеширование отключено (или не найдено ни одной страницы) - ищем в БД
+            #$page = (new Page())->where('publication', 1)->where('version_of', NULL);
+            $pages_parametrized = Page::where('parametrized', 1)->get();
+
+        } else {
+
+            $pages_parametrized = new Collection();
+
+            ## Если страниц нет в кеше - показываем 404
+            if (null != ($temp = Page::all_by_slug()) && count($temp)) {
+
+                #Helper::tad($temp);
+                foreach ($temp as $tmp) {
+                    if ($tmp->parametrized)
+                        $pages_parametrized[$tmp->slug] = $tmp;
+                }
+            }
+        }
+        #Helper::tad($pages_parametrized);
+
+
         ## Если в конфиге прописано несколько языковых версий - генерим роуты с языковым префиксом
         if (is_array(Config::get('app.locales')) && count(Config::get('app.locales')) > 1) {
 
@@ -94,7 +119,14 @@ class PublicPagesController extends BaseController {
             #$locale_sign = Config::get('app.locale');
 
             ## Генерим роуты для всех языков с префиксом (первый сегмент), который будет указывать на текущую локаль
-            Route::group(array('before' => 'i18n_url', 'prefix' => '{lang}'), function() use ($class, $default_locale_mainpage) {
+            Route::group(array('before' => 'i18n_url', 'prefix' => '{lang}'), function() use ($class, $default_locale_mainpage, $pages_parametrized) {
+
+                ## Генерим роуты для параметризированных страниц
+                if ($pages_parametrized->count()) {
+                    foreach ($pages_parametrized as $page) {
+                        Route::any($page->slug, array('as' => 'page.' . $page->sysname, 'uses' => $class . '@showPageParametrize'));
+                    }
+                }
 
                 ## Regular page
                 Route::any('/{url}', array('as' => 'page', 'uses' => $class . '@showPage'));
@@ -120,13 +152,22 @@ class PublicPagesController extends BaseController {
         } else {
 
             ## Генерим роуты без языкового префикса
-            Route::group(array('before' => 'pages_right_url'), function() use ($class) {
+            Route::group(array('before' => 'pages_right_url'), function() use ($class, $pages_parametrized) {
+
+                ## Генерим роуты для параметризированных страниц
+                if ($pages_parametrized->count()) {
+                    foreach ($pages_parametrized as $page) {
+                        Route::any($page->slug, array('as' => 'page.' . $page->sysname, 'uses' => $class . '@showPageSingleParametrize'));
+                    }
+                }
 
                 ## Regular page
-                Route::any('/{url}', array(
+                Route::any('{url}', array(
                     'as' => 'page',
                     'uses' => $class.'@showPageSingle'
-                ));
+                ))
+                #->where('url', '[A-Za-z0-9\-\/\_]+') ## Ломается /admin/collector-js
+                ;
 
                 ## Main page
                 if (!Config::get('pages.disable_mainpage_route')) {
@@ -140,6 +181,14 @@ class PublicPagesController extends BaseController {
 
         }
 
+        /*
+        #dd(Route::getRoutes());
+        $routes = Route::getRoutes();
+        foreach($routes as $route) {
+            echo $route->getPath() . "<br/>";
+        }
+        die;
+        #*/
     }
 
     ## Shortcodes of module
@@ -182,14 +231,44 @@ class PublicPagesController extends BaseController {
     ## Функция для просмотра одноязычной страницы
     public function showPageSingle($slug = false) {
 
-        #dd($slug);
         return $this->showPage(Config::get('app.locale'), $slug);
+    }
+
+    ## Функция для просмотра одноязычной параметризированной страницы
+    public function showPageSingleParametrize() {
+
+        #$route = Route::current();
+        #$slug = $route->getPath();
+
+        return $this->showPageParametrize(Config::get('app.locale'));
+    }
+
+    ## Функция для просмотра одноязычной параметризированной страницы
+    public function showPageParametrize($lang = NULL) {
+
+        $route = Route::current();
+        $slug = $route->getPath();
+
+        #dd($route);
+        $prefix = $route->getPrefix();
+
+        $slug = preg_replace('~^' . $prefix . '\/*~is', '', $slug);
+
+        #dd($slug);
+
+        return $this->showPage($lang, $slug);
     }
 
     ## Функция для просмотра мультиязычной страницы
     public function showPage($lang = NULL, $slug = false) {
 
+
         #dd($lang);
+        #$route = Route::current();
+        #echo $route->getPath();
+        #dd($route);
+        #dd($slug);
+
 
         if (!$lang)
             $lang = Config::get('app.locale');
@@ -273,7 +352,7 @@ class PublicPagesController extends BaseController {
 
         ## Настройки page_meta
         $page_meta_settings =
-            isset($page->metas) && is_object($page->metas[Config::get('app.locale')])
+            isset($page->metas) && isset($page->metas[Config::get('app.locale')]) && is_object($page->metas[Config::get('app.locale')])
                 ? (array)json_decode($page->metas[Config::get('app.locale')]->settings, true)
                 : []
         ;
@@ -299,8 +378,56 @@ class PublicPagesController extends BaseController {
         }
 
         #Helper::tad($page);
+        #Helper::ta($template);
 
-        return View::make($template, compact('page', 'lang', 'page_meta_settings'))->render();
+        ## Текущий роут - может пригодиться по вьюшке
+        $route = Route::current();
+
+        ## Рендерим контент
+        $content = View::make($template, compact('page', 'lang', 'page_meta_settings', 'route'))->render();
+
+        ## Проверяем, не возвращена ли JSON-строка с сообщением об ошибке или редиректом
+        /*
+        ## Пример строки, которая позволяет вернуть из вьюшки ошибку 404:
+        echo json_encode(['responseType' => 'error', 'responseCode' => 404]);
+        return;
+        ## Или ошибку с произвольным кодом, и сообщением (к 404 ошибке нельзя добавить сообщение):
+        echo json_encode(['responseType' => 'error', 'responseCode' => 500, 'responseMessage' => 'Unexpected Error']);
+        return;
+        ## А вот так можно сделать редирект (код по умолчанию - 301):
+        echo json_encode(['responseType' => 'redirect', 'redirectUrl' => '/', 'redirectCode' => 301]);
+        return;
+        */
+
+        $data = is_json($content);
+        if ($data) {
+            ## Redirect
+            if (
+                isset($data['responseType'])
+                && $data['responseType'] == 'redirect'
+                && isset($data['redirectUrl'])
+                && $data['redirectUrl']
+            ) {
+                $redirect_code = (isset($data['responseCode']) && is_numeric($data['responseCode'])) ? $data['responseCode'] : 301;
+                return Redirect::to($data['redirectUrl'], $redirect_code);
+            }
+            ## Error
+            if (
+                isset($data['responseType'])
+                && $data['responseType'] == 'error'
+                && isset($data['responseCode'])
+                && is_numeric($data['responseCode'])
+            ) {
+                $responseMessage = isset($data['responseMessage']) ? $data['responseMessage'] : null;
+                $headers = [];
+                if ($responseMessage)
+                    $headers['ErrorResponseMessage'] = $responseMessage;
+                #dd($headers);
+                App::abort($data['responseCode'], $responseMessage, $headers);
+            }
+        }
+
+        return Response::make($content);
 	}
     
 

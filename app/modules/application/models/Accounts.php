@@ -3,13 +3,12 @@
 class Accounts extends \User {
 
     public static $rules = array(
-        'name' => 'required',
-        'email' => 'required|email',
-        'location' => 'required',
-        'age' => 'required',
-        'phone' => 'required',
-        'agree1' => 'required',
-        'agree2' => 'required',
+        'name' => 'required', 'email' => 'required|email', 'location' => 'required', 'age' => 'required',
+        'phone' => 'required', 'agree1' => 'required', 'agree2' => 'required'
+    );
+
+    public static $api_rules = array(
+        'token' => 'required', 'name' => 'required', 'email' => 'email', 'phone' => '', 'vk_id' => '', 'inst_id' => ''
     );
 
     public static $update_rules = array(

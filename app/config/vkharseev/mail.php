@@ -3,7 +3,7 @@
 return array(
 
     'feedback' => array(
-        'address' => 'info@agen-project.ru',
+        'address' => 'vkharseev@gmail.com',
     ),
 
     'driver' => 'smtp',
@@ -11,7 +11,7 @@ return array(
     'port' => 587,
     'from' => array(
         'address' => 'info@agen-project.ru',
-        'name' => 'A-GEN (Поколение А)'
+        'name' => 'Поколение А'
     ),
     'username' => '0d8dd8623bd38b41c43683c41c0558eb',
     'password' => '465c500abd5f680f0b20405deb967b36',

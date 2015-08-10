@@ -24,12 +24,26 @@ if (isset($page->blocks['map']['meta']['content']) && !empty($page->blocks['map'
     $map = json_decode($page->blocks['map']['meta']['content'], TRUE);
 endif;
 ?>
+<?php
+$participants = Accounts::where('group_id',4)->where('in_main_page', 1)->with('ulogin', 'likes')->take(5)->get();
+foreach($participants as $index => $participant):
+    $participants[$index]['like_disabled'] = FALSE;
+endforeach;
+if (isset($_COOKIE['votes_list'])):
+    $users_ids = json_decode($_COOKIE['votes_list']);
+    foreach($participants as $index => $participant):
+        if (in_array($participant->id, $users_ids)):
+            $participants[$index]['like_disabled'] = TRUE;
+        endif;
+    endforeach;
+endif;
+?>
 @extends(Helper::layout())
 @section('style')
 @stop
 @section('content')
     <section class="long color-blue video">
-        <iframe data-src="https://player.vimeo.com/video/6382511?autoplay=1&loop=1&color=ffffff&title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <iframe data-src="https://player.vimeo.com/video/135698166?autoplay=1&loop=1&color=ffffff&title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         <div class="slides">
           <div class="slide" style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-1.jpg')"></div>
           <div class="slide" style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-2.jpg')"></div>
@@ -59,7 +73,7 @@ endif;
     <div class="competitors">
         <div class="holder">
             {{ $page->block('four_section') }}
-            @foreach(Accounts::where('group_id',4)->where('in_main_page', 1)->with('ulogin', 'likes')->take(5)->get() as $user)
+            @foreach($participants as $user)
                 @include(Helper::layout('blocks.user'), compact('user'))
             @endforeach
         </div>
@@ -91,7 +105,7 @@ endif;
             </div>
             @endif
             <div class="unit map">
-                <a href="#" class="wrapper">
+                <a href="{{ pageurl('news') }}" class="wrapper">
                     <div class="frame">
                         <img src="{{ asset(@$map['file_path']) }}" class="visual" alt="{{ @$map['title'] }}">
                         <div class="title">
@@ -99,12 +113,12 @@ endif;
                         </div>
                     </div>
                 </a>
-                <a href="javascript:void(0);" class="all">БУДЬ ПЕРВЫМ В СВОЕМ ГОРОДЕ</a>
+                <a href="{{ pageurl('news') }}" class="all">БУДЬ ПЕРВЫМ В СВОЕМ ГОРОДЕ</a>
             </div>
             @if($video = Accounts::where('group_id' ,4)->where('load_video', 1)->where('video', '!=', '')->where('top_week_video', 1)->with('likes')->first())
             <div class="unit video best">
                 @include(Helper::layout('blocks.video'), compact('video'))
-                <a href="javascript:void(0);" class="all">Посмотреть другие видео</a>
+                <a href="{{ pageurl('news') }}" class="all">Посмотреть другие видео</a>
             </div>
             @endif
         </div>

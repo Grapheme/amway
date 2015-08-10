@@ -9,7 +9,8 @@ class AddUsersFields extends Migration {
 		Schema::table('users', function(Blueprint $table){
 			$table->integer('participant_group_id')->nullable()->unsigned()->default(0);
 			$table->tinyInteger('status')->nullable()->unsigned()->default(0);
-			$table->string('location', 100)->after('active')->nullable();
+			$table->string('yad_name', 100)->after('status')->nullable();
+			$table->string('location', 100)->after('yad_name')->nullable();
 			$table->string('age', 20)->after('location')->nullable();
 			$table->string('phone', 20)->after('age')->nullable();
 			$table->text('social')->after('phone')->nullable();
@@ -24,6 +25,7 @@ class AddUsersFields extends Migration {
 			$table->boolean('top_video')->after('top_week_video')->nullable()->unsigned()->default(0);
 			$table->boolean('top_video')->after('video_thumb')->nullable()->unsigned()->default(0);
 			$table->text('way')->nullable();
+			$table->integer('guest_likes')->default(0)->unsigned()->nullable();
 		});
 	}
 

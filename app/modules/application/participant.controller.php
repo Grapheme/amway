@@ -24,7 +24,8 @@ class ParticipantController extends BaseController {
             'uses' => $class . '@setYoutubeVideo'));
         Route::get('video/youtube', array('as' => 'profile.video.youtube',
             'uses' => $class . '@getYoutubeVideo'));
-        Route::post('participant/{user_id}/set-like', array('as' => 'participant.public.set.like', 'uses' => $class . '@setLike'));
+        Route::post('participant/{user_id}/set-like', array('as' => 'participant.public.set.like',
+            'uses' => $class . '@setLike'));
     }
 
     public static function returnShortCodes() {
@@ -70,7 +71,7 @@ class ParticipantController extends BaseController {
         return View::make(Helper::acclayout('profile'), $page_data);
     }
 
-    public function profileSave(){
+    public function profileSave() {
 
         $json_request = array('status' => FALSE, 'responseText' => '', 'redirect' => FALSE);
         $validator = Validator::make(Input::all(), Accounts::$update_rules);
@@ -100,18 +101,18 @@ class ParticipantController extends BaseController {
         try {
             $user = Auth::user();
             if ($uploaded = AdminUploadsController::createImageInBase64String('photo')):
-                if(!empty($user->photo) && File::exists(Config::get('site.uploads_photo_dir').'/'. $user->photo)):
-                    File::delete(Config::get('site.uploads_photo_dir').'/'. $user->photo);
+                if (!empty($user->photo) && File::exists(Config::get('site.uploads_photo_dir') . '/' . $user->photo)):
+                    File::delete(Config::get('site.uploads_photo_dir') . '/' . $user->photo);
                 endif;
-                if(!empty($user->photo) && File::exists(Config::get('site.uploads_thumb_dir').'/'. $user->thumbnail)):
-                    File::delete(Config::get('site.uploads_thumb_dir').'/'. $user->thumbnail);
+                if (!empty($user->photo) && File::exists(Config::get('site.uploads_thumb_dir') . '/' . $user->thumbnail)):
+                    File::delete(Config::get('site.uploads_thumb_dir') . '/' . $user->thumbnail);
                 endif;
                 $user->photo = @$uploaded['main'];
                 $user->thumbnail = @$uploaded['thumb'];
             endif;
             $names = explode(' ', $user->name);
-            if(count($names) > 2):
-                $user->name = @$names[0].' '.@$names[1];
+            if (count($names) > 2):
+                $user->name = @$names[0] . ' ' . @$names[1];
             else:
                 $user->name = $post['name'];
             endif;
@@ -153,16 +154,18 @@ class ParticipantController extends BaseController {
         return Response::json($json_request, 200);
     }
 
-    public function getYoutubeVideo(){
+    public function getYoutubeVideo() {
 
-        foreach (User::where('group_id', 4)->where('load_video', 1)->where('video','')->take(10)->lists('local_video', 'id') as $user_id => $video):
-            print_r(implode(';',[$user_id , public_path($video),"\n"]));
+        foreach (User::where('group_id', 4)->where('load_video', 1)->where('video', '')->take(10)->get() as $user):
+            $video_local = !empty($user->local_video) ? public_path($user->local_video) : '';
+            print_r(implode(';', [$user->id, $video_local, $user->yad_name, "\n"]));
         endforeach;
     }
 
     public function setYoutubeVideo() {
 
-        $validator = Validator::make(Input::all(), array('user_id' => 'required|integer', 'video' => 'required', 'photo'=>'required'));
+        $validator = Validator::make(Input::all(), array('user_id' => 'required|integer', 'video' => 'required',
+            'photo' => 'required'));
         if ($validator->passes()):
             if ($user = User::where('id', Input::get('user_id'))->where('load_video', 1)->first()):
                 $user->video = Input::get('video');
@@ -174,15 +177,16 @@ class ParticipantController extends BaseController {
         endif;
         App::abort(404);
     }
+
     /****************************************************************************/
-    public function setLike($user_id){
+    public function setLike($user_id) {
 
         $json_request = array('status' => FALSE, 'count' => 0);
         if (Request::ajax()):
-            if ($user = Accounts::where('group_id', 4)->first()):
+            if ($user = Accounts::where('group_id', 4)->where('id', $user_id)->first()):
                 self::incrementLikePost($user);
                 $json_request['status'] = TRUE;
-                $json_request['count'] = ParticipantLikes::where('participant_id', $user_id)->count();
+                $json_request['count'] = ParticipantLikes::where('participant_id', $user_id)->count() + Accounts::where('id', $user_id)->pluck('guest_likes');
             endif;
         else:
             return Redirect::back();
@@ -192,9 +196,16 @@ class ParticipantController extends BaseController {
 
     private function incrementLikePost($user) {
 
-        if (ParticipantLikes::where('participant_id', $user->id)->where('user_id', Auth::user()->id)->exists() === FALSE):
-            ParticipantLikes::create(array('participant_id' => $user->id, 'user_id' => Auth::user()->id));
-            return TRUE;
+        if (Auth::check()):
+            if (Auth::user()->group_id == 4):
+                if (ParticipantLikes::where('participant_id', $user->id)->where('user_id', Auth::user()->id)->exists() === FALSE):
+                    ParticipantLikes::create(array('participant_id' => $user->id, 'user_id' => Auth::user()->id));
+                    return TRUE;
+                endif;
+            endif;
+        else:
+            $user->guest_likes++;
+            $user->save();
         endif;
         return FALSE;
     }

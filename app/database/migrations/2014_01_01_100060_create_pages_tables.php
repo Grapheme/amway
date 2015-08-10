@@ -24,6 +24,7 @@ class CreatePagesTables extends Migration {
 
                 $table->boolean('publication')->default(1)->unsigned()->nullable()->index();
     			$table->boolean('start_page')->unsigned()->nullable()->index();
+    			$table->boolean('parametrized')->unsigned()->default(0)->index();
                 $table->integer('order')->unsigned()->nullable()->index();
                 $table->longText('settings')->default('');
 

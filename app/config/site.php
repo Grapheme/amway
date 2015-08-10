@@ -3,7 +3,7 @@
 return array(
 
     'date_over_action' => '2015-09-15',
-    'date_final_action' => '2015-11-24',
+    'date_final_action' => '2015-10-24',
 
     'theme_path' => URL::to('/theme'),
     #'theme_path' => URL::to('/theme/' . Config::get('app.template') . '/dist'),

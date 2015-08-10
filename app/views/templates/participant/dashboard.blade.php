@@ -20,6 +20,12 @@ $profile = Accounts::where('id', Auth::user()->id)->with('ulogin', 'likes')->fir
             @elseif(!empty($profile->ulogin) && !empty($profile->ulogin->photo_big))
                 <img src="{{ $profile->ulogin->photo_big }}" alt="{{ $profile->name }}"
                      class="{{ $profile->name }}">
+            @elseif(!empty($profile->photo))
+                <img src="{{ $profile->photo }}" alt="{{ $profile->name }}"
+                     class="{{ $profile->name }}">
+            @else
+                <img src="{{ asset('/uploads/users/award-'.rand(1, 3).'.png') }}" alt="{{ $profile->name }}"
+                     class="{{ $profile->name }}">
             @endif
             </div>
             <div class="info">
@@ -30,12 +36,12 @@ $profile = Accounts::where('id', Auth::user()->id)->with('ulogin', 'likes')->fir
                 </div>
                 <div class="row">
                     <p class="location">{{ $profile->location }}</p>
-
+                    @if($profile->age > 0)
                     <p class="age">{{ $profile->age }} {{ Lang::choice('год|года|лет', (int)$profile->age ) }}</p>
-
+                    @endif
                     <div class="rating">
                         <span class="icon2-star"></span>
-                        <div class="count">{{ $profile->likes->count() }}</div>
+                        <div class="count">{{ $profile->likes->count() + $profile->guest_likes }}</div>
                         <div class="legend"></div>
                     </div>
                 </div>

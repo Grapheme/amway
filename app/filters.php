@@ -1,7 +1,7 @@
 <?php
 
 App::before(function($request){
-	//
+    Xss::globalXssClean();
 });
 
 App::after(function($request, $response){

@@ -23,6 +23,7 @@ class Page extends BaseModel {
         'type_id',
         'publication',
         'start_page',
+        'parametrized',
         'order',
         'settings',
     );
