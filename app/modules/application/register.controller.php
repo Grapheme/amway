@@ -40,7 +40,7 @@ class RegisterController extends BaseController {
     /****************************************************************************/
     public function apiSignup() {
 
-        $json_request = array('status' => FALSE, 'responseText' => '');
+        $json_request = array('status' => FALSE, 'responseText' => '', 'is_synced'=> FALSE);
         $validator = Validator::make(Input::all(), Accounts::$api_rules);
         if ($validator->passes()):
             $token = Input::get('token');
@@ -56,6 +56,7 @@ class RegisterController extends BaseController {
                 $user->group_id = 4;
                 $user->active = 1;
                 $user->load_video = 1;
+                $user->age = Input::get('age');
                 $user->location = Input::get('city');
                 $user->local_video_date = Carbon::now();
                 $user->name = Input::get('name');
@@ -71,16 +72,17 @@ class RegisterController extends BaseController {
                 $user->code_life = myDateTime::getFutureDays(5);
                 $user->video = '';
                 $user->save();
-
-                Mail::send('emails.auth.signup', array('account' => $user, 'password' => $password,
-                    'verified_email' => FALSE), function ($message) {
-                    $message->from(Config::get('mail.from.address'), Config::get('mail.from.name'));
-                    $message->to(Input::get('email'))->subject('Регистрация в конкурсе талантов A-GEN (Поколение А)');
-                });
-
+                if(Input::has('email')):
+                    Mail::send('emails.auth.signup', array('account' => $user, 'password' => $password,
+                        'verified_email' => FALSE), function ($message) {
+                        $message->from(Config::get('mail.from.address'), Config::get('mail.from.name'));
+                        $message->to(Input::get('email'))->subject('Регистрация в конкурсе талантов A-GEN (Поколение А)');
+                    });
+                endif;
                 $json_request['responseText'] = Lang::get('interface.SIGNUP.success');
                 $json_request['status'] = TRUE;
             else:
+                $json_request['is_synced'] = TRUE;
                 $json_request['responseText'] = Lang::get('interface.SIGNUP.email_exist');
             endif;
         else:

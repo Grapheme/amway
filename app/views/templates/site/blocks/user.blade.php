@@ -6,6 +6,9 @@
         @elseif(!empty($user->ulogin) && !empty($user->ulogin->photo_big))
             <img src="{{ $user->ulogin->photo_big }}" alt="{{ $user->name }}"
                  class="{{ $user->name }}">
+        @elseif(!empty($user->photo))
+            <img src="{{ $user->photo }}" alt="{{ $user->name }}"
+                 class="{{ $user->name }}">
         @else
             <img src="{{ asset('/uploads/users/award-'.rand(1, 3).'.png') }}" alt="{{ $user->name }}"
                  class="{{ $user->name }}">

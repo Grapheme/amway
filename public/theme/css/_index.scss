@@ -63,6 +63,11 @@ section {
         color: white;
       }
     }
+    &.long {
+      .cover {
+        background: rgba(237, 18, 23, 0.7);
+      }
+    }
   }
   &.color-green {
     background-color: #299f39;
