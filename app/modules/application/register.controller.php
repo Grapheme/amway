@@ -40,7 +40,7 @@ class RegisterController extends BaseController {
     /****************************************************************************/
     public function apiSignup() {
 
-        $json_request = array('status' => FALSE, 'responseText' => '');
+        $json_request = array('status' => FALSE, 'responseText' => '', 'is_synced'=> FALSE);
         $validator = Validator::make(Input::all(), Accounts::$api_rules);
         if ($validator->passes()):
             $token = Input::get('token');
@@ -82,6 +82,7 @@ class RegisterController extends BaseController {
                 $json_request['responseText'] = Lang::get('interface.SIGNUP.success');
                 $json_request['status'] = TRUE;
             else:
+                $json_request['is_synced'] = TRUE;
                 $json_request['responseText'] = Lang::get('interface.SIGNUP.email_exist');
             endif;
         else:
