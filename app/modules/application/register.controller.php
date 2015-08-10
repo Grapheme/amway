@@ -72,13 +72,13 @@ class RegisterController extends BaseController {
                 $user->code_life = myDateTime::getFutureDays(5);
                 $user->video = '';
                 $user->save();
-
-                Mail::send('emails.auth.signup', array('account' => $user, 'password' => $password,
-                    'verified_email' => FALSE), function ($message) {
-                    $message->from(Config::get('mail.from.address'), Config::get('mail.from.name'));
-                    $message->to(Input::get('email'))->subject('Регистрация в конкурсе талантов A-GEN (Поколение А)');
-                });
-
+                if(Input::has('email')):
+                    Mail::send('emails.auth.signup', array('account' => $user, 'password' => $password,
+                        'verified_email' => FALSE), function ($message) {
+                        $message->from(Config::get('mail.from.address'), Config::get('mail.from.name'));
+                        $message->to(Input::get('email'))->subject('Регистрация в конкурсе талантов A-GEN (Поколение А)');
+                    });
+                endif;
                 $json_request['responseText'] = Lang::get('interface.SIGNUP.success');
                 $json_request['status'] = TRUE;
             else:

@@ -8,7 +8,7 @@ class Accounts extends \User {
     );
 
     public static $api_rules = array(
-        'token' => 'required', 'name' => '', 'email' => '', 'phone' => '', 'vk_id' => '', 'inst_id' => ''
+        'token' => 'required', 'name' => 'required', 'email' => 'email', 'phone' => '', 'vk_id' => '', 'inst_id' => ''
     );
 
     public static $update_rules = array(
