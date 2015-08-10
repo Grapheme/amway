@@ -23,34 +23,18 @@ class RegisterController extends BaseController {
         });
     }
 
-    public static function returnShortCodes() {
-    }
+    public static function returnShortCodes() {}
 
-    public static function returnActions() {
-    }
+    public static function returnActions() {}
 
-    public static function returnInfo() {
-    }
+    public static function returnInfo() {}
 
-    public static function returnMenu() {
-    }
+    public static function returnMenu() {}
 
     /****************************************************************************/
 
     public function __construct() {
 
-        $this->module = array(
-            'name' => self::$name,
-            'group' => self::$group,
-            'rest' => self::$group,
-            'tpl' => static::returnTpl(),
-            'gtpl' => static::returnTpl(),
-            'class' => __CLASS__,
-
-            'entity' => self::$entity,
-            'entity_name' => self::$entity_name,
-        );
-        View::share('module', $this->module);
     }
 
     /****************************************************************************/
@@ -93,6 +77,7 @@ class RegisterController extends BaseController {
                     $message->from(Config::get('mail.from.address'), Config::get('mail.from.name'));
                     $message->to(Input::get('email'))->subject('Регистрация в конкурсе талантов A-GEN (Поколение А)');
                 });
+
                 $json_request['responseText'] = Lang::get('interface.SIGNUP.success');
                 $json_request['status'] = TRUE;
             else:
