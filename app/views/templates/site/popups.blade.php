@@ -66,7 +66,7 @@
                 'Волгоград' => 'Волгоград',
               );
             ?>
-            {{ Form::selecr('location',$cities, Session::get('city'),array()) }}
+            {{ Form::select('location',$cities, Session::get('city'),array()) }}
             <select name="location">
               <option value="Ростов-на-Дону">Ростов-на-Дону</option>
               <option value="Краснодар">Краснодар</option>
