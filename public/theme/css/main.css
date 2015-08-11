@@ -1702,47 +1702,48 @@ button.btn-big-red {
     display: inline-block;
     text-align: center;
     margin: 0 18px;
-    width: 200px; }
+    width: 200px;
+    margin-bottom: 50px; }
     @media (max-width: 640px) {
       .competitors .holder .unit {
         margin: 0 5% !important;
         margin-bottom: 50px !important; } }
-    /* line 198, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 199, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .competitors .holder .unit:nth-of-type(5n+1) {
       margin-left: 0; }
-    /* line 202, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 203, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .competitors .holder .unit:nth-of-type(6n+1) .icon2-star {
       color: #ffa700 !important; }
-    /* line 206, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 207, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .competitors .holder .unit:nth-of-type(5n+5) {
       margin-right: 0; }
-    /* line 210, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 211, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .competitors .holder .unit:nth-of-type(6n+5) .icon2-star {
       color: #138cdf !important; }
-    /* line 215, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 216, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .competitors .holder .unit:nth-of-type(6n+3) .icon2-star {
       color: #35cc26 !important; }
-    /* line 220, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 221, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .competitors .holder .unit:nth-of-type(6n+4) .icon2-star {
       color: #6f26a5 !important; }
-    /* line 225, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 226, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .competitors .holder .unit:nth-of-type(6n+2) .icon2-star {
       color: #ea1924 !important; }
-    /* line 230, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 231, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .competitors .holder .unit:nth-of-type(6n+6) .icon2-star {
       color: #35cc26 !important; }
-    /* line 234, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 235, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .competitors .holder .unit .img {
       -webkit-border-radius: 300px;
       border-radius: 300px; }
-      /* line 237, /Users/morad/Projects/amway/public/theme/css/main.scss */
+      /* line 238, /Users/morad/Projects/amway/public/theme/css/main.scss */
       .competitors .holder .unit .img img {
         display: block;
         width: 200px;
         max-height: 200px;
         -webkit-border-radius: 300px;
         border-radius: 300px; }
-    /* line 245, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 246, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .competitors .holder .unit .name {
       font-family: 'Vaccine-Bold';
       font-size: 16px;
@@ -1754,24 +1755,24 @@ button.btn-big-red {
       margin-top: 28px;
       height: 48px;
       overflow: hidden; }
-    /* line 257, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 258, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .competitors .holder .unit .location {
       font-family: 'MuseoSansCyrl-300';
       font-size: 14px;
       color: #1b3559;
       text-align: center;
       margin-top: 8px; }
-    /* line 264, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 265, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .competitors .holder .unit .rating {
       margin-top: 10px;
       text-align: center; }
-      /* line 267, /Users/morad/Projects/amway/public/theme/css/main.scss */
+      /* line 268, /Users/morad/Projects/amway/public/theme/css/main.scss */
       .competitors .holder .unit .rating .icon2-star {
         display: inline-block;
         vertical-align: middle;
         font-size: 45px;
         color: #ffa700; }
-      /* line 273, /Users/morad/Projects/amway/public/theme/css/main.scss */
+      /* line 274, /Users/morad/Projects/amway/public/theme/css/main.scss */
       .competitors .holder .unit .rating .count {
         display: inline-block;
         vertical-align: middle;
@@ -1780,7 +1781,7 @@ button.btn-big-red {
         color: #173154;
         position: relative;
         top: -5px; }
-      /* line 282, /Users/morad/Projects/amway/public/theme/css/main.scss */
+      /* line 283, /Users/morad/Projects/amway/public/theme/css/main.scss */
       .competitors .holder .unit .rating .legend {
         display: inline-block;
         vertical-align: middle;
@@ -1790,7 +1791,7 @@ button.btn-big-red {
         position: relative;
         top: -6px;
         left: 4px; }
-    /* line 293, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 294, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .competitors .holder .unit .vote {
       font-family: 'Vaccine-Regular';
       font-size: 13px;
@@ -1805,12 +1806,12 @@ button.btn-big-red {
       display: inline-block;
       -webkit-border-radius: 8px;
       border-radius: 8px; }
-      /* line 307, /Users/morad/Projects/amway/public/theme/css/main.scss */
+      /* line 308, /Users/morad/Projects/amway/public/theme/css/main.scss */
       .competitors .holder .unit .vote:hover, .competitors .holder .unit .vote.disabled {
         background: #ea1924;
         color: white; }
 
-/* line 316, /Users/morad/Projects/amway/public/theme/css/main.scss */
+/* line 317, /Users/morad/Projects/amway/public/theme/css/main.scss */
 h3 {
   font-family: 'Vaccine-Regular';
   font-size: 24px;
@@ -1825,7 +1826,7 @@ h3 {
       margin-top: 30px;
       margin-bottom: 32px; } }
 
-/* line 331, /Users/morad/Projects/amway/public/theme/css/main.scss */
+/* line 332, /Users/morad/Projects/amway/public/theme/css/main.scss */
 .progress {
   height: 20px;
   margin-bottom: 20px;
@@ -1836,7 +1837,7 @@ h3 {
   -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
   width: 500px; }
-  /* line 341, /Users/morad/Projects/amway/public/theme/css/main.scss */
+  /* line 342, /Users/morad/Projects/amway/public/theme/css/main.scss */
   .progress .progress-bar {
     float: left;
     width: 0;
@@ -1854,19 +1855,19 @@ h3 {
     font-family: 'MuseoSansCyrl-300';
     font-size: 14px; }
 
-/* line 360, /Users/morad/Projects/amway/public/theme/css/main.scss */
+/* line 361, /Users/morad/Projects/amway/public/theme/css/main.scss */
 .note {
   font-family: 'MuseoSansCyrl-300';
   font-size: 14px;
   color: #173152;
   text-align: center; }
 
-/* line 367, /Users/morad/Projects/amway/public/theme/css/main.scss */
+/* line 368, /Users/morad/Projects/amway/public/theme/css/main.scss */
 .holder {
   max-width: 1162px;
   margin: 0 auto; }
 
-/* line 375, /Users/morad/Projects/amway/public/theme/css/main.scss */
+/* line 376, /Users/morad/Projects/amway/public/theme/css/main.scss */
 .col-2 {
   -moz-column-count: 2;
   -moz-column-gap: 40px;
@@ -1892,21 +1893,21 @@ h3 {
     .col-2 {
       max-width: 300px;
       margin-bottom: 10px; } }
-  /* line 400, /Users/morad/Projects/amway/public/theme/css/main.scss */
+  /* line 401, /Users/morad/Projects/amway/public/theme/css/main.scss */
   .col-2 p {
     margin-top: 0px;
     margin-bottom: 28px; }
   @media (max-width: 640px) {
     .col-2 > div {
       margin-bottom: 60px; } }
-  /* line 409, /Users/morad/Projects/amway/public/theme/css/main.scss */
+  /* line 410, /Users/morad/Projects/amway/public/theme/css/main.scss */
   .col-2 div {
     -webkit-column-break-inside: avoid;
     page-break-inside: avoid;
     break-inside: avoid;
     font-size: 16px;
     line-height: 22px; }
-    /* line 415, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 416, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .col-2 div a {
       font-size: 14px;
       font-family: 'MuseoSansCyrl-300';
@@ -1915,16 +1916,16 @@ h3 {
       text-decoration: none;
       display: inline-block;
       line-height: 120%; }
-    /* line 424, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 425, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .col-2 div .img-holder {
       min-height: 66px; }
 
-/* line 431, /Users/morad/Projects/amway/public/theme/css/main.scss */
+/* line 432, /Users/morad/Projects/amway/public/theme/css/main.scss */
 .row.grey {
   background: #e7eaed;
   padding-top: 1px;
   padding-bottom: 1px; }
-/* line 436, /Users/morad/Projects/amway/public/theme/css/main.scss */
+/* line 437, /Users/morad/Projects/amway/public/theme/css/main.scss */
 .row .center-text {
   width: 840px;
   margin: 0 auto;
@@ -1937,17 +1938,17 @@ h3 {
   @media (max-width: 640px) {
     .row .center-text {
       width: 300px; } }
-  /* line 448, /Users/morad/Projects/amway/public/theme/css/main.scss */
+  /* line 449, /Users/morad/Projects/amway/public/theme/css/main.scss */
   .row .center-text a {
     font-size: inherit;
     color: #ea1924;
     display: inline-block;
     line-height: 120%; }
-/* line 456, /Users/morad/Projects/amway/public/theme/css/main.scss */
+/* line 457, /Users/morad/Projects/amway/public/theme/css/main.scss */
 .row .note a {
   color: red; }
 
-/* line 462, /Users/morad/Projects/amway/public/theme/css/main.scss */
+/* line 463, /Users/morad/Projects/amway/public/theme/css/main.scss */
 .units-3 {
   width: 1040px;
   margin: 0 auto;
@@ -1956,36 +1957,36 @@ h3 {
     .units-3 {
       width: 300px;
       text-align: center; } }
-  /* line 470, /Users/morad/Projects/amway/public/theme/css/main.scss */
+  /* line 471, /Users/morad/Projects/amway/public/theme/css/main.scss */
   .units-3 .unit {
     display: inline-block;
     vertical-align: top;
     text-align: center;
     margin: 0 66px; }
-    /* line 475, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 476, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .units-3 .unit:first-child {
       margin-left: 0; }
-    /* line 478, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 479, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .units-3 .unit:last-child {
       margin-right: 0; }
     @media (max-width: 640px) {
       .units-3 .unit {
         margin-left: 0;
         margin-right: 0; } }
-    /* line 485, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 486, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .units-3 .unit img {
       margin-bottom: 28px; }
-    /* line 488, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 489, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .units-3 .unit .italic {
       font-family: 'Vaccine-Italic';
       font-size: 24px;
       color: #173152; }
-    /* line 493, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 494, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .units-3 .unit .title {
       color: #173154;
       font-family: 'Vaccine-Bold';
       font-size: 20px; }
-    /* line 498, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 499, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .units-3 .unit p {
       display: inline-block;
       width: 240px;
@@ -1993,7 +1994,7 @@ h3 {
       font-size: 18px;
       line-height: 22px; }
 
-/* line 508, /Users/morad/Projects/amway/public/theme/css/main.scss */
+/* line 509, /Users/morad/Projects/amway/public/theme/css/main.scss */
 .gallery {
   width: 960px;
   margin: 0 auto;
@@ -2001,42 +2002,42 @@ h3 {
   @media (max-width: 640px) {
     .gallery {
       width: 300px; } }
-  /* line 515, /Users/morad/Projects/amway/public/theme/css/main.scss */
+  /* line 516, /Users/morad/Projects/amway/public/theme/css/main.scss */
   .gallery .text {
     margin-top: 40px;
     margin-bottom: 100px; }
-    /* line 518, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 519, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .gallery .text p {
       font-family: 'MuseoSansCyrl-300';
       font-size: 18px;
       color: #143053;
       line-height: 28px; }
-  /* line 526, /Users/morad/Projects/amway/public/theme/css/main.scss */
+  /* line 527, /Users/morad/Projects/amway/public/theme/css/main.scss */
   .gallery #bx-pager a {
     opacity: 0.35;
     display: inline-block;
     border: 3px solid transparent;
     vertical-align: middle; }
-    /* line 531, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 532, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .gallery #bx-pager a img {
       display: block; }
-    /* line 534, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 535, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .gallery #bx-pager a.active {
       opacity: 1;
       border-color: #e71a28;
       -webkit-border-radius: 2px;
       border-radius: 2px; }
-  /* line 542, /Users/morad/Projects/amway/public/theme/css/main.scss */
+  /* line 543, /Users/morad/Projects/amway/public/theme/css/main.scss */
   .gallery .bx-wrapper {
     background: none;
     border: none;
     -webkit-box-shadow: none;
     box-shadow: none;
     margin-bottom: 0px; }
-    /* line 548, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 549, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .gallery .bx-wrapper .bx-viewport {
       padding-bottom: 68px; }
-    /* line 552, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 553, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .gallery .bx-wrapper .bx-controls-direction a {
       background: url(../img/slider-btn-left.png);
       width: 52px;
@@ -2044,17 +2045,17 @@ h3 {
       border: none;
       background-position: top;
       margin-top: -62px; }
-      /* line 559, /Users/morad/Projects/amway/public/theme/css/main.scss */
+      /* line 560, /Users/morad/Projects/amway/public/theme/css/main.scss */
       .gallery .bx-wrapper .bx-controls-direction a:hover {
         background-position: bottom; }
-      /* line 565, /Users/morad/Projects/amway/public/theme/css/main.scss */
+      /* line 566, /Users/morad/Projects/amway/public/theme/css/main.scss */
       .gallery .bx-wrapper .bx-controls-direction a.bx-prev {
         -webkit-transform: scaleX(-1);
         -ms-transform: scaleX(-1);
         -o-transform: scaleX(-1);
         transform: scaleX(-1);
         text-indent: 9999px; }
-  /* line 575, /Users/morad/Projects/amway/public/theme/css/main.scss */
+  /* line 576, /Users/morad/Projects/amway/public/theme/css/main.scss */
   .gallery .desc {
     position: absolute;
     bottom: 0;
@@ -2063,7 +2064,7 @@ h3 {
     font-size: 16px;
     color: #143053; }
 
-/* line 585, /Users/morad/Projects/amway/public/theme/css/main.scss */
+/* line 586, /Users/morad/Projects/amway/public/theme/css/main.scss */
 .pagination {
   width: 100%;
   padding: 0;
@@ -2074,7 +2075,7 @@ h3 {
   border-top: 2px solid rgba(25, 72, 133, 0.1);
   padding-top: 34px;
   margin-bottom: 86px; }
-  /* line 595, /Users/morad/Projects/amway/public/theme/css/main.scss */
+  /* line 596, /Users/morad/Projects/amway/public/theme/css/main.scss */
   .pagination li {
     display: inline-block;
     font-size: 20px;
@@ -2082,17 +2083,17 @@ h3 {
     color: #173152;
     cursor: default;
     margin: 0 10px; }
-    /* line 602, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 603, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .pagination li a {
       font-family: inherit;
       color: inherit;
       font-size: inherit;
       cursor: pointer;
       border: inherit; }
-    /* line 609, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 610, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .pagination li.active {
       color: #f10000; }
-    /* line 612, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 613, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .pagination li:first-of-type {
       float: left;
       margin: 0;
@@ -2100,7 +2101,7 @@ h3 {
       text-indent: -999999px;
       width: 12px;
       height: 22px; }
-      /* line 619, /Users/morad/Projects/amway/public/theme/css/main.scss */
+      /* line 620, /Users/morad/Projects/amway/public/theme/css/main.scss */
       .pagination li:first-of-type:after {
         display: block;
         background: url('../img/ico-left.png');
@@ -2110,28 +2111,28 @@ h3 {
         position: absolute;
         content: '';
         pointer-events: none; }
-      /* line 629, /Users/morad/Projects/amway/public/theme/css/main.scss */
+      /* line 630, /Users/morad/Projects/amway/public/theme/css/main.scss */
       .pagination li:first-of-type a {
         display: block;
         position: absolute;
         width: 100%;
         height: 100%;
         text-indent: -999990px; }
-    /* line 637, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 638, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .pagination li:last-of-type {
       float: right;
       margin: 0;
       position: relative;
       width: 12px;
       height: 22px; }
-      /* line 644, /Users/morad/Projects/amway/public/theme/css/main.scss */
+      /* line 645, /Users/morad/Projects/amway/public/theme/css/main.scss */
       .pagination li:last-of-type a {
         display: block;
         position: absolute;
         width: 100%;
         height: 100%;
         text-indent: -999990px; }
-      /* line 651, /Users/morad/Projects/amway/public/theme/css/main.scss */
+      /* line 652, /Users/morad/Projects/amway/public/theme/css/main.scss */
       .pagination li:last-of-type:after {
         display: block;
         background: url('../img/ico-left.png');
