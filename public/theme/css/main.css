@@ -1448,8 +1448,8 @@ body.profile main {
           margin-top: 36px; }
           @media (max-width: 640px) {
             body.profile main .holder .info .row .add-video {
-              margin-top: 36px;
               margin: 0 auto;
+              margin-top: 36px;
               width: 188px;
               display: block; } }
         /* line 114, /Users/morad/Projects/amway/public/theme/css/_profile.scss */

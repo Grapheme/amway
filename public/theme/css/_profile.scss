@@ -105,8 +105,8 @@ body.profile {
           .add-video {
             margin-top: 36px;
             @include mobile {
-              margin-top: 36px;
               margin: 0 auto;
+              margin-top: 36px;
               width: 188px;
               display: block;
             }
