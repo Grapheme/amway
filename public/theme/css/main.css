@@ -665,7 +665,7 @@ body.profile footer, body.sticky footer {
           margin-bottom: -1px;
           vertical-align: middle; }
         /* line 213, /Users/morad/Projects/amway/public/theme/css/_popups.scss */
-        .popup-wrapper .popup#reg form label input {
+        .popup-wrapper .popup#reg form label input, .popup-wrapper .popup#reg form label select {
           width: 572px;
           padding: 0px 26px;
           display: inline-block;
@@ -682,23 +682,23 @@ body.profile footer, body.sticky footer {
           border: none;
           vertical-align: middle; }
           /* line 229, /Users/morad/Projects/amway/public/theme/css/_popups.scss */
-          .popup-wrapper .popup#reg form label input[name="social[]"] {
+          .popup-wrapper .popup#reg form label input[name="social[]"], .popup-wrapper .popup#reg form label select[name="social[]"] {
             width: 525px; }
             @media (max-width: 640px) {
-              .popup-wrapper .popup#reg form label input[name="social[]"] {
+              .popup-wrapper .popup#reg form label input[name="social[]"], .popup-wrapper .popup#reg form label select[name="social[]"] {
                 width: 250px; } }
           /* line 235, /Users/morad/Projects/amway/public/theme/css/_popups.scss */
-          .popup-wrapper .popup#reg form label input[type="checkbox"] {
+          .popup-wrapper .popup#reg form label input[type="checkbox"], .popup-wrapper .popup#reg form label select[type="checkbox"] {
             width: auto;
             margin-left: 160px; }
             @media (max-width: 640px) {
-              .popup-wrapper .popup#reg form label input[type="checkbox"] {
+              .popup-wrapper .popup#reg form label input[type="checkbox"], .popup-wrapper .popup#reg form label select[type="checkbox"] {
                 margin-left: 0; } }
           /* line 242, /Users/morad/Projects/amway/public/theme/css/_popups.scss */
-          .popup-wrapper .popup#reg form label input.error {
+          .popup-wrapper .popup#reg form label input.error, .popup-wrapper .popup#reg form label select.error {
             background: #ffcdcc; }
           @media (max-width: 640px) {
-            .popup-wrapper .popup#reg form label input {
+            .popup-wrapper .popup#reg form label input, .popup-wrapper .popup#reg form label select {
               width: 300px; } }
         /* line 249, /Users/morad/Projects/amway/public/theme/css/_popups.scss */
         .popup-wrapper .popup#reg form label label.error {
