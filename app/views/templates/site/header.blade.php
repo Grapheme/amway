@@ -31,5 +31,10 @@
                 </li>
             </ul>
         </nav>
+        <div class="burger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
     </div>
 </header>

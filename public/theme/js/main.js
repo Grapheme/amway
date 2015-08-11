@@ -401,6 +401,12 @@ $(function() {
   
   $('#reg form input[name="phone"], form.edit-profile input[name="phone"]').mask("+7(999) 999-9999");
   
+  $('.burger').click(function(e){
+    e.preventDefault();
+    $(this).toggleClass('open');
+    $('header').toggleClass('open');
+  });
+  
   $('.videoupload').fileupload({
     dataType: 'json',
     done: function (e, data) {

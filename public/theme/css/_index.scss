@@ -43,9 +43,9 @@ section {
   p {
     font-family: 'MuseoSansCyrl-300';
     color: white;
-    font-size: 20px;
+    font-size: 16px;
     text-align: center;
-    line-height: 33px;
+    line-height: 26px;
   }
   &:before {
     display: inline-block;
@@ -102,6 +102,12 @@ section {
     position: relative;
     display: inline-block;
     vertical-align: middle;
+    @include mobile {
+      max-width: 100%;
+      padding: 0 34px;
+      box-sizing: border-box;
+      margin-left: -5px;
+    }
     //margin-left: 82px;
     .play {
       text-decoration: none;
@@ -132,6 +138,12 @@ section {
       margin-top: -20px;
       line-height: 61px;
     }
+    h2 {
+      @include mobile {
+        font-size: 24px;
+        line-height: 36px;
+      }
+    }
     p {
       max-width: 800px;
       margin-left: auto;
@@ -157,9 +169,16 @@ section {
     background-position: center center;
     .holder {
       margin-left: -3px;
+      @include mobile {
+        margin-left: -5px;
+      }
     }
     p {
       font-size: 24px;
+      @include mobile {
+        font-size: 18px;
+        line-height: 25px;
+      }
     }
   }
   &.mid {
@@ -186,17 +205,27 @@ section {
     padding-bottom: 1px;
   }
   h3 {
-    margin-bottom: 80px; //!! убрать
+    //margin-bottom: 80px; //!! убрать
   }
   .holder {
     max-width: 1162px;
     margin: 0 auto;
     margin-bottom: 105px;
+    @include mobile {
+      max-width: 100%;
+      text-align: center;
+      margin-bottom: 0;
+    }
     .unit {
       width: 360px;
       display: inline-block;
       margin: 0 18px;
       vertical-align: top;
+      @include mobile {
+        margin: 0 3% !important;
+        margin-bottom: 40px !important; 
+        width: 300px;
+      }
       &:first-of-type {
         margin-left: 0;
       }
@@ -254,6 +283,16 @@ section {
         .frame {
           position: relative;
           text-align: center;
+          .visual {
+            width: 100%;
+            height: 240px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            @include mobile {
+              width: 300px;
+            }
+          }
         }
         .play {
           position: absolute;
@@ -323,6 +362,9 @@ section {
       &.map {
         .visual {
           width: 360px;
+          @include mobile {
+            width: 300px;
+          }
         }
         .title {
           text-align: left;
@@ -356,6 +398,10 @@ section {
           width: 360px;
           height: 240px;
           display: block;
+          @include mobile {
+            height: auto;
+            width: 300px;
+          }
         }
         .frame {
           position: relative;

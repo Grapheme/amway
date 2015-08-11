@@ -1,3 +1,9 @@
+@mixin mobile {
+  @media (max-width: 640px) {
+    @content;
+  }
+}
+
 @import 'fonts';
 @import 'header';
 @import 'footer';
@@ -6,10 +12,15 @@
 @import 'profile';
 @import 'participants';
 
+
 html, body { height: 100%; }
 
 body {
   min-width: 1162px;
+  @include mobile {
+    min-width: 100%;
+    margin-top: 98px;
+  }
 }
 
 .cf {
@@ -59,6 +70,10 @@ body.profile, body.sticky {
             box-sizing: border-box; -moz-box-sizing: border-box;
     padding-bottom: 120px;
     padding-top: 120px;
+    @include mobile {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
   }
 }
 
@@ -124,6 +139,9 @@ a.btn {
     background-color: #e4261e;
     color: white !important;
   }
+  @include mobile {
+    margin-top: 45px;
+  }
 }
 
 button.btn-big-red {
@@ -162,11 +180,21 @@ button.btn-big-red {
     max-width: 1162px;
     margin: 0 auto;
     margin-bottom: 100px;
+    @include mobile {
+      max-width: 100%;
+      text-align: center;
+      margin-bottom: 0;
+    }
     .unit {
       display: inline-block;
       text-align: center;
       margin: 0 18px;
       width: 200px;
+      @include mobile {
+        //display: block;
+        margin: 0 5% !important;
+        margin-bottom:50px !important;
+      }
       &:nth-of-type(5n+1) {
         margin-left: 0; 
       }
@@ -294,6 +322,10 @@ h3 {
   margin-top: 60px;
   margin-bottom: 62px;
   text-transform: uppercase;
+  @include mobile {
+    margin-top: 30px;
+    margin-bottom: 32px;
+  }
 }
 
 .progress {
@@ -335,19 +367,25 @@ h3 {
 .holder {
   max-width: 1162px;
   margin: 0 auto;
+  @include mobile {
+    //width: 300px;
+  }
 }
 
 .col-2 {
   -moz-column-count: 2;
   -moz-column-gap: 40px;
+  -moz-column-width: 460px;
   -webkit-column-count: 2;
   -webkit-column-gap: 40px;
   -webkit-column-count: 2;
+  -webkit-column-width: 460px;
      -moz-column-count: 2;
           column-count: 2;
   -webkit-column-gap: 40px;
      -moz-column-gap: 40px;
           column-gap: 40px;
+          column-width: 460px;
   max-width: 960px;
   margin: 0 auto;
   font-family: 'MuseoSansCyrl-300';
@@ -355,9 +393,18 @@ h3 {
   color: #143053;
   line-height: 28px;
   margin-bottom: 62px;
+  @include mobile {
+    max-width: 300px;
+    margin-bottom: 10px;
+  }
   p{
     margin-top: 0px;
     margin-bottom: 28px;
+  }
+  &>div{
+    @include mobile {
+      margin-bottom: 60px;
+    }
   }
   div {
     -webkit-column-break-inside: avoid;
@@ -395,6 +442,9 @@ h3 {
     font-size: 20px;
     color: #143053;
     line-height: 28px;
+    @include mobile {
+      width: 300px;
+    }
     a {
       font-size: inherit;
       color: #ea1924;
@@ -413,6 +463,10 @@ h3 {
   width: 1040px;
   margin: 0 auto;
   margin-bottom: 50px;
+  @include mobile {
+    width: 300px;
+    text-align: center;
+  }
   .unit {
     display: inline-block;
     vertical-align: top;
@@ -422,6 +476,10 @@ h3 {
       margin-left: 0;
     }
     &:last-child {
+      margin-right: 0;
+    }
+    @include mobile {
+      margin-left: 0;
       margin-right: 0;
     }
     img {
@@ -451,6 +509,9 @@ h3 {
   width: 960px;
   margin: 0 auto;
   margin-top: 40px;
+  @include mobile {
+    width: 300px;
+  }
   .text {
     margin-top: 40px;
     margin-bottom: 100px;
@@ -506,6 +567,7 @@ h3 {
           -ms-transform:scaleX(-1);
           -o-transform:scaleX(-1);
           transform:scaleX(-1);
+          text-indent: 9999px;
         }
       }
     }

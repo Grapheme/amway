@@ -2,13 +2,28 @@ footer {
   width: 100%;
   background: #1c4a83;
   height: 120px;
+  @include mobile{
+    height: 362px;
+    position: relative;
+  }
   .holder {
     margin: 0 auto;
     width: 1160px;
+    @include mobile { 
+      width: 100%;
+    }
     .left {
       float: left;
       margin-top: 81px;
       margin-top: 47px;
+      @include mobile{
+        text-align: center;
+        width: 192px;
+        position: absolute;
+        left: 50%;
+        margin-left: -(192/2)+px;
+        margin-top: 170px;
+      }
       &>* {
         display: inline-block;
         vertical-align: top;
@@ -19,6 +34,9 @@ footer {
         font-family: 'MuseoSansCyrl-300';
         margin-left: 45px;
         margin-top: 5px;
+        @include mobile{
+          margin-left: 0;
+        }
       }
       .mail {
         color: white;
@@ -28,10 +46,21 @@ footer {
         border-bottom: 1px solid rgba(white, 0.5);
         margin-left: 35px;
         margin-top: 4px;
+        @include mobile{
+          position: absolute;
+          margin: 0;
+          width: 154px;
+          left: 50%;
+          margin-left: -(154/2)+px;
+          margin-top: -140px;
+        }
       }
     }
     .right {
       float: right;
+      @include mobile {
+        float: none;
+      }
       .dev {
         color: white;
         font-size: 16px;
@@ -40,11 +69,25 @@ footer {
         border-bottom: 1px solid rgba(white, 0.5);
         margin-top: 50px;
         display: inline-block;
+        @include mobile {
+          position: absolute;
+          left: 50%;
+          margin-left: -45px;
+          bottom: 40px;
+        }
       }
       .socials {
         display: inline-block;
         vertical-align: middle;
         margin-right: 200px;
+        @include mobile{
+          margin-right: 0;
+          position: absolute;
+          width: 100%;
+          top: 34px;
+          left: 0;
+          text-align: center;
+        }
         .vk, .fb {
           color: inherit;
           background: inherit;
@@ -94,5 +137,8 @@ footer {
 body.profile, body.sticky {
   footer {
     margin-top: -120px;
+    @include mobile {
+      margin-top: 0;
+    }
   }
 }

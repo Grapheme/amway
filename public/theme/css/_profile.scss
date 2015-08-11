@@ -7,9 +7,20 @@ body.profile {
       margin-top: 76px;
       margin-bottom: 98px;
       @extend .cf;
+      @include mobile {
+        width: 300px;
+        margin-bottom: 0px;
+        padding-bottom: 40px;
+      }
       .photo {
         float: left;
         width: 200px;
+        @include mobile {
+          float: none;
+          margin: 40px auto;
+          position: relative;
+          top: 10px;
+        }
         img {
           width: 200px;
           -webkit-border-radius: 300px;
@@ -22,7 +33,10 @@ body.profile {
       .info {
         float: right;
         width: 860px;
-        
+        @include mobile {
+          float: none;
+          width: 300px;
+        }
         p {
           font-family: 'MuseoSansCyrl-300';
           font-size: 16px;
@@ -31,6 +45,7 @@ body.profile {
         }
         .row {
           @extend .cf;
+          position: relative;
           &.video {
             margin-top: 36px;
           }
@@ -45,6 +60,11 @@ body.profile {
           .exit {
             float: right;
             margin-top: -6px;
+            @include mobile {
+              position: absolute;
+              top: -228px;
+              right: 0;
+            }
           }
           .rating {
             margin-top: 30px;
@@ -62,18 +82,33 @@ body.profile {
             width: 360px;
             vertical-align: middle;
             margin-left: 20px;
+            @include mobile {
+              width: 300px;
+              margin: 0;
+            }
             p {
               font-size: 14px;
             }
           }
           .add-video {
+            margin: 0 auto;
+            width: 188px;
             margin-top: 36px;
+            display: block;
           }
           .video-holder {
             width: 660px;
+            @include mobile {
+              width: 300px;
+              
+            }
             iframe {
               position: absolute;
               opacity: 0;
+              @include mobile {
+                width: 300px;
+                height: 300px;
+              }
               &.active {
                 opacity: 1;
                 z-index: 100;
@@ -87,6 +122,11 @@ body.profile {
               position: relative;
               display: block;
               border: none;
+              background-position: center;
+              @include mobile {
+                width: 300px;
+                height: 300px;
+              }
               &:hover {
                 .play {
                   color: #e71927;
@@ -143,6 +183,9 @@ body.profile {
 
 .edit-profile {
   margin-top: -34px;
+  @include mobile {
+    margin-top: 0;
+  }
   label {
     display: block;
     .label {
@@ -170,6 +213,9 @@ body.profile {
       background: white;
       display: block;
       width: 660px;
+      @include mobile {
+        width: 300px;
+      }
       &.error {
         background: #ffcdcc;
       }
