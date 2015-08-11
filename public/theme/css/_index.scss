@@ -115,6 +115,9 @@ section {
       font-size: 100px;
       margin-top: 40px;
       display: inline-block;
+      @include mobile {
+        margin-top: 20px;
+      }
       &:hover {
         color: #e42228;
       }
@@ -141,7 +144,7 @@ section {
     h2 {
       @include mobile {
         font-size: 24px;
-        line-height: 36px;
+        line-height: 32px;
       }
     }
     p {
