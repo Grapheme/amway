@@ -49,6 +49,9 @@
       margin: 29px auto;
       border: none;
       height: 1px;
+      @include mobile {
+        width: 300px;
+      }
     }
     .fb {
       font-family: 'Vaccine-Bold';
