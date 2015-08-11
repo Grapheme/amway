@@ -103,10 +103,12 @@ body.profile {
             }
           }
           .add-video {
-            margin: 0 auto;
-            width: 188px;
             margin-top: 36px;
-            display: block;
+            @include mobile {
+              margin: 0 auto;
+              width: 188px;
+              display: block;
+            }
           }
           .video-holder {
             width: 660px;

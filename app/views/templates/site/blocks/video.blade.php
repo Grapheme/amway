@@ -1,6 +1,6 @@
 <a href="javascript:void(0);" data-href="video" data-name="{{ $video->name }}" data-location="{{ $video->location }}"
    data-user-id="{{ $video->id }}" data-vote-count="{{ count($video->likes) + $video->guest_likes }}"
-   data-vote-url="{{ URL::route('participant.public.set.like', $video->id) }}" data-src="{{{ $video->video }}}?rel=0&amp;autoplay=1;controls=1&amp;showinfo=0"
+   data-vote-url="{{ URL::route('participant.public.set.like', $video->id) }}" data-src="{{{ $video->video }}}?rel=0&amp;autoplay=1&amp;controls=1&amp;showinfo=0"
    class="wrapper btn-popup">
     <div class="frame">
         <div class="play">
