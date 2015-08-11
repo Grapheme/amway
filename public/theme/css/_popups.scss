@@ -1,4 +1,3 @@
-
 .popup-wrapper {
   position: absolute;
   top: 0;
@@ -6,8 +5,11 @@
   width: 100%;
   height: 100%;
   background: rgba(#194885, 0.8);
-  display: none;
-  z-index: 2000000;
+  transition: all 300ms ease;
+  //display: none;
+  z-index: -1;
+  opacity: 0;
+  transform: translateY(-100px);
   @include mobile {
     background: rgba(#194885, 0.97);
   }
@@ -327,6 +329,10 @@
   }
   &.active {
     display: block;
+    opacity: 1;
+    //transform: scale(1);
+    z-index: 2000000;
+    transform: translateY(0);
   }
   #video {
     background: none;
