@@ -67,13 +67,6 @@
               );
             ?>
             {{ Form::select('location',$cities, Session::get('city'),array()) }}
-            <select name="location">
-              <option value="Ростов-на-Дону">Ростов-на-Дону</option>
-              <option value="Краснодар">Краснодар</option>
-              <option value="Волгоград">Волгоград</option>
-              <option value="Махачкала">Махачкала</option>
-              <option value="Ставрополь">Ставрополь</option>
-            </select>
         </label>
         <label>
             <span class="label">Укажите ваш возраст</span>
