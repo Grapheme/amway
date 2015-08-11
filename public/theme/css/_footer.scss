@@ -99,7 +99,8 @@ footer {
           vertical-align: top;
           background: rgba(white, .1);
           color: white;
-          border-radius: 50px;
+          -webkit-border-radius: 50px;
+                  border-radius: 50px;
           font-size: 0px;
           line-height: 100%;
           margin-top: -6px;

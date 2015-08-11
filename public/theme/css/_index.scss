@@ -95,6 +95,7 @@ section {
       background: rgba(#7729ac, 1);
     }
   }
+  
   .holder {
     max-width: 1160px;
     margin: 0 auto;
@@ -237,6 +238,7 @@ section {
       }
       a.wrapper {
         text-decoration: none;
+        display: block;
       }
       .title {
         font-family: 'Vaccine-Regular';
