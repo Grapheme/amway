@@ -10,7 +10,9 @@ class SocialController extends BaseController {
     /****************************************************************************/
     public static function returnRoutes() {
         $class = __CLASS__;
-        Route::post('social-signin', ['as' => 'signin.ulogin', 'uses' => $class . '@postUlogin']);
+        Route::group(array('before' => 'guest', 'prefix' => ''), function () use ($class) {
+            Route::post('social-signin', array('as' => 'signin.ulogin', 'uses' => $class . '@postUlogin'));
+        });
     }
 
     public static function returnShortCodes() {
