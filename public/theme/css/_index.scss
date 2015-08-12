@@ -233,10 +233,11 @@ section {
         margin-bottom: 40px !important; 
         width: 300px;
       }
-      &:first-of-type {
+      &:nth-of-type(4n+1) {
         margin-left: 0;
       }
-      &:last-of-type {
+      
+      &:nth-of-type(4n+1) {
         margin-right: 0;
       }
       a.wrapper {
