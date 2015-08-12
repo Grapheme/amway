@@ -2081,32 +2081,44 @@ h3 {
       font-size: 18px;
       color: #143053;
       line-height: 28px; }
-  /* line 528, /Users/morad/Projects/amway/public/theme/css/main.scss */
+  /* line 527, /Users/morad/Projects/amway/public/theme/css/main.scss */
+  .gallery .bx-wrapper img {
+    max-height: 640px; }
+    @media (max-width: 640px) {
+      .gallery .bx-wrapper img {
+        max-height: 200px; } }
+  /* line 534, /Users/morad/Projects/amway/public/theme/css/main.scss */
   .gallery #bx-pager a {
     opacity: 0.35;
     display: inline-block;
     border: 3px solid transparent;
     vertical-align: middle; }
-    /* line 533, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 539, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .gallery #bx-pager a img {
       display: block; }
-    /* line 536, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 542, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .gallery #bx-pager a.active {
       opacity: 1;
       border-color: #e71a28;
       -webkit-border-radius: 2px;
       border-radius: 2px; }
-  /* line 544, /Users/morad/Projects/amway/public/theme/css/main.scss */
+  /* line 550, /Users/morad/Projects/amway/public/theme/css/main.scss */
   .gallery .bx-wrapper {
     background: none;
     border: none;
     -webkit-box-shadow: none;
     box-shadow: none;
     margin-bottom: 0px; }
-    /* line 550, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 556, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    .gallery .bx-wrapper li {
+      text-align: center; }
+      /* line 558, /Users/morad/Projects/amway/public/theme/css/main.scss */
+      .gallery .bx-wrapper li img {
+        display: inline-block; }
+    /* line 562, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .gallery .bx-wrapper .bx-viewport {
       padding-bottom: 68px; }
-    /* line 554, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 566, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .gallery .bx-wrapper .bx-controls-direction a {
       background: url(../img/slider-btn-left.png);
       width: 52px;
@@ -2114,26 +2126,27 @@ h3 {
       border: none;
       background-position: top;
       margin-top: -62px; }
-      /* line 561, /Users/morad/Projects/amway/public/theme/css/main.scss */
+      /* line 573, /Users/morad/Projects/amway/public/theme/css/main.scss */
       .gallery .bx-wrapper .bx-controls-direction a:hover {
         background-position: bottom; }
-      /* line 567, /Users/morad/Projects/amway/public/theme/css/main.scss */
+      /* line 579, /Users/morad/Projects/amway/public/theme/css/main.scss */
       .gallery .bx-wrapper .bx-controls-direction a.bx-prev {
         -webkit-transform: scaleX(-1);
         -ms-transform: scaleX(-1);
         -o-transform: scaleX(-1);
         transform: scaleX(-1);
         text-indent: 9999px; }
-  /* line 577, /Users/morad/Projects/amway/public/theme/css/main.scss */
+  /* line 589, /Users/morad/Projects/amway/public/theme/css/main.scss */
   .gallery .desc {
     position: absolute;
     bottom: 0;
     bottom: -36px;
     font-family: 'MuseoSansCyrl-300';
     font-size: 16px;
-    color: #143053; }
+    color: #143053;
+    text-align: left; }
 
-/* line 587, /Users/morad/Projects/amway/public/theme/css/main.scss */
+/* line 600, /Users/morad/Projects/amway/public/theme/css/main.scss */
 .pagination {
   width: 100%;
   padding: 0;
@@ -2144,7 +2157,7 @@ h3 {
   border-top: 2px solid rgba(25, 72, 133, 0.1);
   padding-top: 34px;
   margin-bottom: 86px; }
-  /* line 597, /Users/morad/Projects/amway/public/theme/css/main.scss */
+  /* line 610, /Users/morad/Projects/amway/public/theme/css/main.scss */
   .pagination li {
     display: inline-block;
     font-size: 20px;
@@ -2152,17 +2165,17 @@ h3 {
     color: #173152;
     cursor: default;
     margin: 0 10px; }
-    /* line 604, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 617, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .pagination li a {
       font-family: inherit;
       color: inherit;
       font-size: inherit;
       cursor: pointer;
       border: inherit; }
-    /* line 611, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 624, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .pagination li.active {
       color: #f10000; }
-    /* line 614, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 627, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .pagination li:first-of-type {
       float: left;
       margin: 0;
@@ -2170,7 +2183,7 @@ h3 {
       text-indent: -999999px;
       width: 12px;
       height: 22px; }
-      /* line 621, /Users/morad/Projects/amway/public/theme/css/main.scss */
+      /* line 634, /Users/morad/Projects/amway/public/theme/css/main.scss */
       .pagination li:first-of-type:after {
         display: block;
         background: url('../img/ico-left.png');
@@ -2180,28 +2193,28 @@ h3 {
         position: absolute;
         content: '';
         pointer-events: none; }
-      /* line 631, /Users/morad/Projects/amway/public/theme/css/main.scss */
+      /* line 644, /Users/morad/Projects/amway/public/theme/css/main.scss */
       .pagination li:first-of-type a {
         display: block;
         position: absolute;
         width: 100%;
         height: 100%;
         text-indent: -999990px; }
-    /* line 639, /Users/morad/Projects/amway/public/theme/css/main.scss */
+    /* line 652, /Users/morad/Projects/amway/public/theme/css/main.scss */
     .pagination li:last-of-type {
       float: right;
       margin: 0;
       position: relative;
       width: 12px;
       height: 22px; }
-      /* line 646, /Users/morad/Projects/amway/public/theme/css/main.scss */
+      /* line 659, /Users/morad/Projects/amway/public/theme/css/main.scss */
       .pagination li:last-of-type a {
         display: block;
         position: absolute;
         width: 100%;
         height: 100%;
         text-indent: -999990px; }
-      /* line 653, /Users/morad/Projects/amway/public/theme/css/main.scss */
+      /* line 666, /Users/morad/Projects/amway/public/theme/css/main.scss */
       .pagination li:last-of-type:after {
         display: block;
         background: url('../img/ico-left.png');
