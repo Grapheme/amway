@@ -59,7 +59,16 @@
         </label>
         <label>
             <span class="label">Ваш город</span>
-            {{ Form::text('location', Session::get('city')) }}
+            <?php
+              $cities = array(
+                'Ростов-на-Дону' => 'Ростов-на-Дону',
+                'Краснодар' => 'Краснодар',
+                'Волгоград' => 'Волгоград',
+                'Махачкала' => 'Махачкала',
+                'Ставрополь' => 'Ставрополь',
+              );
+            ?>
+            {{ Form::select('location',$cities, Session::get('city'),array()) }}
         </label>
         <label>
             <span class="label">Укажите ваш возраст</span>

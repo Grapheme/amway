@@ -8,13 +8,13 @@
         @if (Request::is('/'))
         <div class="logo">
             <img src="{{ asset(Config::get('site.theme_path')) }}/img/logo.png" alt="">
-            <span class="red">Выходи<br> в реальность</span>
+            <span class="red">Выходи <nobr>в реальность</nobr></span>
             <span class="ast">* Эй Джен — Поколение-А</span>
         </div>
         @else
             <a href="{{ URL::route('mainpage') }}" class="logo">
                 <img src="{{ asset(Config::get('site.theme_path')) }}/img/logo.png" alt="">
-                <span class="red">Выходи<br> в реальность</span>
+                <span class="red">Выходи <nobr>в реальность</nobr></span>
                 <span class="ast">* Эй Джен — Поколение-А</span>
             </a>
         @endif
@@ -31,5 +31,10 @@
                 </li>
             </ul>
         </nav>
+        <div class="burger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
     </div>
 </header>

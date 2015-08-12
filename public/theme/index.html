@@ -26,7 +26,7 @@
     <div class="holder">
         <a href="index.html" class="logo">
             <img src="img/logo.png" alt="">
-            <span class="red">Выходи<br> в реальность</span>
+            <span class="red">Выходи <nobr>в реальность</nobr></span>
             <span class="ast">* Эй Джен — Поколение-А</span>
         </a>
 
@@ -41,6 +41,11 @@
                 </li>
             </ul>
         </nav>
+        <div class="burger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
     </div>
 </header>
 <section class="long color-blue video">
@@ -257,7 +262,7 @@
                     <div class="play">
                         <span class="icon-play"></span>
                     </div>
-                    <img src="img/tmp-video.jpg" alt="">
+                    
 
                     <div class="name">ДУДНАКОВА ЕЛЕНА</div>
                     <div class="location">Краснодар</div>
@@ -359,7 +364,13 @@
             </label>
             <label>
                 <span class="label">Ваш город</span>
-                <input type="text" name="location">
+                <select name="location">
+                  <option value="Ростов-на-Дону">Ростов-на-Дону</option>
+                  <option value="Краснодар">Краснодар</option>
+                  <option value="Волгоград">Волгоград</option>
+                  <option value="Махачкала">Махачкала</option>
+                  <option value="Ставрополь">Ставрополь</option>
+                </select>
             </label>
             <label>
                 <span class="label">Укажите ваш возраст</span>
@@ -375,7 +386,7 @@
             </label>
             <label>
               <span class="label">Профиль в соцсети</span>
-              <input type="text" name="social">
+              <input type="text" name="social[]">
               <a href="" class="social-plus">
                 <?xml version="1.0" encoding="utf-8"?>
                 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">

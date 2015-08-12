@@ -93,11 +93,19 @@ function votePlus($vote_btn){
   renderVoting();
 }
 
+function preparePopups() {
+  var dh = $(document).height();
+  var dw = $(document).width();
+  $('.popup-wrapper').height(dh).width(dw);
+}
+
 function showPopup(id, video_info){
   video_info = video_info || undefined;
-  var dh = $(document).height();
+  
+  preparePopups();
+  
   var st = $(document).scrollTop();
-  $('.popup-wrapper').height(dh);
+  
   $('.popup-wrapper').addClass('active');
   $('.popup').removeClass('active');
   $('.popup').css({
@@ -236,6 +244,9 @@ function slider($slides){
 }
 
 $(function() {
+  
+  preparePopups();
+  
   parseHash();
   renderVoting();
   
@@ -400,6 +411,13 @@ $(function() {
   })
   
   $('#reg form input[name="phone"], form.edit-profile input[name="phone"]').mask("+7(999) 999-9999");
+  $('input[name="age"]').mask('99');
+  
+  $('.burger').click(function(e){
+    e.preventDefault();
+    $(this).toggleClass('open');
+    $('header').toggleClass('open');
+  });
   
   $('.videoupload').fileupload({
     dataType: 'json',
