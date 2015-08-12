@@ -5,7 +5,7 @@
 */
 ?>
 <?php
-$participants = Accounts::where('group_id', 4)->with('ulogin', 'likes')->paginate(25);
+$participants = Accounts::where('group_id', 4)->orderBy('created_at', 'DESC')->with('ulogin', 'likes')->paginate(25);
 foreach($participants as $index => $participant):
     $participants[$index]['like_disabled'] = FALSE;
 endforeach;

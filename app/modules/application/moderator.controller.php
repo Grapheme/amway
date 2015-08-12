@@ -59,10 +59,14 @@ class ModeratorController extends BaseController {
         $counts = (array)$counts;
         $filter_status = Input::get('filter_status') ?: '0';
         $groups[0] = 'Без группы';
-        foreach(ParticipantGroup::lists('title','id') as $index => $title):
+        foreach (ParticipantGroup::lists('title', 'id') as $index => $title):
             $groups[$index] = $title;
         endforeach;
-        $users = Accounts::where('group_id', 4)->orderBy('created_at','DESC')->where('status', $filter_status)->with('ulogin')->paginate(20);
+        if (Input::has('search')):
+            $users = Accounts::where('group_id', 4)->where('name', 'like', '%'.Input::get('search').'%')->orderBy('created_at', 'DESC')->with('ulogin')->paginate(20);
+        else:
+            $users = Accounts::where('group_id', 4)->orderBy('created_at', 'DESC')->where('status', $filter_status)->with('ulogin')->paginate(20);
+        endif;
         return View::make($this->module['tpl'] . 'participants', compact('users', 'filter_status', 'counts', 'groups'));
     }
 

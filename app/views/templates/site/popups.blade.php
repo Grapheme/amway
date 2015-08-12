@@ -84,11 +84,11 @@
         </label>
         <label>
             <span class="label">Профиль в Вконтакте</span>
-            {{ Form::text('social[]') }}
+            {{ Form::text('social[]','https://vkontakte.com/') }}
         </label>
         <label>
             <span class="label">Профиль в Instagram</span>
-            {{ Form::text('social[]') }}
+            {{ Form::text('social[]','https://instagram.com/') }}
         </label>
         <label>
             <span class="label">Профиль в другой социальной сети</span>

@@ -33,7 +33,7 @@
         @endif
         </div>
     @endif
-    @if($top_video = Accounts::where('group_id' ,4)->where('load_video', 1)->where('video', '!=', '')->where('top_video', 1)->with('likes')->get())
+    @if($top_video = Accounts::where('group_id' ,4)->where('load_video', 1)->orderBy('top_week_video','DESC')->where('video', '!=', '')->where('top_video', 1)->with('likes')->get())
         <div class="news-grid grey">
         @if($top_video->count())
             <h3>ЛУЧШИЕ ВИДЕО</h3>
