@@ -29,5 +29,5 @@
         <div class="count">{{ count($user->likes) + $user->guest_likes }}</div>
         <div class="legend">{{ Lang::choice('голос|голоса|голосов', (int)count($user->likes) + $user->guest_likes ) }}</div>
     </div>
-    <a data-user-id="{{ $user->id }}" data-token="{{ csrf_token() }}" href="{{ URL::route('participant.public.set.like', $user->id) }}" class="vote {{ $user['like_disabled'] ? ' disabled' : '' }}">Проголосовать</a>
+    <a data-user-id="{{ $user->id }}" href="{{ URL::route('participant.public.set.like', $user->id) }}" class="vote {{ $user['like_disabled'] ? ' disabled' : '' }}">Проголосовать</a>
 </div>
