@@ -233,11 +233,11 @@ section {
         margin-bottom: 40px !important; 
         width: 300px;
       }
-      &:nth-of-type(4n+1) {
+      &:nth-of-type(3n+1) {
         margin-left: 0;
       }
       
-      &:nth-of-type(4n+1) {
+      &:nth-of-type(3n+3) {
         margin-right: 0;
       }
       a.wrapper {

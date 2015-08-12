@@ -1157,10 +1157,10 @@ section {
         margin-bottom: 40px !important;
         width: 300px; } }
     /* line 236, /Users/morad/Projects/amway/public/theme/css/_index.scss */
-    .news-grid .holder .unit:nth-of-type(4n+1) {
+    .news-grid .holder .unit:nth-of-type(3n+1) {
       margin-left: 0; }
     /* line 240, /Users/morad/Projects/amway/public/theme/css/_index.scss */
-    .news-grid .holder .unit:nth-of-type(4n+1) {
+    .news-grid .holder .unit:nth-of-type(3n+3) {
       margin-right: 0; }
     /* line 243, /Users/morad/Projects/amway/public/theme/css/_index.scss */
     .news-grid .holder .unit a.wrapper {
