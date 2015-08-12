@@ -46,16 +46,25 @@ body.profile {
         .row {
           @extend .cf;
           position: relative;
+          @include mobile {
+            text-align: center;
+          }
           &.video {
             margin-top: 36px;
           }
           .name {
             margin: 0;
             float: left;
+            @include mobile {
+              float: none;
+            }
           }
           .edit {
             margin-top: 10px;
             margin-left: 56px;
+            @include mobile {
+              margin-left: 0;
+            }
           }
           .exit {
             float: right;
@@ -69,6 +78,9 @@ body.profile {
           .rating {
             margin-top: 30px;
             text-align: left;
+            @include mobile {
+              text-align: center;
+            }
             .icon2-star {
               color: #eb0807;
             }
@@ -91,10 +103,13 @@ body.profile {
             }
           }
           .add-video {
-            margin: 0 auto;
-            width: 188px;
             margin-top: 36px;
-            display: block;
+            @include mobile {
+              margin: 0 auto;
+              margin-top: 36px;
+              width: 188px;
+              display: block;
+            }
           }
           .video-holder {
             width: 660px;
@@ -105,6 +120,7 @@ body.profile {
             iframe {
               position: absolute;
               opacity: 0;
+              left: 0;
               @include mobile {
                 width: 300px;
                 height: 300px;

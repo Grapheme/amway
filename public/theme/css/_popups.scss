@@ -78,7 +78,7 @@
         background: url('../img/ico-fb.png');
         display: block;
         position: absolute;
-        content: '';
+        //content: '';
         width: 11px;
         height: 20px;
         top: 20px;
@@ -110,7 +110,7 @@
         background: url('../img/ico-vk.png');
         display: block;
         position: absolute;
-        content: '';
+        //content: '';
         width: 13px;
         height: 16px;
         top: 19px;
@@ -210,7 +210,7 @@
             margin-bottom: -1px;
             vertical-align: middle;
           }
-          input {
+          input, select {
             width: 572px;
             padding: 0px 26px;
             display: inline-block;
@@ -220,7 +220,8 @@
             vertical-align: top;
             font-size: 18px;
             color: #173152;
-            background: #edeff2;
+            background: none;
+            background-color: #edeff2;
             -webkit-border-radius: 10px;
                     border-radius: 10px;
             height: 57px;

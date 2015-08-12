@@ -411,6 +411,7 @@ $(function() {
   })
   
   $('#reg form input[name="phone"], form.edit-profile input[name="phone"]').mask("+7(999) 999-9999");
+  $('input[name="age"]').mask('99');
   
   $('.burger').click(function(e){
     e.preventDefault();

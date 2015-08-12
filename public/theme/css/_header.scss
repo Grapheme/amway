@@ -12,9 +12,12 @@ header {
     z-index: 100000;
     background: white;
     top: 0;
-    transition: all 500ms ease;
+    -webkit-transition: all 500ms ease;
+         -o-transition: all 500ms ease;
+            transition: all 500ms ease;
     overflow: hidden;
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
     &.open {
       height: 100%;
     }
@@ -91,8 +94,13 @@ header {
       width: 24px;
       height: 45px;
       position: absolute;
-      transform: rotate(0deg);
-      transition: .5s ease-in-out;
+      -webkit-transform: rotate(0deg);
+          -ms-transform: rotate(0deg);
+           -o-transform: rotate(0deg);
+              transform: rotate(0deg);
+      -webkit-transition: .5s ease-in-out;
+           -o-transition: .5s ease-in-out;
+              transition: .5s ease-in-out;
       cursor: pointer;
       top: 40px;
       right: 22px;
@@ -108,8 +116,13 @@ header {
         background: #163054;
         opacity: 1;
         left: 0;
-        transform: rotate(0deg);
-        transition: .25s ease-in-out;
+        -webkit-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+             -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+        -webkit-transition: .25s ease-in-out;
+             -o-transition: .25s ease-in-out;
+                transition: .25s ease-in-out;
         &:nth-child(1) {
           top: 0px;
         }
@@ -126,14 +139,23 @@ header {
       &.open {
         span {
           &:nth-child(1) {
-            transform: translateY(8px) rotate(135deg);
+            -webkit-transform: translateY(8px) rotate(135deg);
+                -ms-transform: translateY(8px) rotate(135deg);
+                 -o-transform: translateY(8px) rotate(135deg);
+                    transform: translateY(8px) rotate(135deg);
           }
           &:nth-child(2) {
             opacity: 0;
-            transform: translateX(-10px);
+            -webkit-transform: translateX(-10px);
+                -ms-transform: translateX(-10px);
+                 -o-transform: translateX(-10px);
+                    transform: translateX(-10px);
           }
           &:nth-child(3) {
-            transform: translateY(-8px) rotate(-135deg);
+            -webkit-transform: translateY(-8px) rotate(-135deg);
+                -ms-transform: translateY(-8px) rotate(-135deg);
+                 -o-transform: translateY(-8px) rotate(-135deg);
+                    transform: translateY(-8px) rotate(-135deg);
           }
         }
       }
@@ -154,7 +176,9 @@ header {
       top: 184px;
       bottom: 0;
       //opacity: 0;
-      transition: 300ms ease-in-out;
+      -webkit-transition: 300ms ease-in-out;
+           -o-transition: 300ms ease-in-out;
+              transition: 300ms ease-in-out;
       //transform: translateX(-30px);
     }
     ul {
@@ -168,10 +192,18 @@ header {
           display: block;
           //display: none;
           opacity: 0;
-          transform: translateX(-50px);
-          transition: 300ms ease-in-out;
+          -webkit-transform: translateX(-50px);
+              -ms-transform: translateX(-50px);
+               -o-transform: translateX(-50px);
+                  transform: translateX(-50px);
+          -webkit-transition: 300ms ease-in-out;
+               -o-transition: 300ms ease-in-out;
+                  transition: 300ms ease-in-out;
           &:nth-child(odd) {
-            transform: translateX(50px);
+            -webkit-transform: translateX(50px);
+                -ms-transform: translateX(50px);
+                 -o-transform: translateX(50px);
+                    transform: translateX(50px);
           }
         }
         a {
@@ -197,7 +229,8 @@ header {
           @include mobile {
             top: auto;
             bottom: 0;
-            border-radius: 0;
+            -webkit-border-radius: 0;
+                    border-radius: 0;
             position: absolute;
             width: 100%;
           }
@@ -236,7 +269,10 @@ header {
       nav {
         ul {
           li {
-            transform: translateX(0);
+            -webkit-transform: translateX(0);
+                -ms-transform: translateX(0);
+                 -o-transform: translateX(0);
+                    transform: translateX(0);
             opacity: 1;
           }
         }
