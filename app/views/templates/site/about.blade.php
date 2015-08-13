@@ -113,7 +113,7 @@ endif;
             </div>
             <div class="cover"></div>
             <div class="holder">
-                <!-- тут типа текст -->
+                {{ $page->block('first_section') }}
             </div>
         </section>
         <div class="row grey">
