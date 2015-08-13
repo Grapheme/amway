@@ -15,7 +15,7 @@ class Xss extends BaseModel {
             if (is_array($value)):
                 $result[$key] = static::arrayStripTags($value);
             else:
-                $result[$key] = trim(strip_tags($value, '<p><a><strong><ul><li><img><iframe><em><table><td><tr>'));
+                $result[$key] = trim(strip_tags($value, '<p><a><strong><ul><li><img><iframe><em><table><td><tr><h1><h2><h3><h4><h5><h6>'));
             endif;
         endforeach;
         return $result;
