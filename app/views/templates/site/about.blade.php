@@ -115,7 +115,7 @@ endif;
                     </p>
                 @else
                     <p>
-                        Для участия в конкурсе необходимо <a href="#" data-href="ref" class="btn-popup">зарегистрироваться</a> на сайте и <a href="#" data-href="ref" class="btn-popup">загрузить видео</a> своего выступления.
+                        Для участия в конкурсе необходимо <a href="#" data-href="enter" class="btn-popup">зарегистрироваться</a> на сайте и <a href="#" data-href="enter" class="btn-popup">загрузить видео</a> своего выступления.
                     </p>
                 @endif
                     {{ $page->block('third_section') }}
