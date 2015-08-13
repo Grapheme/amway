@@ -218,9 +218,32 @@ function cropImage(data){
 function playVideoIframe($btn){
   var $section = $btn.closest('section, .video-holder');
   var $iframe = $section.find('iframe');
+  var $video = $section.find('video');
   
-  var src = $iframe.attr('data-src');
-  $iframe.attr('src', src).addClass('active');
+  if ($iframe) {
+    var src = $iframe.attr('data-src');
+    $iframe.attr('src', src).addClass('active');
+  }
+  
+  if ($video) {
+    $video.addClass('active');
+    $video[0].play();
+  }
+}
+
+function playOrPause($btn) {
+  var $section = $btn.closest('section, .video-holder');
+  var $video = $section.find('video');
+  var $video_holder = $section.find('.video-holder');
+  if ($btn.is('.pause')){
+    $btn.removeClass('pause');
+    $video[0].play();
+  } else {
+    //alert(1);
+    $btn.addClass('pause');
+    //alert(2);
+    $video[0].pause();
+  }
 }
 
 function arrIsEmpty(arr){
@@ -249,6 +272,11 @@ $(function() {
   
   parseHash();
   renderVoting();
+  
+  $('section .video-holder').click(function(e){
+    e.preventDefault();
+    playOrPause($(this));
+  });
   
   $('section .slides').each(function(){
     slider($(this));

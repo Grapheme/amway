@@ -104,6 +104,18 @@ endif;
                 {{ $page->block('second_section') }}
             </div>
         </div>
+        <section class="long video"
+                 style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/space-tmp.jpg')">
+            <div class="video-holder">
+              <video loop="loop" preload src="{{ asset(Config::get('site.theme_path')) }}/video/Veda_Anons.mp4">
+                Ваш браузер не поддерживает HML5 Video
+              </video>
+            </div>
+            <div class="cover"></div>
+            <div class="holder">
+                <!-- тут типа текст -->
+            </div>
+        </section>
         <div class="row grey">
             <div class="holder">
                 <h3>КАК ПРИНЯТЬ УЧАСТИЕ</h3>
