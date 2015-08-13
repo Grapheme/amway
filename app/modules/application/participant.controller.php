@@ -170,6 +170,7 @@ class ParticipantController extends BaseController {
             if ($user = User::where('id', Input::get('user_id'))->where('load_video', 1)->first()):
                 $user->video = Input::get('video');
                 $user->video_thumb = Input::get('photo');
+                $user->guest_likes = $user->guest_likes + 10;
                 $user->save();
                 $user->touch();
                 return Response::make('', 200);
