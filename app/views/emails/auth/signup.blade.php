@@ -77,7 +77,7 @@
     </tr>
     <tr>
         <td align="center" style="padding: 0 35px;"><p style="color: #19375f; margin-bottom: 30px; margin-top: 0; font-size: 15px; line-height: 140%; font-family: sans-serif, Arial, Gadget;">Вы успешно прошли регистрацию<br>
-                на <a style="color: #e61926;" href="http://agen-project.ru">сайте конкурса</a> «A-GEN (ПОКОЛЕНИЕ А)».</p></td>
+                на <a style="color: #e61926;" href="http://agen-project.ru">сайте конкурса</a> «A-GEN (ПОКОЛЕНИЕ А)». Теперь загрузи свое видео на сайте и начинай собирать голоса!</p></td>
     </tr>
     @if(!$verified_email)
     <tr>

@@ -58,7 +58,7 @@ endif;
     <section class="color-green">
         <div class="cover"></div>
         <div class="holder">
-            <a href="" class="btn-popup btn" data-href="enter">Принять участие в конкурсе</a>
+            <a href="" class="btn-popup btn" data-href="enter" onclick="yaCounter31932671.reachGoal('reg_main_1'); return true;">Принять участие в конкурсе</a>
             {{ $page->block('second_section') }}
             <p>{{ $difference }}</p>
         </div>
@@ -89,7 +89,7 @@ endif;
     <section class="color-red">
         <div class="cover"></div>
         <div class="holder">
-            <a href="" class="btn-popup btn" data-href="enter">Принять участие в конкурсе</a>
+            <a href="" class="btn-popup btn" data-href="enter" onclick="yaCounter31932671.reachGoal('reg_main_2'); return true;">Принять участие в конкурсе</a>
             {{ $page->block('six_section') }}
             <p>{{ $difference }}</p>
         </div>

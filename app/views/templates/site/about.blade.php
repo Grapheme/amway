@@ -91,7 +91,7 @@ endif;
             <section class="color-green">
                 <div class="cover"></div>
                 <div class="holder">
-                    <a href="" class="btn-popup btn" data-href="enter">Принять участие в конкурсе</a>
+                    <a href="" class="btn-popup btn" data-href="enter" onclick="yaCounter31932671.reachGoal('reg_about_1'); return true;">Принять участие в конкурсе</a>
 
                     <p>{{ $difference }}</p>
                 </div>
@@ -121,6 +121,15 @@ endif;
                 <h3>КАК ПРИНЯТЬ УЧАСТИЕ</h3>
 
                 <div class="center-text">
+                @if (Auth::check())
+                    <p>
+                        Для участия в конкурсе необходимо <a href="{{ URL::route('dashboard') }}">зарегистрироваться</a> на сайте и <a href="{{ URL::route('dashboard') }}">загрузить видео</a> своего выступления.
+                    </p>
+                @else
+                    <p>
+                        Для участия в конкурсе необходимо <a href="#" data-href="enter" class="btn-popup">зарегистрироваться</a> на сайте и <a href="#" data-href="enter" class="btn-popup">загрузить видео</a> своего выступления.
+                    </p>
+                @endif
                     {{ $page->block('third_section') }}
                 </div>
                 <br>

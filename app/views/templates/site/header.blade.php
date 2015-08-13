@@ -24,9 +24,9 @@
                 <li class="enter">
                     <img src="{{ asset(Config::get('site.theme_path')) }}/img/ico-user.png" class="user-ico" alt="">
                     @if(Auth::guest())
-                    <a href="" class="btn-popup" data-href="enter">Вход для участников</a>
+                    <a href="" class="btn-popup" data-href="enter" onclick="yaCounter31932671.reachGoal('reg_top'); return true;">Вход для участников</a>
                     @else
-                    <a href="{{ URL::to(AuthAccount::getGroupStartUrl()) }}">Личный кабинет</a>
+                    <a href="{{ URL::to(AuthAccount::getGroupStartUrl()) }}" onclick="yaCounter31932671.reachGoal('enter_lk'); return true;">Личный кабинет</a>
                     @endif
                 </li>
             </ul>
