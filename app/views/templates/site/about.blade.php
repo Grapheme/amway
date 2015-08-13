@@ -143,10 +143,6 @@ endif;
             </div>
         </div>
         <div class="holder">
-            <h3>{{ @$map['title'] }}</h3>
-            <img src="{{ asset(@$map['file_path']) }}" style="width:100%;" alt="">
-        </div>
-        <div class="holder">
             <h3>Этапы конкурса</h3>
 
             <div class="units-3">
@@ -186,7 +182,10 @@ endif;
                 </div>
             </div>
         </div>
-
+        <div class="holder">
+            <h3>{{ @$map['title'] }}</h3>
+            <img src="{{ asset(@$map['file_path']) }}" style="width:100%;" alt="">
+        </div>
         <div class="row">
             <div class="holder">
                 <h3>Организатор конкурса</h3>
