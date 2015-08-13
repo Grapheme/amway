@@ -67,7 +67,7 @@ _global_activate_dropzone = function () {
             var dropzone_settings = {
                 url: base_url + "/admin/galleries/abstractupload",
                 addRemoveLinks: true,
-                maxFilesize: max_file_size || 2, // MB
+                maxFilesize: max_file_size || 5, // MB
                 maxFiles: max_files || 0,
                 acceptedFiles: acceptedFiles || 'image/*'
             };

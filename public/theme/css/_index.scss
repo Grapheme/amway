@@ -217,7 +217,7 @@ section {
   .holder {
     max-width: 1162px;
     margin: 0 auto;
-    margin-bottom: 105px;
+    margin-bottom: 80px;
     @include mobile {
       max-width: 100%;
       text-align: center;
@@ -228,15 +228,17 @@ section {
       display: inline-block;
       margin: 0 18px;
       vertical-align: top;
+      margin-bottom: 30px;
       @include mobile {
         margin: 0 3% !important;
         margin-bottom: 40px !important; 
         width: 300px;
       }
-      &:first-of-type {
+      &:nth-of-type(3n+1) {
         margin-left: 0;
       }
-      &:last-of-type {
+      
+      &:nth-of-type(3n+3) {
         margin-right: 0;
       }
       a.wrapper {
