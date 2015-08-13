@@ -169,9 +169,11 @@ class ParticipantController extends BaseController {
         if ($validator->passes()):
             if ($user = User::where('id', Input::get('user_id'))->where('load_video', 1)->first()):
                 try{
+                    if(empty($user->video)):
+                        $user->guest_likes = $user->guest_likes + 10;
+                    endif;
                     $user->video = Input::get('video');
                     $user->video_thumb = Input::get('photo');
-                    $user->guest_likes = $user->guest_likes + 10;
                     $user->save();
                     $user->touch();
                     return Response::make('', 200);
