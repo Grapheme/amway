@@ -2,12 +2,12 @@
 
 class Xss extends BaseModel {
 
-    public static function globalXssClean(){
+    public static function globalXssClean() {
         $sanitized = static::arrayStripTags(Input::get());
         Input::merge($sanitized);
     }
 
-    public static function arrayStripTags($array){
+    public static function arrayStripTags($array) {
 
         $result = array();
         foreach ($array as $key => $value):
