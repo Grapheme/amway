@@ -2036,7 +2036,7 @@ h4 span a {
   color: inherit !important;
   text-decoration: none;
   display: inline;
-  line-height: 1.2em;
+  line-height: 140%;
   border-bottom: 1px solid;
 }
 
