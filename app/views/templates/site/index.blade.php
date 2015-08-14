@@ -65,7 +65,7 @@ endif;
         </div>
     </section>
     @endif
-    <div class="holder">
+    <div class="holder gray grey">
         <h3>Что нужно сделать?</h3>
         <div class="units-3">
             <div class="unit">
