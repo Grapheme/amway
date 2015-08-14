@@ -27,7 +27,7 @@ endif;
 <main>
     <section class="long color-blue video"
              style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-13.jpg')">
-        <iframe data-src="https://player.vimeo.com/video/135698166?autoplay=1&loop=1&color=ffffff&title=0&byline=0&portrait=0"
+        <iframe data-src="https://player.vimeo.com/video/136314283?autoplay=1&loop=1&color=ffffff&title=0&byline=0&portrait=0"
                 frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         <div class="cover"></div>
         <div class="holder">
