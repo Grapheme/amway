@@ -1996,18 +1996,24 @@ h3 {
 
 h4 {
   font-family: 'Vaccine-Regular';
-  font-size: 18px;
+  font-size: 16px;
   letter-spacing: 0.1em;
   color: #163055;
   text-align: center;
   margin-top: 40px;
-  margin-bottom: 42px;
+  margin-bottom: 52px;
   text-transform: uppercase; }
   @media (max-width: 640px) {
     h3 {
       margin-top: 20px;
       margin-bottom: 22px;
       font-size: 16px; } }
+
+h4.yellow {
+  color: #f47d08;
+  margin-top: 20px;
+  margin-bottom: 70px;
+}
 
 /* line 365, /Users/morad/Projects/amway/public/theme/css/main.scss */
 .progress {
