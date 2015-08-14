@@ -49,6 +49,10 @@ endif;
     </section> -->
     <div class="holder">
         <h3>УЧАСТНИКИ КОНКУРСА</h3>
+        <div class="center-text">
+            <p>Зарегистрируйся на сайте, загрузи видео своего выступления и получи 10 дополнительных голосов.</p>
+            <br><br>
+        </div>
         <div class="note">
             ВСЕГО {{ Accounts::where('group_id', 4)->count() }} {{ Lang::choice('УЧАСТНИК|УЧАСТНИКА|УЧАСТНИКОВ', Accounts::where('group_id', 4)->count()) }}
         </div>
