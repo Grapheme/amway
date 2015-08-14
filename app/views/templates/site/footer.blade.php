@@ -46,7 +46,7 @@
                 </g>
                 </svg>
               </a> -->
-              <script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="link" data-yashareQuickServices="vkontakte,facebook,odnoklassniki"></div>
+              <script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="small" data-yashareQuickServices="vkontakte,facebook,odnoklassniki" data-yashareTheme="counter"></div>
           </div>
           <a href="http://myxa-digital.com/" target="_blank" class="dev"><small>MYXA Digital</small></a>
         </div>
