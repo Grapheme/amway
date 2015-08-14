@@ -2012,14 +2012,14 @@ h4 {
 h4.yellow {
   font-size: 15px;
   color: #f47d08;
-  margin-top: 15px;
+  margin-top: 0;
   margin-bottom: 80px;
 }
 
 h4.orange {
   font-size: 15px;
   color: #ff4b27;
-  margin-top: 15px;
+  margin-top: 0;
   margin-bottom: 80px;
 }
 
