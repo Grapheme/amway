@@ -34,7 +34,9 @@
         @if($top_video->count())
             <h3>ВИДЕО УЧАСТНИКОВ ПРОЕКТА</h3>
             <div class="holder">
-                <p>Нашел себя в «Лучших видео» — расскажи друзьям, набирай голоса и приходи на кастинг! Следи за новостями проекта.</p>
+                <div class="center-text">
+                    <p>Нашел себя в «Лучших видео» — расскажи друзьям, набирай голоса и приходи на кастинг! Следи за новостями проекта.</p>
+                </div>
                 @foreach($top_video as $video)
                 <div class="unit video{{ $video->top_week_video ? ' best' : '' }}">
                     @include(Helper::layout('blocks.video'), compact('video'))
