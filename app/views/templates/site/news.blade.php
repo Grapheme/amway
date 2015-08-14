@@ -30,13 +30,18 @@
         </div>
     @endif
     @if($top_video = Accounts::where('group_id' ,4)->where('load_video', 1)->orderBy('top_week_video','DESC')->where('video', '!=', '')->where('top_video', 1)->with('likes')->get())
-        <div class="news-grid grey">
-        @if($top_video->count())
-            <h3>ВИДЕО УЧАСТНИКОВ ПРОЕКТА</h3>
+         <div class="row grey">
             <div class="holder">
+                <h3>ВИДЕО УЧАСТНИКОВ ПРОЕКТА</h3>
+
                 <div class="center-text">
                     <p>Нашел себя в «Лучших видео» — расскажи друзьям, набирай голоса и приходи на кастинг! Следи за новостями проекта.</p>
                 </div>
+            </div>
+        </div>
+        <div class="news-grid grey">
+        @if($top_video->count())
+            <div class="holder">
                 @foreach($top_video as $video)
                 <div class="unit video{{ $video->top_week_video ? ' best' : '' }}">
                     @include(Helper::layout('blocks.video'), compact('video'))
