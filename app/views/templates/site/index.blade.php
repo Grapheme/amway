@@ -67,8 +67,8 @@ endif;
     @endif
     <div class="row grey">
         <div class="holder">
-            <h2>Что нужно сделать?</h2>
-            <h3>У тебя есть идеи и есть команда?</h3>
+            <h3>Что нужно сделать?</h3>
+            <h4>У тебя есть идеи и есть команда?</h4>
             <div class="units-3">
                 <div class="unit">
                     <img src="http://agen-project.ru/theme/img/stage-1.png" alt="">
@@ -92,7 +92,33 @@ endif;
                     <p>Набирай «голоса» и следи за новостями проекта</p>
                 </div>
             </div>
-            <h3>Твоя команда в проекте!</h3>
+            <h4 class="yellow">Твоя команда в проекте!</h4>
+
+            <h4>У тебя есть идея и ты — творческая личность?</h4>
+            <div class="units-3">
+                <div class="unit">
+                    <img src="http://agen-project.ru/theme/img/stage-4.png" alt="">
+                    <div class="title">
+                       &nbsp;
+                    </div>
+                    <p>Регистрируйся на сайте</p>
+                </div>
+                <div class="unit">
+                    <img src="http://agen-project.ru/theme/img/stage-main-5.png" alt="">
+                    <div class="title">
+                        &nbsp;
+                    </div>
+                    <p>Заливай креативное видео</p>
+                </div>
+                <div class="unit">
+                    <img src="http://agen-project.ru/theme/img/stage-main-6.png" alt="">
+                    <div class="title">
+                        &nbsp;
+                    </div>
+                    <p>Набирай «голоса» и следи за новостями проекта</p>
+                </div>
+            </div>
+            <h4 class="yellow">Приходи на кастинг <sup>*</sup>!</h4>
         </div>
     </div>
     <!-- <section class="long color-red" style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-2.jpg')">
