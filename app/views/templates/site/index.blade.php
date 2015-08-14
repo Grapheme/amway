@@ -118,8 +118,9 @@ endif;
                     <p>Набирай «голоса» и следи за новостями проекта</p>
                 </div>
             </div>
-            <h4 class="orange">Приходи на кастинг!<sup>*</sup></h4>
-            <p class="notice"><sup>*</sup>Следи за датой и временем кастинга в разделе «Новости проекта»</p>
+            <h4 class="orange">Приходи на кастинг!<sup>*</sup>
+                <span><sup>*</sup>Следи за датой и временем кастинга в разделе «Новости проекта»</span>
+            </h4>
         </div>
     </div>
     <!-- <section class="long color-red" style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-2.jpg')">
