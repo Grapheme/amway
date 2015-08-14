@@ -48,7 +48,7 @@ endif;
           <!-- <div class="slide" style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-1.jpg')"></div>
           <div class="slide" style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-2.jpg')"></div>
           <div class="slide" style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-3.jpg')"></div> -->
-          <div class="slide" style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-12.jpg')"></div>
+          <div class="slide" style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-11.jpg')"></div>
         </div>
         <div class="cover"></div>
         <div class="holder">
