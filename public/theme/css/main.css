@@ -2037,7 +2037,7 @@ h4 span a {
   text-decoration: none;
   display: inline;
   line-height: 140%;
-  border-bottom: 1px solid;
+  border-bottom: 1px solid #ccc;
 }
 
 /* line 365, /Users/morad/Projects/amway/public/theme/css/main.scss */
