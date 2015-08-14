@@ -97,7 +97,7 @@ endif;
             <h4>У тебя есть идея и ты — творческая личность?</h4>
             <div class="units-3">
                 <div class="unit">
-                    <img src="http://agen-project.ru/theme/img/stage-4.png" alt="">
+                    <img src="http://agen-project.ru/theme/img/stage-main-4.png" alt="">
                     <div class="title">
                        &nbsp;
                     </div>
