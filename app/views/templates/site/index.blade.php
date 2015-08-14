@@ -71,27 +71,24 @@ endif;
             <div class="units-3">
                 <div class="unit">
                     <img src="http://agen-project.ru/theme/img/stage-1.png" alt="">
-
                     <div class="title">
-                       Регистрируйся на сайте
+                       &nbsp;
                     </div>
-                    <!-- <p>Регистрируйся на сайте</p> -->
+                    <p>Регистрируйся на сайте</p>
                 </div>
                 <div class="unit">
                     <img src="http://agen-project.ru/theme/img/stage-main-2.png" alt="">
-
                     <div class="title">
-                        Заливай креативное видео
+                        &nbsp;
                     </div>
-                    <!-- <p>Заливай креативное видео</p> -->
+                    <p>Заливай креативное видео</p>
                 </div>
                 <div class="unit">
                     <img src="http://agen-project.ru/theme/img/stage-main-3.png" alt="">
-
                     <div class="title">
-                        Набирай «голоса» и следи за новостями проекта
+                        &nbsp;
                     </div>
-                    <!-- <p>Набирай «голоса» и следи за новостями проекта</p> -->
+                    <p>Набирай «голоса» и следи за новостями проекта</p>
                 </div>
             </div>
         </div>
