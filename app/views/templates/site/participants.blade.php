@@ -41,12 +41,12 @@ endif;
             </p>
         </div>
     </section>
-    <section class="color-purple-dark mid">
+   <!--  <section class="color-purple-dark mid">
         <div class="cover"></div>
         <div class="holder">
             {{ $page->block('content') }}
         </div>
-    </section>
+    </section> -->
     <div class="holder">
         <h3>УЧАСТНИКИ КОНКУРСА</h3>
         <div class="note">
