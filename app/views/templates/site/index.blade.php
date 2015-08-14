@@ -69,28 +69,28 @@ endif;
         <h3>Что нужно сделать?</h3>
         <div class="units-3">
             <div class="unit">
-                <img src="http://agen-project.ru/theme/img/stage-1.png" alt="">
+                <img src="http://agen-project.ru/theme/img/stage-main-1.png" alt="">
 
                 <div class="title">
                     10 авг. — 15 сент.
                 </div>
-                <p>Регистрация участников конкурса</p>
+                <p>Регистрируйся на сайте</p>
             </div>
             <div class="unit">
-                <img src="http://agen-project.ru/theme/img/stage-2.png" alt="">
+                <img src="http://agen-project.ru/theme/img/stage-main-2.png" alt="">
 
                 <div class="title">
                     20 сент. — 23 окт.
                 </div>
-                <p>Формирование команд <br>и подготовка к шоу</p>
+                <p>Заливай креативное видео</p>
             </div>
             <div class="unit">
-                <img src="http://agen-project.ru/theme/img/stage-3.png" alt="">
+                <img src="http://agen-project.ru/theme/img/stage-main-3.png" alt="">
 
                 <div class="title">
                     24 октября
                 </div>
-                <p>Шоу-финал на большой сцене Вертол-Экспо</p>
+                <p>Набирай «голоса» и следи за новостями проекта</p>
             </div>
         </div>
     </div>
