@@ -82,7 +82,7 @@ endif;
                     <div class="title">
                         &nbsp;
                     </div>
-                    <p>Заливай креативное видео</p>
+                    <p>Заливай креативное видео с участниками твоей команды</p>
                 </div>
                 <div class="unit">
                     <img src="http://agen-project.ru/theme/img/stage-main-3.png" alt="">
