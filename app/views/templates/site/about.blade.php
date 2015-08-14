@@ -113,7 +113,9 @@ endif;
             </div>
             <div class="cover"></div>
             <div class="holder">
-                {{ $page->block('first_section') }}
+                <a href="" class="play" onclick="yaCounter31932671.reachGoal('about_video'); return true;">
+                    <span class="icon-play"></span>
+                </a>
             </div>
         </section>
         <div class="row grey">
