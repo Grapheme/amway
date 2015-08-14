@@ -31,18 +31,15 @@ endif;
                 frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         <div class="cover"></div>
         <div class="holder">
-            <h2>A-GEN – это творческий конкурс талантов <br>и грандиозное шоу на большой сцене <br>от победителей в финале
-                проекта</h2>
-
+            <h2>Присоединяйся к команде молодых <br>и талантливых</h2>
+            <p>Загрузи видео на сайте или выбери подходящее видео из своей библиотеки на телефоне.
+<br>Не знаешь, как записать видео — мы подскажем! </p>
             <a href="" class="play" onclick="yaCounter31932671.reachGoal('about_video'); return true;">
             <span class="icon-play"></span>
             </a>
-            
-                <p>
-                    
-                        ВИДЕО О ПРОЕКТЕ
-                    
-                </p>
+            <p>
+                ПРИМЕР ВИДЕО
+            </p>
         </div>
     </section>
     <section class="color-purple-dark mid">
