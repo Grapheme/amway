@@ -67,7 +67,8 @@ endif;
     @endif
     <div class="row grey">
         <div class="holder">
-            <h3>Что нужно сделать?</h3>
+            <h2>Что нужно сделать?</h2>
+            <h3>У тебя есть идеи и есть команда?</h3>
             <div class="units-3">
                 <div class="unit">
                     <img src="http://agen-project.ru/theme/img/stage-1.png" alt="">
@@ -91,6 +92,7 @@ endif;
                     <p>Набирай «голоса» и следи за новостями проекта</p>
                 </div>
             </div>
+            <h3>Твоя команда в проекте!</h3>
         </div>
     </div>
     <!-- <section class="long color-red" style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-2.jpg')">
