@@ -105,7 +105,7 @@ endif;
             </div>
         </div>
         <section class="long video"
-                 style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/space-tmp.jpg')">
+                 style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/veda-tmp.jpg')">
             <div class="video-holder">
               <video loop="loop" preload src="{{ asset(Config::get('site.theme_path')) }}/video/Veda_Anons.mp4">
                 Ваш браузер не поддерживает HML5 Video
