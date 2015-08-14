@@ -15,10 +15,6 @@
                 {{ $page->block('first_section') }}
             </div>
         </section>
-        <div class="holder">
-            <h3>ГРАФИК ПЕРЕМЕЩЕНИЯ МОБИЛЬНОЙ КОМАНДЫ</h3>
-            <img src="/uploads/files/1438690660_1094242.jpg" style="width:100%;" alt="">
-        </div>
     @if($news_list = News::where('publication' ,1)->orderBy('published_at','DESC')->with('meta.photo')->get())
         <div class="news-grid">
         @if($news_list->count())
@@ -47,6 +43,10 @@
         @endif
         </div>
     @endif
+        <div class="holder">
+            <h3>ГРАФИК ПЕРЕМЕЩЕНИЯ МОБИЛЬНОЙ КОМАНДЫ</h3>
+            <img src="/uploads/files/1438690660_1094242.jpg" style="width:100%;" alt="">
+        </div>
     </main>
 @stop
 @section('scripts')
