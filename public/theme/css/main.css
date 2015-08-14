@@ -2023,6 +2023,12 @@ h4.orange {
   margin-bottom: 80px;
 }
 
+h4 span {
+  color: #333;
+  font-size: 12px;
+  margin-top: 0.5em;
+}
+
 /* line 365, /Users/morad/Projects/amway/public/theme/css/main.scss */
 .progress {
   height: 20px;
