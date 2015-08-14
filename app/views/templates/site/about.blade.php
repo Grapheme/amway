@@ -79,7 +79,7 @@ endif;
 @section('content')
     <main>
         <section class="long video"
-                 style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/space-tmp.jpg')">
+                 style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-12.jpg')">
             <iframe data-src="https://player.vimeo.com/video/135698166?autoplay=1&loop=1&color=ffffff&title=0&byline=0&portrait=0"
                     frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
             <div class="cover"></div>
