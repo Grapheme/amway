@@ -78,8 +78,8 @@ endif;
 @stop
 @section('content')
     <main>
-        <section class="long video"
-                 style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/space-tmp.jpg')">
+        <section class="long color-blue video"
+                 style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-12.jpg')">
             <iframe data-src="https://player.vimeo.com/video/135698166?autoplay=1&loop=1&color=ffffff&title=0&byline=0&portrait=0"
                     frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
             <div class="cover"></div>
@@ -104,6 +104,22 @@ endif;
                 {{ $page->block('second_section') }}
             </div>
         </div>
+        <section class="long video"
+                 style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/veda-tmp.jpg')">
+            <div class="video-holder">
+              <!-- <video loop="loop" preload src="{{ asset(Config::get('site.theme_path')) }}/video/Veda_Anons.mp4">
+                Ваш браузер не поддерживает HML5 Video
+              </video> -->
+              <iframe data-src="https://player.vimeo.com/video/136287891?autoplay=1&loop=1&color=ffffff&title=0&byline=0&portrait=0"
+                    frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            </div>
+            <div class="cover"></div>
+            <div class="holder">
+                <a href="" class="play" onclick="yaCounter31932671.reachGoal('about_video'); return true;">
+                    <span class="icon-play"></span>
+                </a>
+            </div>
+        </section>
         <div class="row grey">
             <div class="holder">
                 <h3>КАК ПРИНЯТЬ УЧАСТИЕ</h3>
@@ -129,10 +145,6 @@ endif;
                 <br>
                 <br>
             </div>
-        </div>
-        <div class="holder">
-            <h3>{{ @$map['title'] }}</h3>
-            <img src="{{ asset(@$map['file_path']) }}" style="width:100%;" alt="">
         </div>
         <div class="holder">
             <h3>Этапы конкурса</h3>
@@ -174,7 +186,10 @@ endif;
                 </div>
             </div>
         </div>
-
+        <div class="holder">
+            <h3>{{ @$map['title'] }}</h3>
+            <img src="{{ asset(@$map['file_path']) }}" style="width:100%;" alt="">
+        </div>
         <div class="row">
             <div class="holder">
                 <h3>Организатор конкурса</h3>
