@@ -69,10 +69,10 @@ endif;
         <h3>Что нужно сделать?</h3>
         <div class="units-3">
             <div class="unit">
-                <img src="http://agen-project.ru/theme/img/stage-main-1.png" alt="">
+                <img src="http://agen-project.ru/theme/img/stage-1.png" alt="">
 
                 <div class="title">
-                    10 авг. — 15 сент.
+                    &nbsp;
                 </div>
                 <p>Регистрируйся на сайте</p>
             </div>
@@ -80,7 +80,7 @@ endif;
                 <img src="http://agen-project.ru/theme/img/stage-main-2.png" alt="">
 
                 <div class="title">
-                    20 сент. — 23 окт.
+                    &nbsp;
                 </div>
                 <p>Заливай креативное видео</p>
             </div>
@@ -88,7 +88,7 @@ endif;
                 <img src="http://agen-project.ru/theme/img/stage-main-3.png" alt="">
 
                 <div class="title">
-                    24 октября
+                    &nbsp;
                 </div>
                 <p>Набирай «голоса» и следи за новостями проекта</p>
             </div>
