@@ -32,7 +32,7 @@
     @if($top_video = Accounts::where('group_id' ,4)->where('load_video', 1)->orderBy('top_week_video','DESC')->where('video', '!=', '')->where('top_video', 1)->with('likes')->get())
         <div class="news-grid grey">
         @if($top_video->count())
-            <h3>ЛУЧШИЕ ВИДЕО</h3>
+            <h3>ВИДЕО УЧАСТНИКОВ ПРОЕКТА</h3>
             <div class="holder">
                 @foreach($top_video as $video)
                 <div class="unit video{{ $video->top_week_video ? ' best' : '' }}">
