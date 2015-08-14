@@ -108,14 +108,14 @@ endif;
                     <div class="title">
                         &nbsp;
                     </div>
-                    <p>Заливай креативное видео</p>
+                    <p>Заливай креативное видео, в котором опиши свою идею</p>
                 </div>
                 <div class="unit">
                     <img src="http://agen-project.ru/theme/img/stage-main-6.png" alt="">
                     <div class="title">
                         &nbsp;
                     </div>
-                    <p>Набирай «голоса» и следи за новостями проекта</p>
+                    <p>Набирай «голоса»</p>
                 </div>
             </div>
             <h4 class="orange">Приходи на кастинг!<sup>*</sup>
