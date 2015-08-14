@@ -33,6 +33,7 @@
         <div class="news-grid grey">
         @if($top_video->count())
             <h3>ВИДЕО УЧАСТНИКОВ ПРОЕКТА</h3>
+            <p>Нашел себя в «Лучших видео» — расскажи друзьям, набирай голоса и приходи на кастинг! Следи за новостями проекта.</p>
             <div class="holder">
                 @foreach($top_video as $video)
                 <div class="unit video{{ $video->top_week_video ? ' best' : '' }}">
