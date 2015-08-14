@@ -110,7 +110,7 @@ endif;
               <!-- <video loop="loop" preload src="{{ asset(Config::get('site.theme_path')) }}/video/Veda_Anons.mp4">
                 Ваш браузер не поддерживает HML5 Video
               </video> -->
-              <iframe data-src="https://player.vimeo.com/video/135698166?autoplay=1&loop=1&color=ffffff&title=0&byline=0&portrait=0"
+              <iframe data-src="https://player.vimeo.com/video/136287891?autoplay=1&loop=1&color=ffffff&title=0&byline=0&portrait=0"
                     frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
             </div>
             <div class="cover"></div>
