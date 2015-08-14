@@ -118,7 +118,8 @@ endif;
                     <p>Набирай «голоса» и следи за новостями проекта</p>
                 </div>
             </div>
-            <h4 class="yellow">Приходи на кастинг <sup>*</sup>!</h4>
+            <h4 class="orange">Приходи на кастинг!<sup>*</sup></h4>
+            <p class="notice"><sup>*</sup>Следи за датой и временем кастинга в разделе «Новости проекта»</p>
         </div>
     </div>
     <!-- <section class="long color-red" style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-2.jpg')">

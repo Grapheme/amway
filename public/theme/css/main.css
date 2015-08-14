@@ -2010,9 +2010,17 @@ h4 {
       font-size: 16px; } }
 
 h4.yellow {
+  font-size: 15px;
   color: #f47d08;
-  margin-top: 20px;
-  margin-bottom: 70px;
+  margin-top: 15px;
+  margin-bottom: 80px;
+}
+
+h4.orange {
+  font-size: 15px;
+  color: #ff4b27;
+  margin-top: 15px;
+  margin-bottom: 80px;
 }
 
 /* line 365, /Users/morad/Projects/amway/public/theme/css/main.scss */
