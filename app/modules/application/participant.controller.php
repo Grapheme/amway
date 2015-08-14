@@ -168,8 +168,8 @@ class ParticipantController extends BaseController {
             'photo' => 'required'));
         if ($validator->passes()):
             if ($user = User::where('id', Input::get('user_id'))->where('load_video', 1)->first()):
-                try{
-                    if(empty($user->video)):
+                try {
+                    if (empty($user->video)):
                         $user->guest_likes = $user->guest_likes + 10;
                     endif;
                     $user->video = Input::get('video');
@@ -177,7 +177,7 @@ class ParticipantController extends BaseController {
                     $user->save();
                     $user->touch();
                     return Response::make('', 200);
-                }catch (Exception $e){
+                } catch (Exception $e) {
                     return Response::make('', 500);
                 }
             endif;
