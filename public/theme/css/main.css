@@ -2027,6 +2027,8 @@ h4 span {
   color: #333;
   font-size: 12px;
   margin-top: 0.5em;
+  display: block;
+  text-transform: none !important;
 }
 
 /* line 365, /Users/morad/Projects/amway/public/theme/css/main.scss */
