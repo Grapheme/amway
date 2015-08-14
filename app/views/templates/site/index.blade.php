@@ -65,32 +65,34 @@ endif;
         </div>
     </section>
     @endif
-    <div class="holder gray grey">
-        <h3>Что нужно сделать?</h3>
-        <div class="units-3">
-            <div class="unit">
-                <img src="http://agen-project.ru/theme/img/stage-1.png" alt="">
+    <div class="row grey">
+        <div class="holder">
+            <h3>Что нужно сделать?</h3>
+            <div class="units-3">
+                <div class="unit">
+                    <img src="http://agen-project.ru/theme/img/stage-1.png" alt="">
 
-                <div class="title">
-                    &nbsp;
+                    <div class="title">
+                       Регистрируйся на сайте
+                    </div>
+                    <!-- <p>Регистрируйся на сайте</p> -->
                 </div>
-                <p>Регистрируйся на сайте</p>
-            </div>
-            <div class="unit">
-                <img src="http://agen-project.ru/theme/img/stage-main-2.png" alt="">
+                <div class="unit">
+                    <img src="http://agen-project.ru/theme/img/stage-main-2.png" alt="">
 
-                <div class="title">
-                    &nbsp;
+                    <div class="title">
+                        Заливай креативное видео
+                    </div>
+                    <!-- <p>Заливай креативное видео</p> -->
                 </div>
-                <p>Заливай креативное видео</p>
-            </div>
-            <div class="unit">
-                <img src="http://agen-project.ru/theme/img/stage-main-3.png" alt="">
+                <div class="unit">
+                    <img src="http://agen-project.ru/theme/img/stage-main-3.png" alt="">
 
-                <div class="title">
-                    &nbsp;
+                    <div class="title">
+                        Набирай «голоса» и следи за новостями проекта
+                    </div>
+                    <!-- <p>Набирай «голоса» и следи за новостями проекта</p> -->
                 </div>
-                <p>Набирай «голоса» и следи за новостями проекта</p>
             </div>
         </div>
     </div>
