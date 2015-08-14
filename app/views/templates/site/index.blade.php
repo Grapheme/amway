@@ -69,25 +69,37 @@ endif;
         <h3>Что нужно сделать?</h3>
         <div class="units-3">
             <div class="unit">
-                <img src="http://agen-project.ru/theme/img/stage-main-1.png" alt="">
-                <p>Регистрируйся на сайте</p>
+                <img src="http://agen-project.ru/theme/img/stage-1.png" alt="">
+
+                <div class="title">
+                    10 авг. — 15 сент.
+                </div>
+                <p>Регистрация участников конкурса</p>
             </div>
             <div class="unit">
-                <img src="http://agen-project.ru/theme/img/stage-main-2.png" alt="">
-                <p>Заливай креативное видео</p>
+                <img src="http://agen-project.ru/theme/img/stage-2.png" alt="">
+
+                <div class="title">
+                    20 сент. — 23 окт.
+                </div>
+                <p>Формирование команд <br>и подготовка к шоу</p>
             </div>
             <div class="unit">
-                <img src="http://agen-project.ru/theme/img/stage-main-3.png" alt="">
-                <p>Собирай «голоса» и следи за новостями проекта</p>
+                <img src="http://agen-project.ru/theme/img/stage-3.png" alt="">
+
+                <div class="title">
+                    24 октября
+                </div>
+                <p>Шоу-финал на большой сцене Вертол-Экспо</p>
             </div>
         </div>
     </div>
-    <section class="long color-red" style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-2.jpg')">
+    <!-- <section class="long color-red" style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-2.jpg')">
         <div class="cover"></div>
         <div class="holder">
             {{ $page->block('third_section') }}
         </div>
-    </section>
+    </section> -->
     <div class="competitors">
         <div class="holder">
             {{ $page->block('four_section') }}
