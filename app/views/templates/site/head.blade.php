@@ -66,7 +66,7 @@ if (isset($page->seos) && is_object($page->seos) && isset($page->seos[Config::ge
 <meta property="og:title" content="@yield('title')" />
 <meta property="og:description" content="@yield('description')" />
 <meta property="og:url" content="{{ URL::to(Request::path()) }}" />
-<meta property="og:image" content="" />
+<meta property="og:image" content="{{ asset(Config::get('site.theme_path').'/img/logo.png') }}" />
 
 <link rel="stylesheet" href="//cdn.jsdelivr.net/bxslider/4.2.5/jquery.bxslider.css">
 {{ HTML::style(Config::get('site.theme_path').'/css/normalize.min.css') }}
