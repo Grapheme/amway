@@ -15,10 +15,10 @@
             <table class="table table-striped table-bordered min-table white-bg">
                 <thead>
                 <tr>
-                    <th class="col-lg-1 text-center">ID</th>
-                    <th class="col-lg-1 text-center">Фото и видео</th>
-                    <th class="col-lg-4 text-center" style="white-space:nowrap;">Данные пользователя</th>
-                    <th class="col-lg-6 text-center" style="white-space:nowrap;"></th>
+                    <th class="text-center">ID</th>
+                    <th class="text-center">Фото и видео</th>
+                    <th class="text-center" style="white-space:nowrap;">Данные пользователя</th>
+                    <th class="text-center" style="white-space:nowrap;"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -82,7 +82,7 @@
                             {{ Form::checkbox('winner') }} Победитель <br>
                             {{ Form::textarea('comment',NULL, array('placeholder'=>'Комментарий','style'=>'width:350px;height:80px;')) }}
 
-                            {{ Form::button('Сохранить',array('class'=>'btn btn-success btn-sm','type'=>'submit','style'=>'margin-top:10px;')) }}
+                            {{ Form::button('Сохранить',array('class'=>'btn btn-success btn-xs','type'=>'submit','style'=>'margin-top:10px;')) }}
                             {{ Form::close() }}
                         </td>
                     </tr>
