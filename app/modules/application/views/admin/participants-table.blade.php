@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         {{ Form::open(array('route'=>array('moderator.participants.lists', $field),'style'=>'margin:0 0 10px 0;')) }}
-        {{ Form::submit('Импорт в CSV',array('class'=>'btn btn-default')) }}
+        {{ Form::submit('Экспорт в CSV',array('class'=>'btn btn-default')) }}
         {{ Form::close() }}
         </div>
     </div>
