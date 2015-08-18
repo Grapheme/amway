@@ -68,9 +68,11 @@
                             </p>
 
                             <hr style="margin-bottom: 5px; margin-top: 5px;">
+                            <nobr>
                             <a href="{{ URL::route('moderator.participants.status', array($user->id, 1)) }}" class="btn btn-success btn-xs js-confirm">Одобрить</a>
                             <a href="{{ URL::route('moderator.participants.status', array($user->id, 3)) }}" class="btn btn-warning btn-xs js-confirm">Отложить</a>
                             <a href="{{ URL::route('moderator.participants.status', array($user->id, 2)) }}" class="btn btn-danger btn-xs js-confirm">Отклонить</a>
+                            </nobr>
                             <hr style="margin-bottom: 5px; margin-top: 5px;">
                         </td>
                         <td>
