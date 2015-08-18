@@ -15,20 +15,6 @@
                 {{ $page->block('first_section') }}
             </div>
         </section>
-    @if($news_list = News::where('publication' ,1)->orderBy('published_at','DESC')->with('meta.photo')->get())
-        <div class="news-grid">
-        @if($news_list->count())
-            <h3>ФОТОРЕПОРТАЖИ</h3>
-            <div class="holder">
-            @foreach($news_list as $news)
-                <div class="unit photo">
-                    @include(Helper::layout('blocks.news'), compact('news'))
-                </div>
-            @endforeach
-            </div>
-        @endif
-        </div>
-    @endif
     @if($top_video = Accounts::where('group_id' ,4)->where('load_video', 1)->orderBy('top_week_video','DESC')->where('video', '!=', '')->where('top_video', 1)->with('likes')->get())
          <div class="row grey">
             <div class="holder">
@@ -48,6 +34,20 @@
                     @include(Helper::layout('blocks.video'), compact('video'))
                 </div>
                 @endforeach
+            </div>
+        @endif
+        </div>
+    @endif
+    @if($news_list = News::where('publication' ,1)->orderBy('published_at','DESC')->with('meta.photo')->get())
+        <div class="news-grid">
+        @if($news_list->count())
+            <h3>ФОТОРЕПОРТАЖИ</h3>
+            <div class="holder">
+            @foreach($news_list as $news)
+                <div class="unit photo">
+                    @include(Helper::layout('blocks.news'), compact('news'))
+                </div>
+            @endforeach
             </div>
         @endif
         </div>
