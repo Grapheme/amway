@@ -17,7 +17,8 @@
                 <tr>
                     <th class="col-lg-1 text-center">ID</th>
                     <th class="col-lg-1 text-center">Фото и видео</th>
-                    <th class="col-lg-10 text-center" style="white-space:nowrap;">Данные пользователя</th>
+                    <th class="col-lg-4 text-center" style="white-space:nowrap;">Данные пользователя</th>
+                    <th class="col-lg-6 text-center" style="white-space:nowrap;"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -71,13 +72,16 @@
                             <a href="{{ URL::route('moderator.participants.status', array($user->id, 3)) }}" class="btn btn-warning btn-xs js-confirm">Отложить</a>
                             <a href="{{ URL::route('moderator.participants.status', array($user->id, 2)) }}" class="btn btn-danger btn-xs js-confirm">Отклонить</a>
                             <hr style="margin-bottom: 5px; margin-top: 5px;">
+                        </td>
+                        <td>
                             {{ Form::model($user,array('route'=>array('moderator.participants.save',$user->id),'method'=>'post')) }}
+                            {{ Form::select('participant_group_id', $groups) }}<br>
                             {{ Form::checkbox('in_main_page') }} Показывать на главной <br>
                             {{ Form::checkbox('top_week_video') }} Лучшее видео недели <br>
                             {{ Form::checkbox('top_video') }} Лучшее видео <br>
                             {{ Form::checkbox('winner') }} Победитель <br>
+                            {{ Form::textarea('comment',NULL, array('placeholder'=>'Комментарий','style'=>'width:350px;height:80px;')) }}
 
-                            {{ Form::select('participant_group_id', $groups) }}<br>
                             {{ Form::button('Сохранить',array('class'=>'btn btn-success btn-sm','type'=>'submit','style'=>'margin-top:10px;')) }}
                             {{ Form::close() }}
                         </td>
