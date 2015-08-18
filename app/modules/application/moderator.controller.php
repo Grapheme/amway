@@ -17,6 +17,8 @@ class ModeratorController extends BaseController {
                     'as' => 'moderator.participants.save', 'uses' => $class . '@participantsSave'));
                 Route::get('participants/{params}', array('as' => 'moderator.participants.lists',
                     'uses' => $class . '@participantsLists'));
+                Route::post('participants/{params}', array('as' => 'moderator.participants.lists',
+                    'uses' => $class . '@participantsListsImport'));
             });
             Route::get('participants/{user_id}/status/{status_number}', array('as' => 'moderator.participants.status',
                 'uses' => $class . '@participantsSetStatus'));
@@ -65,7 +67,7 @@ class ModeratorController extends BaseController {
             $groups[$index] = $title;
         endforeach;
         if (Input::has('search')):
-            $users = Accounts::where('group_id', 4)->where('name', 'like', '%'.Input::get('search').'%')->orderBy('created_at', 'DESC')->with('ulogin')->paginate(20);
+            $users = Accounts::where('group_id', 4)->where('name', 'like', '%' . Input::get('search') . '%')->orderBy('created_at', 'DESC')->with('ulogin')->paginate(20);
         else:
             $users = Accounts::where('group_id', 4)->orderBy('created_at', 'DESC')->where('status', $filter_status)->with('ulogin')->paginate(20);
         endif;
@@ -99,8 +101,9 @@ class ModeratorController extends BaseController {
         return Redirect::back();
 
     }
+
     /****************************************************************************/
-    public function participantsLists($params){
+    public function participantsLists($params) {
 
         if ($counts_all = (new User())->select(DB::raw('status, COUNT(*) AS count'))->where('group_id', 4)->groupBy('status')->get()):
             $temp = $counts = array();
@@ -120,8 +123,19 @@ class ModeratorController extends BaseController {
         return View::make($this->module['tpl'] . 'participants-table', compact('users', 'filter_status', 'counts', 'groups', 'field'));
     }
 
-    public function participantsPhones(){
-
+    public function participantsListsImport($params) {
+        $users_list = Accounts::where('group_id', 4)->orderBy('created_at', 'DESC')->get();
+        $users = array();
+        $output = '';
+        foreach ($users_list as $user):
+            $fio = explode(' ', $user->name);
+            $output .= implode("\t", array($user->$params, @$fio[0], @$fio[1])) . "\n";
+        endforeach;
+        $headers = array(
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => 'attachment; filename="ExportFileName.csv"',
+        );
+        return Response::make(rtrim($output, "\n"), 200, $headers);
     }
     /****************************************************************************/
 }
