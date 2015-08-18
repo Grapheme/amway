@@ -15,6 +15,8 @@ class ModeratorController extends BaseController {
                     'uses' => $class . '@participantsList'));
                 Route::post('participant/{user_id}/save', array('before' => 'csrf',
                     'as' => 'moderator.participants.save', 'uses' => $class . '@participantsSave'));
+                Route::get('participants/{params}', array('as' => 'moderator.participants.lists',
+                    'uses' => $class . '@participantsLists'));
             });
             Route::get('participants/{user_id}/status/{status_number}', array('as' => 'moderator.participants.status',
                 'uses' => $class . '@participantsSetStatus'));
@@ -95,6 +97,30 @@ class ModeratorController extends BaseController {
             $user->save();
         endif;
         return Redirect::back();
+
+    }
+    /****************************************************************************/
+    public function participantsLists($params){
+
+        if ($counts_all = (new User())->select(DB::raw('status, COUNT(*) AS count'))->where('group_id', 4)->groupBy('status')->get()):
+            $temp = $counts = array();
+            foreach ($counts_all as $count):
+                $temp[$count->status] = $count->count;
+            endforeach;
+            $counts = $temp;
+        endif;
+        $counts = (array)$counts;
+        $filter_status = Input::get('filter_status') ?: '0';
+        $groups[0] = 'Без группы';
+        foreach (ParticipantGroup::lists('title', 'id') as $index => $title):
+            $groups[$index] = $title;
+        endforeach;
+        $field = $params;
+        $users = Accounts::where('group_id', 4)->orderBy('created_at', 'DESC')->get();
+        return View::make($this->module['tpl'] . 'participants-table', compact('users', 'filter_status', 'counts', 'groups', 'field'));
+    }
+
+    public function participantsPhones(){
 
     }
     /****************************************************************************/
