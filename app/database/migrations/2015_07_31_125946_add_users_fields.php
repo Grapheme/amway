@@ -18,8 +18,9 @@ class AddUsersFields extends Migration {
 			$table->string('local_video',100)->after('load_video')->nullable();
 			$table->timestamp('local_video_date')->after('local_video')->nullable();
 			$table->text('video')->after('local_video_date')->nullable();
+			$table->text('comment')->after('video')->nullable();
 
-			$table->boolean('in_main_page')->after('video')->nullable()->unsigned()->default(0);
+			$table->boolean('in_main_page')->after('comment')->nullable()->unsigned()->default(0);
 			$table->boolean('winner')->after('in_main_page')->nullable()->unsigned()->default(0);
 			$table->boolean('top_week_video')->after('winner')->nullable()->unsigned()->default(0);
 			$table->boolean('top_video')->after('top_week_video')->nullable()->unsigned()->default(0);

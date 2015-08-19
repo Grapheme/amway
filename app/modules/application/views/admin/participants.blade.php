@@ -15,9 +15,10 @@
             <table class="table table-striped table-bordered min-table white-bg">
                 <thead>
                 <tr>
-                    <th class="col-lg-1 text-center">ID</th>
-                    <th class="col-lg-1 text-center">Фото и видео</th>
-                    <th class="col-lg-10 text-center" style="white-space:nowrap;">Данные пользователя</th>
+                    <th class="text-center">ID</th>
+                    <th class="text-center">Фото и видео</th>
+                    <th class="text-center" style="white-space:nowrap;">Данные пользователя</th>
+                    <th class="text-center" style="white-space:nowrap;"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -67,18 +68,23 @@
                             </p>
 
                             <hr style="margin-bottom: 5px; margin-top: 5px;">
+                            <nobr>
                             <a href="{{ URL::route('moderator.participants.status', array($user->id, 1)) }}" class="btn btn-success btn-xs js-confirm">Одобрить</a>
                             <a href="{{ URL::route('moderator.participants.status', array($user->id, 3)) }}" class="btn btn-warning btn-xs js-confirm">Отложить</a>
                             <a href="{{ URL::route('moderator.participants.status', array($user->id, 2)) }}" class="btn btn-danger btn-xs js-confirm">Отклонить</a>
+                            </nobr>
                             <hr style="margin-bottom: 5px; margin-top: 5px;">
+                        </td>
+                        <td>
                             {{ Form::model($user,array('route'=>array('moderator.participants.save',$user->id),'method'=>'post')) }}
+                            {{ Form::select('participant_group_id', $groups) }}<br>
                             {{ Form::checkbox('in_main_page') }} Показывать на главной <br>
                             {{ Form::checkbox('top_week_video') }} Лучшее видео недели <br>
                             {{ Form::checkbox('top_video') }} Лучшее видео <br>
                             {{ Form::checkbox('winner') }} Победитель <br>
+                            {{ Form::textarea('comment',NULL, array('placeholder'=>'Комментарий','style'=>'width:350px;height:80px;')) }}
 
-                            {{ Form::select('participant_group_id', $groups) }}<br>
-                            {{ Form::button('Сохранить',array('class'=>'btn btn-success btn-sm','type'=>'submit','style'=>'margin-top:10px;')) }}
+                            {{ Form::button('Сохранить',array('class'=>'btn btn-success btn-xs','type'=>'submit','style'=>'margin-top:10px;')) }}
                             {{ Form::close() }}
                         </td>
                     </tr>
