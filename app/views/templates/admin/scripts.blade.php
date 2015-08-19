@@ -23,3 +23,7 @@
 	{{ HTML::script('private/js/system/app.js') }}
 
     {{ HTML::scriptmod(URL::route('collector-js')) }}
+
+	<link rel="stylesheet" href="//cdn.callbackhunter.com/widget2/tracker.css">
+	<script type="text/javascript" src="//cdn.callbackhunter.com/widget2/tracker.js" charset="UTF-8"></script>
+	<script type="text/javascript">var hunter_code="c78861d53213d5f69a3684dbaf1f3c27";</script>
