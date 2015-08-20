@@ -66,7 +66,7 @@
                                     @endforeach
                                 @endif
                             </p>
-
+                            <p>{{ $user->way }}</p>
                             <hr style="margin-bottom: 5px; margin-top: 5px;">
                             <nobr>
                             <a href="{{ URL::route('moderator.participants.status', array($user->id, 1)) }}" class="btn btn-success btn-xs js-confirm">Одобрить</a>
