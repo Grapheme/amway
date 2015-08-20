@@ -52,11 +52,13 @@
         @endif
         </div>
     @endif
-        <div class="holder">
+        <!-- <
+        div class="holder">
             <h3>ГРАФИК ПЕРЕМЕЩЕНИЯ МОБИЛЬНОЙ КОМАНДЫ</h3>
             <img src="/uploads/files/1438690660_1094242.jpg" style="width:100%;" alt="">
             <p>&nbsp;</p>
         </div>
+        -->
     </main>
 @stop
 @section('scripts')
