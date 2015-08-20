@@ -157,13 +157,19 @@ endif;
     <div class="news-grid">
         {{ $page->block('seven_section') }}
         <div class="holder">
-            @if($news = News::where('publication' ,1)->orderBy('published_at','DESC')->with('meta.photo')->first())
+            @if($news = News::where('publication' ,1)->orderBy('published_at','DESC')->with('meta.photo')->take(1)->from(0)->get())
             <div class="unit photo">
                 @include(Helper::layout('blocks.news'),compact('news'))
                 <a href="{{ pageurl('news') }}" class="all">Посмотреть все репортажи</a>
             </div>
             @endif
-            <div class="unit map">
+            @if($news = News::where('publication' ,1)->orderBy('published_at','DESC')->with('meta.photo')->take(1)->from(1)->get())
+            <div class="unit photo">
+                @include(Helper::layout('blocks.news'),compact('news'))
+                <a href="{{ pageurl('news') }}" class="all">Посмотреть все репортажи</a>
+            </div>
+            @endif
+            <!--<div class="unit map">
                 <a href="{{ pageurl('news') }}" class="wrapper">
                     <div class="frame">
                         <img src="{{ asset(@$map['file_path']) }}" class="visual" alt="{{ @$map['title'] }}">
@@ -173,7 +179,7 @@ endif;
                     </div>
                 </a>
                 <a href="{{ pageurl('news') }}" class="all">БУДЬ ПЕРВЫМ В СВОЕМ ГОРОДЕ</a>
-            </div>
+            </div> -->
             @if($video = Accounts::where('group_id' ,4)->where('load_video', 1)->where('video', '!=', '')->where('top_week_video', 1)->with('likes')->first())
             <div class="unit video best">
                 @include(Helper::layout('blocks.video'), compact('video'))
