@@ -125,7 +125,12 @@ class ModeratorController extends BaseController {
     }
 
     public function participantsListsImport($params) {
-        $users_list = Accounts::where('group_id', 4)->orderBy('created_at', 'DESC')->get();
+
+        if(Input::has('without_video')):
+            $users_list = Accounts::where('group_id', 4)->where('video','')->orderBy('created_at', 'DESC')->get();
+        else:
+            $users_list = Accounts::where('group_id', 4)->orderBy('created_at', 'DESC')->get();
+        endif;
         $users = array();
         $output = '';
         foreach ($users_list as $user):
