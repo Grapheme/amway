@@ -186,10 +186,10 @@ endif;
                 </div>
             </div>
         </div>
-        <div class="holder">
+        <!-- <div class="holder">
             <h3>{{ @$map['title'] }}</h3>
             <img src="{{ asset(@$map['file_path']) }}" style="width:100%;" alt="">
-        </div>
+        </div> -->
         <div class="row">
             <div class="holder">
                 <h3>Организатор конкурса</h3>

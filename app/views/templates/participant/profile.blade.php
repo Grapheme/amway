@@ -64,7 +64,7 @@ $profile = Accounts::where('id', Auth::user()->id)->with('ulogin', 'likes')->fir
 
                     <label>
                         <span class="label">Почему именно я или моя команда должен(-ы) принять участие в шоу-финале?</span>
-                        {{ Form::textarea('way', null, array('placeholder' => 'Eсли у тебя команда – перечисли имена участников в этом поле')) }}
+                        {{ Form::textarea('way', null, array('placeholder' => 'Eсли у тебя есть команда – перечисли имена участников в этом поле')) }}
                     </label>
                     {{ Form::hidden('photo','') }}
                     <br>
