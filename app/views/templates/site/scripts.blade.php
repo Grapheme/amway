@@ -28,3 +28,4 @@
 <link rel="stylesheet" href="//cdn.callbackhunter.com/widget2/tracker.css">
 <script type="text/javascript" src="//cdn.callbackhunter.com/widget2/tracker.js" charset="UTF-8"></script>
 <script type="text/javascript">var hunter_code="c78861d53213d5f69a3684dbaf1f3c27";</script>
+<script type="text/javascript">(window.Image ? (new Image()) : document.createElement('img')).src = location.protocol + '//vk.com/rtrg?r=FgTtm8/xyOi5mqJqBitEGGBKbBRzoyy60xnDknUbzf8zpy/wYAsZrodifUxCkOShQcyt60lHRfmBzc3LX/WvkGajVAAwJxjme4KbiJ1Zx0tpDubW**CRpVxjN4ejL*5x81oN3nFprTy6Xzgj6MZnQZlq9KdqPLmKVau/ge9LJGM-';</script>
