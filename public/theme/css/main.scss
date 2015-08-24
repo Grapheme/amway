@@ -381,6 +381,21 @@ h3 {
     font-size: 20px;
   }
 }
+h3 {
+  font-family: 'Vaccine-Regular';
+  font-size: 24px;
+  letter-spacing: 0.1em;
+  color: #163055;
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 62px;
+  text-transform: uppercase;
+  @include mobile {
+    margin-top: 30px;
+    margin-bottom: 32px;
+    font-size: 20px;
+  }
+}
 
 .progress {
   height: 20px;

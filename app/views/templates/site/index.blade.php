@@ -45,9 +45,10 @@ endif;
     <section class="long color-blue video">
         <iframe data-src="https://player.vimeo.com/video/135698166?autoplay=1&loop=1&color=ffffff&title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         <div class="slides">
-          <div class="slide" style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-1.jpg')"></div>
+          <!-- <div class="slide" style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-1.jpg')"></div>
           <div class="slide" style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-2.jpg')"></div>
-          <div class="slide" style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-3.jpg')"></div>
+          <div class="slide" style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-3.jpg')"></div> -->
+          <div class="slide" style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-11.jpg')"></div>
         </div>
         <div class="cover"></div>
         <div class="holder">
@@ -64,13 +65,70 @@ endif;
         </div>
     </section>
     @endif
-    <section class="long color-red" style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-2.jpg')">
+    <div class="row grey">
+        <div class="holder">
+            <h3>Что нужно сделать?</h3>
+            <h4>У тебя есть идеи и есть команда?</h4>
+            <div class="units-3">
+                <div class="unit">
+                    <img src="http://agen-project.ru/theme/img/stage-1.png" alt="">
+                    <div class="title">
+                       &nbsp;
+                    </div>
+                    <p>Регистрируйся на сайте</p>
+                </div>
+                <div class="unit">
+                    <img src="http://agen-project.ru/theme/img/stage-main-2.png" alt="">
+                    <div class="title">
+                        &nbsp;
+                    </div>
+                    <p>Заливай креативное видео с участниками твоей команды</p>
+                </div>
+                <div class="unit">
+                    <img src="http://agen-project.ru/theme/img/stage-main-3.png" alt="">
+                    <div class="title">
+                        &nbsp;
+                    </div>
+                    <p>Набирай «голоса» и следи за новостями проекта</p>
+                </div>
+            </div>
+            <h4 class="yellow">Твоя команда в проекте!</h4>
+
+            <h4>У тебя есть идея и ты — творческая личность?</h4>
+            <div class="units-3">
+                <div class="unit">
+                    <img src="http://agen-project.ru/theme/img/stage-main-4.png" alt="">
+                    <div class="title">
+                       &nbsp;
+                    </div>
+                    <p>Регистрируйся на сайте</p>
+                </div>
+                <div class="unit">
+                    <img src="http://agen-project.ru/theme/img/stage-main-5.png" alt="">
+                    <div class="title">
+                        &nbsp;
+                    </div>
+                    <p>Заливай креативное видео, в котором покажи <br>свою идею</p>
+                </div>
+                <div class="unit">
+                    <img src="http://agen-project.ru/theme/img/stage-main-6.png" alt="">
+                    <div class="title">
+                        &nbsp;
+                    </div>
+                    <p>Набирай «голоса»</p>
+                </div>
+            </div>
+            <h4 class="orange">Приходи на кастинг!<sup>*</sup>
+                <span><sup>*</sup>Следи за датой и временем кастинга в разделе «<a href="{{ pageurl('news') }}">Новости проекта</a>»</span>
+            </h4>
+        </div>
+    </div>
+    <!-- <section class="long color-red" style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-2.jpg')">
         <div class="cover"></div>
         <div class="holder">
             {{ $page->block('third_section') }}
         </div>
-    </section>
-    
+    </section> -->
     <div class="row grey">
       <div class="mentors">
         <div class="holder">
@@ -185,13 +243,19 @@ endif;
     <div class="news-grid">
         {{ $page->block('seven_section') }}
         <div class="holder">
-            @if($news = News::where('publication' ,1)->orderBy('published_at','DESC')->with('meta.photo')->first())
+            @if($news = News::where('publication' ,1)->orderBy('published_at','DESC')->with('meta.photo')->take(1)->skip(0)->first())
             <div class="unit photo">
                 @include(Helper::layout('blocks.news'),compact('news'))
                 <a href="{{ pageurl('news') }}" class="all">Посмотреть все репортажи</a>
             </div>
             @endif
-            <div class="unit map">
+            @if($news = News::where('publication' ,1)->orderBy('published_at','DESC')->with('meta.photo')->take(1)->skip(1)->first())
+            <div class="unit photo">
+                @include(Helper::layout('blocks.news'),compact('news'))
+                <a href="{{ pageurl('news') }}" class="all">Посмотреть все репортажи</a>
+            </div>
+            @endif
+            <!--<div class="unit map">
                 <a href="{{ pageurl('news') }}" class="wrapper">
                     <div class="frame">
                         <img src="{{ asset(@$map['file_path']) }}" class="visual" alt="{{ @$map['title'] }}">
@@ -201,7 +265,7 @@ endif;
                     </div>
                 </a>
                 <a href="{{ pageurl('news') }}" class="all">БУДЬ ПЕРВЫМ В СВОЕМ ГОРОДЕ</a>
-            </div>
+            </div> -->
             @if($video = Accounts::where('group_id' ,4)->where('load_video', 1)->where('video', '!=', '')->where('top_week_video', 1)->with('likes')->first())
             <div class="unit video best">
                 @include(Helper::layout('blocks.video'), compact('video'))

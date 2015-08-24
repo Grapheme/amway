@@ -24,3 +24,8 @@
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter31932671 = new Ya.Metrika({ id:31932671, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="https://mc.yandex.ru/watch/31932671" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
+
+<link rel="stylesheet" href="//cdn.callbackhunter.com/widget2/tracker.css">
+<script type="text/javascript" src="//cdn.callbackhunter.com/widget2/tracker.js" charset="UTF-8"></script>
+<script type="text/javascript">var hunter_code="c78861d53213d5f69a3684dbaf1f3c27";</script>
+<script type="text/javascript">(window.Image ? (new Image()) : document.createElement('img')).src = location.protocol + '//vk.com/rtrg?r=FgTtm8/xyOi5mqJqBitEGGBKbBRzoyy60xnDknUbzf8zpy/wYAsZrodifUxCkOShQcyt60lHRfmBzc3LX/WvkGajVAAwJxjme4KbiJ1Zx0tpDubW**CRpVxjN4ejL*5x81oN3nFprTy6Xzgj6MZnQZlq9KdqPLmKVau/ge9LJGM-';</script>

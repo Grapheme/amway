@@ -47,6 +47,7 @@ $profile = Accounts::where('id', Auth::user()->id)->with('ulogin', 'likes')->fir
                 </div>
                 @if(!Auth::user()->load_video)
                     <div class="row">
+                        <p><br>ЗАГРУЗИ ВИДЕО СВОЕГО ВЫСТУПЛЕНИЯ И ПОЛУЧИ 10 ДОПОЛНИТЕЛЬНЫХ ГОЛОСОВ</p>
                         <a href="#" class="btn-big-red add-video">Добавить видео</a>
                         <input class="videoupload" type="file" name="video"
                                data-url="{{ URL::route('profile.video.upload') }}"

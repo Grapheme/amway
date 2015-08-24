@@ -25,16 +25,33 @@ endif;
 @stop
 @section('content')
 <main>
-    <section class="color-purple-dark mid">
+    <section class="long color-blue video"
+             style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-13.jpg')">
+        <iframe data-src="https://player.vimeo.com/video/136314283?autoplay=1&loop=1&color=ffffff&title=0&byline=0&portrait=0"
+                frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <div class="cover"></div>
+        <div class="holder">
+            <h2>Присоединяйся к команде молодых <br>и талантливых</h2>
+            <p>Загрузи видео на сайте или выбери подходящее видео из своей библиотеки на телефоне или планшете.</p>
+            <a href="" class="play" onclick="yaCounter31932671.reachGoal('about_video'); return true;">
+            <span class="icon-play"></span>
+            </a>
+            <p>
+                ПРИМЕР ВИДЕО УЧАСТНИКА
+            </p>
+        </div>
+    </section>
+   <!--  <section class="color-purple-dark mid">
         <div class="cover"></div>
         <div class="holder">
             {{ $page->block('content') }}
         </div>
-    </section>
+    </section> -->
     <div class="holder">
         <h3>УЧАСТНИКИ КОНКУРСА</h3>
         <div class="note">
             ВСЕГО {{ Accounts::where('group_id', 4)->count() }} {{ Lang::choice('УЧАСТНИК|УЧАСТНИКА|УЧАСТНИКОВ', Accounts::where('group_id', 4)->count()) }}
+            <p>Зарегистрируйся на сайте, загрузи видео своего выступления и получи 10 дополнительных голосов.</p>
         </div>
         <br>
         <br>

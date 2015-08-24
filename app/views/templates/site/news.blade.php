@@ -15,12 +15,31 @@
                 {{ $page->block('first_section') }}
             </div>
         </section>
-        <div class="holder">
-            <h3>ГРАФИК ПЕРЕМЕЩЕНИЯ МОБИЛЬНОЙ КОМАНДЫ</h3>
-            <img src="/uploads/files/1438690660_1094242.jpg" style="width:100%;" alt="">
+    @if($top_video = Accounts::where('group_id' ,4)->where('load_video', 1)->orderBy('top_week_video','DESC')->where('video', '!=', '')->where('top_video', 1)->with('likes')->get())
+         <div class="row">
+            <div class="holder">
+                <h3>ВИДЕО УЧАСТНИКОВ ПРОЕКТА</h3>
+
+                <div class="center-text">
+                    <p>Нашел себя в «Видео участников» — расскажи друзьям, набирай голоса и приходи <br>на кастинг. Следи за новостями проекта.</p>
+                    <br><br>
+                </div>
+            </div>
         </div>
-    @if($news_list = News::where('publication' ,1)->orderBy('published_at','DESC')->with('meta.photo')->get())
         <div class="news-grid">
+        @if($top_video->count())
+            <div class="holder">
+                @foreach($top_video as $video)
+                <div class="unit video{{ $video->top_week_video ? ' best' : '' }}">
+                    @include(Helper::layout('blocks.video'), compact('video'))
+                </div>
+                @endforeach
+            </div>
+        @endif
+        </div>
+    @endif
+    @if($news_list = News::where('publication' ,1)->orderBy('published_at','DESC')->with('meta.photo')->get())
+        <div class="news-grid grey">
         @if($news_list->count())
             <h3>ФОТОРЕПОРТАЖИ</h3>
             <div class="holder">
@@ -33,20 +52,13 @@
         @endif
         </div>
     @endif
-    @if($top_video = Accounts::where('group_id' ,4)->where('load_video', 1)->orderBy('top_week_video','DESC')->where('video', '!=', '')->where('top_video', 1)->with('likes')->get())
-        <div class="news-grid grey">
-        @if($top_video->count())
-            <h3>ЛУЧШИЕ ВИДЕО</h3>
-            <div class="holder">
-                @foreach($top_video as $video)
-                <div class="unit video{{ $video->top_week_video ? ' best' : '' }}">
-                    @include(Helper::layout('blocks.video'), compact('video'))
-                </div>
-                @endforeach
-            </div>
-        @endif
+        <!-- <
+        div class="holder">
+            <h3>ГРАФИК ПЕРЕМЕЩЕНИЯ МОБИЛЬНОЙ КОМАНДЫ</h3>
+            <img src="/uploads/files/1438690660_1094242.jpg" style="width:100%;" alt="">
+            <p>&nbsp;</p>
         </div>
-    @endif
+        -->
     </main>
 @stop
 @section('scripts')
