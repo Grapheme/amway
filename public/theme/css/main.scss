@@ -745,3 +745,48 @@ h3 {
     }
   }
 }
+
+h4 {
+  font-family: 'Vaccine-Regular';
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  color: #163055;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 52px;
+  text-transform: uppercase; }
+  @media (max-width: 640px) {
+    h3 {
+      margin-top: 20px;
+      margin-bottom: 22px;
+      font-size: 16px; } }
+
+h4.yellow {
+  font-size: 15px;
+  color: #f47d08;
+  margin-top: 0;
+  margin-bottom: 80px;
+}
+
+h4.orange {
+  font-size: 15px;
+  color: #ff4b27;
+  margin-top: 0;
+  margin-bottom: 80px;
+}
+
+h4 span {
+  font-family: MuseoSansCyrl-300;
+  color: #333;
+  font-size: 12px;
+  margin-top: 0.5em;
+  display: block;
+  text-transform: none !important;
+}
+
+h4 span a {
+  color: inherit !important;
+  text-decoration: none;
+  display: inline;
+  line-height: 140%;
+}
