@@ -207,7 +207,7 @@ button.btn-big-red {
   display: none;
 }
 
-.competitors {
+.competitors, .mentors {
   .holder {
     max-width: 1162px;
     margin: 0 auto;
@@ -220,6 +220,7 @@ button.btn-big-red {
     .unit {
       display: inline-block;
       text-align: center;
+      vertical-align: top;
       margin: 0 18px;
       width: 200px;
       margin-bottom: 50px;
@@ -294,6 +295,13 @@ button.btn-big-red {
         text-align: center;
         margin-top: 8px;
       }
+      .about {
+        font-family: 'MuseoSansCyrl-300';        
+        font-size: 14px;
+        color: #1b3559;
+        text-align: center;
+        margin-top: 4px;
+      }
       .rating {
         margin-top: 10px;
         text-align: center;
@@ -341,6 +349,18 @@ button.btn-big-red {
           background: #ea1924;
           color: white;
         }
+      }
+    }
+  }
+}
+
+.mentors {
+  .holder {
+    width: 950px;
+    margin-bottom: 20px;
+    .unit {
+      .name {
+        height: auto;
       }
     }
   }
