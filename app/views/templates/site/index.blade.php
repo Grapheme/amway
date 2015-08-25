@@ -123,13 +123,15 @@ endif;
             </h4>
         </div>
     </div>
+    
     <!-- <section class="long color-red" style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-2.jpg')">
         <div class="cover"></div>
         <div class="holder">
             {{ $page->block('third_section') }}
         </div>
     </section> -->
-    <div class="row grey">
+
+    <!-- <div class="row grey">
       <div class="mentors">
         <div class="holder">
         <h3>Наставники</h3>
@@ -214,7 +216,8 @@ endif;
         </center>
       </div>
       </div>
-    </div>
+    </div> -->
+
     <div class="competitors">
         <div class="holder">
             {{ $page->block('four_section') }}
