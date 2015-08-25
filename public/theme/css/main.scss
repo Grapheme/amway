@@ -268,9 +268,10 @@ button.btn-big-red {
       .img {
         -webkit-border-radius: 300px;
                 border-radius: 300px;
+        min-height: 200px;
         img {
-          display: block;
-          width: 200px;
+          display: inline-block;
+          max-width: 200px;
           max-height: 200px;
           -webkit-border-radius: 300px;
                   border-radius: 300px;
