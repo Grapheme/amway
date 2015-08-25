@@ -123,13 +123,15 @@ endif;
             </h4>
         </div>
     </div>
+    
     <!-- <section class="long color-red" style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-2.jpg')">
         <div class="cover"></div>
         <div class="holder">
             {{ $page->block('third_section') }}
         </div>
     </section> -->
-    <div class="row grey">
+
+    <!-- <div class="row grey">
       <div class="mentors">
         <div class="holder">
         <h3>Наставники</h3>
@@ -145,7 +147,7 @@ endif;
               режиссер, продюссер, <nobr>шеф-редактор</nobr> Первого Канала, <nobr>экс-программный</nobr> директор Love Radio
             </div>
           </div>
-          <!-- <div class="unit">
+          <div class="unit">
             <div class="img">
               <img src="{{ asset(Config::get('site.theme_path')) }}/img/balkov.png" alt="">
             </div>
@@ -155,7 +157,7 @@ endif;
             <div class="about">
               Певец, полуфиналист фестиваля &laquo;Новая <nobr>Волна-2012</nobr>&raquo;, финалист телепроекта &laquo;СТС зажигает суперзвезду&raquo;
             </div>
-          </div> -->
+          </div>
           <div class="unit">
             <div class="img">
               <img src="{{ asset(Config::get('site.theme_path')) }}/img/veda.png" alt="">
@@ -178,7 +180,7 @@ endif;
               <nobr>вице-чемпион</nobr> России, полуфиналист чемпионатов Мира и&nbsp;Европы, финалист кубков Мира и&nbsp;Европы, основатель школы танцев &laquo;Dance School&raquo;
             </div>
           </div>
-          <!-- <div class="unit">
+          <div class="unit">
             <div class="img">
               <img src="{{ asset(Config::get('site.theme_path')) }}/img/krey.png" alt="">
             </div>
@@ -188,7 +190,7 @@ endif;
             <div class="about">
               иллюзионист, финалист шоу &laquo;Феномен&raquo; на&nbsp;телеканале &laquo;Россия&raquo;
             </div>
-          </div> -->
+          </div>
           <div class="unit">
             <div class="img">
               <img src="{{ asset(Config::get('site.theme_path')) }}/img/malahov.png" alt="">
@@ -214,7 +216,8 @@ endif;
         </center>
       </div>
       </div>
-    </div>
+    </div> -->
+
     <div class="competitors">
         <div class="holder">
             {{ $page->block('four_section') }}
