@@ -15,7 +15,7 @@
             <table class="table table-striped table-bordered min-table white-bg">
                 <thead>
                 <tr>
-                    <th class="text-center">ID</th>
+                    <th class="text-center">№ п.п</th>
                     <th class="text-center">Фото и видео</th>
                     <th class="text-center" style="white-space:nowrap;">Данные пользователя</th>
                     <th class="text-center" style="white-space:nowrap;"></th>
@@ -53,7 +53,8 @@
                         <td>
                             <p>
                                 <strong>{{ $user->name }}</strong><br/>
-                                @if($user->age > 0){{ $user->age }} {{ Lang::choice('год|года|лет', (int)$user->age ) }}. {{ $user->location }}<br/>@endif
+                                @if($user->age > 0){{ $user->age }} {{ Lang::choice('год|года|лет', (int)$user->age ) }}.@endif
+                                @if(!empty($user->location)) {{ $user->location }}<br/>@endif
                                 {{ $user->created_at->format('d.m.Y H:i:s') }} #{{ $user->id }}<br/>
                                 <i class="fa fa-envelope-o"></i> {{ HTML::mailto($user->email, $user->email) }}<br/>
                                 <i class="fa fa-fw fa-mobile-phone"></i>{{ $user->phone }}
