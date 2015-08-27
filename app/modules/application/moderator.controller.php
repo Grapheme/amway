@@ -137,10 +137,11 @@ class ModeratorController extends BaseController {
             $fio = explode(' ', $user->name);
             $name = iconv("UTF-8", Input::get('coding'), @$fio[0]);
             $surname = iconv("UTF-8", Input::get('coding'), @$fio[1]);
+            $glue = Input::get('glue');
             if($params == 'all'):
-                $output .= implode("\t", array($user->email, $user->photo, $name, $surname)) . "\n";
+                $output .= implode("$glue", array($user->email, $user->photo, $name, $surname)) . "\n";
             else:
-                $output .= implode("\t", array($user->$params, $name, $surname)) . "\n";
+                $output .= implode("$glue", array($user->$params, $name, $surname)) . "\n";
             endif;
         endforeach;
         $headers = array(

@@ -11,8 +11,16 @@
                     <section class="col col-2">
                         <label class="select">
                             <select name="coding">
-                                <option selected="" value="utf-8">UTF-8</option>
                                 <option value="windows-1251">Windows 1251</option>
+                                <option value="utf-8">UTF-8</option>
+                            </select> <i></i>
+                        </label>
+                    </section>
+                    <section class="col col-2">
+                        <label class="select">
+                            <select name="glue">
+                                <option value=";">Точка с запятой</option>
+                                <option value="\t">Табуляция</option>
                             </select> <i></i>
                         </label>
                     </section>
