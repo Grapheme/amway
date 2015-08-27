@@ -152,7 +152,6 @@ class ModeratorController extends BaseController {
                 endif;
             endif;
         endforeach;
-        Helper::tad($output);
         $headers = array(
             'Content-Type' => 'text/csv',
             'Content-Disposition' => 'attachment; filename="ExportList.csv"',
