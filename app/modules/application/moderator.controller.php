@@ -139,11 +139,20 @@ class ModeratorController extends BaseController {
             $surname = iconv("UTF-8", Input::get('coding'), @$fio[1]);
             $glue = Input::get('glue');
             if($params == 'all'):
-                $output .= implode("$glue", array($user->email, $user->photo, $name, $surname)) . "\n";
+                if($glue == '\t'):
+                    $output .= implode("\t", array($user->email, $user->photo, $name, $surname)) . "\n";
+                else:
+                    $output .= implode("$glue", array($user->email, $user->photo, $name, $surname)) . "\n";
+                endif;
             else:
-                $output .= implode("$glue", array($user->$params, $name, $surname)) . "\n";
+                if($glue == '\t'):
+                    $output .= implode("\t", array($user->email, $user->photo, $name, $surname)) . "\n";
+                else:
+                    $output .= implode("$glue", array($user->email, $user->photo, $name, $surname)) . "\n";
+                endif;
             endif;
         endforeach;
+        Helper::tad($output);
         $headers = array(
             'Content-Type' => 'text/csv',
             'Content-Disposition' => 'attachment; filename="ExportList.csv"',
