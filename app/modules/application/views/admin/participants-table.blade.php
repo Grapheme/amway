@@ -20,7 +20,7 @@
                         <label class="select">
                             <select name="glue">
                                 <option value=";">Точка с запятой</option>
-                                <option value="\t">Табуляция</option>
+                                <option value="tab">Табуляция</option>
                             </select> <i></i>
                         </label>
                     </section>

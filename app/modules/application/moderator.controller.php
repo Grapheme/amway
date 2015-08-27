@@ -139,13 +139,13 @@ class ModeratorController extends BaseController {
             $surname = iconv("UTF-8", Input::get('coding'), @$fio[1]);
             $glue = Input::get('glue');
             if($params == 'all'):
-                if($glue == '\t'):
+                if($glue == 'tab'):
                     $output .= implode("\t", array($user->email, $user->photo, $name, $surname)) . "\n";
                 else:
                     $output .= implode("$glue", array($user->email, $user->photo, $name, $surname)) . "\n";
                 endif;
             else:
-                if($glue == '\t'):
+                if($glue == 'tab'):
                     $output .= implode("\t", array($user->email, $user->photo, $name, $surname)) . "\n";
                 else:
                     $output .= implode("$glue", array($user->email, $user->photo, $name, $surname)) . "\n";
