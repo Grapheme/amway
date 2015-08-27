@@ -16,7 +16,7 @@ class ModeratorController extends BaseController {
                 Route::post('participant/{user_id}/save', array('before' => 'csrf',
                     'as' => 'moderator.participants.save', 'uses' => $class . '@participantsSave'));
                 Route::get('participants/{params}', array('as' => 'moderator.participants.lists',
-                    'uses' => $class . '@participantsLists'));
+                    'uses' => $class . '@participantsLists'))->where('params', '(all|phone|email)');
                 Route::post('participants/{params}', array('as' => 'moderator.participants.lists',
                     'uses' => $class . '@participantsListsImport'));
             });
@@ -135,11 +135,17 @@ class ModeratorController extends BaseController {
         $output = '';
         foreach ($users_list as $user):
             $fio = explode(' ', $user->name);
-            $output .= implode("\t", array($user->$params, @$fio[0], @$fio[1])) . "\n";
+            $name = iconv("UTF-8", Input::get('coding'), @$fio[0]);
+            $surname = iconv("UTF-8", Input::get('coding'), @$fio[1]);
+            if($params == 'all'):
+                $output .= implode("\t", array($user->email, $user->photo, $name, $surname)) . "\n";
+            else:
+                $output .= implode("\t", array($user->$params, $name, $surname)) . "\n";
+            endif;
         endforeach;
         $headers = array(
             'Content-Type' => 'text/csv',
-            'Content-Disposition' => 'attachment; filename="ExportFileName.csv"',
+            'Content-Disposition' => 'attachment; filename="ExportList.csv"',
         );
         return Response::make(rtrim($output, "\n"), 200, $headers);
     }
