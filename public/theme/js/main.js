@@ -211,7 +211,11 @@ function cropImage(data){
     aspectRatio: 1 / 1,
     mouseWheelZoom: false,
     minCropBoxWidth: 200,
-    minCropBoxHeight: 200
+    minCropBoxHeight: 200,
+    minContainerWidth: 200,
+    minContainerHeight: 200,
+    minCanvasWidth: 200,
+    minCanvasHeight: 200,
   });
 }
 
@@ -297,7 +301,10 @@ $(function() {
   $('.photo-edit-final').click(function(e){
     e.preventDefault();
     console.log($('#photo-edit .holder > img').cropper('getCroppedCanvas'));
-    var data = $('#photo-edit .holder > img').cropper('getCroppedCanvas').toDataURL();
+    var data = $('#photo-edit .holder > img').cropper('getCroppedCanvas', {
+      width: 200,
+      height: 200
+    }).toDataURL();
     $('body.profile .photo img').attr('src', data);
     $('form.edit-profile input[name="photo"]').val(data);
     closePopups();
