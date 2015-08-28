@@ -65,7 +65,7 @@ endif;
         </div>
     </section>
     @endif
-    <div class="row grey">
+    <div class="row">
         <div class="holder">
             <h3>Что нужно сделать?</h3>
             <h4>У тебя есть идеи и есть команда?</h4>
