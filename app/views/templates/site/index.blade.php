@@ -123,7 +123,7 @@ endif;
             </h4>
         </div>
     </div>
-    
+
     <!-- <section class="long color-red" style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-2.jpg')">
         <div class="cover"></div>
         <div class="holder">
@@ -131,10 +131,10 @@ endif;
         </div>
     </section> -->
 
-    <!-- <div class="row grey">
+    <div class="row grey">
       <div class="mentors">
         <div class="holder">
-        <h3>Наставники</h3>
+        <h3>Наставники проекта</h3>
         <center>
           <div class="unit">
             <div class="img">
@@ -144,18 +144,18 @@ endif;
               Соня Пожарская
             </div>
             <div class="about">
-              режиссер, продюссер, <nobr>шеф-редактор</nobr> Первого Канала, <nobr>экс-программный</nobr> директор Love Radio
+              режиссер, продюссер, <nobr>шеф-редактор</nobr> Первого Канала
             </div>
           </div>
           <div class="unit">
             <div class="img">
-              <img src="{{ asset(Config::get('site.theme_path')) }}/img/balkov.png" alt="">
+              <img src="{{ asset(Config::get('site.theme_path')) }}/img/tina.png" alt="">
             </div>
             <div class="name">
-              Антон Балков
+              Тина Чарльз
             </div>
             <div class="about">
-              Певец, полуфиналист фестиваля &laquo;Новая <nobr>Волна-2012</nobr>&raquo;, финалист телепроекта &laquo;СТС зажигает суперзвезду&raquo;
+              Певица, музыкальный продюсер и диск-жокей. Радио шоу Тины Чарльз &lt;Музыка для молодёжи&gt; выходит по понедельникам на Радио Рекорд в Ростове-на-Дону
             </div>
           </div>
           <div class="unit">
@@ -177,7 +177,7 @@ endif;
               Александр Поляков
             </div>
             <div class="about">
-              <nobr>вице-чемпион</nobr> России, полуфиналист чемпионатов Мира и&nbsp;Европы, финалист кубков Мира и&nbsp;Европы, основатель школы танцев &laquo;Dance School&raquo;
+              <nobr>вице-чемпион</nobr> России, полуфиналист чемпионатов Мира и&nbsp;Европы, финалист кубков Мира и&nbsp;Европы по бальным танцам, основатель школы танцев &laquo;Dance School&raquo;
             </div>
           </div>
           <div class="unit">
@@ -199,7 +199,7 @@ endif;
               Алексей Малахов
             </div>
             <div class="about">
-              певец, победитель проекта &laquo;Битва хоров&raquo; в&nbsp;составе хора Краснодарского края
+              певец, победитель проекта &laquo;Битва хоров 2013&raquo; в&nbsp;составе хора Краснодарского края
             </div>
           </div>
           <div class="unit">
@@ -216,7 +216,7 @@ endif;
         </center>
       </div>
       </div>
-    </div> -->
+    </div>
 
     <div class="competitors">
         <div class="holder">
