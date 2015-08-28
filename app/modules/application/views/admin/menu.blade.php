@@ -23,6 +23,9 @@
         {{ $filter_status == '3' ? '<i class="fa fa-check"></i>' : '' }}
         Отклоненные ({{ @(int)$counts[3] }})
     </a>
+    <a href="{{ URL::route('moderator.participants.lists','all') }}" class="btn btn-default">
+        Полный список
+    </a>
     <a href="{{ URL::route('moderator.participants.lists','email') }}" class="btn btn-default">
         Список Emails
     </a>

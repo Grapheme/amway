@@ -16,9 +16,13 @@ class ModeratorController extends BaseController {
                 Route::post('participant/{user_id}/save', array('before' => 'csrf',
                     'as' => 'moderator.participants.save', 'uses' => $class . '@participantsSave'));
                 Route::get('participants/{params}', array('as' => 'moderator.participants.lists',
-                    'uses' => $class . '@participantsLists'));
+                    'uses' => $class . '@participantsLists'))->where('params', '(all|phone|email)');
                 Route::post('participants/{params}', array('as' => 'moderator.participants.lists',
                     'uses' => $class . '@participantsListsImport'));
+                Route::get('participants/{user_id}/edit', array('as' => 'moderator.participants.edit',
+                    'uses' => $class . '@participantsEdit'));
+                Route::put('participants/{user_id}/save', array('as' => 'moderator.participants.save',
+                    'uses' => $class . '@participantsUpdate'));
             });
             Route::get('participants/{user_id}/status/{status_number}', array('as' => 'moderator.participants.status',
                 'uses' => $class . '@participantsSetStatus'));
@@ -47,6 +51,66 @@ class ModeratorController extends BaseController {
     }
 
     public static function returnActions() {
+    }
+
+    /****************************************************************************/
+    public function participantsEdit($user_id) {
+        if ($user = Accounts::where('id', $user_id)->with('ulogin')->first()):
+            return View::make($this->module['tpl'] . 'participant.edit', compact('user'));
+        else:
+            return Redirect::back();
+        endif;
+    }
+
+    public function participantsUpdate($user_id) {
+
+        if ($user = Accounts::where('id', $user_id)->first()):
+            try {
+                $post = Input::all();
+                if (Input::has('remove_photo')):
+                    if (!empty($user->photo) && File::exists(public_path($user->photo))):
+                        File::delete(public_path($user->photo));
+                    endif;
+                    $user->photo = '';
+                    if (!empty($user->thumbnail) && File::exists(public_path($user->thumbnail))):
+                        File::delete(public_path($user->thumbnail));
+                    endif;
+                    $user->thumbnail = '';
+                    foreach (Ulogin::where('user_id', $user->id)->get() as $ulogin):
+                        $ulogin->photo_big = '';
+                        $ulogin->photo = '';
+                        $ulogin->save();
+                    endforeach;
+                else:
+                    $user->photo = AdminUploadsController::getUploadedFile('photo');
+                    $user->thumbnail = '';
+                endif;
+                $names = explode(' ', $user->name);
+                if (count($names) > 2):
+                    $user->name = @$names[0] . ' ' . @$names[1];
+                else:
+                    $user->name = $post['name'];
+                endif;
+                $user->email = $post['email'];
+                $user->surname = '';
+                $user->location = $post['location'];
+                $user->phone = $post['phone'];
+                $user->age = $post['age'];
+                $user->way = $post['way'];
+                $user->yad_name = $post['yad_name'];
+                $user->load_video = Input::has('load_video') ? 1 : 0;
+                $user->local_video = $post['local_video'];
+                $user->local_video_date = $post['local_video_date'];
+                $user->video = $post['video'];
+                $user->video_thumb = $post['video_thumb'];
+                $user->save();
+                $user->touch();
+                return Redirect::route('moderator.participants');
+            } catch (Exception $e) {
+
+            }
+        endif;
+        return Redirect::back();
     }
 
     /****************************************************************************/
@@ -126,8 +190,8 @@ class ModeratorController extends BaseController {
 
     public function participantsListsImport($params) {
 
-        if(Input::has('without_video')):
-            $users_list = Accounts::where('group_id', 4)->where('video','')->orderBy('created_at', 'DESC')->get();
+        if (Input::has('without_video')):
+            $users_list = Accounts::where('group_id', 4)->where('video', '')->orderBy('created_at', 'DESC')->get();
         else:
             $users_list = Accounts::where('group_id', 4)->orderBy('created_at', 'DESC')->get();
         endif;
@@ -135,11 +199,26 @@ class ModeratorController extends BaseController {
         $output = '';
         foreach ($users_list as $user):
             $fio = explode(' ', $user->name);
-            $output .= implode("\t", array($user->$params, @$fio[0], @$fio[1])) . "\n";
+            $name = iconv("UTF-8", Input::get('coding'), @$fio[0]);
+            $surname = iconv("UTF-8", Input::get('coding'), @$fio[1]);
+            $glue = Input::get('glue');
+            if ($params == 'all'):
+                if ($glue === 'tab'):
+                    $output .= implode("\t", array($user->email, $user->photo, $name, $surname)) . "\n";
+                else:
+                    $output .= implode("$glue", array($user->email, $user->photo, $name, $surname)) . "\n";
+                endif;
+            else:
+                if ($glue === 'tab'):
+                    $output .= implode("\t", array($user->email, $user->photo, $name, $surname)) . "\n";
+                else:
+                    $output .= implode("$glue", array($user->email, $user->photo, $name, $surname)) . "\n";
+                endif;
+            endif;
         endforeach;
         $headers = array(
             'Content-Type' => 'text/csv',
-            'Content-Disposition' => 'attachment; filename="ExportFileName.csv"',
+            'Content-Disposition' => 'attachment; filename="ExportList.csv"',
         );
         return Response::make(rtrim($output, "\n"), 200, $headers);
     }

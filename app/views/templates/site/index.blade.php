@@ -123,7 +123,7 @@ endif;
             </h4>
         </div>
     </div>
-    
+
     <!-- <section class="long color-red" style="background-image: url('{{ asset(Config::get('site.theme_path')) }}/img/tmp-visual-2.jpg')">
         <div class="cover"></div>
         <div class="holder">
@@ -131,31 +131,31 @@ endif;
         </div>
     </section> -->
 
-    <!-- <div class="row grey">
+    <div class="row grey">
       <div class="mentors">
         <div class="holder">
-        <h3>Наставники</h3>
+        <h3>Наставники проекта</h3>
         <center>
           <div class="unit">
             <div class="img">
               <img src="{{ asset(Config::get('site.theme_path')) }}/img/pojarskaya.png" alt="">
             </div>
             <div class="name">
-              Соня Пожарская
+              Соня<br>Пожарская
             </div>
             <div class="about">
-              режиссер, продюссер, <nobr>шеф-редактор</nobr> Первого Канала, <nobr>экс-программный</nobr> директор Love Radio
+              режиссер, продюссер, <nobr>шеф-редактор</nobr> Первого Канала
             </div>
           </div>
           <div class="unit">
             <div class="img">
-              <img src="{{ asset(Config::get('site.theme_path')) }}/img/balkov.png" alt="">
+              <img src="{{ asset(Config::get('site.theme_path')) }}/img/tina.png" alt="">
             </div>
             <div class="name">
-              Антон Балков
+              Тина<br>Чарльз
             </div>
             <div class="about">
-              Певец, полуфиналист фестиваля &laquo;Новая <nobr>Волна-2012</nobr>&raquo;, финалист телепроекта &laquo;СТС зажигает суперзвезду&raquo;
+              Певица, музыкальный продюсер и диск-жокей. 
             </div>
           </div>
           <div class="unit">
@@ -163,7 +163,7 @@ endif;
               <img src="{{ asset(Config::get('site.theme_path')) }}/img/veda.png" alt="">
             </div>
             <div class="name">
-              Натали Веда
+              Натали<br>Веда
             </div>
             <div class="about">
               ведущая, модель, <nobr>экс-ведущая</nobr> MTV, REN TV, ТНТ
@@ -174,10 +174,10 @@ endif;
               <img src="{{ asset(Config::get('site.theme_path')) }}/img/polyakov.png" alt="">
             </div>
             <div class="name">
-              Александр Поляков
+              Александр<br>Поляков
             </div>
             <div class="about">
-              <nobr>вице-чемпион</nobr> России, полуфиналист чемпионатов Мира и&nbsp;Европы, финалист кубков Мира и&nbsp;Европы, основатель школы танцев &laquo;Dance School&raquo;
+              <nobr>вице-чемпион</nobr> России, полуфиналист чемпионатов Мира и&nbsp;Европы по бальным танцам
             </div>
           </div>
           <div class="unit">
@@ -185,7 +185,7 @@ endif;
               <img src="{{ asset(Config::get('site.theme_path')) }}/img/krey.png" alt="">
             </div>
             <div class="name">
-              Алекс Крэй
+              Алекс<br>Крэй
             </div>
             <div class="about">
               иллюзионист, финалист шоу &laquo;Феномен&raquo; на&nbsp;телеканале &laquo;Россия&raquo;
@@ -196,10 +196,10 @@ endif;
               <img src="{{ asset(Config::get('site.theme_path')) }}/img/malahov.png" alt="">
             </div>
             <div class="name">
-              Алексей Малахов
+              Алексей<br>Малахов
             </div>
             <div class="about">
-              певец, победитель проекта &laquo;Битва хоров&raquo; в&nbsp;составе хора Краснодарского края
+              певец, победитель проекта &laquo;Битва хоров 2013&raquo; в&nbsp;составе хора Краснодарского края
             </div>
           </div>
           <div class="unit">
@@ -207,7 +207,7 @@ endif;
               <img src="{{ asset(Config::get('site.theme_path')) }}/img/lepskaya.png" alt="">
             </div>
             <div class="name">
-              Мирослава Лепская
+              Мирослава<br>Лепская
             </div>
             <div class="about">
               стилист проекта, имиджмейкер
@@ -216,7 +216,7 @@ endif;
         </center>
       </div>
       </div>
-    </div> -->
+    </div>
 
     <div class="competitors">
         <div class="holder">
