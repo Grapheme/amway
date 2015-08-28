@@ -16,7 +16,7 @@
         <div class="header">Войти</div>
         <center>
             <div id="uLogin_aef33ddd" data-uloginid="aef33ddd"
-                 data-ulogin="mobilebuttons=0;display=buttons;fields=first_name,last_name,email,city,photo,photo_big;redirect_uri={{ URL::route('signin.ulogin') }}">
+                 data-ulogin="mobilebuttons=0;display=buttons;optional=first_name,last_name,email,city,photo,photo_big;redirect_uri={{ URL::route('signin.ulogin') }}">
                 <a href="javascript:void(0);" data-uloginbutton="facebook" class="fb">Войти с Facebook</a>
                 <br>
                 <a href="javascript:void(0);" data-uloginbutton="vkontakte" class="vk">Войти с Vkontakte</a>
