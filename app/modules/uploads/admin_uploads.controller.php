@@ -371,7 +371,7 @@ class AdminUploadsController extends BaseController {
                 File::makeDirectory(public_path(Config::get('site.uploads_thumb_user_dir')),0777,TRUE);
             endif;
             ImageManipulation::make(Input::file($input)->getRealPath())->resize(110,110)->save(public_path(Config::get('site.uploads_thumb_user_dir')).'/thumb_'.$fileName);
-            ImageManipulation::make(Input::file($input)->getRealPath())->resize(157,157)->save(public_path(Config::get('site.uploads_image_user_dir')).'/'.$fileName);
+            ImageManipulation::make(Input::file($input)->getRealPath())->resize(200,200)->save(public_path(Config::get('site.uploads_image_user_dir')).'/'.$fileName);
             return array('main'=>Config::get('site.uploads_image_user_dir').'/'.$fileName,'thumb'=>Config::get('site.uploads_thumb_user_dir').'/thumb_'.$fileName);
         endif;
         return FALSE;
@@ -418,12 +418,9 @@ class AdminUploadsController extends BaseController {
 
         $base62string = Input::get($input);
         if(!empty($base62string)):
-            #list($type, $base62string) = explode(';', $base62string);
-            #list(, $base62string)      = explode(',', $base62string);
-            #$base62string = base64_decode($base62string);
             $fileName = time()."_".Auth::user()->id."_".rand(1000, 1999).'.png';
             ImageManipulation::make($base62string)->resize(110,110)->save(Config::get('site.uploads_thumb_dir').'/thumb_'.$fileName);
-            ImageManipulation::make($base62string)->resize(157,157)->save(Config::get('site.uploads_photo_dir').'/'.$fileName);
+            ImageManipulation::make($base62string)->resize(200,200)->save(Config::get('site.uploads_photo_dir').'/'.$fileName);
             return array('main'=>Config::get('site.uploads_photo_public_dir').'/'.$fileName,'thumb'=>Config::get('site.uploads_thumb_public_dir').'/thumb_'.$fileName);
         endif;
         return FALSE;
