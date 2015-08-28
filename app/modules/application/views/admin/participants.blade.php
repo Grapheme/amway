@@ -28,16 +28,16 @@
                         <td>{{ ($index+1)+($sub_index*20) }}</td>
                         <td>
                         @if(!empty($user->photo) && File::exists(public_path($user->photo)))
-                            <img src="{{ asset($user->photo) }}"
+                            <img height="100px" src="{{ asset($user->photo) }}"
                                  alt="{{ $user->name }}" class="{{ $user->name }}">
                         @elseif(!empty($user->ulogin) && !empty($user->ulogin->photo_big))
-                            <img src="{{ $user->ulogin->photo_big }}" alt="{{ $user->name }}"
+                            <img height="100px" src="{{ $user->ulogin->photo_big }}" alt="{{ $user->name }}"
                                  class="{{ $user->name }}">
                         @elseif(!empty($user->photo))
-                            <img src="{{ $user->photo }}" alt="{{ $user->name }}"
+                            <img height="100px" src="{{ $user->photo }}" alt="{{ $user->name }}"
                                  class="{{ $user->name }}">
                         @else
-                            <img src="{{ asset('/uploads/users/award-'.rand(1, 3).'.png') }}" alt="{{ $user->name }}"
+                            <img height="100px" src="{{ asset('/uploads/users/award-'.rand(1, 3).'.png') }}" alt="{{ $user->name }}"
                                  class="{{ $user->name }}">
                         @endif
                             <div style="margin-top: 50px">
@@ -67,7 +67,7 @@
                                     @endforeach
                                 @endif
                             </p>
-                            <p>{{ $user->way }}</p>
+                            <p>{{ Str::limit($user->way, 150, ' <span class="label-info">... Продолжение</span>') }}</p>
                             <hr style="margin-bottom: 5px; margin-top: 5px;">
                             <nobr>
                             <a href="{{ URL::route('moderator.participants.status', array($user->id, 1)) }}" class="btn btn-success btn-xs js-confirm">Одобрить</a>
@@ -75,6 +75,7 @@
                             <a href="{{ URL::route('moderator.participants.status', array($user->id, 2)) }}" class="btn btn-danger btn-xs js-confirm">Отклонить</a>
                             </nobr>
                             <hr style="margin-bottom: 5px; margin-top: 5px;">
+                            <a href="{{ URL::route('moderator.participants.edit', $user->id) }}" class="btn btn-success btn-xs">Редактировать профиль</a>
                         </td>
                         <td>
                             {{ Form::model($user,array('route'=>array('moderator.participants.save',$user->id),'method'=>'post')) }}
