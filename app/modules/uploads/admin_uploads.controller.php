@@ -371,7 +371,7 @@ class AdminUploadsController extends BaseController {
                 File::makeDirectory(public_path(Config::get('site.uploads_thumb_user_dir')),0777,TRUE);
             endif;
             ImageManipulation::make(Input::file($input)->getRealPath())->resize(110,110)->save(public_path(Config::get('site.uploads_thumb_user_dir')).'/thumb_'.$fileName);
-            ImageManipulation::make(Input::file($input)->getRealPath())->resize(157,157)->save(public_path(Config::get('site.uploads_image_user_dir')).'/'.$fileName);
+            ImageManipulation::make(Input::file($input)->getRealPath())->resize(200,200)->save(public_path(Config::get('site.uploads_image_user_dir')).'/'.$fileName);
             return array('main'=>Config::get('site.uploads_image_user_dir').'/'.$fileName,'thumb'=>Config::get('site.uploads_thumb_user_dir').'/thumb_'.$fileName);
         endif;
         return FALSE;
