@@ -369,6 +369,20 @@ button.btn-big-red {
   }
 }
 
+.competitors {
+  .holder {
+    .unit {
+      .img {
+        min-height: 150px;
+        img {
+          max-width: 150px;
+          max-height: 150px;
+        }
+      }
+    }
+  }
+}
+
 h3 {
   font-family: 'Vaccine-Regular';
   font-size: 24px;
