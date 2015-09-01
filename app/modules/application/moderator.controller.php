@@ -21,7 +21,7 @@ class ModeratorController extends BaseController {
                     'uses' => $class . '@participantsListsImport'));
                 Route::get('participants/{user_id}/edit', array('as' => 'moderator.participants.edit',
                     'uses' => $class . '@participantsEdit'));
-                Route::put('participants/{user_id}/save', array('as' => 'moderator.participants.save',
+                Route::post('participants/{user_id}/save', array('as' => 'moderator.participants.save',
                     'uses' => $class . '@participantsUpdate'));
             });
             Route::get('participants/{user_id}/status/{status_number}', array('as' => 'moderator.participants.status',
