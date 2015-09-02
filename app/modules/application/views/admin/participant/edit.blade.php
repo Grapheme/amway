@@ -2,7 +2,7 @@
 @section('style')
 @stop
 @section('content')
-    {{ Form::model($user,array('route'=>array('moderator.participants.save',$user->id),'class'=>'smart-form','id'=>'group-form','role'=>'form','method'=>'put','files'=>true)) }}
+    {{ Form::model($user,array('route'=>array('moderator.participants.update',$user->id),'class'=>'smart-form','id'=>'group-form','role'=>'form','method'=>'post','files'=>true)) }}
     <div class="row">
         <section class="col col-6">
             <div class="well">
