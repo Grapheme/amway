@@ -131,8 +131,24 @@ class ModeratorController extends BaseController {
         foreach (ParticipantGroup::lists('title', 'id') as $index => $title):
             $groups[$index] = $title;
         endforeach;
-        if (Input::has('search')):
-            $users = Accounts::where('group_id', 4)->where('name', 'like', '%' . Input::get('search') . '%')->orderBy('created_at', 'DESC')->with('ulogin')->paginate(20);
+        if (Input::has('field')):
+            if (Input::get('field') == 'name'):
+                $users = Accounts::where('group_id', 4)->where('name', 'like', '%' . Input::get('search') . '%')->orderBy('created_at', 'DESC')->with('ulogin')->paginate(20);
+            elseif (Input::get('field') == 'location'):
+                if (Input::get('search-like') != ''):
+                    $users = Accounts::where('group_id', 4)->where('location', 'like', '%' . Input::get('search-like') . '%')->orderBy('created_at', 'DESC')->with('ulogin')->paginate(20);
+                else:
+                    $location = Input::get('search-select');
+                    if (!empty($location)):
+                        $users = Accounts::where('group_id', 4)->where('location', $location)->orderBy('created_at', 'DESC')->with('ulogin')->paginate(20);
+                    else:
+                        $users = Accounts::where('group_id', 4)->where(function ($query) {
+                            $query->where('location', '')
+                                ->orWhereNull('location');
+                        })->orderBy('created_at', 'DESC')->with('ulogin')->paginate(20);
+                    endif;
+                endif;
+            endif;
         else:
             $users = Accounts::where('group_id', 4)->orderBy('created_at', 'DESC')->where('status', $filter_status)->with('ulogin')->paginate(20);
         endif;

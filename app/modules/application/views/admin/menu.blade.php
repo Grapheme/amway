@@ -1,8 +1,17 @@
-<form class="header-search pull-right" method="get" action="{{ URL::route('moderator.participants') }}">
-    <input name="search" type="text" id="search-fld" placeholder="Поиск по имени">
+{{ Form::open(array('route'=>'moderator.participants', 'class'=>'header-search pull-right', 'method'=>'get')) }}
+{{ Form::hidden('field', 'name') }}
+<input name="search" type="text" id="search-fld" placeholder="Поиск по имени">
+<button type="submit"><i class="fa fa-search"></i></button>
+{{ Form::close() }}
+
+{{ Form::open(array('route'=>'moderator.participants', 'class'=>'header-search pull-right', 'method'=>'get', 'style'=>'wight:200px; line-height:1.8;')) }}
+{{ Form::hidden('field', 'location') }}
+<input name="search-like" type="text" style="display: inline-block; width: 200px;" id="search-fld" placeholder="Поиск по городу">
+<div style="display:inline-block;">
+    {{ Form::select('search-select', User::groupBy('location')->lists('location','location'), NULL, array('style'=>'height:30px;')) }}
     <button type="submit"><i class="fa fa-search"></i></button>
-    <a title="Cancel Search" id="cancel-search-js" href="javascript:void(0);"><i class="fa fa-times"></i></a>
-</form>
+</div>
+{{ Form::close() }}
 <h1 class="top-module-menu">
     <a href="{{ URL::route('moderator.participants') }}">Участники</a>
 </h1>
