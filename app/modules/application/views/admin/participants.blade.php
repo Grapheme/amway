@@ -93,7 +93,7 @@
                 @endforeach
                 </tbody>
             </table>
-            {{ $users->appends(array('filter_status' => Input::get('filter_status')))->links() }}
+            {{ $users->appends(Input::only('filter_status', 'field', 'search-like', 'search', 'search-select'))->links() }}
         </div>
     </div>
 @else
