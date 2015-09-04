@@ -46,7 +46,7 @@
                         @elseif(!$user->load_video)
                             <p>Видео не загружено</p>
                         @elseif($user->load_video && $user->video != '')
-                            <p><a data-content="{{{ '<iframe width="560" height="315" src="'.$user->video.'" frameborder="0" allowfullscreen></iframe>' }}}" data-html="true" data-original-title="Загруженное видео" data-placement="right" rel="popover" class="btn btn-link" href="javascript:void(0);">Смотреть видео</a></p>
+                            <p><a data-content="{{{ '<iframe width="560" height="315" src="'.trim($user->video).'" frameborder="0" allowfullscreen></iframe>' }}}" data-html="true" data-original-title="Загруженное видео" data-placement="right" rel="popover" class="btn btn-link" href="javascript:void(0);">Смотреть видео</a></p>
                         @endif
                             </div>
                         </td>
