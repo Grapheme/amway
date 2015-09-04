@@ -118,7 +118,7 @@ class ModeratorController extends BaseController {
 
     public function participantsList() {
 
-        if ($counts_all = (new User())->select(DB::raw('status, COUNT(*) AS count'))->where('group_id', 4)->groupBy('status')->get()):
+        if ($counts_all = DB::table('users')->select(DB::raw('status, COUNT(*) AS count'))->where('group_id', 4)->groupBy('status')->get()):
             $temp = $counts = array();
             foreach ($counts_all as $count):
                 $temp[$count->status] = $count->count;
