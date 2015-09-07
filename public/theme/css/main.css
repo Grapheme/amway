@@ -2420,4 +2420,28 @@ h4 span a {
   display: inline;
   line-height: 140%; }
 
+/* line 814, /Users/morad/Projects/amway/public/theme/css/main.scss */
+.mentors-list .holder .units-3 .unit {
+  margin: 0 16px;
+  margin-bottom: 30px; }
+  /* line 817, /Users/morad/Projects/amway/public/theme/css/main.scss */
+  .mentors-list .holder .units-3 .unit:nth-of-type(3n+1) {
+    margin-left: 0; }
+  /* line 820, /Users/morad/Projects/amway/public/theme/css/main.scss */
+  .mentors-list .holder .units-3 .unit:nth-of-type(3n+3) {
+    margin-right: 0; }
+/* line 825, /Users/morad/Projects/amway/public/theme/css/main.scss */
+.mentors-list .holder .units-3.units-4 .unit {
+  width: 240px;
+  margin: 0 10px; }
+  /* line 828, /Users/morad/Projects/amway/public/theme/css/main.scss */
+  .mentors-list .holder .units-3.units-4 .unit:nth-of-type(4n+1) {
+    margin-left: 0; }
+  /* line 831, /Users/morad/Projects/amway/public/theme/css/main.scss */
+  .mentors-list .holder .units-3.units-4 .unit:nth-of-type(4n+4) {
+    margin-right: 0; }
+  /* line 834, /Users/morad/Projects/amway/public/theme/css/main.scss */
+  .mentors-list .holder .units-3.units-4 .unit img {
+    width: 100%; }
+
 /*# sourceMappingURL=main.css.map */
