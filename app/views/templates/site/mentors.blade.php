@@ -17,12 +17,12 @@
                 <h2>Будь лучшим. Учись у лучших!</h2>
 
                 <p>
-                    Наставники проекта #agenproject помогут раскрыть ваш талант и подготовить лучшее выступление для шоу-финала.
+                    Наставники проекта #agenproject помогут раскрыть ваш талант и подготовить лучшее выступление на шоу-финале в Вертол-Экспо 24 октября.
                 </p>
             </div>
         </section>
         <div class="holder">
-            <h1>{{ $page->seo->h1 }}</h1>
+            <h3>{{ $page->seo->h1 }}</h3>
 
             <div class="units-3 units-4">
                 <div class="unit"><img src="{{ asset(Config::get('site.theme_path').'/img/mentor-1.jpg') }}" alt=""> </div>
