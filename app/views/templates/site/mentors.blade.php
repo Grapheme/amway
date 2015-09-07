@@ -11,7 +11,16 @@
 @stop
 @section('content')
     <main class="mentors-list">
+        <section class="color-green mid">
+            <div class="cover"></div>
+            <div class="holder">
+                <h2>Будь лучшим. Учись у лучших!</h2>
 
+                <p>
+                    Наставники проекта #agenproject помогут раскрыть ваш талант и подготовить лучшее выступление для шоу-финала.
+                </p>
+            </div>
+        </section>
         <div class="holder">
             <h1>{{ $page->seo->h1 }}</h1>
 
