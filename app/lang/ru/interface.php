@@ -27,6 +27,7 @@ return array(
     ),
     'DEFAULT' => array(
         'email_exist' => 'Указанный Email уже существует.',
+        'email_not_exist' => 'Указанный Email не существует.',
         'success_insert' => 'Добавлено',
         'success_save' => 'Сохранено',
         'success_save_auto' => 'Автоматическое сохранение',
