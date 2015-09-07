@@ -28,27 +28,27 @@
 
             <div class="units-3">
                 <div class="unit">
-                    <iframe src="https://player.vimeo.com/video/138072183?color=ffffff&byline=0&portrait=0" width="320"
+                    <iframe src="https://player.vimeo.com/video/138072183?title=0&byline=0&portrait=0" width="320"
                             height="180" frameborder="0" webkitallowfullscreen mozallowfullscreen
                             allowfullscreen></iframe>
                 </div>
                 <div class="unit">
-                    <iframe src="https://player.vimeo.com/video/137256707?color=ffffff&byline=0&portrait=0" width="320"
+                    <iframe src="https://player.vimeo.com/video/137256707?title=0&byline=0&portrait=0" width="320"
                             height="180" frameborder="0" webkitallowfullscreen mozallowfullscreen
                             allowfullscreen></iframe>
                 </div>
                 <div class="unit">
-                    <iframe src="https://player.vimeo.com/video/137017831?color=ffffff&byline=0&portrait=0" width="320"
+                    <iframe src="https://player.vimeo.com/video/137017831?title=0&byline=0&portrait=0" width="320"
                             height="180" frameborder="0" webkitallowfullscreen mozallowfullscreen
                             allowfullscreen></iframe>
                 </div>
                 <div class="unit">
-                    <iframe src="https://player.vimeo.com/video/137017821?color=ffffff&byline=0&portrait=0" width="320"
+                    <iframe src="https://player.vimeo.com/video/137017821?title=0&byline=0&portrait=0" width="320"
                             height="180" frameborder="0" webkitallowfullscreen mozallowfullscreen
                             allowfullscreen></iframe>
                 </div>
                 <div class="unit">
-                    <iframe src="https://player.vimeo.com/video/137017809?color=ffffff&byline=0&portrait=0" width="320"
+                    <iframe src="https://player.vimeo.com/video/137017809?title=0&byline=0&portrait=0" width="320"
                             height="180" frameborder="0" webkitallowfullscreen mozallowfullscreen
                             allowfullscreen></iframe>
                 </div>
