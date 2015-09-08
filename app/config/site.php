@@ -2,7 +2,7 @@
 
 return array(
 
-    'date_over_action' => '2015-09-15',
+    'date_over_action' => '2015-09-25',
     'date_final_action' => '2015-10-24',
 
     'theme_path' => URL::to('/theme'),
