@@ -12,6 +12,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 {{ Form::open(array('route'=>array('moderator.participants.lists', $field),'style'=>'margin:0 0 10px 0;','class'=>'smart-form')) }}
+                {{ Form::hidden('field', $field) }}
                 <div class="row">
                     <section class="col col-2">
                         <label class="select">
