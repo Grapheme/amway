@@ -42,6 +42,11 @@
         </div>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                Всего: <span id="js-user-count">{{ count($users) }}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <table class="table table-striped table-bordered min-table white-bg">
                     <thead>
                     <tr>
@@ -60,7 +65,7 @@
                     @foreach($users as $index => $user)
                         <tr class="vertical-middle{{ !empty($user->video) ? ' js-has-video' : ''}}">
                             <?php $fio = explode(' ', $user->name);?>
-                            <td>{{ $index + 1 }}</td>
+                            <td class="js-index-column">{{ $index + 1 }}</td>
                             @if($field == 'all')
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->phone }}</td>
@@ -94,6 +99,11 @@
         $(function () {
             $("#js-without-video").click(function () {
                 $(".js-has-video").toggle();
+                var tr_cnt = $(".vertical-middle:visible").length;
+                $("#js-user-count").html(tr_cnt);
+//                $(".vertical-middle:visible").each(function (index) {
+//                    $(".js-index-column:visible").eq(index).html(index + 1);
+//                });
             });
         });
     </script>
