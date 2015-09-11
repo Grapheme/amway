@@ -1,5 +1,10 @@
 @extends(Helper::acclayout())
 @section('style')
+    <style type="text/css">
+        .js-has-video {
+            background-color: #96bf48;
+        }
+    </style>
 @stop
 @section('content')
     @include($module['tpl'].'/menu')
@@ -26,7 +31,7 @@
                     </section>
                     <section class="col col-2">
                         <label class="checkbox">
-                            {{ Form::checkbox('without_video', TRUE, NULL, array('id'=>'js-without-video')) }}
+                            {{ Form::checkbox('without_video', TRUE, NULL, array('id'=>'js-without-video','autocomplete'=>'off')) }}
                             <i></i>Без видео
                         </label>
                     </section>
@@ -88,7 +93,7 @@
     <script type="application/javascript">
         $(function () {
             $("#js-without-video").click(function () {
-                $(".js-has-video").fadeToggle();
+                $(".js-has-video").toggle();
             });
         });
     </script>

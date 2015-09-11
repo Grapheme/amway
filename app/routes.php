@@ -1,5 +1,4 @@
 <?php
-
 $prefix = Auth::check() ? AuthAccount::getStartPage() : 'guest';
 
 /**
