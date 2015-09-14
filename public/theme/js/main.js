@@ -381,6 +381,26 @@ $(function() {
       sendForm(form);
     }
   })
+	
+  $('#casting form').validate({
+    rules: {
+      name: {
+        required: true,
+      },
+      city: {
+        required: true
+      },
+      time: {
+        required: true
+      },
+      phone: {
+        required: true
+      },
+    },
+    submitHandler: function(form) {
+      sendForm(form);
+    }
+  });
   
   $('#forget form').validate({
     rules: {
@@ -463,7 +483,7 @@ $(function() {
     }
   })
   
-  $('#reg form input[name="phone"], form.edit-profile input[name="phone"]').mask("+7(999) 999-9999");
+  $('#reg form input[name="phone"], form.edit-profile input[name="phone"], #casting input[name="phone"]').mask("+7(999) 999-9999");
   $('input[name="age"]').mask('99');
   
   $('.burger').click(function(e){

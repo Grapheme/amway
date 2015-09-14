@@ -29,6 +29,9 @@
                     <a href="{{ URL::to(AuthAccount::getGroupStartUrl()) }}" onclick="yaCounter31932671.reachGoal('enter_lk'); return true;">Личный кабинет</a>
                     @endif
                 </li>
+                <!--<li class="casting-btn">
+                	<a href="" class="btn-popup" data-href="casting">Запись на кастинг</a>
+                </li>-->
             </ul>
         </nav>
         <div class="burger">

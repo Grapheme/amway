@@ -184,6 +184,7 @@ header {
     ul {
       padding: 0;
       margin: 0;
+			position: relative;
       li {
         display: inline-block;
         margin: 0 20px;
@@ -217,6 +218,13 @@ header {
             display: inline-block;
           }
         }
+				&.casting-btn {
+					position: absolute;
+					right: 8px;
+					top: 44px;
+					font-size: 80%;
+					text-decoration: underline;
+				}
         &.enter {
           font-family: 'MuseoSansCyrl-300';
           font-size: 14px;

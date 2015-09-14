@@ -248,8 +248,9 @@ header {
     /* line 184, /Users/morad/Projects/amway/public/theme/css/_header.scss */
     header nav ul {
       padding: 0;
-      margin: 0; }
-      /* line 187, /Users/morad/Projects/amway/public/theme/css/_header.scss */
+      margin: 0;
+      position: relative; }
+      /* line 188, /Users/morad/Projects/amway/public/theme/css/_header.scss */
       header nav ul li {
         display: inline-block;
         margin: 0 20px; }
@@ -265,24 +266,31 @@ header {
             -webkit-transition: 300ms ease-in-out;
             -o-transition: 300ms ease-in-out;
             transition: 300ms ease-in-out; }
-            /* line 202, /Users/morad/Projects/amway/public/theme/css/_header.scss */
+            /* line 203, /Users/morad/Projects/amway/public/theme/css/_header.scss */
             header nav ul li:nth-child(odd) {
               -webkit-transform: translateX(50px);
               -ms-transform: translateX(50px);
               -o-transform: translateX(50px);
               transform: translateX(50px); } }
-        /* line 209, /Users/morad/Projects/amway/public/theme/css/_header.scss */
+        /* line 210, /Users/morad/Projects/amway/public/theme/css/_header.scss */
         header nav ul li a {
           color: #19375f;
           text-decoration: none; }
-          /* line 212, /Users/morad/Projects/amway/public/theme/css/_header.scss */
+          /* line 213, /Users/morad/Projects/amway/public/theme/css/_header.scss */
           header nav ul li a:hover {
             color: #e61926; }
           @media (max-width: 640px) {
             header nav ul li a {
               padding: 20px 0;
               display: inline-block; } }
-        /* line 220, /Users/morad/Projects/amway/public/theme/css/_header.scss */
+        /* line 221, /Users/morad/Projects/amway/public/theme/css/_header.scss */
+        header nav ul li.casting-btn {
+          position: absolute;
+          right: 8px;
+          top: 44px;
+          font-size: 80%;
+          text-decoration: underline; }
+        /* line 228, /Users/morad/Projects/amway/public/theme/css/_header.scss */
         header nav ul li.enter {
           font-family: 'MuseoSansCyrl-300';
           font-size: 14px;
@@ -300,7 +308,7 @@ header {
               border-radius: 0;
               position: absolute;
               width: 100%; } }
-          /* line 237, /Users/morad/Projects/amway/public/theme/css/_header.scss */
+          /* line 245, /Users/morad/Projects/amway/public/theme/css/_header.scss */
           header nav ul li.enter .user-ico {
             position: absolute;
             top: 11px;
@@ -312,14 +320,14 @@ header {
                 left: auto;
                 margin-top: 28px;
                 margin-left: -104px; } }
-          /* line 249, /Users/morad/Projects/amway/public/theme/css/_header.scss */
+          /* line 257, /Users/morad/Projects/amway/public/theme/css/_header.scss */
           header nav ul li.enter a {
             display: block;
             padding-bottom: 11px;
             padding-top: 10px;
             padding-right: 17px;
             padding-left: 38px; }
-            /* line 255, /Users/morad/Projects/amway/public/theme/css/_header.scss */
+            /* line 263, /Users/morad/Projects/amway/public/theme/css/_header.scss */
             header nav ul li.enter a:hover {
               color: #e61926; }
             @media (max-width: 640px) {
@@ -327,7 +335,7 @@ header {
                 padding: 25px 0;
                 font-size: 16px; } }
   @media (max-width: 640px) {
-    /* line 271, /Users/morad/Projects/amway/public/theme/css/_header.scss */
+    /* line 279, /Users/morad/Projects/amway/public/theme/css/_header.scss */
     header.open nav ul li {
       -webkit-transform: translateX(0);
       -ms-transform: translateX(0);
@@ -335,7 +343,7 @@ header {
       transform: translateX(0);
       opacity: 1; } }
 
-/* line 284, /Users/morad/Projects/amway/public/theme/css/_header.scss */
+/* line 292, /Users/morad/Projects/amway/public/theme/css/_header.scss */
 body.profile header, body.sticky header {
   position: absolute;
   background: white; }
@@ -649,49 +657,49 @@ body.profile footer, body.sticky footer {
         background: #e71927;
         color: white; }
     /* line 164, /Users/morad/Projects/amway/public/theme/css/_popups.scss */
-    .popup-wrapper .popup#reg form {
+    .popup-wrapper .popup#reg form, .popup-wrapper .popup#casting form {
       width: 760px;
       margin: 0 auto; }
       @media (max-width: 640px) {
-        .popup-wrapper .popup#reg form {
+        .popup-wrapper .popup#reg form, .popup-wrapper .popup#casting form {
           width: 300px; } }
       /* line 170, /Users/morad/Projects/amway/public/theme/css/_popups.scss */
-      .popup-wrapper .popup#reg form label {
+      .popup-wrapper .popup#reg form label, .popup-wrapper .popup#casting form label {
         font-family: 'MuseoSansCyrl-300';
         display: block;
         margin-bottom: 8px;
         margin-top: 24px; }
         @media (max-width: 640px) {
-          .popup-wrapper .popup#reg form label {
+          .popup-wrapper .popup#reg form label, .popup-wrapper .popup#casting form label {
             margin-top: 4px; } }
         /* line 178, /Users/morad/Projects/amway/public/theme/css/_popups.scss */
-        .popup-wrapper .popup#reg form label.small {
+        .popup-wrapper .popup#reg form label.small, .popup-wrapper .popup#casting form label.small {
           margin: 0;
           position: relative; }
           @media (max-width: 640px) {
-            .popup-wrapper .popup#reg form label.small {
+            .popup-wrapper .popup#reg form label.small, .popup-wrapper .popup#casting form label.small {
               margin-bottom: 10px; } }
           /* line 184, /Users/morad/Projects/amway/public/theme/css/_popups.scss */
-          .popup-wrapper .popup#reg form label.small .label {
+          .popup-wrapper .popup#reg form label.small .label, .popup-wrapper .popup#casting form label.small .label {
             width: 480px;
             font-size: 14px;
             margin-left: 18px; }
             @media (max-width: 640px) {
-              .popup-wrapper .popup#reg form label.small .label {
+              .popup-wrapper .popup#reg form label.small .label, .popup-wrapper .popup#casting form label.small .label {
                 margin-left: 10px;
                 width: 270px; } }
           /* line 193, /Users/morad/Projects/amway/public/theme/css/_popups.scss */
-          .popup-wrapper .popup#reg form label.small label.error {
+          .popup-wrapper .popup#reg form label.small label.error, .popup-wrapper .popup#casting form label.small label.error {
             position: absolute;
             top: 22px;
             margin-left: 160px; }
             @media (max-width: 640px) {
-              .popup-wrapper .popup#reg form label.small label.error {
+              .popup-wrapper .popup#reg form label.small label.error, .popup-wrapper .popup#casting form label.small label.error {
                 margin-left: 28px;
                 top: auto;
                 bottom: -20px; } }
         /* line 204, /Users/morad/Projects/amway/public/theme/css/_popups.scss */
-        .popup-wrapper .popup#reg form label .label {
+        .popup-wrapper .popup#reg form label .label, .popup-wrapper .popup#casting form label .label {
           width: 160px;
           display: inline-block;
           vertical-align: top;
@@ -700,7 +708,7 @@ body.profile footer, body.sticky footer {
           margin-bottom: -1px;
           vertical-align: middle; }
         /* line 213, /Users/morad/Projects/amway/public/theme/css/_popups.scss */
-        .popup-wrapper .popup#reg form label input, .popup-wrapper .popup#reg form label select {
+        .popup-wrapper .popup#reg form label input, .popup-wrapper .popup#reg form label select, .popup-wrapper .popup#casting form label input, .popup-wrapper .popup#casting form label select {
           width: 572px;
           padding: 0px 26px;
           display: inline-block;
@@ -718,26 +726,26 @@ body.profile footer, body.sticky footer {
           border: none;
           vertical-align: middle; }
           /* line 230, /Users/morad/Projects/amway/public/theme/css/_popups.scss */
-          .popup-wrapper .popup#reg form label input[name="social[]"], .popup-wrapper .popup#reg form label select[name="social[]"] {
+          .popup-wrapper .popup#reg form label input[name="social[]"], .popup-wrapper .popup#reg form label select[name="social[]"], .popup-wrapper .popup#casting form label input[name="social[]"], .popup-wrapper .popup#casting form label select[name="social[]"] {
             width: 525px; }
             @media (max-width: 640px) {
-              .popup-wrapper .popup#reg form label input[name="social[]"], .popup-wrapper .popup#reg form label select[name="social[]"] {
+              .popup-wrapper .popup#reg form label input[name="social[]"], .popup-wrapper .popup#reg form label select[name="social[]"], .popup-wrapper .popup#casting form label input[name="social[]"], .popup-wrapper .popup#casting form label select[name="social[]"] {
                 width: 250px; } }
           /* line 236, /Users/morad/Projects/amway/public/theme/css/_popups.scss */
-          .popup-wrapper .popup#reg form label input[type="checkbox"], .popup-wrapper .popup#reg form label select[type="checkbox"] {
+          .popup-wrapper .popup#reg form label input[type="checkbox"], .popup-wrapper .popup#reg form label select[type="checkbox"], .popup-wrapper .popup#casting form label input[type="checkbox"], .popup-wrapper .popup#casting form label select[type="checkbox"] {
             width: auto;
             margin-left: 160px; }
             @media (max-width: 640px) {
-              .popup-wrapper .popup#reg form label input[type="checkbox"], .popup-wrapper .popup#reg form label select[type="checkbox"] {
+              .popup-wrapper .popup#reg form label input[type="checkbox"], .popup-wrapper .popup#reg form label select[type="checkbox"], .popup-wrapper .popup#casting form label input[type="checkbox"], .popup-wrapper .popup#casting form label select[type="checkbox"] {
                 margin-left: 0; } }
           /* line 243, /Users/morad/Projects/amway/public/theme/css/_popups.scss */
-          .popup-wrapper .popup#reg form label input.error, .popup-wrapper .popup#reg form label select.error {
+          .popup-wrapper .popup#reg form label input.error, .popup-wrapper .popup#reg form label select.error, .popup-wrapper .popup#casting form label input.error, .popup-wrapper .popup#casting form label select.error {
             background: #ffcdcc; }
           @media (max-width: 640px) {
-            .popup-wrapper .popup#reg form label input, .popup-wrapper .popup#reg form label select {
+            .popup-wrapper .popup#reg form label input, .popup-wrapper .popup#reg form label select, .popup-wrapper .popup#casting form label input, .popup-wrapper .popup#casting form label select {
               width: 300px; } }
         /* line 250, /Users/morad/Projects/amway/public/theme/css/_popups.scss */
-        .popup-wrapper .popup#reg form label label.error {
+        .popup-wrapper .popup#reg form label label.error, .popup-wrapper .popup#casting form label label.error {
           font-family: 'MuseoSansCyrl-300';
           font-size: 10px;
           color: #e61926;
@@ -745,33 +753,33 @@ body.profile footer, body.sticky footer {
           top: -20px;
           margin-left: 164px; }
           @media (max-width: 640px) {
-            .popup-wrapper .popup#reg form label label.error {
+            .popup-wrapper .popup#reg form label label.error, .popup-wrapper .popup#casting form label label.error {
               margin-left: 0;
               top: 0px; } }
         /* line 262, /Users/morad/Projects/amway/public/theme/css/_popups.scss */
-        .popup-wrapper .popup#reg form label .social-plus {
+        .popup-wrapper .popup#reg form label .social-plus, .popup-wrapper .popup#casting form label .social-plus {
           display: inline-block;
           vertical-align: middle;
           width: 42px;
           text-align: center; }
           /* line 267, /Users/morad/Projects/amway/public/theme/css/_popups.scss */
-          .popup-wrapper .popup#reg form label .social-plus:hover {
+          .popup-wrapper .popup#reg form label .social-plus:hover, .popup-wrapper .popup#casting form label .social-plus:hover {
             color: #e71927;
             fill: #e71927; }
       /* line 273, /Users/morad/Projects/amway/public/theme/css/_popups.scss */
-      .popup-wrapper .popup#reg form button {
+      .popup-wrapper .popup#reg form button, .popup-wrapper .popup#casting form button {
         width: 360px; }
         @media (max-width: 640px) {
-          .popup-wrapper .popup#reg form button {
+          .popup-wrapper .popup#reg form button, .popup-wrapper .popup#casting form button {
             width: 300px; } }
     /* line 280, /Users/morad/Projects/amway/public/theme/css/_popups.scss */
-    .popup-wrapper .popup#reg .note {
+    .popup-wrapper .popup#reg .note, .popup-wrapper .popup#casting .note {
       text-align: left;
       display: inline-block;
       margin-left: 162px;
       font-size: 14px; }
       @media (max-width: 640px) {
-        .popup-wrapper .popup#reg .note {
+        .popup-wrapper .popup#reg .note, .popup-wrapper .popup#casting .note {
           margin-left: 0; } }
     /* line 291, /Users/morad/Projects/amway/public/theme/css/_popups.scss */
     .popup-wrapper .popup#enter form, .popup-wrapper .popup#forget form {
