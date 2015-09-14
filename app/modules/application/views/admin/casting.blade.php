@@ -63,6 +63,8 @@
     <script>
         var essence = 'application';
         var essence_name = 'заявку';
+        var validation_rules = {};
+        var validation_messages = {};
     </script>
     {{ HTML::script('private/js/modules/standard.js') }}
     <script type="text/javascript">
