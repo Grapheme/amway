@@ -27,7 +27,7 @@
                                 <td>{{ $index + 1 }}</td>
                                 <td>{{ $application['name'] }}</td>
                                 <td><nobr>{{ $application['city'] }}</nobr></td>
-                                <td><nobr>{{ $applicДобавить форму записи на кастингation['phone'] }}</nobr></td>
+                                <td><nobr>{{ $application['phone'] }}</nobr></td>
                                 <td><nobr>{{ $application['created_at']->format('d.m.Y в H:i') }}</nobr></td>
                                 <td>
                                     <form method="DELETR"
