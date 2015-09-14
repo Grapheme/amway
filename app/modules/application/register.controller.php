@@ -14,6 +14,8 @@ class RegisterController extends BaseController {
         Route::group(array('before' => 'guest', 'prefix' => ''), function () use ($class) {
             Route::post('registration', array('before' => 'csrf', 'as' => 'signup-participant',
                 'uses' => $class . '@signup'));
+            Route::post('reset-password', array('before' => 'csrf', 'as' => 'reset-password',
+                'uses' => $class . '@resetPassword'));
             Route::get('registration/activation/{activate_code}', array('as' => 'signup-activation',
                 'uses' => $class . '@activation'));
         });
@@ -23,13 +25,17 @@ class RegisterController extends BaseController {
         });
     }
 
-    public static function returnShortCodes() {}
+    public static function returnShortCodes() {
+    }
 
-    public static function returnActions() {}
+    public static function returnActions() {
+    }
 
-    public static function returnInfo() {}
+    public static function returnInfo() {
+    }
 
-    public static function returnMenu() {}
+    public static function returnMenu() {
+    }
 
     /****************************************************************************/
 
@@ -40,7 +46,7 @@ class RegisterController extends BaseController {
     /****************************************************************************/
     public function apiSignup() {
 
-        $json_request = array('status' => FALSE, 'responseText' => '', 'is_synced'=> FALSE);
+        $json_request = array('status' => FALSE, 'responseText' => '', 'is_synced' => FALSE);
         $validator = Validator::make(Input::all(), Accounts::$api_rules);
         if ($validator->passes()):
             $token = Input::get('token');
@@ -72,7 +78,7 @@ class RegisterController extends BaseController {
                 $user->code_life = myDateTime::getFutureDays(5);
                 $user->video = '';
                 $user->save();
-                if(Input::has('email')):
+                if (Input::has('email')):
                     Mail::send('emails.auth.signup', array('account' => $user, 'password' => $password,
                         'verified_email' => FALSE), function ($message) {
                         $message->from(Config::get('mail.from.address'), Config::get('mail.from.name'));
@@ -141,6 +147,34 @@ class RegisterController extends BaseController {
         else:
             return Redirect::to('/')->with('message.status', 'error')->with('message.text', 'Код активации не действителен.');
         endif;
+    }
+
+    public function resetPassword() {
+
+        $json_request = array('status' => FALSE, 'responseText' => '', 'redirect' => FALSE);
+        if (Request::ajax()):
+            $validator = Validator::make(Input::all(), array('email' => 'required|email'));
+            if ($validator->passes()):
+                if ($account = User::where('email', Input::get('email'))->first()):
+                    $password = rand(1111, 9999);
+                    $account->password = Hash::make($password);
+                    $account->save();
+                    Mail::send('emails.auth.restore', array('account' => $account,
+                        'password' => $password), function ($message) {
+                        $message->from(Config::get('mail.from.address'), Config::get('mail.from.name'));
+                        $message->to(Input::get('email'))->subject('Восстановление пароля');
+                    });
+                    $json_request['status'] = TRUE;
+                else:
+                    $json_request['responseText'] = Lang::get('interface.DEFAULT.email_not_exist');
+                endif;
+            else:
+                $json_request['responseText'] = Lang::get('interface.DEFAULT.fail');
+            endif;
+        else:
+            return App::abort(404);
+        endif;
+        return Response::json($json_request, 200);
     }
 
     /**************************************************************************/

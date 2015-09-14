@@ -212,24 +212,32 @@ class ModeratorController extends BaseController {
         else:
             $users_list = Accounts::where('group_id', 4)->orderBy('created_at', 'DESC')->get();
         endif;
-        $users = array();
+        $users = $fields = array();
         $output = '';
         foreach ($users_list as $user):
             $fio = explode(' ', $user->name);
             $name = iconv("UTF-8", Input::get('coding'), @$fio[0]);
             $surname = iconv("UTF-8", Input::get('coding'), @$fio[1]);
             $glue = Input::get('glue');
+            $field = Input::get('field');
+            if ($field == 'all'):
+                $fields = array($user->email, $user->phone, $user->photo, $name, $surname);
+            elseif ($field == 'email'):
+                $fields = array($user->email, $name, $surname);
+            elseif ($field == 'phone'):
+                $fields = array($user->phone, $name, $surname);
+            endif;
             if ($params == 'all'):
                 if ($glue === 'tab'):
-                    $output .= implode("\t", array($user->email, $user->photo, $name, $surname)) . "\n";
+                    $output .= implode("\t", $fields) . "\n";
                 else:
-                    $output .= implode("$glue", array($user->email, $user->photo, $name, $surname)) . "\n";
+                    $output .= implode("$glue", $fields) . "\n";
                 endif;
             else:
                 if ($glue === 'tab'):
-                    $output .= implode("\t", array($user->email, $user->photo, $name, $surname)) . "\n";
+                    $output .= implode("\t", $fields) . "\n";
                 else:
-                    $output .= implode("$glue", array($user->email, $user->photo, $name, $surname)) . "\n";
+                    $output .= implode("$glue", $fields) . "\n";
                 endif;
             endif;
         endforeach;

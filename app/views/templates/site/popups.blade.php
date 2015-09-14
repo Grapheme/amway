@@ -5,31 +5,34 @@
 ?>
 <div class="popup-wrapper">
     <div id="forget" class="popup">
-      <a href="" class="close">
-        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
-        <path d="M18.984 6.422l-5.578 5.578 5.578 5.578-1.406 1.406-5.578-5.578-5.578 5.578-1.406-1.406 5.578-5.578-5.578-5.578 1.406-1.406 5.578 5.578 5.578-5.578z"></path>
-        </svg>
-      </a>
-      <div class="header">Восстановление пароля</div>
-      <form action="" data-success="forget-final">
+        <a href="" class="close">
+            <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24"
+                 height="24" viewBox="0 0 24 24">
+                <path d="M18.984 6.422l-5.578 5.578 5.578 5.578-1.406 1.406-5.578-5.578-5.578 5.578-1.406-1.406 5.578-5.578-5.578-5.578 1.406-1.406 5.578 5.578 5.578-5.578z"></path>
+            </svg>
+        </a>
+
+        <div class="header">Восстановление пароля</div>
+        {{ Form::open(array('route'=>'reset-password','data-success'=>'forget-final')) }}
         <input type="email" name="email" placeholder="Эл. почта">
         <button type="submit">Отправить</button>
-      </form>
-      <br>
+        {{ Form::close() }}
+        <br>
     </div>
-        
+
     <div id="forget-final" class="popup">
-      <a href="" class="close">
-        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
-        <path d="M18.984 6.422l-5.578 5.578 5.578 5.578-1.406 1.406-5.578-5.578-5.578 5.578-1.406-1.406 5.578-5.578-5.578-5.578 1.406-1.406 5.578 5.578 5.578-5.578z"></path>
-        </svg>
-      </a>
-      <div class="header">Инструкции по восстановлению пароля отправлены на email</div>
-      <br>
+        <a href="" class="close">
+            <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24"
+                 height="24" viewBox="0 0 24 24">
+                <path d="M18.984 6.422l-5.578 5.578 5.578 5.578-1.406 1.406-5.578-5.578-5.578 5.578-1.406-1.406 5.578-5.578-5.578-5.578 1.406-1.406 5.578 5.578 5.578-5.578z"></path>
+            </svg>
+        </a>
+
+        <div class="header">Инструкции по восстановлению пароля отправлены на email</div>
+        <br>
     </div>
-    
     
 		<div class="popup" id="casting">
 			<a href="" class="close">
@@ -86,7 +89,6 @@
       <div class="header">Спасибо! Ваша заявка отправлена</div>
       <br>
     </div>
-        
     <div class="popup" id="enter">
         <a href="" class="close">
             <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
@@ -115,8 +117,8 @@
         <hr>
         <center>
             <a href="" data-href="reg" class="btn-popup">У меня ещё нет регистрации</a>
-            <!--<br>
-            <a href="" data-href="forget" class="btn-popup">Забыли пароль?</a>-->
+            <br>
+            <a href="" data-href="forget" class="btn-popup">Забыли пароль?</a>
         </center>
     </div>
     <div class="popup" id="reg">
@@ -188,7 +190,9 @@
         </label>
         <label class="small">
             {{ Form::checkbox('agree2', 1, TRUE) }}
-            <span class="label">Я ознакомлен с <a target="_blank" href="http://amway.dev.grapheme.ru/uploads/files/1438961762_1476558.pdf">правилами проведения конкурса</a> A-GEN.</span>
+            <span class="label">Я ознакомлен с <a target="_blank"
+                                                  href="http://amway.dev.grapheme.ru/uploads/files/1438961762_1476558.pdf">правилами
+                    проведения конкурса</a> A-GEN.</span>
         </label>
         <hr>
         <center>
@@ -236,17 +240,17 @@
                 </div>
             </div>
             <div class="unit">
-              <div class="col">
-                  <div class="rating">
-                      <span class="icon2-star"></span>
+                <div class="col">
+                    <div class="rating">
+                        <span class="icon2-star"></span>
 
-                      <div class="count"></div>
-                      <div class="legend"></div>
-                  </div>
-              </div>
-              <div class="col">
-                  <a href="" class="vote">Проголосовать</a>
-              </div>
+                        <div class="count"></div>
+                        <div class="legend"></div>
+                    </div>
+                </div>
+                <div class="col">
+                    <a href="" class="vote">Проголосовать</a>
+                </div>
             </div>
             <div class="social">
                 <div class="label">
@@ -277,7 +281,7 @@
                         <path d="M-136.9,12.9l-3.1,0c-3.5,0-5.8,2.3-5.8,5.9v2.7h-3.1c-0.3,0-0.5,0.2-0.5,0.5V26c0,0.3,0.2,0.5,0.5,0.5h3.1
                         v10c0,0.3,0.2,0.5,0.5,0.5h4.1c0.3,0,0.5-0.2,0.5-0.5v-10h3.7c0.3,0,0.5-0.2,0.5-0.5l0-3.9c0-0.1-0.1-0.3-0.1-0.3
                         c-0.1-0.1-0.2-0.1-0.3-0.1h-3.7v-2.3c0-1.1,0.3-1.7,1.7-1.7l2.1,0c0.3,0,0.5-0.2,0.5-0.5v-3.7C-136.5,13.2-136.7,12.9-136.9,12.9z"
-                              />
+                                />
                     </g>
                     </svg>
                 </a>

@@ -1,5 +1,10 @@
 @extends(Helper::acclayout())
 @section('style')
+    <style type="text/css">
+        .js-has-video {
+            background-color: #96bf48;
+        }
+    </style>
 @stop
 @section('content')
     @include($module['tpl'].'/menu')
@@ -7,6 +12,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 {{ Form::open(array('route'=>array('moderator.participants.lists', $field),'style'=>'margin:0 0 10px 0;','class'=>'smart-form')) }}
+                {{ Form::hidden('field', $field) }}
                 <div class="row">
                     <section class="col col-2">
                         <label class="select">
@@ -26,13 +32,18 @@
                     </section>
                     <section class="col col-2">
                         <label class="checkbox">
-                            {{ Form::checkbox('without_video', TRUE, NULL, array('id'=>'js-without-video')) }}
+                            {{ Form::checkbox('without_video', TRUE, NULL, array('id'=>'js-without-video','autocomplete'=>'off')) }}
                             <i></i>Без видео
                         </label>
                     </section>
                 </div>
                 {{ Form::submit('Экспорт в CSV',array('class'=>'btn btn-default')) }}
                 {{ Form::close() }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                Всего: <span id="js-user-count">{{ count($users) }}</span>
             </div>
         </div>
         <div class="row">
@@ -55,7 +66,7 @@
                     @foreach($users as $index => $user)
                         <tr class="vertical-middle{{ !empty($user->video) ? ' js-has-video' : ''}}">
                             <?php $fio = explode(' ', $user->name);?>
-                            <td>{{ $index + 1 }}</td>
+                            <td class="js-index-column">{{ $index + 1 }}</td>
                             @if($field == 'all')
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->phone }}</td>
@@ -88,7 +99,12 @@
     <script type="application/javascript">
         $(function () {
             $("#js-without-video").click(function () {
-                $(".js-has-video").fadeToggle();
+                $(".js-has-video").toggle();
+                var tr_cnt = $(".vertical-middle:visible").length;
+                $("#js-user-count").html(tr_cnt);
+//                $(".vertical-middle:visible").each(function (index) {
+//                    $(".js-index-column:visible").eq(index).html(index + 1);
+//                });
             });
         });
     </script>
