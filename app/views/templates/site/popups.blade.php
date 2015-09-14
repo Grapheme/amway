@@ -33,61 +33,65 @@
         <div class="header">Инструкции по восстановлению пароля отправлены на email</div>
         <br>
     </div>
-    
-		<div class="popup" id="casting">
-			<a href="" class="close">
-				<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
-				<path d="M18.984 6.422l-5.578 5.578 5.578 5.578-1.406 1.406-5.578-5.578-5.578 5.578-1.406-1.406 5.578-5.578-5.578-5.578 1.406-1.406 5.578 5.578 5.578-5.578z"></path>
-				</svg>
-			</a>
-			<div class="header">Запись на кастинг</div>
-			<form action="" data-success="casting-final">
-				<label>
-						<span class="label">ФИО</span>
-						<input type="text" name="name">
-				</label>
-				<label>
-						<span class="label">Город</span>
-						<input type="text" name="city">
-				</label>
-				<label>
-						<span class="label">Время</span>
-						<select name="time">
-							<option value="10:00 — 11:00">10:00 — 11:00</option>
-							<option value="11:00 — 12:00">11:00 — 12:00</option>
-							<option value="12:00 — 13:00">12:00 — 13:00</option>
-							<option value="13:00 — 14:00">13:00 — 14:00</option>
-							<option value="14:00 — 15:00">14:00 — 15:00</option>
-							<option value="15:00 — 16:00">15:00 — 16:00</option>
-							<option value="16:00 — 17:00">16:00 — 17:00</option>
-							<option value="17:00 — 18:00">17:00 — 18:00</option>
-							<option value="18:00 — 19:00">18:00 — 19:00</option>
-						</select>
-				</label>
-				<label>
-					<span class="label">Контактный телефон</span>
-					<input type="phone" name="phone">
-				</label>
 
-				<hr>
-				<center>
-					<button type="submit">Записаться</button>              
-				</center>
-				<br>
-				<br>
-			</form>
-		</div>
-    
+    <div class="popup" id="casting">
+        <a href="" class="close">
+            <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24"
+                 height="24" viewBox="0 0 24 24">
+                <path d="M18.984 6.422l-5.578 5.578 5.578 5.578-1.406 1.406-5.578-5.578-5.578 5.578-1.406-1.406 5.578-5.578-5.578-5.578 1.406-1.406 5.578 5.578 5.578-5.578z"></path>
+            </svg>
+        </a>
+
+        <div class="header">Запись на кастинг</div>
+        {{ Form::open(array('route'=>'casting_feedback','data-success'=>'casting-final')) }}
+            <label>
+                <span class="label">ФИО</span>
+                <input type="text" name="name" value="">
+            </label>
+            <label>
+                <span class="label">Город</span>
+                <input type="text" name="city" value="">
+            </label>
+            <label>
+                <span class="label">Время</span>
+                <select name="time">
+                    <option value="10:00 — 11:00">10:00 — 11:00</option>
+                    <option value="11:00 — 12:00">11:00 — 12:00</option>
+                    <option value="12:00 — 13:00">12:00 — 13:00</option>
+                    <option value="13:00 — 14:00">13:00 — 14:00</option>
+                    <option value="14:00 — 15:00">14:00 — 15:00</option>
+                    <option value="15:00 — 16:00">15:00 — 16:00</option>
+                    <option value="16:00 — 17:00">16:00 — 17:00</option>
+                    <option value="17:00 — 18:00">17:00 — 18:00</option>
+                    <option value="18:00 — 19:00">18:00 — 19:00</option>
+                </select>
+            </label>
+            <label>
+                <span class="label">Контактный телефон</span>
+                <input type="phone" name="phone" value="">
+            </label>
+
+            <hr>
+            <center>
+                <button type="submit">Записаться</button>
+            </center>
+            <br>
+            <br>
+        {{ Form::close() }}
+    </div>
+
     <div id="casting-final" class="popup">
-      <a href="" class="close">
-        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
-        <path d="M18.984 6.422l-5.578 5.578 5.578 5.578-1.406 1.406-5.578-5.578-5.578 5.578-1.406-1.406 5.578-5.578-5.578-5.578 1.406-1.406 5.578 5.578 5.578-5.578z"></path>
-        </svg>
-      </a>
-      <div class="header">Спасибо! Ваша заявка отправлена</div>
-      <br>
+        <a href="" class="close">
+            <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24"
+                 height="24" viewBox="0 0 24 24">
+                <path d="M18.984 6.422l-5.578 5.578 5.578 5.578-1.406 1.406-5.578-5.578-5.578 5.578-1.406-1.406 5.578-5.578-5.578-5.578 1.406-1.406 5.578 5.578 5.578-5.578z"></path>
+            </svg>
+        </a>
+
+        <div class="header">Спасибо! Ваша заявка отправлена</div>
+        <br>
     </div>
     <div class="popup" id="enter">
         <a href="" class="close">

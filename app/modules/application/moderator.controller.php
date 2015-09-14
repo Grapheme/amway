@@ -23,6 +23,9 @@ class ModeratorController extends BaseController {
                     'uses' => $class . '@participantsEdit'));
                 Route::post('participants/{user_id}/update', array('as' => 'moderator.participants.update',
                     'uses' => $class . '@participantsUpdate'));
+                Route::get('casting', array('as' => 'moderator.casting', 'uses' => $class . '@casting'));
+                Route::delete('casting/{casting_id}/destroy', array('as' => 'moderator.casting.delete',
+                    'uses' => $class . '@castingDelete'));
             });
             Route::get('participants/{user_id}/status/{status_number}', array('as' => 'moderator.participants.status',
                 'uses' => $class . '@participantsSetStatus'));
@@ -247,5 +250,25 @@ class ModeratorController extends BaseController {
         );
         return Response::make(rtrim($output, "\n"), 200, $headers);
     }
+
+    /****************************************************************************/
+    public function casting() {
+
+        $applications_list = array();
+        foreach (Casting::orderBy('created_at', 'DESC')->get() as $index => $application):
+            $applications_list[$application->time][] = $application;
+        endforeach;
+        return View::make($this->module['tpl'] . 'casting', compact('applications_list'));
+
+    }
+
+    public function castingDelete($casting_id) {
+        if (Casting::where('id', $casting_id)->delete()):
+            return Redirect::back();
+        else:
+            App::abort(404);
+        endif;
+    }
+
     /****************************************************************************/
 }

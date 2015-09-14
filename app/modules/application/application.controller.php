@@ -39,6 +39,14 @@ class ApplicationController extends BaseController {
             'menu_child' => NULL,
             'permit' => 'view'
         );
+        $menu[] = array(
+            'title' => 'Кастинг',
+            'link' => 'casting',
+            'class' => 'fa-camera-retro',
+            'system' => 1,
+            'menu_child' => NULL,
+            'permit' => 'view'
+        );
         return $menu;
     }
 
