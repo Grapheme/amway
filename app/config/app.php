@@ -15,7 +15,7 @@ return array(
 
 	'manifest' => storage_path('meta'),
 
-	'debug' => FALSE,
+	'debug' => true,
 	'url' => '#',
 	'timezone' => 'Europe/Moscow',
 
