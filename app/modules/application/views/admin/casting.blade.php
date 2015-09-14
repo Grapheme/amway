@@ -30,7 +30,7 @@
                                 <td><nobr>{{ $application['phone'] }}</nobr></td>
                                 <td><nobr>{{ $application['created_at']->format('d.m.Y в H:i') }}</nobr></td>
                                 <td>
-                                    <form method="DELETR"
+                                    <form method="delete"
                                           action="{{ URL::route('moderator.casting.delete', $application->id) }}"
                                           style="display:inline-block">
                                         <button type="button" class="btn btn-danger remove-application">

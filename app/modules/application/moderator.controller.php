@@ -263,8 +263,15 @@ class ModeratorController extends BaseController {
     }
 
     public function castingDelete($casting_id) {
+
+        if (!Request::ajax()) App::abort(404);
+        $json_request = array('status' => FALSE, 'responseText' => '');
+
         if (Casting::where('id', $casting_id)->delete()):
-            return Redirect::back();
+            $json_request['responseText'] = 'Удалено';
+            $json_request['status'] = TRUE;
+
+            return Response::json($json_request, 200);
         else:
             App::abort(404);
         endif;
