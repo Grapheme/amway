@@ -255,7 +255,7 @@ class ModeratorController extends BaseController {
     public function casting() {
 
         $applications_list = array();
-        foreach (Casting::orderBy('created_at', 'DESC')->get() as $index => $application):
+        foreach (Casting::orderBy('time')->orderBy('created_at', 'DESC')->get() as $index => $application):
             $applications_list[$application->time][] = $application;
         endforeach;
         return View::make($this->module['tpl'] . 'casting', compact('applications_list'));
