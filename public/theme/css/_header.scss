@@ -219,11 +219,16 @@ header {
           }
         }
 				&.casting-btn {
-					position: absolute;
-					right: 8px;
-					top: 44px;
-					font-size: 80%;
-					text-decoration: underline;
+          position: absolute;
+          right: 8px;
+          top: 44px;
+          font-size: 80%;
+          font-style: italic;
+          font-family: 'MuseoSansCyrl-300';
+          border-bottom: 1px solid rgba(230,25,38,0.2);
+          a {
+            color: #e61926 !important;
+          }
 				}
         &.enter {
           font-family: 'MuseoSansCyrl-300';
