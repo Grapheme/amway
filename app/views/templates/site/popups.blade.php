@@ -56,7 +56,6 @@
                     <option value="Ростов-на-Дону">Ростов-на-Дону (27 сентября)</option>
                     <option value="Другой город">Другой город, Skype cобеседование (28 сентября)</option>
                 </select>
-                <input type="text" name="city" value="">
             </label>
             <label>
                 <span class="label">Время</span>
