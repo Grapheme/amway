@@ -50,7 +50,7 @@
                 <input type="text" name="name" value="">
             </label>
             <label>
-                <span class="label">Город</span>
+                <span class="label">Город (дата)</span>
                 <select name="city">
                     <option value="Краснодар">Краснодар (26 сентября)</option>
                     <option value="Ростов-на-Дону">Ростов-на-Дону (27 сентября)</option>
