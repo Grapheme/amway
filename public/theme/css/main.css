@@ -289,7 +289,12 @@ header {
           right: 8px;
           top: 44px;
           font-size: 80%;
-          text-decoration: underline; }
+          font-style: italic;
+          font-family: 'MuseoSansCyrl-300';
+          border-bottom: 1px solid rgba(230,25,38,0.2); }
+          header nav ul li.casting-btn a {
+            color: #e61926 !important;
+          }
         /* line 228, /Users/morad/Projects/amway/public/theme/css/_header.scss */
         header nav ul li.enter {
           font-family: 'MuseoSansCyrl-300';

@@ -50,8 +50,12 @@
                 <input type="text" name="name" value="">
             </label>
             <label>
-                <span class="label">Город</span>
-                <input type="text" name="city" value="">
+                <span class="label">Город (дата)</span>
+                <select name="city">
+                    <option value="Краснодар">Краснодар (26 сентября)</option>
+                    <option value="Ростов-на-Дону">Ростов-на-Дону (27 сентября)</option>
+                    <option value="Другой город">Другой город, Skype cобеседование (28 сентября)</option>
+                </select>
             </label>
             <label>
                 <span class="label">Время</span>
