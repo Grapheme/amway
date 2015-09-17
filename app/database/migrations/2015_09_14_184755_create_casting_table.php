@@ -12,6 +12,7 @@ class CreateCastingTable extends Migration {
             $table->string('name', 50)->nullable();
             $table->string('city', 50)->nullable();
             $table->string('phone', 50)->nullable();
+            $table->string('skype', 50)->nullable();
             $table->timestamps();
         });
     }

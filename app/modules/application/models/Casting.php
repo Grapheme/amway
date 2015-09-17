@@ -4,7 +4,7 @@ class Casting extends \BaseModel {
 
     protected $table = 'casting';
     protected $guarded = array('id', '_method', '_token');
-    protected $fillable = array('name', 'city', 'time', 'phone');
+    protected $fillable = array('name', 'city', 'time', 'phone', 'skype');
     public static $rules = array('name' => 'required', 'city' => 'required', 'time' => 'required',
-        'phone' => 'required');
+        'phone' => 'required', 'skype' => '');
 }

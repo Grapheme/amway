@@ -15,7 +15,7 @@
                             <th class="text-center">№ п.п</th>
                             <th class="text-center">ФИО</th>
                             <th class="text-center" style="white-space:nowrap;">Город</th>
-                            <th class="text-center" style="white-space:nowrap;">Телефон</th>
+                            <th class="text-center" style="white-space:nowrap;">Телефон/Skype</th>
                             <th class="text-center" style="white-space:nowrap;">Дата</th>
                             <th class="text-center" style="white-space:nowrap;"></th>
                         </tr>
@@ -26,7 +26,7 @@
                                 <td>{{ $index + 1 }}</td>
                                 <td>{{ $application['name'] }}</td>
                                 <td><nobr>{{ $application['city'] }}</nobr></td>
-                                <td><nobr>{{ $application['phone'] }}</nobr></td>
+                                <td><nobr>{{ $application['phone'] }}</nobr><br><nobr>{{ $application['skype'] }}</nobr></td>
                                 <td><nobr>{{ $application['created_at']->format('d.m.Y в H:i') }}</nobr></td>
                                 <td>
                                     <form method="delete"

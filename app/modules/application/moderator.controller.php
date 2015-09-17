@@ -296,7 +296,7 @@ class ModeratorController extends BaseController {
             $casting->phone = iconv("UTF-8", Input::get('coding'), $casting->phone);
             $glue = Input::get('glue');
             $field = Input::get('field');
-            $fields = array($casting->time, $casting->name, $casting->city, $casting->phone,
+            $fields = array($casting->time, $casting->name, $casting->city, $casting->phone, $casting->skype,
                 $casting->created_at->format('d.m.Y H:i'));
             if ($params == 'all'):
                 if ($glue === 'tab'):
