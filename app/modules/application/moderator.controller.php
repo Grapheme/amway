@@ -258,11 +258,24 @@ class ModeratorController extends BaseController {
     /****************************************************************************/
     public function casting() {
 
+        if ($counts_all = DB::table('casting')->select(DB::raw('city, COUNT(*) AS count'))->groupBy('city')->get()):
+            $temp = $counts = array();
+            foreach ($counts_all as $count):
+                $temp[$count->city] = $count->count;
+            endforeach;
+            $counts = $temp;
+        endif;
+        $counts = (array)$counts;
         $applications_list = array();
-        foreach (Casting::orderBy('time')->orderBy('created_at', 'DESC')->get() as $index => $application):
+        $castings = Casting::orderBy('time')->orderBy('created_at', 'DESC');
+        if (Input::has('city')):
+            $castings = $castings->where('city', Input::get('city'));
+        endif;
+        foreach ($castings->get() as $index => $application):
             $applications_list[$application->time][] = $application;
         endforeach;
-        return View::make($this->module['tpl'] . 'casting', compact('applications_list'));
+        $cities = Casting::orderBy('city')->groupBy('city')->lists('city');
+        return View::make($this->module['tpl'] . 'casting', compact('applications_list', 'cities', 'counts'));
 
     }
 

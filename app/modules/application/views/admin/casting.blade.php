@@ -2,9 +2,7 @@
 @section('style')
 @stop
 @section('content')
-    <h1 class="top-module-menu">
-        <a href="{{ URL::route('moderator.casting') }}">Заявки на кастинг</a>
-    </h1>
+    @include($module['tpl'].'/casting_menu')
     @if(count($applications_list))
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
