@@ -98,20 +98,22 @@
 
         <div class="header">Спасибо! Ваша заявка отправлена</div>
         <center class="city-chose">
-          <div class="rostov">
+          <div class="rostov note">
             <p>
               Дата проведения кастинга: 26 сентября <br>
               Место проведения: Школа Танцев Без Правил — Плаза Краснодар, ул. Сормовская, 1/7 (за ТК «Медиаплаза) <br>
               Время : <span class="time"></span>
             </p>
           </div>
-          <div class="krasnodar">
+          <div class="krasnodar note">
             <p>
               Дата проведения кастинга: 27 сентября <br>
               Место проведения: Creative Space PRO, ул. Суворова, 52-а, 1 - эт.<br>
               Время : <span class="time"></span>
             </p>
           </div>
+          <br>
+          <br>
         </center>
         <br>
     </div>
