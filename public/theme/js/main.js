@@ -544,7 +544,7 @@ $(function() {
     
   });
   
-  $('#casting select.city').change(function(){
+  $('#casting select[name=city]').change(function(){
     var _val = $(this).val();
     
     $('#casting-final .city-chose > *').hide();
@@ -565,7 +565,7 @@ $(function() {
     
   });
   
-  $('#casting select.time').change(function(){
+  $('#casting select[name=time]').change(function(){
     var _val = $(this).val();
     
     $('#casting-final .city-chose .time').text(_val);
