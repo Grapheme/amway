@@ -26,7 +26,10 @@
                                 <td>{{ $index + 1 }}</td>
                                 <td>{{ $application['name'] }}</td>
                                 <td><nobr>{{ $application['city'] }}</nobr></td>
-                                <td><nobr>{{ $application['phone'] }}</nobr><br><nobr>{{ $application['skype'] }}</nobr></td>
+                                <td>
+                                    <nobr><i class="fa fa-fw fa-mobile-phone"></i>{{ $application['phone'] }}</nobr><br>
+                                    <nobr><i class="fa fa-fw fa-skype"></i>{{ $application['skype'] }}</nobr>
+                                </td>
                                 <td><nobr>{{ $application['created_at']->format('d.m.Y в H:i') }}</nobr></td>
                                 <td>
                                     <form method="delete"
