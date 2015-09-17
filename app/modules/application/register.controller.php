@@ -77,6 +77,7 @@ class RegisterController extends BaseController {
                 $user->temporary_code = Str::random(24);
                 $user->code_life = myDateTime::getFutureDays(5);
                 $user->video = '';
+                $user->skype = Input::get('skype');
                 $user->save();
                 if (Input::has('email')):
                     Mail::send('emails.auth.signup', array('account' => $user, 'password' => $password,
@@ -223,6 +224,7 @@ class RegisterController extends BaseController {
             $ulogin->photo = $post['photo'];
             $ulogin->photo_big = $post['photo_big'];
             $ulogin->profile = $post['profile'];
+            $ulogin->skype = isset($post['skype']) ? $post['skype'] : '';
             $ulogin->uid = $post['uid'];
             $ulogin->access_token = $post['token'];
             $ulogin->verified_email = $post['verified_email'];

@@ -28,6 +28,7 @@ class AddUsersFields extends Migration {
 			$table->boolean('in_casting')->after('top_video')->nullable()->unsigned()->default(0);
 			$table->text('way')->nullable();
 			$table->integer('guest_likes')->default(0)->unsigned()->nullable();
+			$table->string('skype',50)->nullable();
 		});
 	}
 

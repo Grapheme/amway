@@ -38,6 +38,12 @@
                         </label>
                     </section>
                     <section>
+                        <label class="label">Skype</label>
+                        <label class="input">
+                            {{ Form::text('skype') }}
+                        </label>
+                    </section>
+                    <section>
                     @if(!empty($user->photo) && File::exists(public_path($user->photo)))
                         <img height="100px" src="{{ asset($user->photo) }}"
                              alt="{{ $user->name }}" class="{{ $user->name }}">

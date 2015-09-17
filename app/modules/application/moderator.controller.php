@@ -70,51 +70,51 @@ class ModeratorController extends BaseController {
     public function participantsUpdate($user_id) {
 
         if ($user = Accounts::where('id', $user_id)->first()):
+            try {
+                $post = Input::all();
+                if (Input::has('remove_photo')):
+                    if (!empty($user->photo) && File::exists(public_path($user->photo))):
+                        File::delete(public_path($user->photo));
+                    endif;
+                    $user->photo = '';
+                    if (!empty($user->thumbnail) && File::exists(public_path($user->thumbnail))):
+                        File::delete(public_path($user->thumbnail));
+                    endif;
+                    $user->thumbnail = '';
+                    foreach (Ulogin::where('user_id', $user->id)->get() as $ulogin):
+                        $ulogin->photo_big = '';
+                        $ulogin->photo = '';
+                        $ulogin->save();
+                    endforeach;
+                else:
+                    $user->photo = AdminUploadsController::getUploadedFile('photo');
+                    $user->thumbnail = '';
+                endif;
+                $names = explode(' ', $user->name);
+                if (count($names) > 2):
+                    $user->name = @$names[0] . ' ' . @$names[1];
+                else:
+                    $user->name = $post['name'];
+                endif;
+                $user->email = $post['email'];
+                $user->surname = '';
+                $user->location = $post['location'];
+                $user->phone = $post['phone'];
+                $user->age = $post['age'];
+                $user->way = $post['way'];
+                $user->yad_name = $post['yad_name'];
+                $user->load_video = Input::has('load_video') ? 1 : 0;
+                $user->local_video = $post['local_video'];
+                $user->local_video_date = $post['local_video_date'];
+                $user->video = $post['video'];
+                $user->video_thumb = $post['video_thumb'];
+                $user->skype = $post['skype'];
+                $user->save();
+                $user->touch();
+                return Redirect::route('moderator.participants');
+            } catch (Exception $e) {
 
-//            try {
-            $post = Input::all();
-            if (Input::has('remove_photo')):
-                if (!empty($user->photo) && File::exists(public_path($user->photo))):
-                    File::delete(public_path($user->photo));
-                endif;
-                $user->photo = '';
-                if (!empty($user->thumbnail) && File::exists(public_path($user->thumbnail))):
-                    File::delete(public_path($user->thumbnail));
-                endif;
-                $user->thumbnail = '';
-                foreach (Ulogin::where('user_id', $user->id)->get() as $ulogin):
-                    $ulogin->photo_big = '';
-                    $ulogin->photo = '';
-                    $ulogin->save();
-                endforeach;
-            else:
-                $user->photo = AdminUploadsController::getUploadedFile('photo');
-                $user->thumbnail = '';
-            endif;
-            $names = explode(' ', $user->name);
-            if (count($names) > 2):
-                $user->name = @$names[0] . ' ' . @$names[1];
-            else:
-                $user->name = $post['name'];
-            endif;
-            $user->email = $post['email'];
-            $user->surname = '';
-            $user->location = $post['location'];
-            $user->phone = $post['phone'];
-            $user->age = $post['age'];
-            $user->way = $post['way'];
-            $user->yad_name = $post['yad_name'];
-            $user->load_video = Input::has('load_video') ? 1 : 0;
-            $user->local_video = $post['local_video'];
-            $user->local_video_date = $post['local_video_date'];
-            $user->video = $post['video'];
-            $user->video_thumb = $post['video_thumb'];
-            $user->save();
-            $user->touch();
-            return Redirect::route('moderator.participants');
-//            } catch (Exception $e) {
-//
-//            }
+            }
         endif;
         return Redirect::back();
     }
@@ -296,7 +296,8 @@ class ModeratorController extends BaseController {
             $casting->phone = iconv("UTF-8", Input::get('coding'), $casting->phone);
             $glue = Input::get('glue');
             $field = Input::get('field');
-            $fields = array($casting->time, $casting->name, $casting->city, $casting->phone, $casting->created_at->format('d.m.Y H:i'));
+            $fields = array($casting->time, $casting->name, $casting->city, $casting->phone,
+                $casting->created_at->format('d.m.Y H:i'));
             if ($params == 'all'):
                 if ($glue === 'tab'):
                     $output .= implode("\t", $fields) . "\n";

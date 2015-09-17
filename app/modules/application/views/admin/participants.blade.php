@@ -58,6 +58,7 @@
                                 {{ $user->created_at->format('d.m.Y H:i:s') }} #{{ $user->id }}<br/>
                                 <i class="fa fa-envelope-o"></i> {{ HTML::mailto($user->email, $user->email) }}<br/>
                                 <i class="fa fa-fw fa-mobile-phone"></i>{{ $user->phone }}
+                                @if(!empty($user->skype))<br/><i class="fa fa-fw fa-skype"></i>{{ $user->skype }}@endif
                                 @if(!empty($user->social))
                                     @foreach(json_decode($user->social) as $social)
                                         @if(!empty($social))
