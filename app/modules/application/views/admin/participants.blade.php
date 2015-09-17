@@ -84,6 +84,7 @@
                             {{ Form::checkbox('top_week_video') }} Лучшее видео недели <br>
                             {{ Form::checkbox('top_video') }} Лучшее видео <br>
                             {{ Form::checkbox('winner') }} Победитель <br>
+                            {{ Form::checkbox('in_casting') }} Зарегистрирован на кастинг <br>
                             {{ Form::textarea('comment',NULL, array('placeholder'=>'Комментарий','style'=>'width:350px;height:80px;')) }}
 
                             {{ Form::button('Сохранить',array('class'=>'btn btn-success btn-xs','type'=>'submit','style'=>'margin-top:10px;')) }}

@@ -171,6 +171,7 @@ class ModeratorController extends BaseController {
             $user->top_week_video = Input::has('top_week_video') ? 1 : 0;
             $user->top_video = Input::has('top_video') ? 1 : 0;
             $user->top_video = Input::has('top_video') ? 1 : 0;
+            $user->in_casting = Input::has('in_casting') ? 1 : 0;
             $user->participant_group_id = Input::get('participant_group_id');
             $user->comment = Input::get('comment');
             $user->save();
