@@ -24,6 +24,8 @@ class ModeratorController extends BaseController {
                 Route::post('participants/{user_id}/update', array('as' => 'moderator.participants.update',
                     'uses' => $class . '@participantsUpdate'));
                 Route::get('casting', array('as' => 'moderator.casting', 'uses' => $class . '@casting'));
+                Route::post('casting/{params}', array('as' => 'moderator.casting.import',
+                    'uses' => $class . '@castingListsImport'));
                 Route::delete('casting/{casting_id}/destroy', array('as' => 'moderator.casting.delete',
                     'uses' => $class . '@castingDelete'));
             });
@@ -277,6 +279,42 @@ class ModeratorController extends BaseController {
         $cities = Casting::orderBy('city')->groupBy('city')->lists('city');
         return View::make($this->module['tpl'] . 'casting', compact('applications_list', 'cities', 'counts'));
 
+    }
+
+    public function castingListsImport($params) {
+
+        $castings = Casting::orderBy('time')->orderBy('created_at', 'DESC');
+        if (Input::has('city') && Input::get('city') != -1):
+            $castings = $castings->where('city', Input::get('city'));
+        endif;
+        $output = '';
+        foreach ($castings->get() as $casting):
+            $casting->name = iconv("UTF-8", Input::get('coding'), $casting->name);
+            $casting->city = iconv("UTF-8", Input::get('coding'), $casting->city);
+            $casting->time = iconv("UTF-8", Input::get('coding'), $casting->time);
+            $casting->phone = iconv("UTF-8", Input::get('coding'), $casting->phone);
+            $glue = Input::get('glue');
+            $field = Input::get('field');
+            $fields = array($casting->time, $casting->name, $casting->city, $casting->phone, $casting->created_at->format('d.m.Y H:i'));
+            if ($params == 'all'):
+                if ($glue === 'tab'):
+                    $output .= implode("\t", $fields) . "\n";
+                else:
+                    $output .= implode("$glue", $fields) . "\n";
+                endif;
+            else:
+                if ($glue === 'tab'):
+                    $output .= implode("\t", $fields) . "\n";
+                else:
+                    $output .= implode("$glue", $fields) . "\n";
+                endif;
+            endif;
+        endforeach;
+        $headers = array(
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => 'attachment; filename="ExportList.csv"',
+        );
+        return Response::make(rtrim($output, "\n"), 200, $headers);
     }
 
     public function castingDelete($casting_id) {

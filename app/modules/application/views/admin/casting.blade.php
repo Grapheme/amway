@@ -4,6 +4,7 @@
 @section('content')
     @include($module['tpl'].'/casting_menu')
     @if(count($applications_list))
+        @include($module['tpl'].'/forms/casting-export')
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 @foreach($applications_list as $times => $applications)
