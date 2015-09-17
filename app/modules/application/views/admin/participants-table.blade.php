@@ -16,7 +16,7 @@
                 <div class="row">
                     <section class="col col-2">
                         <label class="select">
-                            <select name="coding">
+                            <select name="coding" autocomplete="off">
                                 <option value="windows-1251">Windows 1251</option>
                                 <option value="utf-8">UTF-8</option>
                             </select> <i></i>
@@ -24,9 +24,20 @@
                     </section>
                     <section class="col col-2">
                         <label class="select">
-                            <select name="glue">
+                            <select name="glue" autocomplete="off">
                                 <option value=";">Точка с запятой</option>
                                 <option value="tab">Табуляция</option>
+                            </select> <i></i>
+                        </label>
+                    </section>
+                    <section class="col col-2">
+                        <label class="select">
+                            <select name="filter_status" autocomplete="off">
+                                <option value="-1">Все</option>
+                                <option value="0">Новые</option>
+                                <option value="1">Одобренные</option>
+                                <option value="2">Отложенные</option>
+                                <option value="3">Отклоненные</option>
                             </select> <i></i>
                         </label>
                     </section>
@@ -64,7 +75,8 @@
                     </thead>
                     <tbody>
                     @foreach($users as $index => $user)
-                        <tr class="vertical-middle{{ !empty($user->video) ? ' js-has-video' : ''}}">
+                        <tr class="vertical-middle{{ !empty($user->video) ? ' js-has-video' : ''}}"
+                            data-status="{{ $user->status }}">
                             <?php $fio = explode(' ', $user->name);?>
                             <td class="js-index-column">{{ $index + 1 }}</td>
                             @if($field == 'all')
@@ -98,13 +110,24 @@
 @section('scripts')
     <script type="application/javascript">
         $(function () {
-            $("#js-without-video").click(function () {
-                $(".js-has-video").toggle();
+            function count_calc() {
                 var tr_cnt = $(".vertical-middle:visible").length;
                 $("#js-user-count").html(tr_cnt);
-//                $(".vertical-middle:visible").each(function (index) {
-//                    $(".js-index-column:visible").eq(index).html(index + 1);
-//                });
+            }
+
+            $("#js-without-video").click(function () {
+                $(".js-has-video").toggle();
+                count_calc();
+            });
+            $("select[name='filter_status']").change(function () {
+                var filter_status = $(this).val();
+                if (filter_status < 0) {
+                    $(".vertical-middle").show();
+                } else {
+                    $(".vertical-middle").hide();
+                    $(".vertical-middle[data-status='" + filter_status + "']").show();
+                }
+                count_calc();
             });
         });
     </script>
