@@ -552,7 +552,7 @@ $(function() {
     if (_val === 'Другой город') {
       $('#casting .for_skype').slideDown();
     } else {
-      $('#casting .for_skype').slideUp();
+      $('#casting .for_skype').val('').slideUp();
     }
     
     if (_val === 'Ростов-на-Дону') {
