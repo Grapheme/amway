@@ -46,7 +46,7 @@
         <div class="header">Запись на кастинг</div>
         {{ Form::open(array('route'=>'casting_feedback','data-success'=>'casting-final')) }}
             <label>
-                <span class="label">ФИО</span>
+                <span class="label">ФИО <br><small>(название команды)</small></span>
                 <input type="text" name="name" value="">
             </label>
             <label>
@@ -68,7 +68,6 @@
                     <option value="15:00 — 16:00">15:00 — 16:00</option>
                     <option value="16:00 — 17:00">16:00 — 17:00</option>
                     <option value="17:00 — 18:00">17:00 — 18:00</option>
-                    <option value="18:00 — 19:00">18:00 — 19:00</option>
                 </select>
             </label>
             <label>

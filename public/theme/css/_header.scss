@@ -275,6 +275,19 @@ header {
           }
         }
       }
+			
+			@include mobile {
+				position: static;
+				li {
+					&.casting-btn {
+						border: none;
+						position: static;
+						a {
+							text-decoration: underline;
+						}
+					}
+				}
+			}
     }
   }
   &.open {
