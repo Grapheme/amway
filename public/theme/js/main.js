@@ -565,11 +565,15 @@ $(function() {
     
   });
   
+  $('#casting select[name=city]').change();
+  
   $('#casting select[name=time]').change(function(){
     var _val = $(this).val();
     
     $('#casting-final .city-chose .time').text(_val);
     
   });
+  
+  $('#casting select[name=time]').change();
   
 });
