@@ -57,11 +57,14 @@
                     <option value="Другой город">Другой город, Skype cобеседование (28 сентября)</option>
                 </select>
             </label>
+            
+            <label class="for_skype" style="display:none;">
+                <span class="label">Skype</span>
+                <input type="text" name="skype" value="">
+            </label>
             <label>
                 <span class="label">Время</span>
                 <select name="time">
-                    <option value="10:00 — 11:00">10:00 — 11:00</option>
-                    <option value="11:00 — 12:00">11:00 — 12:00</option>
                     <option value="12:00 — 13:00">12:00 — 13:00</option>
                     <option value="13:00 — 14:00">13:00 — 14:00</option>
                     <option value="14:00 — 15:00">14:00 — 15:00</option>
@@ -94,6 +97,22 @@
         </a>
 
         <div class="header">Спасибо! Ваша заявка отправлена</div>
+        <center class="city-chose">
+          <div class="rostov">
+            <p>
+              Дата проведения кастинга: 26 сентября <br>
+              Место проведения: Школа Танцев Без Правил — Плаза Краснодар, ул. Сормовская, 1/7 (за ТК «Медиаплаза) <br>
+              Время : <span class="time"></span>
+            </p>
+          </div>
+          <div class="krasnodar">
+            <p>
+              Дата проведения кастинга: 27 сентября <br>
+              Место проведения: Creative Space PRO, ул. Суворова, 52-а, 1 - эт.<br>
+              Время : <span class="time"></span>
+            </p>
+          </div>
+        </center>
         <br>
     </div>
     <div class="popup" id="enter">

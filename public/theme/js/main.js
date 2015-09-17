@@ -1,6 +1,6 @@
 function jsTils(num, expressions) {
   var result;
-  count = num % 100;
+  var count = num % 100;
   if (count >= 5 && count <= 20) {
       result = expressions['2'];
   } else {
@@ -75,7 +75,7 @@ function votePlus($vote_btn){
     method: 'POST',
     url: $vote_btn.attr('href'),
     success: function(data) {
-      if (data.status == true) {
+      if (data.status === true) {
         $count.text(data.count);
       } else {
         $count.text(_count);
@@ -89,7 +89,7 @@ function votePlus($vote_btn){
       $vote_btn.removeClass('disabled');
       removeVote(user_id);
     }
-  })
+  });
   renderVoting();
 }
 
@@ -116,8 +116,7 @@ function showPopup(id, video_info){
     $('.popup#'+id).find('iframe').attr('src', video_info.src);
     var _href = $('.popup#'+id).find('.social .vk').attr('href');
     $('.popup#'+id).find('.social .vk').attr('href', _href+video_info.src);
-    var _href = $('.popup#'+id).find('.social .fb').attr('href');
-    $('.popup#'+id).find('.social .fb').attr('href', _href+video_info.src);
+
     $('.popup#'+id).find('.name').text(video_info.name);
     $('.popup#'+id).find('.city').text(video_info.location);
     $('.popup#'+id).find('.rating .count').text(video_info.vote_count);
@@ -160,10 +159,10 @@ function sendForm(form){
     },
     success: function(data){
       console.log(data);
-      if (data.status == true) {
-        if (data.redirect == false) {
+      if (data.status === true) {
+        if (data.redirect === false) {
           if ($form.attr('data-success')) {
-            showPopup($form.attr('data-success'))
+            showPopup($form.attr('data-success'));
           } else {
             alert('Нет финального состояние формы');            
           }
@@ -184,12 +183,14 @@ function sendForm(form){
 
 function parseHash(){
   var hash = window.location.hash;
-  if (hash != '' && hash.charAt(0)=='#') {
+  if (hash !== '' && hash.charAt(0)=='#') {
     hash = hash.split("#")[1];
     if (hash.split('=').length > 1) {
       var key = hash.split('=')[0];
       var val = hash.split('=')[1];
-      if (key=='popup') showPopup(val);
+      if (key=='popup') {
+        showPopup(val);
+      }
     }
   }
 }
@@ -199,9 +200,9 @@ function readFile(input, callback) {
     var reader = new FileReader();
 
     reader.onload = function (e) {
-      callback(e.target.result)
+      callback(e.target.result);
         //$('#blah').attr('src', e.target.result);
-    }
+    };
 
     reader.readAsDataURL(input.files[0]);
   }
@@ -255,10 +256,10 @@ function playOrPause($btn) {
 }
 
 function arrIsEmpty(arr){
-  if(arr && arr.length ==0){
-    return undefined
+  if(arr && arr.length === 0){
+    return undefined;
   } else {
-    return arr
+    return arr;
   }
 }
 
@@ -317,7 +318,7 @@ $(function() {
   $('a.edit-photo').click(function(e){
     e.preventDefault();
     $('input.photoupload').click();
-  })
+  });
   
   $('.add-video').click(function(e){
     e.preventDefault();
@@ -327,21 +328,25 @@ $(function() {
   $('a.vote').click(function(e){
     e.preventDefault();
     
-    if (!$(this).is('.disabled')) votePlus($(this));
+    if (!$(this).is('.disabled')) {
+      votePlus($(this));
+    }
   });
   
   $('a.btn-popup').click(function(e){
     e.preventDefault();
     var id = $(this).attr('data-href');
-    var video_info = undefined;
-    if (id == 'video') video_info = {
-      src: $(this).attr('data-src'),
-      name: $(this).attr('data-name'),
-      location: $(this).attr('data-location'),
-      vote_count: $(this).attr('data-vote-count'),
-      vote_url: $(this).attr('data-vote-url'),
-      user_id: $(this).attr('data-user-id'),
-    };
+    var video_info;
+    if (id == 'video') {
+      video_info = {
+        src: $(this).attr('data-src'),
+        name: $(this).attr('data-name'),
+        location: $(this).attr('data-location'),
+        vote_count: $(this).attr('data-vote-count'),
+        vote_url: $(this).attr('data-vote-url'),
+        user_id: $(this).attr('data-user-id'),
+      };
+    }
     showPopup(id, video_info);
   });
   
@@ -351,7 +356,9 @@ $(function() {
   });
   
   $('.popup-wrapper').click(function(e){
-    if( e.target != this ) return;
+    if( e.target != this ) { 
+      return;
+    }
     closePopups();
   });
   
@@ -363,7 +370,7 @@ $(function() {
   $('.spoiler').click(function(e){
     e.preventDefault();
     $(this).nextAll('.spoiler-body').eq(0).slideToggle();
-  })
+  });
   
   $('#enter form').validate({
     rules: {
@@ -380,7 +387,7 @@ $(function() {
       //form.submit();
       sendForm(form);
     }
-  })
+  });
 	
   $('#casting form').validate({
     rules: {
@@ -414,7 +421,7 @@ $(function() {
       //form.submit();
       sendForm(form);
     }
-  })
+  });
   
   $('#reg form').validate({
     rules: {
@@ -446,7 +453,8 @@ $(function() {
       //form.submit();
       sendForm(form);
     }
-  })
+  });
+  
   $('form.edit-profile').validate({
     rules: {
       email: {
@@ -481,7 +489,7 @@ $(function() {
       $(form).find('button[type="submit"]').attr('disabled', true);
       //sendForm(form);
     }
-  })
+  });
   
   $('#reg form input[name="phone"], form.edit-profile input[name="phone"], #casting input[name="phone"]').mask("+7(999) 999-9999");
   $('input[name="age"]').mask('99');
@@ -499,8 +507,8 @@ $(function() {
       location.href=location.href;
       setTimeout(function(){
         window.location.href='';
-        alert('2')
-      }, 500)
+        //alert('2');
+      }, 500);
     },
     fail: function (e, data) {
       alert('Ошибка');
@@ -516,7 +524,7 @@ $(function() {
     },
     add: function(e, data) {
       var uploadErrors = [];
-      console.log(e, data)
+      console.log(e, data);
       if(data.originalFiles[0]['size'] && data.originalFiles[0]['size'] > 50000000) {
         uploadErrors.push('Фаил слишком большой! Максимум 50мб.');
       }
@@ -533,6 +541,34 @@ $(function() {
     pagerCustom: '#bx-pager',
     infiniteLoop: false,
     hideControlOnEnd: true,
+    
+  });
+  
+  $('#casting select.city').change(function(){
+    var _val = $(this).val();
+    
+    $('#casting-final .city-chose > *').hide();
+    
+    if (_val === 'Другой город') {
+      $('#casting .for_skype').slideDown();
+    } else {
+      $('#casting .for_skype').slideUp();
+    }
+    
+    if (_val === 'Ростов-на-Дону') {
+      $('#casting-final .city-chose .rostov').show();
+    }
+    
+    if (_val === 'Краснодар') {
+      $('#casting-final .city-chose .krasnodar').show();
+    }
+    
+  });
+  
+  $('#casting select.time').change(function(){
+    var _val = $(this).val();
+    
+    $('#casting-final .city-chose .time').text(_val);
     
   });
   
