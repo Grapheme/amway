@@ -59,7 +59,7 @@
         </div>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <table class="table table-striped table-bordered min-table white-bg">
+                <table class="table table-bordered min-table white-bg">
                     <thead>
                     <tr>
                         <th></th>
@@ -80,13 +80,19 @@
                             <?php $fio = explode(' ', $user->name);?>
                             <td class="js-index-column">{{ $index + 1 }}</td>
                             @if($field == 'all')
-                                <td>{{ $user->email }}</td>
-                                <td>{{ $user->phone }}</td>
+                                <td>
+                                    <nobr>{{ $user->email }}</nobr>
+                                </td>
+                                <td>
+                                    <nobr>{{ $user->phone }}</nobr>
+                                </td>
                             @else
-                                <td>{{ $user->$field }}</td>
+                                <td>
+                                    <nobr>{{ $user->$field }}</nobr>
+                                </td>
                             @endif
-                            <td>{{ @$fio[0] }}</td>
-                            <td>{{ @$fio[1] }}</td>
+                            <td><nobr>{{ @$fio[0] }}</nobr></td>
+                            <td><nobr>{{ @$fio[1] }}</nobr></td>
                         </tr>
                     @endforeach
                     </tbody>
@@ -115,18 +121,27 @@
                 $("#js-user-count").html(tr_cnt);
             }
 
-            $("#js-without-video").click(function () {
-                $(".js-has-video").toggle();
-                count_calc();
-            });
-            $("select[name='filter_status']").change(function () {
-                var filter_status = $(this).val();
+            function set_filter(filter_status) {
                 if (filter_status < 0) {
                     $(".vertical-middle").show();
                 } else {
                     $(".vertical-middle").hide();
                     $(".vertical-middle[data-status='" + filter_status + "']").show();
                 }
+            }
+
+            $("#js-without-video").click(function () {
+                var filter_status = $("select[name='filter_status']").val();
+                if (filter_status < 0) {
+                    $(".js-has-video").toggle();
+                } else {
+                    $(".js-has-video[data-status='" + filter_status + "']").toggle();
+                }
+                count_calc();
+            });
+            $("select[name='filter_status']").change(function () {
+                $("#js-without-video").removeAttr("checked");
+                set_filter($(this).val());
                 count_calc();
             });
         });
