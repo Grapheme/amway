@@ -556,11 +556,11 @@ $(function() {
     }
     
     if (_val === 'Ростов-на-Дону') {
-      $('#casting-final .city-chose .rostov').show();
+      $('#casting-final .city-chose .krasnodar').show();
     }
     
     if (_val === 'Краснодар') {
-      $('#casting-final .city-chose .krasnodar').show();
+      $('#casting-final .city-chose .rostov').show();
     }
     
   });
