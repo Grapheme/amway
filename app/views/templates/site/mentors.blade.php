@@ -31,7 +31,7 @@
                 <div class="unit"><img src="{{ asset(Config::get('site.theme_path').'/img/mentor-6.jpeg') }}" alt=""> </div>                
                 <div class="unit"><img src="{{ asset(Config::get('site.theme_path').'/img/mentor-2.jpg') }}" alt=""> </div>  
                 <div class="unit"><img src="{{ asset(Config::get('site.theme_path').'/img/mentor-5.jpg') }}" alt=""> </div>
-                <div class="unit"><img src="{{ asset(Config::get('site.theme_path').'/img/mentor-7.jpeg') }}" alt=""> </div>
+                <!-- <div class="unit"><img src="{{ asset(Config::get('site.theme_path').'/img/mentor-7.jpeg') }}" alt=""> </div> -->
             </div>
             <h3>Видео-обращения наставников</h3>
 

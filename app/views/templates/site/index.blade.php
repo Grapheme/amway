@@ -136,7 +136,7 @@ endif;
         <div class="holder">
         <h3>Наставники проекта</h3>
         <center>
-          <div class="unit">
+          <!-- <div class="unit">
             <div class="img">
               <img src="{{ asset(Config::get('site.theme_path')) }}/img/pojarskaya.png" alt="">
             </div>
@@ -146,7 +146,7 @@ endif;
             <div class="about">
               режиссер, продюссер, <nobr>шеф-редактор</nobr> Первого Канала
             </div>
-          </div>
+          </div> -->
           <div class="unit">
             <div class="img">
               <img src="{{ asset(Config::get('site.theme_path')) }}/img/tina.png" alt="">
