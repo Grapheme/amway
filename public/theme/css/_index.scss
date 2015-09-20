@@ -59,6 +59,7 @@ section {
   }
   &.color-red {
     background-color: #ed1217;
+    background-image: url('../img/bg-agen-red.png');
     a.btn {
       color: #ed1217;
       &:hover {
@@ -74,6 +75,7 @@ section {
   }
   &.color-green {
     background-color: #299f39;
+    background-image: url('../img/bg-agen-green.png');
     a.btn {
       color: #197a26;
     }
