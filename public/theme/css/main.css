@@ -774,15 +774,15 @@ body.profile footer, body.sticky footer {
         .popup-wrapper .popup#reg .note {
           margin-left: 0; } }
     /* line 291, /Users/morad/Projects/amway/public/theme/css/_popups.scss */
-    .popup-wrapper .popup#enter form {
+    .popup-wrapper .popup#enter form, .popup-wrapper .popup#forget form {
       width: 360px;
       margin: 0 auto;
       margin-bottom: 42px; }
       @media (max-width: 640px) {
-        .popup-wrapper .popup#enter form {
+        .popup-wrapper .popup#enter form, .popup-wrapper .popup#forget form {
           width: 300px; } }
       /* line 298, /Users/morad/Projects/amway/public/theme/css/_popups.scss */
-      .popup-wrapper .popup#enter form input {
+      .popup-wrapper .popup#enter form input, .popup-wrapper .popup#forget form input {
         display: block;
         background: #edeff2;
         -webkit-border-radius: 10px;
@@ -799,13 +799,13 @@ body.profile footer, body.sticky footer {
         height: 57px;
         margin-bottom: 20px; }
         /* line 314, /Users/morad/Projects/amway/public/theme/css/_popups.scss */
-        .popup-wrapper .popup#enter form input.error {
+        .popup-wrapper .popup#enter form input.error, .popup-wrapper .popup#forget form input.error {
           background: #ffcdcc; }
         @media (max-width: 640px) {
-          .popup-wrapper .popup#enter form input {
+          .popup-wrapper .popup#enter form input, .popup-wrapper .popup#forget form input {
             width: 300px; } }
       /* line 321, /Users/morad/Projects/amway/public/theme/css/_popups.scss */
-      .popup-wrapper .popup#enter form label.error {
+      .popup-wrapper .popup#enter form label.error, .popup-wrapper .popup#forget form label.error {
         font-family: 'MuseoSansCyrl-300';
         font-size: 10px;
         color: #e61926;

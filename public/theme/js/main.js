@@ -162,7 +162,11 @@ function sendForm(form){
       console.log(data);
       if (data.status == true) {
         if (data.redirect == false) {
-          alert('Нет финального состояние формы');
+          if ($form.attr('data-success')) {
+            showPopup($form.attr('data-success'))
+          } else {
+            alert('Нет финального состояние формы');            
+          }
         } else {
           location.href = data.redirect;
         }
@@ -369,6 +373,20 @@ $(function() {
       },
       password: {
         required: true
+      },
+    },
+    //minlength: 6
+    submitHandler: function(form) {
+      //form.submit();
+      sendForm(form);
+    }
+  })
+  
+  $('#forget form').validate({
+    rules: {
+      email: {
+        required: true,
+        email: true
       },
     },
     //minlength: 6

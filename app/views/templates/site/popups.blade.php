@@ -4,6 +4,32 @@
  */
 ?>
 <div class="popup-wrapper">
+    <div id="forget" class="popup">
+      <a href="" class="close">
+        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M18.984 6.422l-5.578 5.578 5.578 5.578-1.406 1.406-5.578-5.578-5.578 5.578-1.406-1.406 5.578-5.578-5.578-5.578 1.406-1.406 5.578 5.578 5.578-5.578z"></path>
+        </svg>
+      </a>
+      <div class="header">Восстановление пароля</div>
+      <form action="" data-success="forget-final">
+        <input type="email" name="email" placeholder="Эл. почта">
+        <button type="submit">Отправить</button>
+      </form>
+      <br>
+    </div>
+        
+    <div id="forget-final" class="popup">
+      <a href="" class="close">
+        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M18.984 6.422l-5.578 5.578 5.578 5.578-1.406 1.406-5.578-5.578-5.578 5.578-1.406-1.406 5.578-5.578-5.578-5.578 1.406-1.406 5.578 5.578 5.578-5.578z"></path>
+        </svg>
+      </a>
+      <div class="header">Инструкции по восстановлению пароля отправлены на email</div>
+      <br>
+    </div>
+        
     <div class="popup" id="enter">
         <a href="" class="close">
             <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
@@ -32,6 +58,8 @@
         <hr>
         <center>
             <a href="" data-href="reg" class="btn-popup">У меня ещё нет регистрации</a>
+            <!--<br>
+            <a href="" data-href="forget" class="btn-popup">Забыли пароль?</a>-->
         </center>
     </div>
     <div class="popup" id="reg">
